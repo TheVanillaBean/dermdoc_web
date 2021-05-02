@@ -10,7 +10,7 @@ import {
 const Header = () => (
   <HeaderContainer>
     <LogoContainer to="/">
-      <img src={logo} alt="Medicall Logo" />
+      <img height="40px" width="40px" src={logo} alt="Medicall Logo" />
     </LogoContainer>
     <OptionsContainer>
       <OptionLink to="/list-practice">List your practice</OptionLink>
