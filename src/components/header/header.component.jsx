@@ -1,5 +1,5 @@
 import React from 'react';
-import logo from '../../assets/logo-letter.png';
+import logo from '../../assets/logo.png';
 import {
   HeaderContainer,
   LogoContainer,
@@ -10,7 +10,7 @@ import {
 const Header = () => (
   <HeaderContainer>
     <LogoContainer to="/">
-      <img height="40px" width="40px" src={logo} alt="Medicall Logo" />
+      <img height="40px" src={logo} alt="Medicall Logo" />
     </LogoContainer>
     <OptionsContainer>
       <OptionLink to="/list-practice">List your practice</OptionLink>

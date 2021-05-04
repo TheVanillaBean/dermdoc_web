@@ -11,7 +11,6 @@ const shrinkLabelStyles = css`
 
 export const GroupContainer = styled.div`
   position: relative;
-  margin: 45px 0;
   input[type='password'] {
     letter-spacing: 0.3em;
   }
@@ -27,7 +26,6 @@ export const FormInputContainer = styled.input`
   width: 100%;
   border: none;
   border-radius: 0;
-  border-bottom: 1px solid ${subColor};
   margin: 25px 0;
   height: 50px;
   &:focus {
@@ -35,6 +33,15 @@ export const FormInputContainer = styled.input`
   }
   &:focus ~ label {
     ${shrinkLabelStyles}
+  }
+  //Hide Arrow buttons
+  ::-webkit-inner-spin-button {
+    -webkit-appearance: none;
+    margin: 0;
+  }
+  ::-webkit-outer-spin-button {
+    -webkit-appearance: none;
+    margin: 0;
   }
 `;
 

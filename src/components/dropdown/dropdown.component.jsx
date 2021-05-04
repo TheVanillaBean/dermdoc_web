@@ -3,9 +3,7 @@ import Select from 'react-select';
 
 const dropdownStyles = {
   option: (provided, state) => ({
-    ...provided,
-    borderBottom: '1px dotted #90024c',
-    color: state.isSelected ? 'red' : 'blue',
+    color: state.isSelected ? '#90024c' : 'black',
     padding: 20,
   }),
   control: () => ({
