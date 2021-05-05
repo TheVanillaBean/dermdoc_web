@@ -43,7 +43,7 @@ class DoctorList extends React.Component {
             Get Care Now
           </CustomButton>
         </ZipCodeSearchContainer>
-        <DoctorCard doctor={doctor} />
+        <DoctorCard horizontal doctor={doctor} />
       </DoctorSearchContainer>
     );
   }

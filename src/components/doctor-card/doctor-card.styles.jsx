@@ -1,9 +1,21 @@
-import styled from 'styled-components';
+import styled, { css } from 'styled-components';
+
+const getLayoutType = (props) => {
+  return props.vertical ? verticalLayout : horizontalLayout;
+};
+
+const verticalLayout = css`
+  width: 22vw;
+  flex-direction: column;
+`;
+
+const horizontalLayout = css`
+  width: 44vw;
+  flex-direction: row;
+`;
 
 export const DoctorCardContainer = styled.div`
-  width: 22vw;
   display: flex;
-  flex-direction: column;
   height: 350px;
   align-items: center;
   position: relative;
@@ -12,6 +24,7 @@ export const DoctorCardContainer = styled.div`
       opacity: 0.8;
     }
   }
+  ${getLayoutType}
 `;
 
 export const BackgroundImage = styled.div`

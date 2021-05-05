@@ -53,7 +53,7 @@ class HomePage extends React.Component {
       <HomePageContainer>
         <FeaturedCardContainer>
           <FormInputTitle>Featured Provider</FormInputTitle>
-          <DoctorCard doctor={doctor} />
+          <DoctorCard vertical doctor={doctor} />
         </FeaturedCardContainer>
 
         <FormContainer>

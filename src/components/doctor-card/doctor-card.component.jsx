@@ -7,10 +7,10 @@ import {
   NameContainer,
 } from './doctor-card.styles';
 
-const DoctorCard = ({ doctor }) => {
+const DoctorCard = ({ doctor, ...otherProps }) => {
   const { imageUrl, name, location, specialty, school, residency } = doctor;
   return (
-    <DoctorCardContainer>
+    <DoctorCardContainer {...otherProps}>
       <BackgroundImage className="background-image" imageUrl={imageUrl} />
       <DoctorFooterContainer>
         <NameContainer>{name}</NameContainer>
