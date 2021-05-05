@@ -9,7 +9,7 @@ export const HomePageContainer = styled.div`
 `;
 
 export const HomePageTitle = styled.p`
-  margin: 24px 0;
+  margin: 24px 0px;
   font-size: 30px;
   font-weight: light;
   color: #90024c;
@@ -47,7 +47,6 @@ export const FormInputsContainer = styled.div`
   margin: 16px 8px;
 `;
 
-//Location, visit reason, and insurance type
 export const ButtonContainer = styled.div`
   display: flex;
   justify-content: flex-end;
