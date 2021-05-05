@@ -1,11 +1,12 @@
 import React from 'react';
+import { withRouter } from 'react-router-dom';
 import CustomButton from '../../components/custom-button/custom-button.component';
 import DoctorCard from '../../components/doctor-card/doctor-card.component';
-import { DoctorCardContainer } from '../../components/doctor-card/doctor-card.styles';
 import Dropdown from '../../components/dropdown/dropdown.component';
 import FormInput from '../../components/form-input/form-input.component';
 import {
   ButtonContainer,
+  FeaturedCardContainer,
   FormContainer,
   FormInputsBarContainer,
   FormInputsContainer,
@@ -15,10 +16,12 @@ import {
 } from './homepage.styles';
 
 const doctor = {
-  name: 'Omar Badri',
+  name: 'Omar Badri, MD',
   imageUrl: 'https://i.ibb.co/VpW4x5t/roll-up-jean-shirt.png',
-  location: 'Boston, Massuchetts',
+  location: 'Boston, Massachusetts',
   specialty: 'Dermatology',
+  school: 'Harvard',
+  residency: 'Harvard',
 };
 
 const visitReasons = [
@@ -45,12 +48,13 @@ class HomePage extends React.Component {
   };
 
   render() {
+    const { history } = this.props;
     return (
       <HomePageContainer>
-        <DoctorCardContainer>
+        <FeaturedCardContainer>
           <FormInputTitle>Featured Provider</FormInputTitle>
           <DoctorCard doctor={doctor} />
-        </DoctorCardContainer>
+        </FeaturedCardContainer>
 
         <FormContainer>
           <HomePageTitle>
@@ -72,7 +76,6 @@ class HomePage extends React.Component {
                   required
                 />
               </FormInputsContainer>
-
               <FormInputsContainer>
                 <FormInputTitle>Visit Reason</FormInputTitle>
                 <Dropdown
@@ -82,7 +85,7 @@ class HomePage extends React.Component {
                 />
               </FormInputsContainer>
               <FormInputsContainer>
-                <FormInputTitle>Insruance Brand</FormInputTitle>
+                <FormInputTitle>Insurance Brand</FormInputTitle>
                 <Dropdown
                   handleChange={this.handleChange}
                   label="Insurance Brand"
@@ -91,7 +94,14 @@ class HomePage extends React.Component {
               </FormInputsContainer>
             </FormInputsBarContainer>
             <ButtonContainer>
-              <CustomButton type="submit">Get Care Now</CustomButton>
+              <CustomButton
+                type="submit"
+                onClick={() => {
+                  history.push('/search-doctors');
+                }}
+              >
+                Get Care Now
+              </CustomButton>
             </ButtonContainer>
           </form>
         </FormContainer>
@@ -100,4 +110,4 @@ class HomePage extends React.Component {
   }
 }
 
-export default HomePage;
+export default withRouter(HomePage);

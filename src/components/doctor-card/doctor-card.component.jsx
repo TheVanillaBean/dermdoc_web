@@ -8,7 +8,7 @@ import {
 } from './doctor-card.styles';
 
 const DoctorCard = ({ doctor }) => {
-  const { imageUrl, name, location, specialty } = doctor;
+  const { imageUrl, name, location, specialty, school, residency } = doctor;
   return (
     <DoctorCardContainer>
       <BackgroundImage className="background-image" imageUrl={imageUrl} />
@@ -17,7 +17,11 @@ const DoctorCard = ({ doctor }) => {
         <DetailsContainer>
           {location}
           <br />
-          {specialty}
+          Specialy: {specialty}
+          <br />
+          Medical School: {school}
+          <br />
+          Residency: {residency}
         </DetailsContainer>
       </DoctorFooterContainer>
     </DoctorCardContainer>

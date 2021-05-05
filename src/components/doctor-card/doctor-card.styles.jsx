@@ -33,11 +33,11 @@ export const DoctorFooterContainer = styled.div`
 `;
 
 export const NameContainer = styled.span`
-  text-align: center;
-  margin-bottom: 12px;
+  text-align: left;
+  margin-bottom: 8px;
   font-weight: bold;
 `;
 
 export const DetailsContainer = styled.span`
-  text-align: center;
+  text-align: left;
 `;

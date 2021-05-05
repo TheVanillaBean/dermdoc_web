@@ -6,8 +6,9 @@ const dropdownStyles = {
     color: state.isSelected ? '#90024c' : 'black',
     padding: 20,
   }),
-  control: () => ({
+  control: (provided) => ({
     // none of react-select's styles are passed to <Control />
+    ...provided,
     width: 200,
   }),
   singleValue: (provided, state) => {

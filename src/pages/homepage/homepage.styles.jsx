@@ -8,8 +8,10 @@ export const HomePageContainer = styled.div`
   justify-content: space-around;
 `;
 
-export const HomePageTitle = styled.h2`
+export const HomePageTitle = styled.p`
   margin: 24px 0;
+  font-size: 30px;
+  font-weight: light;
   color: #90024c;
 `;
 
@@ -17,17 +19,18 @@ export const FormInputTitle = styled.h3`
   margin: 12px 0;
 `;
 
-export const DoctorCardContainer = styled.div`
+export const FeaturedCardContainer = styled.div`
   display: flex;
   flex-direction: column;
-  width: 152px;
+  width: 252px;
+  margin-right: 12px;
 `;
 
 //Make the title and inout bar vertically layout out
 export const FormContainer = styled.div`
   display: flex;
   flex-direction: column;
-  width: 608px;
+  width: 588px;
 `;
 
 //Location, visit reason, and insurance type
@@ -41,6 +44,7 @@ export const FormInputsContainer = styled.div`
   display: flex;
   flex-direction: column;
   justify-content: flex-start;
+  margin: 16px 8px;
 `;
 
 //Location, visit reason, and insurance type

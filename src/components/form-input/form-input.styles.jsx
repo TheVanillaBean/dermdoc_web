@@ -21,13 +21,12 @@ export const FormInputContainer = styled.input`
   background-color: white;
   color: ${subColor};
   font-size: 18px;
-  padding: 10px 10px 10px 5px;
   display: block;
   width: 100%;
   border: none;
   border-radius: 0;
-  margin: 25px 0;
-  height: 50px;
+  border-bottom: 1px solid ${subColor};
+  height: 40px;
   &:focus {
     outline: none;
   }
