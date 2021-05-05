@@ -1,5 +1,6 @@
 import React from 'react';
 import { withRouter } from 'react-router-dom';
+import headshot from '../../assets/omar-headshot.jpeg';
 import CustomButton from '../../components/custom-button/custom-button.component';
 import DoctorCard from '../../components/doctor-card/doctor-card.component';
 import FormInput from '../../components/form-input/form-input.component';
@@ -10,7 +11,7 @@ import {
 } from './doctor-list.styles';
 const doctor = {
   name: 'Omar Badri, MD',
-  imageUrl: 'https://i.ibb.co/VpW4x5t/roll-up-jean-shirt.png',
+  imageUrl: headshot,
   location: 'Boston, Massachusetts',
   specialty: 'Dermatology',
   school: 'Harvard',
