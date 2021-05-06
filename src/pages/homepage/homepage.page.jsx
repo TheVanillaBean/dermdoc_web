@@ -49,19 +49,30 @@ const insuranceBrands = [
   { value: 'united', label: 'United Healthcare' },
 ];
 class HomePage extends React.Component {
-  handleChange = (newValue, actionMeta) => {
-    console.group('Value Changed');
-    console.log(newValue);
-    console.log(`action: ${actionMeta.action}`);
-    console.groupEnd();
+  handleZipcodeChange = (event) => {
+    const { updateZipCode } = this.props;
+    const { value } = event.target;
+    updateZipCode(value);
+  };
+
+  handleReasonChange = ({ value }) => {
+    const { updateVisitReason } = this.props;
+    updateVisitReason(value);
+  };
+
+  handleInsuranceChange = ({ value }) => {
+    const { updateInsuranceBrand } = this.props;
+    updateInsuranceBrand(value);
   };
 
   handleSubmit = async (event) => {
     event.preventDefault();
+    const { history } = this.props;
+    history.push('/doctor-search');
   };
 
   render() {
-    const { history } = this.props;
+    const { zipcode } = this.props;
     return (
       <HomePageContainer>
         <FeaturedCardContainer>
@@ -84,15 +95,15 @@ class HomePage extends React.Component {
                 <FormInput
                   type="number"
                   name="zipcode"
-                  value=""
-                  onChange={this.handleChange}
+                  value={zipcode}
+                  onChange={this.handleZipcodeChange}
                   required
                 />
               </FormInputsContainer>
               <FormInputsContainer>
                 <FormInputTitle>Visit Reason</FormInputTitle>
                 <Dropdown
-                  handleChange={this.handleChange}
+                  handleChange={this.handleReasonChange}
                   label="Visit Reason"
                   dataOptions={visitReasons}
                 />
@@ -100,21 +111,14 @@ class HomePage extends React.Component {
               <FormInputsContainer>
                 <FormInputTitle>Insurance Brand</FormInputTitle>
                 <Dropdown
-                  handleChange={this.handleChange}
+                  handleChange={this.handleInsuranceChange}
                   label="Insurance Brand"
                   dataOptions={insuranceBrands}
                 />
               </FormInputsContainer>
             </FormInputsBarContainer>
             <ButtonContainer>
-              <CustomButton
-                type="submit"
-                onClick={() => {
-                  history.push('/search-doctors');
-                }}
-              >
-                Get Care Now
-              </CustomButton>
+              <CustomButton type="submit">Get Care Now</CustomButton>
             </ButtonContainer>
           </form>
         </FormContainer>

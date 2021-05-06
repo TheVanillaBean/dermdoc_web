@@ -1,7 +1,11 @@
 import { SearchActionTypes } from './search.types';
 
 const INITIAL_STATE = {
-  search: null,
+  zip_code: '02101',
+  insurance_brand: 'aetna',
+  visit_reason: 'acne',
+  doctors: [],
+  doctor: null,
 };
 
 const searchReducer = (state = INITIAL_STATE, action) => {
@@ -11,12 +15,12 @@ const searchReducer = (state = INITIAL_STATE, action) => {
         ...state,
         zip_code: action.payload,
       };
-    case SearchActionTypes.UPDATE_VISIT_REASON:
+    case SearchActionTypes.UPDATE_INSURANCE_TYPE:
       return {
         ...state,
         insurance_brand: action.payload,
       };
-    case SearchActionTypes.UPDATE_INSURANCE_TYPE:
+    case SearchActionTypes.UPDATE_VISIT_REASON:
       return {
         ...state,
         visit_reason: action.payload,
