@@ -6,15 +6,16 @@ import headshot from '../../assets/omar-headshot.jpeg';
 import CustomButton from '../../components/custom-button/custom-button.component';
 import DoctorCard from '../../components/doctor-card/doctor-card.component';
 import FormInput from '../../components/form-input/form-input.component';
-import { firestore } from '../../firebase/firebase.utils';
 import {
-  updateInsuranceType,
-  updateVisitReason,
+  convertDoctorsListSnapshotToMap,
+  firestore,
+} from '../../firebase/firebase.utils';
+import {
+  updateDoctors,
   updateZipCode,
 } from '../../redux/search/search.actions';
 import {
-  selectInsuranceBrand,
-  selectVisitReason,
+  selectDoctors,
   selectZipCode,
 } from '../../redux/search/search.selectors';
 import {
@@ -33,12 +34,15 @@ const doctor = {
 };
 class DoctorList extends React.Component {
   componentDidMount() {
+    const { updateDoctors } = this.props;
+
     const collectionRef = firestore
       .collection('users')
       .where('type', '==', 'PROVIDER');
 
     collectionRef.onSnapshot(async (snapshot) => {
-      const collectionsMap = snapshot;
+      const doctorsMap = convertDoctorsListSnapshotToMap(snapshot);
+      updateDoctors(doctorsMap);
     });
   }
 
@@ -49,7 +53,7 @@ class DoctorList extends React.Component {
   };
 
   render() {
-    const { zipcode } = this.props;
+    const { doctors, zipcode } = this.props;
     return (
       <DoctorSearchContainer>
         <ZipCodeSearchContainer>
@@ -64,7 +68,9 @@ class DoctorList extends React.Component {
           </ZipCodeInputContainer>
           <CustomButton type="submit">Get Care Now</CustomButton>
         </ZipCodeSearchContainer>
-        <DoctorCard horizontal doctor={doctor} />
+        {doctors.map((doctor) => (
+          <DoctorCard horizontal key={doctor.iud} doctor={doctor} />
+        ))}
       </DoctorSearchContainer>
     );
   }
@@ -72,14 +78,12 @@ class DoctorList extends React.Component {
 
 const mapStateToProps = createStructuredSelector({
   zipcode: selectZipCode,
-  insuranceBrand: selectInsuranceBrand,
-  visitReason: selectVisitReason,
+  doctors: selectDoctors,
 });
 
 const mapDispatchToProps = (dispatch) => ({
   updateZipCode: (zipcode) => dispatch(updateZipCode(zipcode)),
-  updateInsuranceBrand: (insurance) => dispatch(updateInsuranceType(insurance)),
-  updateVisitReason: (reason) => dispatch(updateVisitReason(reason)),
+  updateDoctors: (doctors) => dispatch(updateDoctors(doctors)),
 });
 
 export default withRouter(
