@@ -1,10 +1,22 @@
 import React from 'react';
+import { connect } from 'react-redux';
 import { withRouter } from 'react-router-dom';
+import { createStructuredSelector } from 'reselect';
 import headshot from '../../assets/omar-headshot.jpeg';
 import CustomButton from '../../components/custom-button/custom-button.component';
 import DoctorCard from '../../components/doctor-card/doctor-card.component';
 import Dropdown from '../../components/dropdown/dropdown.component';
 import FormInput from '../../components/form-input/form-input.component';
+import {
+  updateInsuranceType,
+  updateVisitReason,
+  updateZipCode,
+} from '../../redux/search/search.actions';
+import {
+  selectInsuranceBrand,
+  selectVisitReason,
+  selectZipCode,
+} from '../../redux/search/search.selectors';
 import {
   ButtonContainer,
   FeaturedCardContainer,
@@ -111,4 +123,18 @@ class HomePage extends React.Component {
   }
 }
 
-export default withRouter(HomePage);
+const mapStateToProps = createStructuredSelector({
+  zipcode: selectZipCode,
+  insuranceBrand: selectInsuranceBrand,
+  visitReason: selectVisitReason,
+});
+
+const mapDispatchToProps = (dispatch) => ({
+  updateZipCode: (zipcode) => dispatch(updateZipCode(zipcode)),
+  updateInsuranceBrand: (insurance) => dispatch(updateInsuranceType(insurance)),
+  updateVisitReason: (reason) => dispatch(updateVisitReason(reason)),
+});
+
+export default withRouter(
+  connect(mapStateToProps, mapDispatchToProps)(HomePage)
+);
