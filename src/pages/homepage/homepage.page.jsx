@@ -68,7 +68,7 @@ class HomePage extends React.Component {
   handleSubmit = async (event) => {
     event.preventDefault();
     const { history } = this.props;
-    history.push('/doctor-search');
+    history.push('/search-doctors');
   };
 
   render() {

@@ -1,14 +1,27 @@
 import React from 'react';
+import { connect } from 'react-redux';
 import { withRouter } from 'react-router-dom';
+import { createStructuredSelector } from 'reselect';
 import headshot from '../../assets/omar-headshot.jpeg';
 import CustomButton from '../../components/custom-button/custom-button.component';
 import DoctorCard from '../../components/doctor-card/doctor-card.component';
 import FormInput from '../../components/form-input/form-input.component';
 import {
+  updateInsuranceType,
+  updateVisitReason,
+  updateZipCode,
+} from '../../redux/search/search.actions';
+import {
+  selectInsuranceBrand,
+  selectVisitReason,
+  selectZipCode,
+} from '../../redux/search/search.selectors';
+import {
   DoctorSearchContainer,
   ZipCodeInputContainer,
   ZipCodeSearchContainer,
 } from './doctor-list.styles';
+
 const doctor = {
   name: 'Omar Badri, MD',
   imageUrl: headshot,
@@ -18,10 +31,14 @@ const doctor = {
   residency: 'Harvard',
 };
 class DoctorList extends React.Component {
-  handleChange = (newValue) => {};
+  handleZipcodeChange = (event) => {
+    const { updateZipCode } = this.props;
+    const { value } = event.target;
+    updateZipCode(value);
+  };
 
   render() {
-    const { history } = this.props;
+    const { zipcode } = this.props;
     return (
       <DoctorSearchContainer>
         <ZipCodeSearchContainer>
@@ -29,20 +46,12 @@ class DoctorList extends React.Component {
             <FormInput
               type="number"
               name="zipcode"
-              value=""
-              onChange={this.handleChange}
-              label="Zip Code"
+              value={zipcode}
+              onChange={this.handleZipcodeChange}
               required
             />
           </ZipCodeInputContainer>
-          <CustomButton
-            type="submit"
-            onClick={() => {
-              history.push('/search-doctors');
-            }}
-          >
-            Get Care Now
-          </CustomButton>
+          <CustomButton type="submit">Get Care Now</CustomButton>
         </ZipCodeSearchContainer>
         <DoctorCard horizontal doctor={doctor} />
       </DoctorSearchContainer>
@@ -50,4 +59,18 @@ class DoctorList extends React.Component {
   }
 }
 
-export default withRouter(DoctorList);
+const mapStateToProps = createStructuredSelector({
+  zipcode: selectZipCode,
+  insuranceBrand: selectInsuranceBrand,
+  visitReason: selectVisitReason,
+});
+
+const mapDispatchToProps = (dispatch) => ({
+  updateZipCode: (zipcode) => dispatch(updateZipCode(zipcode)),
+  updateInsuranceBrand: (insurance) => dispatch(updateInsuranceType(insurance)),
+  updateVisitReason: (reason) => dispatch(updateVisitReason(reason)),
+});
+
+export default withRouter(
+  connect(mapStateToProps, mapDispatchToProps)(DoctorList)
+);
