@@ -6,6 +6,7 @@ import headshot from '../../assets/omar-headshot.jpeg';
 import CustomButton from '../../components/custom-button/custom-button.component';
 import DoctorCard from '../../components/doctor-card/doctor-card.component';
 import FormInput from '../../components/form-input/form-input.component';
+import { firestore } from '../../firebase/firebase.utils';
 import {
   updateInsuranceType,
   updateVisitReason,
@@ -31,6 +32,16 @@ const doctor = {
   residency: 'Harvard',
 };
 class DoctorList extends React.Component {
+  componentDidMount() {
+    const collectionRef = firestore
+      .collection('users')
+      .where('type', '==', 'PROVIDER');
+
+    collectionRef.onSnapshot(async (snapshot) => {
+      const collectionsMap = snapshot;
+    });
+  }
+
   handleZipcodeChange = (event) => {
     const { updateZipCode } = this.props;
     const { value } = event.target;
