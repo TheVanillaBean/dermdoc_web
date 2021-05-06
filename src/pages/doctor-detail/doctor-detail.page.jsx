@@ -1,10 +1,16 @@
 import React from 'react';
 import { HomePageContainer } from './doctor-detail.styles';
 
-const HomePage = () => (
-  <HomePageContainer>
-    <h1>Doctor-Detail</h1>
-  </HomePageContainer>
-);
+class DoctorDetail extends React.Component {
+  render() {
+    const { match } = this.props;
 
-export default HomePage;
+    return (
+      <HomePageContainer>
+        <h1>Doctor-Detail {match.params.doctor_route}</h1>
+      </HomePageContainer>
+    );
+  }
+}
+
+export default DoctorDetail;

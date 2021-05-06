@@ -2,7 +2,6 @@ import React from 'react';
 import { connect } from 'react-redux';
 import { withRouter } from 'react-router-dom';
 import { createStructuredSelector } from 'reselect';
-import headshot from '../../assets/omar-headshot.jpeg';
 import CustomButton from '../../components/custom-button/custom-button.component';
 import DoctorCard from '../../components/doctor-card/doctor-card.component';
 import FormInput from '../../components/form-input/form-input.component';
@@ -11,6 +10,7 @@ import {
   firestore,
 } from '../../firebase/firebase.utils';
 import {
+  updateDoctor,
   updateDoctors,
   updateZipCode,
 } from '../../redux/search/search.actions';
@@ -23,19 +23,12 @@ import {
   ZipCodeInputContainer,
   ZipCodeSearchContainer,
 } from './doctor-list.styles';
-
-const doctor = {
-  name: 'Omar Badri, MD',
-  imageUrl: headshot,
-  location: 'Boston, Massachusetts',
-  specialty: 'Dermatology',
-  school: 'Harvard',
-  residency: 'Harvard',
-};
 class DoctorList extends React.Component {
   componentDidMount() {
     const { updateDoctors } = this.props;
 
+    //TODO
+    //Create function for getting state from zip code (similar to flutter app)
     const collectionRef = firestore
       .collection('users')
       .where('type', '==', 'PROVIDER');
@@ -50,6 +43,12 @@ class DoctorList extends React.Component {
     const { updateZipCode } = this.props;
     const { value } = event.target;
     updateZipCode(value);
+  };
+
+  handleDoctorClick = (doctor) => {
+    const { updateDoctor, history } = this.props;
+    updateDoctor(doctor);
+    history.push(doctor.routeName);
   };
 
   render() {
@@ -69,7 +68,14 @@ class DoctorList extends React.Component {
           <CustomButton type="submit">Get Care Now</CustomButton>
         </ZipCodeSearchContainer>
         {doctors.map((doctor) => (
-          <DoctorCard horizontal key={doctor.iud} doctor={doctor} />
+          <DoctorCard
+            horizontal
+            key={doctor.uid}
+            doctor={doctor}
+            onClick={() => {
+              this.handleDoctorClick(doctor);
+            }}
+          />
         ))}
       </DoctorSearchContainer>
     );
@@ -84,6 +90,7 @@ const mapStateToProps = createStructuredSelector({
 const mapDispatchToProps = (dispatch) => ({
   updateZipCode: (zipcode) => dispatch(updateZipCode(zipcode)),
   updateDoctors: (doctors) => dispatch(updateDoctors(doctors)),
+  updateDoctor: (doctor) => dispatch(updateDoctor(doctor)),
 });
 
 export default withRouter(

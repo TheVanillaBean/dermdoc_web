@@ -15,7 +15,8 @@ class App extends Component {
           <Route exact path="/" component={HomePage} />
           <Route path="/search-doctors" component={DoctorList} />
           <Route exact path="/doctor-detail" component={DoctorDetail} />
-          <Route path="*">
+          <Route path="/:doctor_route" component={DoctorDetail} />
+          <Route exact path="*">
             <Redirect to="/" />
           </Route>
         </Switch>
