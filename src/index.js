@@ -8,6 +8,8 @@ import './index.css';
 import { persistor, store } from './redux/store';
 import reportWebVitals from './reportWebVitals';
 
+import "./assets/scss/material-kit-react.scss";
+
 ReactDOM.render(
   <Provider store={store}>
     <BrowserRouter>

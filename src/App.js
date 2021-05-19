@@ -1,16 +1,30 @@
 import React, { Component } from 'react';
 import { Redirect, Route, Switch } from 'react-router-dom';
 import './App.css';
-import Header from './components/header/header.component';
+import Header from './components/header/Header';
+import HeaderLinks from './components/header/HeaderLinks';
 import DoctorDetail from './pages/doctor-detail/doctor-detail.page';
 import DoctorList from './pages/doctor-list/doctor-list.page';
 import HomePage from './pages/homepage/homepage.page';
+import { withStyles } from '@material-ui/core/styles';
+
+const useStyles = theme => ({
+})
 
 class App extends Component {
   render() {
     return (
-      <div>
-        <Header />
+      <div style={{ textAlign: "-webkit-center", }}>
+        <Header
+          color="transparent"
+          brand="Medicall"
+          rightLinks={<HeaderLinks />}
+
+          changeColorOnScroll={{
+            height: 200,
+            color: "white",
+          }}
+        />
         <Switch>
           <Route exact path="/" component={HomePage} />
           <Route path="/search-doctors" component={DoctorList} />
@@ -24,5 +38,4 @@ class App extends Component {
     );
   }
 }
-
-export default App;
+export default withStyles(useStyles)(App);

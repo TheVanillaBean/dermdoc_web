@@ -9,7 +9,6 @@ const dropdownStyles = {
   control: (provided) => ({
     // none of react-select's styles are passed to <Control />
     ...provided,
-    width: 200,
   }),
   singleValue: (provided, state) => {
     const opacity = state.isDisabled ? 0.5 : 1;

@@ -21,9 +21,6 @@ export const FormInputTitle = styled.h3`
 
 export const FeaturedCardContainer = styled.div`
   display: flex;
-  flex-direction: column;
-  width: 252px;
-  margin-right: 12px;
 `;
 
 //Make the title and inout bar vertically layout out
