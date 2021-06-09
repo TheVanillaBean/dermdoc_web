@@ -18,9 +18,15 @@ const dropdownStyles = {
   },
 };
 
-const Dropdown = ({ handleChange, label, dataOptions, ...otherProps }) => (
+const Dropdown = ({
+  defaultValue,
+  handleChange,
+  label,
+  dataOptions,
+  ...otherProps
+}) => (
   <Select
-    defaultValue={dataOptions[0]}
+    defaultValue={defaultValue}
     label={label}
     options={dataOptions}
     styles={dropdownStyles}
