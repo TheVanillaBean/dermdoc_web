@@ -21,6 +21,11 @@ export const convertDoctorsListSnapshotToMap = (doctors) => {
       accepted_insurances,
       med_school,
       practice_name,
+      mailing_address,
+      mailing_city,
+      mailing_zipcode,
+      med_residency,
+      provider_bio,
     } = doc.data();
 
     //route name is the URL route for the doctor
@@ -34,6 +39,11 @@ export const convertDoctorsListSnapshotToMap = (doctors) => {
       accepted_insurances,
       med_school,
       practice_name,
+      mailing_address,
+      mailing_city,
+      mailing_zipcode,
+      med_residency,
+      provider_bio,
     };
   });
 

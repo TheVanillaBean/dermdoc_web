@@ -7,10 +7,15 @@ import { connect } from 'react-redux';
 import { createStructuredSelector } from 'reselect';
 import backgroundImage from '../../assets/img/landing-bg.jpg';
 import profilePic from '../../assets/omar-headshot.jpeg';
+import Button from '../../components/CustomButtons/Button.js';
 import GridContainer from '../../components/Grid/GridContainer.js';
 import GridItem from '../../components/Grid/GridItem.js';
 import Parallax from '../../components/Parallax/Parallax.js';
-import { selectDoctor } from '../../redux/search/search.selectors';
+import {
+  selectDoctor,
+  selectInsuranceBrand,
+  selectVisitReason,
+} from '../../redux/search/search.selectors';
 
 const useStyles = (theme) => ({
   imgRaised: {
@@ -45,15 +50,22 @@ class DoctorDetail extends React.Component {
   componentDidMount() {}
 
   render() {
-    const { classes } = this.props;
-
+    const { classes, insuranceBrand, visitReason } = this.props;
     const {
+      uid,
       first_name,
       last_name,
       accepted_insurances,
       med_school,
       practice_name,
+      mailing_address,
+      mailing_city,
+      mailing_zipcode,
+      med_residency,
+      provider_bio,
     } = this.props.doctor;
+    const url = `https://medicall-dev-58c31.web.app/#/registration?puid=${uid}&symptom=${visitReason}&insurance=${insuranceBrand}`;
+
     const imageClasses = classNames(
       classes.imgRaised,
       classes.imgRoundedCircle,
@@ -76,17 +88,37 @@ class DoctorDetail extends React.Component {
                       />
                     </div>
                     <div className={classes.name}>
-                      <h3 className={classes.title}>{first_name}</h3>
-                      <h6>{last_name}</h6>
+                      <h3 className={classes.title}>
+                        Dr. {first_name} {last_name}, MD
+                      </h3>
                     </div>
                   </div>
                 </GridItem>
               </GridContainer>
-              <div className={classes.description}>
-                <p>{accepted_insurances}</p>
-                <p>{med_school}</p>
-                <p>{practice_name}</p>
-              </div>
+            </div>
+            <div className={classes.container}>
+              <GridContainer justify="center">
+                <GridItem xs={12} sm={12} md={4}>
+                  <div className={classes.description}>
+                    <p>Speciality: Dermatology</p>
+                    <p>Medical School: {med_school}</p>
+                    <p>Residency: {med_residency}</p>
+                    <p>Average Response: 2 hours</p>
+                  </div>
+                </GridItem>
+                <GridItem xs={12} sm={12} md={4}>
+                  <div className={classes.description}>
+                    <p>Bio</p>
+                    <p>{provider_bio}</p>
+                  </div>
+                </GridItem>
+              </GridContainer>
+            </div>
+            <br />
+            <div className={classes.container}>
+              <Button color="primary" href={url}>
+                Get Care
+              </Button>
             </div>
           </div>
         </div>
@@ -97,6 +129,8 @@ class DoctorDetail extends React.Component {
 
 const mapStateToProps = createStructuredSelector({
   doctor: selectDoctor,
+  insuranceBrand: selectInsuranceBrand,
+  visitReason: selectVisitReason,
 });
 
 export default withStyles(useStyles, { withTheme: true })(

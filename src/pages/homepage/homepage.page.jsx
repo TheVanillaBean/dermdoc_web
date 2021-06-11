@@ -8,7 +8,6 @@ import { createStructuredSelector } from 'reselect';
 import headshot from '../../assets/omar-headshot.jpeg';
 import Card from '../../components/Card/Card.js';
 import CardBody from '../../components/Card/CardBody.js';
-import CardFooter from '../../components/Card/CardFooter.js';
 import CustomButton from '../../components/custom-button/custom-button.component';
 import Dropdown from '../../components/dropdown/dropdown.component';
 import FormInput from '../../components/form-input/form-input.component';
@@ -148,10 +147,9 @@ class HomePage extends React.Component {
                 Medical School: {doctor.school}
                 <br />
                 Residency: {doctor.residency}
+                <br />
+                Location: {doctor.location}
               </CardBody>
-              <CardFooter className={classes.justifyCenter}>
-                {doctor.location}
-              </CardFooter>
             </Card>
           </GridItem>
           <GridItem xs={12} sm={12} md={6}>
@@ -180,7 +178,10 @@ class HomePage extends React.Component {
               />
               <p>
                 *If you proceed with insurance, you agree to honor our{' '}
-                <a href="https://google.com">insurance waiver</a>.
+                <a href="https://medicall-dev-58c31.web.app/#/terms">
+                  insurance waiver
+                </a>
+                .
               </p>
               <br></br>
               <CustomButton type="submit">Get Care Now</CustomButton>

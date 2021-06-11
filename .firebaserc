@@ -1,0 +1,14 @@
+{
+  "projects": {
+    "default": "medicall-dev-58c31"
+  },
+  "targets": {
+    "medicall-dev-58c31": {
+      "hosting": {
+        "landing": [
+          "medicall-landing"
+        ]
+      }
+    }
+  }
+}
