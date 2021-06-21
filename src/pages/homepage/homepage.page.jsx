@@ -178,7 +178,7 @@ class HomePage extends React.Component {
               />
               <p>
                 *If you proceed with insurance, you agree to honor our{' '}
-                <a href="https://medicall-dev-58c31.web.app/#/terms">
+                <a href="https://medicall-web.web.app/#/consent">
                   insurance waiver
                 </a>
                 .

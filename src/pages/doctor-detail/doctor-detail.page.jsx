@@ -64,7 +64,7 @@ class DoctorDetail extends React.Component {
       med_residency,
       provider_bio,
     } = this.props.doctor;
-    const url = `https://medicall-dev-58c31.web.app/#/registration?puid=${uid}&symptom=${visitReason}&insurance=${insuranceBrand}`;
+    const url = `https://medicall-web.web.app/#/registration?puid=${uid}&symptom=${visitReason}&insurance=${insuranceBrand}`;
 
     const imageClasses = classNames(
       classes.imgRaised,

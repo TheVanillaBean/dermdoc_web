@@ -9,7 +9,6 @@ const config = {
   ***REMOVED***
   ***REMOVED***
   ***REMOVED***
-  ***REMOVED***
 };
 
 export const convertDoctorsListSnapshotToMap = (doctors) => {
