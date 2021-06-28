@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import { Redirect, Route, Switch } from 'react-router-dom';
-import './App.css';
+import '../src/assets/css/main.css/main.css';
 import Header from './components/header/header.component';
 import DoctorDetail from './pages/doctor-detail/doctor-detail.page';
 import DoctorList from './pages/doctor-list/doctor-list.page';

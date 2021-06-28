@@ -1,0 +1,411 @@
+//////////////////////////
+// LOGO
+
+.logo {
+  height: 3.25rem;
+}
+
+//////////////////////////
+// NAVIGATION
+
+.nav-list {
+  font-size: 1.4rem;
+  list-style-type: none;
+  display: flex;
+
+  @media screen and (max-width: 768px) {
+    font-size: 1.2rem;
+    margin-top: 1rem;
+  }
+
+  &__item {
+    position: relative;
+    margin-left: 2rem;
+  }
+
+  &__item::before {
+    content: '';
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    height: 2px;
+    width: 1rem;
+    background-color: var(--color-primary);
+    transform: scaleY(0);
+    transition: transform 0.3s, width 0.4s cubic-bezier(1, 0, 1, 0) 0.2s, background-color 0.1s;
+  }
+
+  &__item:hover::before,
+  &__item--active::before {
+    transform: scaleY(1);
+    width: 96%;
+  }
+
+  &__item:active::before {
+    background-color: var(--color-primary);
+  }
+
+  &__link:link,
+  &__link:visited {
+    color: var(--color-primary);
+    text-decoration: none;
+    text-transform: uppercase;
+    display: block;
+    padding: 2rem 2rem;
+    position: relative;
+    z-index: 10;
+
+    display: flex;
+    align-items: center;
+  }
+}
+
+//////////////////////////
+// BUTTON INLINE
+
+.btn-inline {
+  border: none;
+  color: var(--color-primary);
+  font-size: inherit;
+  border-bottom: 1px solid currentColor;
+  padding-bottom: 2px;
+  display: inline-block;
+  background-color: transparent;
+  cursor: pointer;
+  transition: all 0.2s;
+
+  & span {
+    margin-left: 3px;
+    transition: margin-left 0.2s;
+  }
+
+  &:hover {
+    color: var(--color-grey-dark-1);
+    outline: none;
+    animation: pulsate 1s infinite;
+
+    span {
+      margin-left: 8px;
+    }
+  }
+}
+
+//////////////////////////
+// BUTTON
+
+.btn {
+  border: 1px solid var(--color-primary);
+  background-color: var(--color-primary);
+  box-shadow: 0 4px 6px var(--color-primary-dark);
+
+  color: #fff;
+  border-radius: 2px;
+  font-size: 1.6rem;
+  font-weight: 300;
+  font-family: 'Inter' sans-serif;
+  position: relative;
+  cursor: pointer;
+  padding: 2rem;
+
+  &:hover {
+    outline: none;
+    animation: pulsate 1s infinite;
+  }
+}
+
+//////////////////////////
+// FEATURED DOCTOR
+
+.featured-doctor {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  flex: 0 1 40% !important;
+
+  &__header {
+    font-size: 2rem;
+    font-weight: 600;
+    margin-bottom: 2rem;
+  }
+
+  &__doctor-box {
+    max-width: 40rem;
+    border: 1px solid var(--color-grey-light-4);
+  }
+
+  &__headshot {
+    max-width: 100%;
+  }
+
+  &__description {
+    margin: 1rem 2rem;
+  }
+
+  &__description > * {
+    margin-bottom: 0.5rem;
+    font-size: 1.6rem;
+    font-weight: 300;
+  }
+
+  &__name {
+    font-weight: 600;
+  }
+}
+
+//////////////////////////
+// SEARCH
+
+.search {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: 4rem;
+
+  @media screen and (max-width: 768px) {
+    align-items: center;
+  }
+
+  &__header {
+    max-width: 75%;
+    font-size: 2.5rem;
+    font-weight: 400;
+    color: var(--color-primary);
+
+    @media screen and (max-width: 768px) {
+      max-width: 100%;
+      font-size: 2rem;
+    }
+  }
+
+  &__options {
+    align-self: flex-start;
+    padding: 1.5rem;
+    display: flex;
+    justify-content: space-between;
+    flex-wrap: nowrap;
+
+    @media screen and (max-width: 768px) {
+      flex-direction: column;
+      align-self: center;
+      min-width: 100%;
+    }
+  }
+
+  &__options > div {
+    display: flex;
+    flex-direction: column;
+    border: 1px solid var(--color-grey-dark-3);
+    padding: 1rem 2rem;
+    gap: 1.5rem;
+    min-width: 40%;
+
+    &:not(:last-of-type) {
+      border-right: 0;
+
+      @media screen and (max-width: 768px) {
+        border-right: 1px solid var(--color-grey-dark-3);
+      }
+    }
+  }
+
+  &__options--label {
+    font-size: 1.6rem;
+    font-weight: 600;
+    color: var(--color-grey-dark-1);
+    text-align: start;
+  }
+
+  &__options--input {
+    font-size: 1.4rem;
+    font-weight: 400;
+    color: var(--color-grey-dark-1);
+    border: 0;
+    outline: none;
+  }
+
+  &__options--input::placeholder {
+    color: var(--color-grey-dark-3);
+  }
+
+  &__options--dropdown {
+    font-size: 1.4rem;
+    font-weight: 400;
+    border: none;
+    outline: none;
+  }
+
+  &__submit {
+    align-self: flex-end;
+    @media screen and (max-width: 768px) {
+      align-self: center;
+      margin-bottom: 3rem;
+    }
+  }
+}
+
+//////////////////////////
+// DOCTOR
+
+.doctor {
+  font-size: 1.4rem;
+  font-weight: 400;
+  letter-spacing: 1px;
+  border-bottom: var(--line-2);
+  padding-bottom: 2rem;
+
+  & > .flex {
+    gap: 5rem;
+    justify-content: center;
+  }
+
+  &__headshot {
+    max-width: 30rem;
+    max-height: 30rem;
+    flex: 1 25%;
+    object-fit: contain;
+    margin-bottom: 2rem;
+  }
+
+  &__information {
+    display: flex;
+    flex-direction: column;
+    align-self: flex-start;
+    @media screen and (max-width: 768px) {
+      margin-bottom: 3rem;
+    }
+  }
+
+  &__information > h1 {
+    color: var(--color-primary-dark);
+  }
+
+  &__information--location {
+    margin-bottom: 2rem;
+  }
+
+  &__insurances {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    margin-bottom: 2rem;
+  }
+
+  &__submit {
+    align-self: flex-end;
+    @media screen and (max-width: 768px) {
+      align-self: center;
+    }
+  }
+}
+
+//////////////////////////
+// ADDITIONAL-INFO
+
+.additional-info {
+  font-size: 1.4rem;
+  font-weight: 400;
+  letter-spacing: 1px;
+  border-bottom: var(--line-2);
+  padding-bottom: 2rem;
+
+  display: flex;
+  gap: 3rem;
+  justify-content: space-between;
+
+  @media screen and (max-width: 768px) {
+    flex-direction: column;
+  }
+
+  &__bio {
+    display: flex;
+    flex-direction: column;
+    gap: 2rem;
+    flex: 0 1 60%;
+    text-align: start;
+  }
+
+  &__bio--name {
+    color: var(--color-primary-dark);
+    @media screen and (max-width: 768px) {
+      margin-bottom: 1rem;
+    }
+  }
+
+  &__bio-text {
+  }
+
+  &__insurances {
+    display: flex;
+    flex-direction: column;
+    text-align: start;
+  }
+
+  &__insurances > h1 {
+    color: var(--color-primary-dark);
+    margin-bottom: 2rem;
+  }
+}
+
+//////////////////////////
+// FOOTER
+
+.footer {
+  & .flex {
+    align-items: flex-start;
+    @media screen and (max-width: 768px) {
+      flex-direction: column;
+      gap: 3em;
+      align-items: center;
+    }
+  }
+
+  &__logo {
+    max-height: 3.5rem;
+    @media screen and (max-width: 768px) {
+      margin-bottom: 1rem;
+    }
+  }
+
+  & ul {
+    list-style-type: none;
+
+    & li {
+      margin-bottom: 2rem;
+
+      @media screen and (max-width: 768px) {
+        margin-bottom: 1rem;
+      }
+    }
+  }
+
+  &__info {
+    display: flex;
+    justify-content: flex-end;
+    gap: 6rem;
+
+    @media screen and (max-width: 768px) {
+      flex-direction: column;
+      gap: 2rem;
+    }
+  }
+}
+
+//////////////////////////
+// ANIMATIONS
+
+@keyframes pulsate {
+  0% {
+    transform: scale(1);
+    box-shadow: none;
+  }
+
+  50% {
+    transform: scale(1.05);
+    box-shadow: 0 1rem 4rem rgba(0, 0, 0, 0.25);
+  }
+
+  100% {
+    transform: scale(1);
+    box-shadow: none;
+  }
+}
