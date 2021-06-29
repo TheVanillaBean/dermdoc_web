@@ -2,8 +2,8 @@ import { SearchActionTypes } from './search.types';
 
 const INITIAL_STATE = {
   zip_code: '02101',
-  insurance_brand: 'aetna',
-  visit_reason: 'acne',
+  insurance_brand: 'Aetna',
+  visit_reason: 'Acne',
   doctors: [],
   doctor: null,
 };

@@ -58,6 +58,12 @@ body {
   font-weight: 400;
   line-height: 1.6;
   color: var(--color-grey-dark-2);
+}
+
+//Root is the ID of the first div after the body tag
+//There is usully another div underneath it
+#root,
+#root > div {
   min-height: 100vh;
   display: flex;
   flex-direction: column;

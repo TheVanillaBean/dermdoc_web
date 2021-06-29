@@ -7,19 +7,21 @@ import Footer from '../../components/footer/footer.component';
 import NavigationBar from '../../components/navigation-bar/navigation-bar.component';
 import { convertDoctorsListSnapshotToMap, firestore } from '../../firebase/firebase.utils';
 import { updateDoctor, updateDoctors, updateZipCode } from '../../redux/search/search.actions';
-import { selectDoctors, selectZipCode } from '../../redux/search/search.selectors';
+import { selectAreProvidersInArea, selectDoctors, selectInsuranceBrand, selectState, selectVisitReason, selectZipCode } from '../../redux/search/search.selectors';
 class DoctorList extends React.Component {
   componentDidMount() {
-    const { updateDoctors } = this.props;
+    const { updateDoctors, insuranceBrand, mailingState } = this.props;
 
-    //TODO
-    //Create function for getting state from zip code (similar to flutter app)
-    const collectionRef = firestore.collection('users').where('type', '==', 'PROVIDER');
+    const state = this.validateZipCodeAndInsurance();
 
-    collectionRef.onSnapshot(async (snapshot) => {
-      const doctorsMap = convertDoctorsListSnapshotToMap(snapshot);
-      updateDoctors(doctorsMap);
-    });
+    if (state != null) {
+      const collectionRef = firestore.collection('users').where('type', '==', 'PROVIDER').where('stripe_connect_authorized', '==', true).where('mailing_state', '==', mailingState).where('accepted_insurances', 'array-contains', insuranceBrand);
+
+      collectionRef.onSnapshot(async (snapshot) => {
+        const doctorsMap = convertDoctorsListSnapshotToMap(snapshot);
+        updateDoctors(doctorsMap);
+      });
+    }
   }
 
   handleZipcodeChange = (event) => {
@@ -34,8 +36,21 @@ class DoctorList extends React.Component {
     history.push(doctor.routeName);
   };
 
+  validateZipCodeAndInsurance = () => {
+    const { areProvidersInArea } = this.props;
+
+    const state = areProvidersInArea;
+    if (state != null) {
+      return state;
+    }
+    return null;
+  };
+
   render() {
-    const { doctors, zipcode } = this.props;
+    const { doctors } = this.props;
+    if (this.validateZipCodeAndInsurance() == null) {
+      return <h4>Medicall only has doctors in Massachuetts currently, but you can join the waitlist to recieve a 20% coupon when we are in your area.</h4>;
+    }
     return (
       <div>
         <header class="header">
@@ -69,8 +84,12 @@ class DoctorList extends React.Component {
 }
 
 const mapStateToProps = createStructuredSelector({
+  visitReason: selectVisitReason,
   zipcode: selectZipCode,
   doctors: selectDoctors,
+  insuranceBrand: selectInsuranceBrand,
+  areProvidersInArea: selectAreProvidersInArea,
+  mailingState: selectState,
 });
 
 const mapDispatchToProps = (dispatch) => ({

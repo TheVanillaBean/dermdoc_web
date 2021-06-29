@@ -8,17 +8,15 @@ import HomePage from './pages/homepage/homepage.page';
 class App extends Component {
   render() {
     return (
-      <div>
-        <Switch>
-          <Route exact path="/" component={HomePage} />
-          <Route path="/search-doctors" component={DoctorList} />
-          <Route exact path="/doctor-detail" component={DoctorDetail} />
-          <Route path="/:doctor_route" component={DoctorDetail} />
-          <Route exact path="*">
-            <Redirect to="/" />
-          </Route>
-        </Switch>
-      </div>
+      <Switch>
+        <Route exact path="/" component={HomePage} />
+        <Route path="/search-doctors" component={DoctorList} />
+        <Route exact path="/doctor-detail" component={DoctorDetail} />
+        <Route path="/:doctor_route" component={DoctorDetail} />
+        <Route exact path="*">
+          <Redirect to="/" />
+        </Route>
+      </Switch>
     );
   }
 }

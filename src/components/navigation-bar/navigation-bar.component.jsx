@@ -5,8 +5,9 @@ import logo from '../../assets/logo.png';
 const NavigationBar = () => {
   return (
     <nav className="nav-bar">
-      <img src={logo} alt="Medicall logo" className="logo" />
-
+      <Link to="/">
+        <img src={logo} alt="Medicall logo" className="logo" />
+      </Link>
       <ul className="nav-list">
         <li className="nav-list__item">
           <Link className="nav-list__link" to="/list-practice">
