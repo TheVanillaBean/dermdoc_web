@@ -48,7 +48,10 @@ body {
   font-family: 'Inter', sans-serif;
   font-weight: 400;
   line-height: 1.6;
-  color: var(--color-grey-dark-2);
+  color: var(--color-grey-dark-2); }
+
+#root,
+#root > div {
   min-height: 100vh;
   display: flex;
   flex-direction: column;
@@ -290,18 +293,28 @@ body {
     color: var(--color-grey-dark-1);
     text-align: start; }
   .search__options--input {
-    font-size: 1.4rem;
+    font-size: 1.6rem;
     font-weight: 400;
     color: var(--color-grey-dark-1);
     border: 0;
-    outline: none; }
+    outline: none;
+    font-family: 'Inter', sans-serif; }
   .search__options--input::placeholder {
     color: var(--color-grey-dark-3); }
+  .search__options--input::-webkit-inner-spin-button {
+    -webkit-appearance: none;
+    margin: 0; }
+  .search__options--input::-webkit-outer-spin-button {
+    -webkit-appearance: none;
+    margin: 0; }
   .search__options--dropdown {
     font-size: 1.4rem;
     font-weight: 400;
     border: none;
     outline: none; }
+  .search__zipcode {
+    padding: 1rem 2rem !important;
+    gap: 2rem !important; }
   .search__submit {
     align-self: flex-end; }
     @media screen and (max-width: 768px) {
@@ -314,7 +327,8 @@ body {
   font-weight: 400;
   letter-spacing: 1px;
   border-bottom: var(--line-2);
-  padding-bottom: 2rem; }
+  padding-bottom: 2rem;
+  line-height: 2.5rem; }
   .doctor > .flex {
     gap: 5rem;
     justify-content: center; }
@@ -334,11 +348,6 @@ body {
   .doctor__information > h1 {
     color: var(--color-primary-dark); }
   .doctor__information--location {
-    margin-bottom: 2rem; }
-  .doctor__insurances {
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
     margin-bottom: 2rem; }
   .doctor__submit {
     align-self: flex-end; }
@@ -363,7 +372,8 @@ body {
     flex-direction: column;
     gap: 2rem;
     flex: 0 1 60%;
-    text-align: start; }
+    text-align: start;
+    line-height: 2.5rem; }
   .additional-info__bio--name {
     color: var(--color-primary-dark); }
     @media screen and (max-width: 768px) {
@@ -372,7 +382,8 @@ body {
   .additional-info__insurances {
     display: flex;
     flex-direction: column;
-    text-align: start; }
+    text-align: start;
+    line-height: 2.5rem; }
   .additional-info__insurances > h1 {
     color: var(--color-primary-dark);
     margin-bottom: 2rem; }

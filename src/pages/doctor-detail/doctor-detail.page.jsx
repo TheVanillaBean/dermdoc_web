@@ -11,7 +11,7 @@ class DoctorDetail extends React.Component {
   render() {
     const { insuranceBrand, visitReason, doctor } = this.props;
     const { uid, accepted_insurances, provider_bio } = this.props.doctor;
-    const url = `https://medicall-web.web.app/#/registration?puid=${uid}&symptom=${visitReason}&insurance=${insuranceBrand}`;
+    const url = `https://medicall-dev-58c31.web.app/#/registration?puid=${uid}&symptom=${visitReason}&insurance=${insuranceBrand}`;
 
     return (
       <div>
@@ -25,12 +25,12 @@ class DoctorDetail extends React.Component {
           <div class="container">
             <div class="doctor-profile__sections">
               <DoctorCard
-                showInsurances={true}
+                showInsurances={false}
                 key={uid}
                 doctor={doctor}
                 buttonText="Calculate out-of-pocket cost"
-                onClick={() => {
-                  this.handleDoctorClick(doctor);
+                handleClick={() => {
+                  window.location.href = url;
                 }}
               />
               <div class="additional-info">
