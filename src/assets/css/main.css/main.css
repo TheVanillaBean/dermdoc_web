@@ -262,7 +262,7 @@ body {
         max-width: 100%;
         font-size: 2rem; } }
   .search__options {
-    align-self: center;
+    align-self: flex-start;
     padding: 1.5rem;
     display: flex;
     justify-content: space-between;
@@ -294,7 +294,8 @@ body {
     font-weight: 400;
     color: var(--color-grey-dark-1);
     border: 0;
-    outline: none; }
+    outline: none;
+    font-family: 'Inter', sans-serif; }
   .search__options--input::placeholder {
     color: var(--color-grey-dark-3); }
   .search__options--input::-webkit-inner-spin-button {
@@ -308,6 +309,9 @@ body {
     font-weight: 400;
     border: none;
     outline: none; }
+  .search__zipcode {
+    padding: 1rem 2rem !important;
+    gap: 2rem !important; }
   .search__submit {
     align-self: flex-end; }
     @media screen and (max-width: 768px) {

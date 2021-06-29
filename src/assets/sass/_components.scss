@@ -178,7 +178,7 @@
   }
 
   &__options {
-    align-self: center;
+    align-self: flex-start;
     padding: 1.5rem;
     display: flex;
     justify-content: space-between;
@@ -221,6 +221,7 @@
     color: var(--color-grey-dark-1);
     border: 0;
     outline: none;
+    font-family: 'Inter', sans-serif;
   }
 
   &__options--input::placeholder {
@@ -242,6 +243,11 @@
     font-weight: 400;
     border: none;
     outline: none;
+  }
+
+  &__zipcode {
+    padding: 1rem 2rem !important;
+    gap: 2rem !important;
   }
 
   &__submit {

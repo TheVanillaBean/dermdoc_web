@@ -2,7 +2,7 @@ import React from 'react';
 import { connect } from 'react-redux';
 import { withRouter } from 'react-router-dom';
 import { createStructuredSelector } from 'reselect';
-import { default as headshot, default as OmarHeadshot } from '../../assets/omar-headshot.jpeg';
+import { default as OmarHeadshot } from '../../assets/omar-headshot.jpeg';
 import CustomButton from '../../components/custom-button/custom-button.component';
 import Dropdown from '../../components/dropdown/dropdown.component';
 import FormInput from '../../components/form-input/form-input.component';
@@ -10,26 +10,54 @@ import NavigationBar from '../../components/navigation-bar/navigation-bar.compon
 import { updateInsuranceType, updateVisitReason, updateZipCode } from '../../redux/search/search.actions';
 import { selectInsuranceBrand, selectVisitReason, selectZipCode } from '../../redux/search/search.selectors';
 
-const doctor = {
-  name: 'Omar Badri, MD',
-  imageUrl: headshot,
-  location: 'Boston, Massachusetts',
-  specialty: 'Dermatology',
-  school: 'Harvard',
-  residency: 'Harvard',
-};
-
 const visitReasons = [
-  { value: 'acne', label: 'Acne' },
-  { value: 'hairloss', label: 'Hair loss' },
+  { value: 'Acne', label: 'Acne' },
+  { value: 'Brown Spots', label: 'Brown Spots' },
+  { value: 'Cellulite', label: 'Cellulite' },
+  { value: 'Droopy Eyelids', label: 'Droopy Eyelids' },
+  { value: 'Excess Fat', label: 'Excess Fat' },
+  { value: 'Hairloss', label: 'Hairloss' },
+  { value: 'Latisse', label: 'Latisse' },
+  { value: 'Leg Veins', label: 'Leg Veins' },
+  { value: 'Loose Sagging Skin', label: 'Loose Sagging Skin' },
+  { value: 'Melasma', label: 'Melasma' },
   { value: 'Rash', label: 'Rash' },
+  { value: 'Redness', label: 'Redness' },
+  { value: 'Rosacea', label: 'Rosacea' },
+  { value: 'Skin Spots', label: 'Skin Spots' },
+  { value: 'Skin Texture', label: 'Skin Texture' },
+  { value: 'Tattoo Removal', label: 'Tattoo Removal' },
+  { value: 'Under Eye Circles', label: 'Under Eye Circles' },
+  { value: 'Wrinkles', label: 'Wrinkles' },
 ];
 
 const insuranceBrands = [
-  { value: 'aetna', label: 'Aetna' },
-  { value: 'bluecross', label: 'Blue Cross Blue Shield' },
-  { value: 'united', label: 'United Healthcare' },
+  { value: 'Aetna', label: 'Aetna' },
+  { value: 'AllWays Health Plan', label: 'AllWays Health Plan' },
+  {
+    value: 'Blue Cross and Blue Shield of Massachusetts',
+    label: 'Blue Cross and Blue Shield of Massachusetts',
+  },
+  { value: 'Cigna', label: 'Cigna' },
+  {
+    value: 'Fallon Community Health Plan',
+    label: 'Fallon Community Health Plan',
+  },
+  {
+    value: 'Harvard Pilgrim Health Care',
+    label: 'Harvard Pilgrim Health Care',
+  },
+  { value: 'Health Plans Inc.', label: 'Health Plans Inc.' },
+  { value: 'Humana', label: 'Humana' },
+  { value: 'Medicare', label: 'Medicare' },
+  { value: 'Tufts Health Plan', label: 'Tufts Health Plan' },
+  { value: 'UnitedHealthcare', label: 'UnitedHealthcare' },
+  {
+    value: 'UnitedHeAARP Medicare Replacementalthcare',
+    label: 'AARP Medicare Replacement',
+  },
 ];
+
 class HomePage extends React.Component {
   handleZipcodeChange = (event) => {
     const { updateZipCode } = this.props;
@@ -54,7 +82,7 @@ class HomePage extends React.Component {
   };
 
   render() {
-    const { zipcode } = this.props;
+    const { visitReason, zipcode, insuranceBrand } = this.props;
     return (
       <div>
         <header className="header">
@@ -84,16 +112,15 @@ class HomePage extends React.Component {
                 <div className="search__options">
                   <div className="search__zipcode">
                     <label className="search__options--label">Zipcode</label>
-
-                    <FormInput type="number" name="zipcode" value={zipcode} placeholder="What is your zipcode" onChange={this.handleZipcodeChange} required />
+                    <FormInput type="number" name="zipcode" value={zipcode} onChange={this.handleZipcodeChange} placeholder="What is your zipcode" required />
                   </div>
                   <div className="search__reason">
                     <label className="search__options--label">Visit Reason</label>
-                    <Dropdown handleChange={this.handleReasonChange} label="Visit Reason" dataOptions={visitReasons} />
+                    <Dropdown handleChange={this.handleReasonChange} label="Visit Reason" dataOptions={visitReasons} defaultValue={{ label: visitReason, value: visitReason }} />
                   </div>
                   <div className="search__insurance">
                     <label className="search__options--label">Insurance Type</label>
-                    <Dropdown handleChange={this.handleInsuranceChange} label="Insurance Brand" dataOptions={insuranceBrands} />
+                    <Dropdown handleChange={this.handleInsuranceChange} label="Insurance Brand" dataOptions={insuranceBrands} defaultValue={{ label: insuranceBrand, value: insuranceBrand }} />
                   </div>
                 </div>
 
