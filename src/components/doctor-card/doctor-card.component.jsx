@@ -1,30 +1,35 @@
 import React from 'react';
-import {
-  BackgroundImage,
-  DetailsContainer,
-  DoctorCardContainer,
-  DoctorFooterContainer,
-  NameContainer,
-} from './doctor-card.styles';
+import CustomButton from '../custom-button/custom-button.component';
 
-const DoctorCard = ({ doctor, ...otherProps }) => {
+const DoctorCard = ({ doctor, showInsurances, buttonText, handleClick, ...otherProps }) => {
   const { imageUrl, name, location, specialty, school, residency } = doctor;
   return (
-    <DoctorCardContainer {...otherProps}>
-      <BackgroundImage className="background-image" imageUrl={imageUrl} />
-      <DoctorFooterContainer>
-        <NameContainer>{name}</NameContainer>
-        <DetailsContainer>
-          {location}
-          <br />
-          Specialy: {specialty}
-          <br />
-          Medical School: {school}
-          <br />
-          Residency: {residency}
-        </DetailsContainer>
-      </DoctorFooterContainer>
-    </DoctorCardContainer>
+    <div className="doctor">
+      <div className="flex">
+        <img src={imageUrl} alt="Doctor Headshot" className="doctor__headshot" />
+
+        <div className="doctor__information">
+          <h1 className="doctor__information--name">{name}</h1>
+          <p className="doctor__information--location">{location}</p>
+          <p className="doctor__information--specialty">Specialty: {specialty}</p>
+          <p className="doctor__information--school">Medical School: {school}</p>
+          <p className="doctor__information--residency">Residency: {residency}</p>
+          <p className="doctor__information--avg-response">Average Response: 2 hr</p>
+        </div>
+
+        {showInsurances && (
+          <div className="doctor__insurances">
+            <p>Accepted Insurances:</p>
+            <p className="doctor__information--insurance-name">Harvard Pilgrim</p>
+            <p className="doctor__information--insurance-name">Aetna</p>
+            <p className="doctor__information--insurance-name">Cigna</p>
+            <p className="doctor__information--insurance-name">Tufts - Spirit</p>
+          </div>
+        )}
+
+        <CustomButton onclick={handleClick}>{buttonText}</CustomButton>
+      </div>
+    </div>
   );
 };
 
