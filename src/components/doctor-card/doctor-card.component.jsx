@@ -1,12 +1,13 @@
 import React from 'react';
+import headshot from '../../assets/omar-headshot.jpeg';
 import CustomButton from '../custom-button/custom-button.component';
 
 const DoctorCard = ({ doctor, showInsurances, buttonText, handleClick, ...otherProps }) => {
-  const { imageUrl, name, location, specialty, school, residency } = doctor;
+  const { name, location, specialty, school, residency } = doctor;
   return (
     <div className="doctor">
       <div className="flex">
-        <img src={imageUrl} alt="Doctor Headshot" className="doctor__headshot" />
+        <img src={headshot} alt="Doctor Headshot" className="doctor__headshot" />
 
         <div className="doctor__information">
           <h1 className="doctor__information--name">{name}</h1>
