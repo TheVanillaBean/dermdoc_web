@@ -5,6 +5,7 @@ import { createStructuredSelector } from 'reselect';
 import { default as OmarHeadshot } from '../../assets/omar-headshot.jpeg';
 import CustomButton from '../../components/custom-button/custom-button.component';
 import Dropdown from '../../components/dropdown/dropdown.component';
+import Footer from '../../components/footer/footer.component';
 import FormInput from '../../components/form-input/form-input.component';
 import NavigationBar from '../../components/navigation-bar/navigation-bar.component';
 import { updateInsuranceType, updateVisitReason, updateZipCode } from '../../redux/search/search.actions';
@@ -130,32 +131,7 @@ class HomePage extends React.Component {
           </div>
         </header>
 
-        <footer className="footer">
-          <div className="container">
-            <div className="flex">
-              <div className="footer__logo">
-                <img src="./img/logo-white.png" alt="logo" className="footer__logo" />
-              </div>
-
-              <div className="footer__info">
-                <ul className="footer__list--contact">
-                  <li>
-                    <h1>Contact</h1>
-                  </li>
-                  <li>contact@medicall.com</li>
-                  <li>401 Park Drive, Suite 1009 Boston, MA 02115</li>
-                </ul>
-                <ul className="footer__list--legal">
-                  <li>
-                    <h1>About us</h1>
-                  </li>
-                  <li>Terms</li>
-                  <li>Privacy</li>
-                </ul>
-              </div>
-            </div>
-          </div>
-        </footer>
+        <Footer />
       </div>
     );
   }
