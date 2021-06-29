@@ -327,7 +327,8 @@ body {
   font-weight: 400;
   letter-spacing: 1px;
   border-bottom: var(--line-2);
-  padding-bottom: 2rem; }
+  padding-bottom: 2rem;
+  line-height: 2.5rem; }
   .doctor > .flex {
     gap: 5rem;
     justify-content: center; }
@@ -347,11 +348,6 @@ body {
   .doctor__information > h1 {
     color: var(--color-primary-dark); }
   .doctor__information--location {
-    margin-bottom: 2rem; }
-  .doctor__insurances {
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
     margin-bottom: 2rem; }
   .doctor__submit {
     align-self: flex-end; }
@@ -376,7 +372,8 @@ body {
     flex-direction: column;
     gap: 2rem;
     flex: 0 1 60%;
-    text-align: start; }
+    text-align: start;
+    line-height: 2.5rem; }
   .additional-info__bio--name {
     color: var(--color-primary-dark); }
     @media screen and (max-width: 768px) {
@@ -385,7 +382,8 @@ body {
   .additional-info__insurances {
     display: flex;
     flex-direction: column;
-    text-align: start; }
+    text-align: start;
+    line-height: 2.5rem; }
   .additional-info__insurances > h1 {
     color: var(--color-primary-dark);
     margin-bottom: 2rem; }

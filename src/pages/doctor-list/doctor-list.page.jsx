@@ -69,7 +69,7 @@ class DoctorList extends React.Component {
                 key={doctor.uid}
                 doctor={doctor}
                 buttonText="Available Appointment Times"
-                onClick={() => {
+                handleClick={() => {
                   this.handleDoctorClick(doctor);
                 }}
               />

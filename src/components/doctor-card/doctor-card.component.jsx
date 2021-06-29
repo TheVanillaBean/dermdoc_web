@@ -3,7 +3,7 @@ import headshot from '../../assets/omar-headshot.jpeg';
 import CustomButton from '../custom-button/custom-button.component';
 
 const DoctorCard = ({ doctor, showInsurances, buttonText, handleClick, ...otherProps }) => {
-  const { first_name, last_name, professional_title, specialty, school, residency } = doctor;
+  const { first_name, last_name, professional_title, accepted_insurances, med_school, med_residency } = doctor;
   return (
     <div className="doctor">
       <div className="flex">
@@ -14,23 +14,22 @@ const DoctorCard = ({ doctor, showInsurances, buttonText, handleClick, ...otherP
             {first_name} {last_name}, {professional_title}
           </h1>
           <p className="doctor__information--location">Boston, Massachusetts</p>
-          <p className="doctor__information--specialty">Specialty: {specialty}</p>
-          <p className="doctor__information--school">Medical School: {school}</p>
-          <p className="doctor__information--residency">Residency: {residency}</p>
+          <p className="doctor__information--specialty">Specialty: Dermatology</p>
+          <p className="doctor__information--school">Medical School: {med_school}</p>
+          <p className="doctor__information--residency">Residency: {med_residency}</p>
           <p className="doctor__information--avg-response">Average Response: 2 hr</p>
         </div>
 
         {showInsurances && (
           <div className="doctor__insurances">
             <p>Accepted Insurances:</p>
-            <p className="doctor__information--insurance-name">Harvard Pilgrim</p>
-            <p className="doctor__information--insurance-name">Aetna</p>
-            <p className="doctor__information--insurance-name">Cigna</p>
-            <p className="doctor__information--insurance-name">Tufts - Spirit</p>
+            {accepted_insurances.map((insurance) => (
+              <p class="additional-info--insurance-name">{insurance}</p>
+            ))}
           </div>
         )}
 
-        <CustomButton onclick={handleClick}>{buttonText}</CustomButton>
+        <CustomButton onClick={handleClick}>{buttonText}</CustomButton>
       </div>
     </div>
   );
