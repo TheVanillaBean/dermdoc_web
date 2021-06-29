@@ -178,7 +178,7 @@
   }
 
   &__options {
-    align-self: flex-start;
+    align-self: center;
     padding: 1.5rem;
     display: flex;
     justify-content: space-between;
@@ -225,6 +225,16 @@
 
   &__options--input::placeholder {
     color: var(--color-grey-dark-3);
+  }
+
+  &__options--input::-webkit-inner-spin-button {
+    -webkit-appearance: none;
+    margin: 0;
+  }
+
+  &__options--input::-webkit-outer-spin-button {
+    -webkit-appearance: none;
+    margin: 0;
   }
 
   &__options--dropdown {

@@ -84,6 +84,7 @@ class HomePage extends React.Component {
                 <div className="search__options">
                   <div className="search__zipcode">
                     <label className="search__options--label">Zipcode</label>
+
                     <FormInput type="number" name="zipcode" value={zipcode} placeholder="What is your zipcode" onChange={this.handleZipcodeChange} required />
                   </div>
                   <div className="search__reason">

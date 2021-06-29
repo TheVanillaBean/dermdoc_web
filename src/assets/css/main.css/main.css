@@ -262,7 +262,7 @@ body {
         max-width: 100%;
         font-size: 2rem; } }
   .search__options {
-    align-self: flex-start;
+    align-self: center;
     padding: 1.5rem;
     display: flex;
     justify-content: space-between;
@@ -297,6 +297,12 @@ body {
     outline: none; }
   .search__options--input::placeholder {
     color: var(--color-grey-dark-3); }
+  .search__options--input::-webkit-inner-spin-button {
+    -webkit-appearance: none;
+    margin: 0; }
+  .search__options--input::-webkit-outer-spin-button {
+    -webkit-appearance: none;
+    margin: 0; }
   .search__options--dropdown {
     font-size: 1.4rem;
     font-weight: 400;

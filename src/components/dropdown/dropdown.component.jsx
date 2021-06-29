@@ -9,7 +9,7 @@ const dropdownStyles = {
   control: (provided) => ({
     // none of react-select's styles are passed to <Control />
     ...provided,
-    width: 200,
+    width: 150,
   }),
   singleValue: (provided, state) => {
     const opacity = state.isDisabled ? 0.5 : 1;
@@ -19,15 +19,6 @@ const dropdownStyles = {
   },
 };
 
-const Dropdown = ({ handleChange, label, dataOptions, ...otherProps }) => (
-  <Select
-    defaultValue={dataOptions[0]}
-    label={label}
-    options={dataOptions}
-    styles={dropdownStyles}
-    onChange={handleChange}
-    {...otherProps}
-  />
-);
+const Dropdown = ({ handleChange, label, dataOptions, ...otherProps }) => <Select defaultValue={dataOptions[0]} label={label} options={dataOptions} styles={dropdownStyles} onChange={handleChange} {...otherProps} />;
 
 export default Dropdown;
