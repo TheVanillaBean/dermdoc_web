@@ -5,13 +5,14 @@ import DoctorCard from '../../components/doctor-card/doctor-card.component';
 import Footer from '../../components/footer/footer.component';
 import NavigationBar from '../../components/navigation-bar/navigation-bar.component';
 import { selectDoctor, selectInsuranceBrand, selectVisitReason } from '../../redux/search/search.selectors';
+const { REACT_APP_WEB_APP_REGISTRATION_LINK } = process.env;
 class DoctorDetail extends React.Component {
   componentDidMount() {}
 
   render() {
     const { insuranceBrand, visitReason, doctor } = this.props;
     const { uid, accepted_insurances, provider_bio } = this.props.doctor;
-    const url = `https://medicall-dev-58c31.web.app/#/registration?puid=${uid}&symptom=${visitReason}&insurance=${insuranceBrand}`;
+    const url = `${REACT_APP_WEB_APP_REGISTRATION_LINK}/registration?puid=${uid}&symptom=${visitReason}&insurance=${insuranceBrand}`;
 
     return (
       <div>
