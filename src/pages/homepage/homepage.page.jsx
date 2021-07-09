@@ -214,7 +214,7 @@ class HomePage extends React.Component {
 
                 <p>
                   Engage in a live video call with your doctor right from your
-                  broswer. You will still reiceve a diagnosis and any
+                  broswer. You will still receive a diagnosis and any
                   prescriptions just like an ordinary in-person visit.
                 </p>
               </div>
