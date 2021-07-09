@@ -61,10 +61,19 @@
   &__item {
     font-size: 1.4rem;
     font-weight: 400;
+    margin-top: 3rem;
 
     display: flex;
     flex-direction: column;
-    justify-content: flex-start;
+    gap: 2rem;
+    align-self: baseline;
+    fill: var(--color-primary-dark);
+
+    & > img {
+      width: 6rem;
+      height: 6rem;
+      align-self: center;
+    }
 
     & > p {
       text-align: center;

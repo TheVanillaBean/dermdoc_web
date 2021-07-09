@@ -3,6 +3,9 @@ import { connect } from 'react-redux';
 import { withRouter } from 'react-router-dom';
 import { createStructuredSelector } from 'reselect';
 import { default as OmarHeadshot } from '../../assets/omar-headshot.jpeg';
+import ScheduleSVG from '../../assets/svg/SVG/back-in-time.svg';
+import PriceTagSVG from '../../assets/svg/SVG/price-tag.svg';
+import DoctorsSVG from '../../assets/svg/SVG/users.svg';
 import CustomButton from '../../components/custom-button/custom-button.component';
 import Dropdown from '../../components/dropdown/dropdown.component';
 import Footer from '../../components/footer/footer.component';
@@ -190,6 +193,7 @@ class HomePage extends React.Component {
             </p>
             <div className="flex">
               <div className="about__item">
+                <img src={PriceTagSVG} alt="Price Tag" />
                 <p>
                   Verify your insurance copay in real-time. With Medicall, you
                   always know the full price before you receive care. No hidden
@@ -197,6 +201,8 @@ class HomePage extends React.Component {
                 </p>
               </div>
               <div className="about__item">
+                <img src={ScheduleSVG} alt="Price Tag" />
+
                 <p>
                   View a real-time schedule for your doctor and choose a time
                   that works for you. We take care of scheduling your slot with
@@ -204,6 +210,8 @@ class HomePage extends React.Component {
                 </p>
               </div>
               <div className="about__item">
+                <img src={DoctorsSVG} alt="Price Tag" />
+
                 <p>
                   Engage in a live video call with your doctor right from your
                   broswer. You will still reiceve a diagnosis and any
