@@ -1,7 +1,11 @@
 import React from 'react';
 import logo from '../../assets/logo-white.png';
+const { REACT_APP_WEB_APP_DOMAIN_URL } = process.env;
 
 const Footer = () => {
+  const terms = `${REACT_APP_WEB_APP_DOMAIN_URL}/terms`;
+  const privacy = `${REACT_APP_WEB_APP_DOMAIN_URL}/privacy`;
+
   return (
     <footer className="footer">
       <div className="container">
@@ -22,8 +26,12 @@ const Footer = () => {
               <li>
                 <h1>About us</h1>
               </li>
-              <li>Terms</li>
-              <li>Privacy</li>
+              <li>
+                <a href={terms}>Terms of Service</a>
+              </li>
+              <li>
+                <a href={privacy}>Privacy Policy</a>
+              </li>
             </ul>
           </div>
         </div>

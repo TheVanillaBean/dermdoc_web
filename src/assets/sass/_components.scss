@@ -381,8 +381,11 @@
   & ul {
     list-style-type: none;
 
-    & li {
+    & li,
+    & a {
       margin-bottom: 2rem;
+      text-decoration: none;
+      color: #fff;
 
       @media screen and (max-width: 768px) {
         margin-bottom: 1rem;

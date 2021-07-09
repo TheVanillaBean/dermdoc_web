@@ -8,8 +8,16 @@ import Dropdown from '../../components/dropdown/dropdown.component';
 import Footer from '../../components/footer/footer.component';
 import FormInput from '../../components/form-input/form-input.component';
 import NavigationBar from '../../components/navigation-bar/navigation-bar.component';
-import { updateInsuranceType, updateVisitReason, updateZipCode } from '../../redux/search/search.actions';
-import { selectInsuranceBrand, selectVisitReason, selectZipCode } from '../../redux/search/search.selectors';
+import {
+  updateInsuranceType,
+  updateVisitReason,
+  updateZipCode,
+} from '../../redux/search/search.actions';
+import {
+  selectInsuranceBrand,
+  selectVisitReason,
+  selectZipCode,
+} from '../../redux/search/search.selectors';
 
 const visitReasons = [
   { value: 'Acne', label: 'Acne' },
@@ -95,42 +103,116 @@ class HomePage extends React.Component {
                 <h1 className="featured-doctor__header">Featured Doctor</h1>
 
                 <div className="featured-doctor__doctor-box">
-                  <img src={OmarHeadshot} alt="Doctor Headshot" className="featured-doctor__headshot" />
+                  <img
+                    src={OmarHeadshot}
+                    alt="Doctor Headshot"
+                    className="featured-doctor__headshot"
+                  />
 
                   <div className="featured-doctor__description">
                     <p className="featured-doctor__name">Omar Badri, MD</p>
-                    <p className="featured-doctor__location">Boson, Massachusetts</p>
-                    <p className="featured-doctor__specialty">Specialty: Dermatology</p>
-                    <p className="featured-doctor__school">Medical School: Harvard</p>
-                    <p className="featured-doctor__residency">Residency: Harvard</p>
+                    <p className="featured-doctor__location">
+                      Boson, Massachusetts
+                    </p>
+                    <p className="featured-doctor__specialty">
+                      Specialty: Dermatology
+                    </p>
+                    <p className="featured-doctor__school">
+                      Medical School: Harvard
+                    </p>
+                    <p className="featured-doctor__residency">
+                      Residency: Harvard
+                    </p>
                   </div>
                 </div>
               </div>
 
               <div className="search">
-                <h1 className="search__header">Online visits with local board-certified dermatologists. Say goodbye to waiting rooms.</h1>
+                <h1 className="search__header">
+                  Online visits with local board-certified dermatologists. Say
+                  goodbye to waiting rooms.
+                </h1>
 
                 <div className="search__options">
                   <div className="search__zipcode">
                     <label className="search__options--label">Zipcode</label>
-                    <FormInput type="number" name="zipcode" value={zipcode} onChange={this.handleZipcodeChange} placeholder="What is your zipcode" required />
+                    <FormInput
+                      type="number"
+                      name="zipcode"
+                      value={zipcode}
+                      onChange={this.handleZipcodeChange}
+                      placeholder="What is your zipcode"
+                      required
+                    />
                   </div>
                   <div className="search__reason">
-                    <label className="search__options--label">Visit Reason</label>
-                    <Dropdown handleChange={this.handleReasonChange} label="Visit Reason" dataOptions={visitReasons} defaultValue={{ label: visitReason, value: visitReason }} />
+                    <label className="search__options--label">
+                      Visit Reason
+                    </label>
+                    <Dropdown
+                      handleChange={this.handleReasonChange}
+                      label="Visit Reason"
+                      dataOptions={visitReasons}
+                      defaultValue={{ label: visitReason, value: visitReason }}
+                    />
                   </div>
                   <div className="search__insurance">
-                    <label className="search__options--label">Insurance Type</label>
-                    <Dropdown handleChange={this.handleInsuranceChange} label="Insurance Brand" dataOptions={insuranceBrands} defaultValue={{ label: insuranceBrand, value: insuranceBrand }} />
+                    <label className="search__options--label">
+                      Insurance Type
+                    </label>
+                    <Dropdown
+                      handleChange={this.handleInsuranceChange}
+                      label="Insurance Brand"
+                      dataOptions={insuranceBrands}
+                      defaultValue={{
+                        label: insuranceBrand,
+                        value: insuranceBrand,
+                      }}
+                    />
                   </div>
                 </div>
 
-                <CustomButton onClick={this.handleSubmit}>Explore Doctors</CustomButton>
+                <CustomButton onClick={this.handleSubmit}>
+                  Explore Doctors
+                </CustomButton>
               </div>
             </div>
           </div>
         </header>
-
+        <div className="about">
+          <div className="container">
+            <h1 className="about__header">Why use Medicall?</h1>
+            <p className="about__description">
+              We make it easy for you to schedule a telehealth visit with a
+              local dermatologist. Choose your doctor, verify your insurance,
+              fill out questionnaires, schedule, and pay using one service. No
+              more phone calls to the front-desk.
+            </p>
+            <div className="flex">
+              <div className="about__item">
+                <p>
+                  Verify your insurance copay in real-time. With Medicall, you
+                  always know the full price before you receive care. No hidden
+                  fees.
+                </p>
+              </div>
+              <div className="about__item">
+                <p>
+                  View a real-time schedule for your doctor and choose a time
+                  that works for you. We take care of scheduling your slot with
+                  your doctor's office.
+                </p>
+              </div>
+              <div className="about__item">
+                <p>
+                  Engage in a live video call with your doctor right from your
+                  broswer. You will still reiceve a diagnosis and any
+                  prescriptions just like an ordinary in-person visit.
+                </p>
+              </div>
+            </div>
+          </div>
+        </div>
         <Footer />
       </div>
     );
@@ -149,4 +231,6 @@ const mapDispatchToProps = (dispatch) => ({
   updateVisitReason: (reason) => dispatch(updateVisitReason(reason)),
 });
 
-export default withRouter(connect(mapStateToProps, mapDispatchToProps)(HomePage));
+export default withRouter(
+  connect(mapStateToProps, mapDispatchToProps)(HomePage)
+);
