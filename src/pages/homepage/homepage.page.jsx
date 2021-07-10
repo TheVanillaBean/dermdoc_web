@@ -1,4 +1,5 @@
 import React from 'react';
+import { Chrono } from 'react-chrono';
 import { connect } from 'react-redux';
 import { withRouter } from 'react-router-dom';
 import { createStructuredSelector } from 'reselect';
@@ -21,6 +22,7 @@ import {
   selectVisitReason,
   selectZipCode,
 } from '../../redux/search/search.selectors';
+import data from './data.js';
 
 const visitReasons = [
   { value: 'Acne', label: 'Acne' },
@@ -219,6 +221,32 @@ class HomePage extends React.Component {
                 </p>
               </div>
             </div>
+          </div>
+        </div>
+        <div className="how-it-works">
+          <div className="container">
+            <h1 className="how-it-works__header">How Medicall Works</h1>
+            <p className="how-it-works__description">
+              Lorem ipsum dolor sit amet consectetur adipisicing elit. Quis
+              consequatur rerum dolores voluptate amet vero, deleniti rem
+              quisquam tempora quo quaerat consequuntur ea consectetur veritatis
+              non? Eaque necessitatibus perferendis quidem.
+            </p>
+            <Chrono
+              items={data}
+              mode="VERTICAL_ALTERNATING"
+              cardHeight={250}
+              scrollable={{ scrollbar: false }}
+              flipLayout={true}
+              hideControls={true}
+              useReadMore={false}
+              theme={{
+                primary: '#90024c',
+                secondary: '#fff',
+                textColor: '#fff',
+                cardBgColor: '#f4f2f2',
+              }}
+            />
           </div>
         </div>
         <Footer />

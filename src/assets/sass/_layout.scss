@@ -38,6 +38,8 @@
 }
 
 .about {
+  background-color: var(--color-grey-light-2);
+  padding: 1.5rem 0;
   & > .container {
     display: flex;
     flex-direction: column;
@@ -46,20 +48,20 @@
   }
 
   &__header {
-    font-size: 2.5rem;
+    font-size: 3rem;
     color: var(--color-grey-dark-1);
     font-weight: 500;
     margin-bottom: 1rem;
   }
 
   &__description {
-    font-size: 1.7rem;
+    font-size: 2rem;
     font-weight: 400;
     text-align: center;
   }
 
   &__item {
-    font-size: 1.4rem;
+    font-size: 1.6rem;
     font-weight: 400;
     margin-top: 3rem;
 
@@ -78,6 +80,29 @@
     & > p {
       text-align: center;
     }
+  }
+}
+
+.how-it-works {
+  & > .container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    max-width: 100rem;
+  }
+
+  &__header {
+    font-size: 3rem;
+    color: var(--color-grey-dark-1);
+    font-weight: 500;
+    margin-bottom: 1rem;
+  }
+
+  &__description {
+    font-size: 2rem;
+    font-weight: 400;
+    text-align: center;
+    margin-bottom: 4rem;
   }
 }
 
