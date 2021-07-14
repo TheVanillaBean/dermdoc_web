@@ -5,9 +5,23 @@ import { createStructuredSelector } from 'reselect';
 import DoctorCard from '../../components/doctor-card/doctor-card.component';
 import Footer from '../../components/footer/footer.component';
 import NavigationBar from '../../components/navigation-bar/navigation-bar.component';
-import { convertDoctorsListSnapshotToMap, firestore } from '../../firebase/firebase.utils';
-import { updateDoctor, updateDoctors, updateZipCode } from '../../redux/search/search.actions';
-import { selectAreProvidersInArea, selectDoctors, selectInsuranceBrand, selectState, selectVisitReason, selectZipCode } from '../../redux/search/search.selectors';
+import {
+  convertDoctorsListSnapshotToMap,
+  firestore,
+} from '../../firebase/firebase.utils';
+import {
+  updateDoctor,
+  updateDoctors,
+  updateZipCode,
+} from '../../redux/search/search.actions';
+import {
+  selectAreProvidersInArea,
+  selectDoctors,
+  selectInsuranceBrand,
+  selectState,
+  selectVisitReason,
+  selectZipCode,
+} from '../../redux/search/search.selectors';
 class DoctorList extends React.Component {
   componentDidMount() {
     const { updateDoctors, insuranceBrand, mailingState } = this.props;
@@ -15,7 +29,12 @@ class DoctorList extends React.Component {
     const state = this.validateZipCodeAndInsurance();
 
     if (state != null) {
-      const collectionRef = firestore.collection('users').where('type', '==', 'PROVIDER').where('stripe_connect_authorized', '==', true).where('mailing_state', '==', mailingState).where('accepted_insurances', 'array-contains', insuranceBrand);
+      const collectionRef = firestore
+        .collection('users')
+        .where('type', '==', 'PROVIDER')
+        .where('stripe_connect_authorized', '==', true)
+        .where('mailing_state', '==', mailingState)
+        .where('accepted_insurances', 'array-contains', insuranceBrand);
 
       collectionRef.onSnapshot(async (snapshot) => {
         const doctorsMap = convertDoctorsListSnapshotToMap(snapshot);
@@ -49,7 +68,12 @@ class DoctorList extends React.Component {
   render() {
     const { doctors } = this.props;
     if (this.validateZipCodeAndInsurance() == null) {
-      return <h4>Medicall only has doctors in Massachuetts currently, but you can join the waitlist to recieve a 20% coupon when we are in your area.</h4>;
+      return (
+        <h4>
+          Medicall only has doctors in Massachuetts currently, but you can join
+          the waitlist to recieve a 20% coupon when we are in your area.
+        </h4>
+      );
     }
     return (
       <div>
@@ -68,7 +92,7 @@ class DoctorList extends React.Component {
                 showInsurances={true}
                 key={doctor.uid}
                 doctor={doctor}
-                buttonText="Available Appointment Times"
+                buttonText="View Available Appointment Times"
                 handleClick={() => {
                   this.handleDoctorClick(doctor);
                 }}
@@ -98,4 +122,6 @@ const mapDispatchToProps = (dispatch) => ({
   updateDoctor: (doctor) => dispatch(updateDoctor(doctor)),
 });
 
-export default withRouter(connect(mapStateToProps, mapDispatchToProps)(DoctorList));
+export default withRouter(
+  connect(mapStateToProps, mapDispatchToProps)(DoctorList)
+);

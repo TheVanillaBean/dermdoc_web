@@ -4,7 +4,11 @@ import { createStructuredSelector } from 'reselect';
 import DoctorCard from '../../components/doctor-card/doctor-card.component';
 import Footer from '../../components/footer/footer.component';
 import NavigationBar from '../../components/navigation-bar/navigation-bar.component';
-import { selectDoctor, selectInsuranceBrand, selectVisitReason } from '../../redux/search/search.selectors';
+import {
+  selectDoctor,
+  selectInsuranceBrand,
+  selectVisitReason,
+} from '../../redux/search/search.selectors';
 const { REACT_APP_WEB_APP_DOMAIN_URL } = process.env;
 class DoctorDetail extends React.Component {
   componentDidMount() {}
@@ -29,7 +33,7 @@ class DoctorDetail extends React.Component {
                 showInsurances={false}
                 key={uid}
                 doctor={doctor}
-                buttonText="Calculate out-of-pocket cost"
+                buttonText="Schedule a Health Visit"
                 handleClick={() => {
                   window.location.href = url;
                 }}

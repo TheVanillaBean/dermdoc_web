@@ -1,12 +1,12 @@
 import React from 'react';
-import { Chrono } from 'react-chrono';
 import { connect } from 'react-redux';
 import { withRouter } from 'react-router-dom';
 import { createStructuredSelector } from 'reselect';
 import { default as OmarHeadshot } from '../../assets/omar-headshot.jpeg';
-import ScheduleSVG from '../../assets/svg/SVG/back-in-time.svg';
-import PriceTagSVG from '../../assets/svg/SVG/price-tag.svg';
-import DoctorsSVG from '../../assets/svg/SVG/users.svg';
+import { ReactComponent as CalendarSVG } from '../../assets/svg/SVG/calendar.svg';
+import { ReactComponent as MobileSVG } from '../../assets/svg/SVG/mobile.svg';
+import { ReactComponent as PersonSVG } from '../../assets/svg/SVG/profile-male.svg';
+import { ReactComponent as WalletSVG } from '../../assets/svg/SVG/wallet.svg';
 import CustomButton from '../../components/custom-button/custom-button.component';
 import Dropdown from '../../components/dropdown/dropdown.component';
 import Footer from '../../components/footer/footer.component';
@@ -22,7 +22,6 @@ import {
   selectVisitReason,
   selectZipCode,
 } from '../../redux/search/search.selectors';
-import data from './data.js';
 
 const visitReasons = [
   { value: 'Acne', label: 'Acne' },
@@ -117,7 +116,7 @@ class HomePage extends React.Component {
                   <div className="featured-doctor__description">
                     <p className="featured-doctor__name">Omar Badri, MD</p>
                     <p className="featured-doctor__location">
-                      Boson, Massachusetts
+                      Boston, Massachusetts
                     </p>
                     <p className="featured-doctor__specialty">
                       Specialty: Dermatology
@@ -134,8 +133,8 @@ class HomePage extends React.Component {
 
               <div className="search">
                 <h1 className="search__header">
-                  Online visits with local board-certified dermatologists. Say
-                  goodbye to waiting rooms.
+                  Schedule a video visit with a local board-certified
+                  dermatologist.
                 </h1>
 
                 <div className="search__options">
@@ -178,7 +177,7 @@ class HomePage extends React.Component {
                 </div>
 
                 <CustomButton onClick={this.handleSubmit}>
-                  Explore Doctors
+                  Get Care Now
                 </CustomButton>
               </div>
             </div>
@@ -188,67 +187,54 @@ class HomePage extends React.Component {
           <div className="container">
             <h1 className="about__header">Why use Medicall?</h1>
             <p className="about__description">
-              We make it easy for you to schedule a telehealth visit with a
+              We make it easy for you to schedule a live video visit with a
               local dermatologist. Choose your doctor, verify your insurance,
               fill out questionnaires, schedule, and pay using one service. No
-              more phone calls to the front-desk.
+              more waiting rooms or phone calls.
             </p>
             <div className="flex">
               <div className="about__item">
-                <img src={PriceTagSVG} alt="Price Tag" />
+                <div className="about__item__image">
+                  <CalendarSVG />
+                </div>
                 <p>
-                  Verify your insurance copay in real-time. With Medicall, you
-                  always know the full price before you receive care. No hidden
-                  fees.
+                  Choose a doctor in your area. View their availability and
+                  schedule a time that works for you.
                 </p>
               </div>
               <div className="about__item">
-                <img src={ScheduleSVG} alt="Price Tag" />
-
+                <div className="about__item__image">
+                  <WalletSVG />
+                </div>
                 <p>
-                  View a real-time schedule for your doctor and choose a time
-                  that works for you. We take care of scheduling your slot with
-                  your doctor's office.
+                  We run your insurance and charge you your copay /
+                  coinsurance...before your visit. No suprise billing.
                 </p>
               </div>
               <div className="about__item">
-                <img src={DoctorsSVG} alt="Price Tag" />
-
+                <div className="about__item__image">
+                  <MobileSVG />
+                </div>
                 <p>
-                  Engage in a live video call with your doctor right from your
-                  broswer. You will still receive a diagnosis and any
-                  prescriptions just like an ordinary in-person visit.
+                  Forget filling out paperwork in a waiting room. With us, you
+                  can securily tell us all your neccessary health information
+                  from home.
+                </p>
+              </div>
+              <div className="about__item">
+                <div className="about__item__image">
+                  <PersonSVG />
+                </div>
+                <p>
+                  All of our doctors have physical practices as well, meaning if
+                  your doctor needs to see you in-person, it can be scheduled
+                  easily.
                 </p>
               </div>
             </div>
           </div>
         </div>
-        <div className="how-it-works">
-          <div className="container">
-            <h1 className="how-it-works__header">How Medicall Works</h1>
-            <p className="how-it-works__description">
-              Lorem ipsum dolor sit amet consectetur adipisicing elit. Quis
-              consequatur rerum dolores voluptate amet vero, deleniti rem
-              quisquam tempora quo quaerat consequuntur ea consectetur veritatis
-              non? Eaque necessitatibus perferendis quidem.
-            </p>
-            <Chrono
-              items={data}
-              mode="VERTICAL_ALTERNATING"
-              cardHeight={250}
-              scrollable={{ scrollbar: false }}
-              flipLayout={true}
-              hideControls={true}
-              useReadMore={false}
-              theme={{
-                primary: '#90024c',
-                secondary: '#fff',
-                textColor: '#fff',
-                cardBgColor: '#f4f2f2',
-              }}
-            />
-          </div>
-        </div>
+
         <Footer />
       </div>
     );
