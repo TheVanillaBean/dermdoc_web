@@ -66,7 +66,7 @@ const insuranceBrands = [
   { value: 'Tufts Health Plan', label: 'Tufts Health Plan' },
   { value: 'UnitedHealthcare', label: 'UnitedHealthcare' },
   {
-    value: 'UnitedHeAARP Medicare Replacementalthcare',
+    value: 'AARP Medicare Replacement',
     label: 'AARP Medicare Replacement',
   },
 ];
