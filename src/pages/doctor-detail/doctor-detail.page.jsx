@@ -7,16 +7,19 @@ import NavigationBar from '../../components/navigation-bar/navigation-bar.compon
 import {
   selectDoctor,
   selectInsuranceBrand,
+  selectState,
   selectVisitReason,
+  selectZipCode,
 } from '../../redux/search/search.selectors';
 const { REACT_APP_WEB_APP_DOMAIN_URL } = process.env;
 class DoctorDetail extends React.Component {
   componentDidMount() {}
 
   render() {
-    const { insuranceBrand, visitReason, doctor } = this.props;
+    const { insuranceBrand, visitReason, doctor, zipcode, mailingState } =
+      this.props;
     const { uid, accepted_insurances, provider_bio } = this.props.doctor;
-    const url = `${REACT_APP_WEB_APP_DOMAIN_URL}/registration?puid=${uid}&symptom=${visitReason}&insurance=${insuranceBrand}`;
+    const url = `${REACT_APP_WEB_APP_DOMAIN_URL}/visit-flow-steps?puid=${uid}&symptom=${visitReason}&insurance=${insuranceBrand}&zip=${zipcode}&state=${mailingState}`;
 
     return (
       <div>
@@ -65,6 +68,8 @@ const mapStateToProps = createStructuredSelector({
   doctor: selectDoctor,
   insuranceBrand: selectInsuranceBrand,
   visitReason: selectVisitReason,
+  zipcode: selectZipCode,
+  mailingState: selectState,
 });
 
 export default connect(mapStateToProps)(DoctorDetail);

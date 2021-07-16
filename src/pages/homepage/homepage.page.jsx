@@ -208,7 +208,7 @@ class HomePage extends React.Component {
                 </div>
                 <p>
                   We run your insurance and charge you your copay /
-                  coinsurance...before your visit. No suprise billing.
+                  deductible...before your visit. No suprise billing.
                 </p>
               </div>
               <div className="about__item">
