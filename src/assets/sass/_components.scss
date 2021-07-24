@@ -24,7 +24,7 @@
   }
 
   &__item::before {
-    content: '';
+    content: "";
     position: absolute;
     bottom: 0;
     left: 0;
@@ -32,7 +32,8 @@
     width: 1rem;
     background-color: var(--color-primary);
     transform: scaleY(0);
-    transition: transform 0.3s, width 0.4s cubic-bezier(1, 0, 1, 0) 0.2s, background-color 0.1s;
+    transition: transform 0.3s, width 0.4s cubic-bezier(1, 0, 1, 0) 0.2s,
+      background-color 0.1s;
   }
 
   &__item:hover::before,
@@ -102,7 +103,7 @@
   border-radius: 2px;
   font-size: 1.6rem;
   font-weight: 300;
-  font-family: 'Inter' sans-serif;
+  font-family: "Inter" sans-serif;
   position: relative;
   cursor: pointer;
   padding: 2rem;
@@ -221,7 +222,7 @@
     color: var(--color-grey-dark-1);
     border: 0;
     outline: none;
-    font-family: 'Inter', sans-serif;
+    font-family: "Inter", sans-serif;
   }
 
   &__options--input::placeholder {
@@ -269,10 +270,19 @@
   border-bottom: var(--line-2);
   padding-bottom: 2rem;
   line-height: 2.5rem;
+  display: flex;
+  flex-direction: column;
 
   & > .flex {
     gap: 5rem;
     justify-content: center;
+    align-items: flex-start;
+
+    @media screen and (max-width: 768px) {
+      gap: 1rem;
+
+      align-items: center;
+    }
   }
 
   &__headshot {
@@ -342,9 +352,6 @@
     }
   }
 
-  &__bio-text {
-  }
-
   &__insurances {
     display: flex;
     flex-direction: column;
@@ -355,6 +362,22 @@
   &__insurances > h1 {
     color: var(--color-primary-dark);
     margin-bottom: 2rem;
+  }
+
+  &__schedule {
+    width: 40%;
+    height: 700px;
+    margin-bottom: 2rem;
+    text-align: center;
+
+    @media screen and (max-width: 768px) {
+      width: 90%;
+      text-align: start;
+    }
+
+    &__header {
+      color: var(--color-primary-dark);
+    }
   }
 }
 

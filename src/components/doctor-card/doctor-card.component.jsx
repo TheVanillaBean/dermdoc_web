@@ -1,8 +1,8 @@
-import React from 'react';
-import headshot from '../../assets/omar-headshot.jpeg';
-import CustomButton from '../custom-button/custom-button.component';
+import React from "react";
+import headshot from "../../assets/omar-headshot.jpeg";
+import CustomButton from "../custom-button/custom-button.component";
 
-const DoctorCard = ({ doctor, showInsurances, buttonText, handleClick, ...otherProps }) => {
+const DoctorCard = ({ doctor, showInsurances, buttonText, handleClick, showSchedule, ...otherProps }) => {
   const { first_name, last_name, professional_title, accepted_insurances, med_school, med_residency } = doctor;
   return (
     <div className="doctor">
@@ -28,9 +28,8 @@ const DoctorCard = ({ doctor, showInsurances, buttonText, handleClick, ...otherP
             ))}
           </div>
         )}
-
-        <CustomButton onClick={handleClick}>{buttonText}</CustomButton>
       </div>
+      <CustomButton onClick={handleClick}>{buttonText}</CustomButton>
     </div>
   );
 };
