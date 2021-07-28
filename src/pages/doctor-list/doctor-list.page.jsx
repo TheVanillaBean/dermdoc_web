@@ -2,41 +2,19 @@ import React from 'react';
 import { connect } from 'react-redux';
 import { withRouter } from 'react-router-dom';
 import { createStructuredSelector } from 'reselect';
-import DoctorCard from '../../components/doctor-card/doctor-card.component';
 import Footer from '../../components/footer/footer.component';
 import NavigationBar from '../../components/navigation-bar/navigation-bar.component';
+import { fetchDoctorsListStartAsync } from '../../redux/doctors/doctors.actions';
 import {
-  convertDoctorsListSnapshotToMap,
-  firestore,
-} from '../../firebase/firebase.utils';
-import { updateDoctor, updateDoctors } from '../../redux/search/search.actions';
-import {
-  selectAreProvidersInArea,
-  selectDoctors,
   selectInsuranceBrand,
-  selectState,
-  selectVisitReason,
   selectZipCode,
 } from '../../redux/search/search.selectors';
+
 class DoctorList extends React.Component {
   componentDidMount() {
-    const { updateDoctors, insuranceBrand, mailingState } = this.props;
+    const { fetchDoctorsListStartAsync, insuranceBrand, zipcode } = this.props;
 
-    const state = this.validateZipCodeAndInsurance();
-
-    if (state != null) {
-      const collectionRef = firestore
-        .collection('users')
-        .where('type', '==', 'PROVIDER')
-        .where('stripe_connect_authorized', '==', true)
-        .where('mailing_state', '==', mailingState)
-        .where('accepted_insurances', 'array-contains', insuranceBrand);
-
-      collectionRef.onSnapshot(async (snapshot) => {
-        const doctorsMap = convertDoctorsListSnapshotToMap(snapshot);
-        updateDoctors(doctorsMap);
-      });
-    }
+    fetchDoctorsListStartAsync(insuranceBrand, zipcode);
   }
 
   handleDoctorClick = (doctor) => {
@@ -45,18 +23,7 @@ class DoctorList extends React.Component {
     history.push(doctor.routeName);
   };
 
-  validateZipCodeAndInsurance = () => {
-    const { areProvidersInArea } = this.props;
-
-    const state = areProvidersInArea;
-    if (state != null) {
-      return state;
-    }
-    return null;
-  };
-
   render() {
-    const { doctors } = this.props;
     if (this.validateZipCodeAndInsurance() == null) {
       return (
         <h4>
@@ -73,6 +40,7 @@ class DoctorList extends React.Component {
           </div>
         </header>
 
+        {/*
         <section className="doctor-list">
           <div className="container">
             <h1 className="doctor-list__title">
@@ -92,6 +60,7 @@ class DoctorList extends React.Component {
             ))}
           </div>
         </section>
+              */}
 
         <Footer />
       </div>
@@ -100,17 +69,13 @@ class DoctorList extends React.Component {
 }
 
 const mapStateToProps = createStructuredSelector({
-  visitReason: selectVisitReason,
   zipcode: selectZipCode,
-  doctors: selectDoctors,
   insuranceBrand: selectInsuranceBrand,
-  areProvidersInArea: selectAreProvidersInArea,
-  mailingState: selectState,
 });
 
 const mapDispatchToProps = (dispatch) => ({
-  updateDoctors: (doctors) => dispatch(updateDoctors(doctors)),
-  updateDoctor: (doctor) => dispatch(updateDoctor(doctor)),
+  fetchDoctorsListStartAsync: (insuranceBrand, zipcode) =>
+    dispatch(fetchDoctorsListStartAsync(insuranceBrand, zipcode)),
 });
 
 export default withRouter(

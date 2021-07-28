@@ -1,3 +1,8 @@
+import {
+  convertDoctorsListSnapshotToMap,
+  firestore,
+} from '../../firebase/firebase.utils';
+import { areProvidersInArea } from '../search/search.utils';
 import DoctorActionTypes from './doctors.types';
 
 //SINGLE DOCTOR ACTIONS
@@ -36,6 +41,32 @@ export const fetchDoctorsListFailure = (errorMessage) => ({
   payload: errorMessage,
 });
 
-export const fetchDoctorsListStartAsync = () => {
-  return (dispatch) => {};
+export const fetchDoctorsListStartAsync = (insuranceBrand, zipcode) => {
+  return (dispatch) => {
+    dispatch(fetchDoctorsListStart());
+
+    const state = areProvidersInArea(zipcode);
+
+    if (state != null) {
+      const collectionRef = firestore
+        .collection('users')
+        .where('type', '==', 'PROVIDER')
+        .where('stripe_connect_authorized', '==', true)
+        .where('mailing_state', '==', state)
+        .where('accepted_insurances', 'array-contains', insuranceBrand);
+
+      collectionRef
+        .onSnapshot(async (snapshot) => {
+          const doctorsMap = convertDoctorsListSnapshotToMap(snapshot);
+          dispatch(fetchDoctorsListSuccess(doctorsMap));
+        })
+        .catch((error) => {
+          dispatch(fetchDoctorsListFailure(error.message));
+        });
+    } else {
+      dispatch(
+        fetchDoctorsListFailure('There are currently no doctors in your area.')
+      );
+    }
+  };
 };

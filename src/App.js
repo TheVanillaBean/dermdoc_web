@@ -10,9 +10,8 @@ class App extends Component {
     return (
       <Switch>
         <Route exact path="/" component={HomePage} />
-        <Route path="/search-doctors" component={DoctorList} />
-        <Route exact path="/doctor-detail" component={DoctorDetail} />
-        <Route path="/:doctor_route" component={DoctorDetail} />
+        <Route exact path="/search-doctors" component={DoctorList} />
+        <Route path="/doctors/:doctor_route" component={DoctorDetail} />
         <Route exact path="*">
           <Redirect to="/" />
         </Route>
