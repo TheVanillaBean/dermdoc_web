@@ -12,7 +12,12 @@ import {
 } from '../../redux/search/search.selectors';
 const { REACT_APP_WEB_APP_DOMAIN_URL } = process.env;
 class DoctorDetail extends React.Component {
-  componentDidMount() {}
+  componentDidMount() {
+    console.log('Did mount');
+    if (this.props.doctor == null) {
+      console.log('Did not mount');
+    }
+  }
 
   render() {
     const { insuranceBrand, visitReason, doctor, zipcode } = this.props;
@@ -32,7 +37,6 @@ class DoctorDetail extends React.Component {
             <div class="doctor-profile__sections">
               <DoctorCard
                 showInsurances={false}
-                key={uid}
                 doctor={doctor}
                 buttonText="Schedule a Health Visit"
                 handleClick={() => {

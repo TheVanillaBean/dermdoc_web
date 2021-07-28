@@ -9,11 +9,7 @@ import {
   convertDoctorsListSnapshotToMap,
   firestore,
 } from '../../firebase/firebase.utils';
-import {
-  updateDoctor,
-  updateDoctors,
-  updateZipCode,
-} from '../../redux/search/search.actions';
+import { updateDoctor, updateDoctors } from '../../redux/search/search.actions';
 import {
   selectAreProvidersInArea,
   selectDoctors,
@@ -43,12 +39,6 @@ class DoctorList extends React.Component {
     }
   }
 
-  handleZipcodeChange = (event) => {
-    const { updateZipCode } = this.props;
-    const { value } = event.target;
-    updateZipCode(value);
-  };
-
   handleDoctorClick = (doctor) => {
     const { updateDoctor, history } = this.props;
     updateDoctor(doctor);
@@ -77,15 +67,17 @@ class DoctorList extends React.Component {
     }
     return (
       <div>
-        <header class="header">
-          <div class="container">
+        <header className="header">
+          <div className="container">
             <NavigationBar />
           </div>
         </header>
 
-        <section class="doctor-list">
-          <div class="container">
-            <h1 class="doctor-list__title">Dermatologists in Massachusetts</h1>
+        <section className="doctor-list">
+          <div className="container">
+            <h1 className="doctor-list__title">
+              Dermatologists in Massachusetts
+            </h1>
 
             {doctors.map((doctor) => (
               <DoctorCard
@@ -117,7 +109,6 @@ const mapStateToProps = createStructuredSelector({
 });
 
 const mapDispatchToProps = (dispatch) => ({
-  updateZipCode: (zipcode) => dispatch(updateZipCode(zipcode)),
   updateDoctors: (doctors) => dispatch(updateDoctors(doctors)),
   updateDoctor: (doctor) => dispatch(updateDoctor(doctor)),
 });
