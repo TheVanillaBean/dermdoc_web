@@ -11,9 +11,9 @@ export const fetchDoctorStart = () => ({
   type: DoctorActionTypes.FETCH_DOCTOR_START,
 });
 
-export const fetchDoctorSuccess = (DoctorMap) => ({
+export const fetchDoctorSuccess = (doctorMap) => ({
   type: DoctorActionTypes.FETCH_DOCTOR_SUCCESS,
-  payload: DoctorMap,
+  payload: doctorMap,
 });
 
 export const fetchDoctorFailure = (errorMessage) => ({

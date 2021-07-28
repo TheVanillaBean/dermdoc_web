@@ -10,7 +10,7 @@ import {
   selectZipCode,
 } from '../../redux/search/search.selectors';
 
-class DoctorList extends React.Component {
+class DoctorSearchPage extends React.Component {
   componentDidMount() {
     const { fetchDoctorsListStartAsync, insuranceBrand, zipcode } = this.props;
 
@@ -79,5 +79,5 @@ const mapDispatchToProps = (dispatch) => ({
 });
 
 export default withRouter(
-  connect(mapStateToProps, mapDispatchToProps)(DoctorList)
+  connect(mapStateToProps, mapDispatchToProps)(DoctorSearchPage)
 );
