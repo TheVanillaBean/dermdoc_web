@@ -1,11 +1,9 @@
 import React from 'react';
 import { connect } from 'react-redux';
 import { createStructuredSelector } from 'reselect';
-import DoctorCard from '../../components/doctor-card/doctor-card.component';
 import Footer from '../../components/footer/footer.component';
 import NavigationBar from '../../components/navigation-bar/navigation-bar.component';
 import {
-  selectDoctor,
   selectInsuranceBrand,
   selectVisitReason,
   selectZipCode,
@@ -20,17 +18,18 @@ class DoctorDetail extends React.Component {
   }
 
   render() {
-    const { insuranceBrand, visitReason, doctor, zipcode } = this.props;
-    const { uid, accepted_insurances, provider_bio } = this.props.doctor;
-    const url = `${REACT_APP_WEB_APP_DOMAIN_URL}/visit-flow-steps?puid=${uid}&symptom=${visitReason}&insurance=${insuranceBrand}&zip=${zipcode}`;
+    const { insuranceBrand, visitReason, zipcode } = this.props;
+    // const url = `${REACT_APP_WEB_APP_DOMAIN_URL}/visit-flow-steps?puid=${uid}&symptom=${visitReason}&insurance=${insuranceBrand}&zip=${zipcode}`;
 
     return (
       <div>
-        <header class="header">
-          <div class="container">
+        <header className="header">
+          <div className="container">
             <NavigationBar />
           </div>
         </header>
+
+        {/*
 
         <section class="doctor-profile">
           <div class="container">
@@ -59,7 +58,7 @@ class DoctorDetail extends React.Component {
             </div>
           </div>
         </section>
-
+                  */}
         <Footer />
       </div>
     );
@@ -67,7 +66,6 @@ class DoctorDetail extends React.Component {
 }
 
 const mapStateToProps = createStructuredSelector({
-  doctor: selectDoctor,
   insuranceBrand: selectInsuranceBrand,
   visitReason: selectVisitReason,
   zipcode: selectZipCode,
