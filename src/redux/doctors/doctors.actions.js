@@ -56,9 +56,11 @@ export const fetchDoctorsListStartAsync = (insuranceBrand, zipcode) => {
         .where('accepted_insurances', 'array-contains', insuranceBrand);
 
       collectionRef
-        .onSnapshot(async (snapshot) => {
+        .get()
+        .then(async (snapshot) => {
           const doctorsMap = convertDoctorsListSnapshotToMap(snapshot);
           dispatch(fetchDoctorsListSuccess(doctorsMap));
+          // dispatch(fetchDoctorsListFailure('Error'));
         })
         .catch((error) => {
           dispatch(fetchDoctorsListFailure(error.message));
