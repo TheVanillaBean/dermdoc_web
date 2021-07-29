@@ -50,9 +50,9 @@ export const fetchDoctorsListStart = () => ({
   type: DoctorActionTypes.FETCH_DOCTORS_LIST_START,
 });
 
-export const fetchDoctorsListSuccess = (DoctorsListMap) => ({
+export const fetchDoctorsListSuccess = (doctorsListMap) => ({
   type: DoctorActionTypes.FETCH_DOCTORS_LIST_SUCCESS,
-  payload: DoctorsListMap,
+  payload: doctorsListMap,
 });
 
 export const fetchDoctorsListFailure = (errorMessage) => ({
