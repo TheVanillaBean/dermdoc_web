@@ -1,26 +1,30 @@
 import React from 'react';
 import { connect } from 'react-redux';
 import { createStructuredSelector } from 'reselect';
+import DoctorProfileContainer from '../../components/doctor-profile/doctor-profile.container';
 import Footer from '../../components/footer/footer.component';
 import NavigationBar from '../../components/navigation-bar/navigation-bar.component';
+import { fetchDoctorStartAsync } from '../../redux/doctors/doctors.actions';
+import {
+  selectDoctor,
+  selectDoctorErrorMessage,
+} from '../../redux/doctors/doctors.selectors';
 import {
   selectInsuranceBrand,
   selectVisitReason,
   selectZipCode,
 } from '../../redux/search/search.selectors';
-const { REACT_APP_WEB_APP_DOMAIN_URL } = process.env;
+
 class DoctorDetail extends React.Component {
   componentDidMount() {
-    console.log('Did mount');
     if (this.props.doctor == null) {
-      console.log('Did not mount');
+      const { match, fetchDoctorStartAsync } = this.props;
+      const doctorRouteName = match.params.doctor_route;
+      fetchDoctorStartAsync(doctorRouteName);
     }
   }
 
   render() {
-    const { insuranceBrand, visitReason, zipcode } = this.props;
-    // const url = `${REACT_APP_WEB_APP_DOMAIN_URL}/visit-flow-steps?puid=${uid}&symptom=${visitReason}&insurance=${insuranceBrand}&zip=${zipcode}`;
-
     return (
       <div>
         <header className="header">
@@ -29,36 +33,8 @@ class DoctorDetail extends React.Component {
           </div>
         </header>
 
-        {/*
+        <DoctorProfileContainer />
 
-        <section class="doctor-profile">
-          <div class="container">
-            <div class="doctor-profile__sections">
-              <DoctorCard
-                showInsurances={false}
-                doctor={doctor}
-                buttonText="Schedule a Health Visit"
-                handleClick={() => {
-                  window.location.href = url;
-                }}
-              />
-              <div class="additional-info">
-                <div class="additional-info__bio">
-                  <h1 class="additional-info__bio--name">Bio</h1>
-                  <p class="additional-info__bio--bio-text">{provider_bio}</p>
-                </div>
-
-                <div class="additional-info__insurances">
-                  <h1>Accepted Insurances:</h1>
-                  {accepted_insurances.map((insurance) => (
-                    <p class="additional-info--insurance-name">{insurance}</p>
-                  ))}
-                </div>
-              </div>
-            </div>
-          </div>
-        </section>
-                  */}
         <Footer />
       </div>
     );
@@ -69,6 +45,13 @@ const mapStateToProps = createStructuredSelector({
   insuranceBrand: selectInsuranceBrand,
   visitReason: selectVisitReason,
   zipcode: selectZipCode,
+  doctor: selectDoctor,
+  doctorErrorMessage: selectDoctorErrorMessage,
 });
 
-export default connect(mapStateToProps)(DoctorDetail);
+const mapDispatchToProps = (dispatch) => ({
+  fetchDoctorStartAsync: (route_name) =>
+    dispatch(fetchDoctorStartAsync(route_name)),
+});
+
+export default connect(mapStateToProps, mapDispatchToProps)(DoctorDetail);

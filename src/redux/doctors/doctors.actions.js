@@ -21,8 +21,27 @@ export const fetchDoctorFailure = (errorMessage) => ({
   payload: errorMessage,
 });
 
-export const fetchDoctorStartAsync = () => {
-  return (dispatch) => {};
+export const fetchDoctorStartAsync = (routingName) => {
+  return (dispatch) => {
+    dispatch(fetchDoctorStart());
+
+    const collectionRef = firestore
+      .collection('users')
+      .where('type', '==', 'PROVIDER')
+      .where('stripe_connect_authorized', '==', true)
+      .where('route_name', '==', routingName);
+
+    collectionRef
+      .get()
+      .then(async (snapshot) => {
+        const doctorsMap = convertDoctorsListSnapshotToMap(snapshot);
+        dispatch(fetchDoctorSuccess(doctorsMap[0]));
+        // dispatch(fetchDoctorsListFailure('Error'));
+      })
+      .catch((error) => {
+        dispatch(fetchDoctorFailure(error.message));
+      });
+  };
 };
 
 //DOCTORS LIST ACTIONS
