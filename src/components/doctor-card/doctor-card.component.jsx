@@ -1,10 +1,10 @@
 import React from 'react';
 import headshot from '../../assets/omar-headshot.jpeg';
 import CustomButton from '../custom-button/custom-button.component';
-
 const DoctorCard = ({
   doctor,
   showInsurances,
+  showButton,
   buttonText,
   handleClick,
   ...otherProps
@@ -53,9 +53,11 @@ const DoctorCard = ({
             ))}
           </div>
         )}
-
-        <CustomButton onClick={handleClick}>{buttonText}</CustomButton>
       </div>
+
+      {showButton && (
+        <CustomButton onClick={handleClick}>{buttonText}</CustomButton>
+      )}
     </div>
   );
 };

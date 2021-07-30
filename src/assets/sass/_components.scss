@@ -270,6 +270,8 @@
   border-bottom: var(--line-2);
   padding-bottom: 2rem;
   line-height: 2.5rem;
+  display: flex;
+  flex-direction: column;
 
   & > .flex {
     gap: 5rem;
@@ -282,6 +284,12 @@
     flex: 1 25%;
     object-fit: contain;
     margin-bottom: 2rem;
+    align-self: flex-start;
+
+    @media screen and (max-width: 768px) {
+      align-self: center;
+      margin-bottom: 3rem;
+    }
   }
 
   &__information {
@@ -299,6 +307,10 @@
 
   &__information--location {
     margin-bottom: 2rem;
+  }
+
+  &__insurances {
+    margin-bottom: 1rem;
   }
 
   &__submit {

@@ -26,6 +26,7 @@ class DoctorList extends React.Component {
             <DoctorCard
               showInsurances={true}
               key={doctor.uid}
+              showButton={true}
               doctor={doctor}
               buttonText="View Available Appointment Times"
               handleClick={() => {
