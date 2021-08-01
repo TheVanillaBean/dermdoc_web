@@ -1,19 +1,9 @@
 import React from 'react';
 import { connect } from 'react-redux';
-import { createStructuredSelector } from 'reselect';
 import DoctorProfileContainer from '../../components/doctor-profile/doctor-profile.container';
 import Footer from '../../components/footer/footer.component';
 import NavigationBar from '../../components/navigation-bar/navigation-bar.component';
 import { fetchDoctorStartAsync } from '../../redux/doctors/doctors.actions';
-import {
-  selectDoctor,
-  selectDoctorErrorMessage,
-} from '../../redux/doctors/doctors.selectors';
-import {
-  selectInsuranceBrand,
-  selectVisitReason,
-  selectZipCode,
-} from '../../redux/search/search.selectors';
 
 class DoctorDetail extends React.Component {
   componentDidMount() {
@@ -41,17 +31,9 @@ class DoctorDetail extends React.Component {
   }
 }
 
-const mapStateToProps = createStructuredSelector({
-  insuranceBrand: selectInsuranceBrand,
-  visitReason: selectVisitReason,
-  zipcode: selectZipCode,
-  doctor: selectDoctor,
-  doctorErrorMessage: selectDoctorErrorMessage,
-});
-
 const mapDispatchToProps = (dispatch) => ({
   fetchDoctorStartAsync: (route_name) =>
     dispatch(fetchDoctorStartAsync(route_name)),
 });
 
-export default connect(mapStateToProps, mapDispatchToProps)(DoctorDetail);
+export default connect(null, mapDispatchToProps)(DoctorDetail);

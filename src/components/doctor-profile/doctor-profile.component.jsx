@@ -49,7 +49,7 @@ class DoctorProfile extends React.Component {
             </div>
 
             <iframe
-              src={`https://schedule.nylas.com/${slug}/?prefilled_readonly=false&mailing_zipcode=${zipcode}&visit_reason=${visitReason}&insurance=${insuranceBrand}&email=aalimov@asu.edu&mailing_address=${mailing_address}&mailing_city=Beverly&mailing_zipcode=01915&seen_doctor=no&visit_reason=Acne&insurance=Aetna&member_id=COST_ESTIMATES_001&name=${name}`}
+              src={`https://schedule.nylas.com/${slug}/?prefilled_readonly=false&mailing_zipcode=${zipcode}&visit_reason=${visitReason}&insurance_brand=${insuranceBrand}&email=aalimov@asu.edu&mailing_address=${mailing_address}&mailing_city=Beverly&mailing_zipcode=01915&seen_doctor=no&visit_reason=Acne&insurance=Aetna&member_id=COST_ESTIMATES_001&name=${name}&mailing_state=MA`}
               title="Weekly available"
               frameborder="0"
               className="doctor-profile__schedule"
