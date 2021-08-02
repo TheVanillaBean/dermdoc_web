@@ -24,9 +24,9 @@ class DoctorProfile extends React.Component {
     const name = 'Omar Badri';
 
     return (
-      <section class="doctor-profile">
-        <div class="container">
-          <div class="doctor-profile__sections">
+      <section className="doctor-profile">
+        <div className="container">
+          <div className="doctor-profile__sections">
             <DoctorCard
               showInsurances={false}
               doctor={doctor}
@@ -34,16 +34,16 @@ class DoctorProfile extends React.Component {
               buttonText="Schedule a Health Visit"
             />
 
-            <div class="additional-info">
-              <div class="additional-info__bio">
-                <h1 class="additional-info__bio--name">Bio</h1>
-                <p class="additional-info__bio--bio-text">{provider_bio}</p>
+            <div className="additional-info">
+              <div className="additional-info__bio">
+                <h1 className="additional-info__bio--name">Bio</h1>
+                <p className="additional-info__bio--bio-text">{provider_bio}</p>
               </div>
 
-              <div class="additional-info__insurances">
+              <div className="additional-info__insurances">
                 <h1>Accepted Insurances:</h1>
                 {accepted_insurances.map((insurance) => (
-                  <p class="additional-info--insurance-name">{insurance}</p>
+                  <p className="additional-info--insurance-name">{insurance}</p>
                 ))}
               </div>
             </div>
