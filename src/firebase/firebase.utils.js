@@ -63,6 +63,33 @@ export const convertDoctorsListSnapshotToMap = (doctors) => {
   return transformedCollection;
 };
 
+export const convertVisitSnapshotToMap = (visit) => {
+  //Since it is retrieved from a collection, it is a list
+  const transformedCollection = visit.docs.map((visit) => {
+    const {
+      date,
+      insurance_info,
+      original_patient_information,
+      provider_id,
+      seen_doctor,
+      status,
+      visit_reason,
+    } = visit.data();
+
+    return {
+      date,
+      insurance_info,
+      original_patient_information,
+      provider_id,
+      seen_doctor,
+      status,
+      visit_reason,
+    };
+  });
+
+  return transformedCollection;
+};
+
 firebase.initializeApp(config);
 
 export const firestore = firebase.firestore();
