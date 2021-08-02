@@ -12,10 +12,11 @@ import { selectVisitData } from '../../redux/visit/visit.selectors';
 
 class Questionnaire extends React.Component {
   componentDidMount() {
-    const { match, fetchQuestionsStartAsync } = this.props;
-    const visitID = match.params.visit_id;
-
-    fetchQuestionsStartAsync(visitID);
+    const {
+      visit: { visit_reason },
+      fetchQuestionsStartAsync,
+    } = this.props;
+    fetchQuestionsStartAsync(visit_reason);
   }
 
   handleSubmit = async (event) => {

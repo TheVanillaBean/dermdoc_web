@@ -6,7 +6,7 @@ import {
   selectVisitErrorMessage,
 } from '../../redux/visit/visit.selectors';
 import WithSpinner from '../with-spinner/with-spinner.component';
-import CostEstimate from './cost-estimate.component';
+import Questionnaire from './questionnaire.component';
 
 const mapStateToProps = createStructuredSelector({
   isLoading: selectIsVisitFetching,
@@ -16,6 +16,6 @@ const mapStateToProps = createStructuredSelector({
 const QuestionnaireContainer = compose(
   connect(mapStateToProps),
   WithSpinner
-)(CostEstimate);
+)(Questionnaire);
 
 export default QuestionnaireContainer;

@@ -74,6 +74,7 @@ export const convertVisitSnapshotToMap = (visit) => {
       seen_doctor,
       status,
       visit_reason,
+      visit_id,
     } = visit.data();
 
     return {
@@ -84,35 +85,26 @@ export const convertVisitSnapshotToMap = (visit) => {
       seen_doctor,
       status,
       visit_reason,
+      visit_id,
     };
   });
 
   return transformedCollection;
 };
 
-export const convertQuestionnaireSnapshotToMap = (visit) => {
+export const convertQuestionnaireSnapshotToMap = (questionsDocument) => {
   //Since it is retrieved from a collection, it is a list
-  const transformedCollection = visit.docs.map((visit) => {
-    const {
-      date,
-      insurance_info,
-      original_patient_information,
-      provider_id,
-      seen_doctor,
-      status,
-      visit_reason,
-    } = visit.data();
+  const transformedCollection = questionsDocument['screening_questions'].map(
+    (questionMap) => {
+      const { question, type, options } = questionMap;
 
-    return {
-      date,
-      insurance_info,
-      original_patient_information,
-      provider_id,
-      seen_doctor,
-      status,
-      visit_reason,
-    };
-  });
+      return {
+        question,
+        type,
+        options,
+      };
+    }
+  );
 
   return transformedCollection;
 };

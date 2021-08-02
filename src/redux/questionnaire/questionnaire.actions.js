@@ -22,19 +22,25 @@ export const fetchQuestionsStartAsync = (symptom) => {
   return (dispatch) => {
     dispatch(fetchQuestionsStart());
 
-    const collectionRef = firestore
+    const documentRef = firestore
       .collection('services')
       .doc('dermatology')
       .collection('symptoms')
       .doc(symptom)
-      .collection('questionaire');
+      .collection('questionaire')
+      .doc('screening-questions');
 
-    collectionRef
+    documentRef
       .get()
       .then(async (snapshot) => {
-        const questionsMap = convertQuestionnaireSnapshotToMap(snapshot);
-        dispatch(fetchQuestionsSuccess(questionsMap[0]));
-        // dispatch(fetchDoctorsListFailure('Error'));
+        if (snapshot.exists) {
+          const questionsMap = convertQuestionnaireSnapshotToMap(
+            snapshot.data()
+          );
+          dispatch(fetchQuestionsSuccess(questionsMap));
+        } else {
+          dispatch(fetchQuestionsFailure('Failed to load questions'));
+        }
       })
       .catch((error) => {
         dispatch(fetchQuestionsFailure(error.message));
