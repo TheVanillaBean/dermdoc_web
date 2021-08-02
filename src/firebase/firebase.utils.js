@@ -92,21 +92,59 @@ export const convertVisitSnapshotToMap = (visit) => {
   return transformedCollection;
 };
 
-export const convertQuestionnaireSnapshotToMap = (questionsDocument) => {
+export const convertQuestionnaireSnapshotToMap = (
+  visitName,
+  questionsDocument
+) => {
   //Since it is retrieved from a collection, it is a list
-  const transformedCollection = questionsDocument['screening_questions'].map(
+  const elements = questionsDocument['screening_questions'].map(
     (questionMap) => {
-      const { question, type, options } = questionMap;
+      const questionSchema = convertQuestionToSurveySchema(questionMap);
 
-      return {
-        question,
-        type,
-        options,
-      };
+      return questionSchema;
     }
   );
 
-  return transformedCollection;
+  const surveySchema = {
+    pages: [
+      {
+        elements: elements,
+        name: visitName,
+        navigationTitle: visitName,
+        questionTitleLocation: 'top',
+      },
+    ],
+    showProgressBar: 'top',
+    showQuestionNumbers: 'off',
+    progressBarType: 'buttons',
+    title: 'Medicall Questionnaire',
+  };
+
+  return surveySchema;
+};
+
+export const convertQuestionToSurveySchema = (questionMap) => {
+  const { question, type, options } = questionMap;
+
+  let element = {};
+  if (type === 'SC') {
+    element.type = 'radiogroup';
+  } else if (type === 'MC') {
+    element.type = 'checkbox';
+  } else {
+    element.type = 'text';
+  }
+
+  element.name = question;
+  element.title = question;
+  element.isRequired = true;
+  element.colCount = 4;
+
+  if (type === 'SC' || type === 'MC') {
+    element.choices = options.map((option) => option.value);
+  }
+
+  return element;
 };
 
 firebase.initializeApp(config);

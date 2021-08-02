@@ -35,6 +35,7 @@ export const fetchQuestionsStartAsync = (symptom) => {
       .then(async (snapshot) => {
         if (snapshot.exists) {
           const questionsMap = convertQuestionnaireSnapshotToMap(
+            symptom,
             snapshot.data()
           );
           dispatch(fetchQuestionsSuccess(questionsMap));
