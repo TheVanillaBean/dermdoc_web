@@ -18,7 +18,7 @@ export const fetchVisitFailure = (errorMessage) => ({
   payload: errorMessage,
 });
 
-export const fetchDoctorStartAsync = (visitID) => {
+export const fetchVisitStartAsync = (visitID) => {
   return (dispatch) => {
     dispatch(fetchVisitStart());
 
