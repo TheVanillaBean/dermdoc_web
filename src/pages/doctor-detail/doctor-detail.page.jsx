@@ -5,7 +5,7 @@ import Footer from '../../components/footer/footer.component';
 import NavigationBar from '../../components/navigation-bar/navigation-bar.component';
 import { fetchDoctorStartAsync } from '../../redux/doctors/doctors.actions';
 
-class DoctorDetail extends React.Component {
+class DoctorDetailPage extends React.Component {
   componentDidMount() {
     if (this.props.doctor == null) {
       const { match, fetchDoctorStartAsync } = this.props;
@@ -36,4 +36,4 @@ const mapDispatchToProps = (dispatch) => ({
     dispatch(fetchDoctorStartAsync(route_name)),
 });
 
-export default connect(null, mapDispatchToProps)(DoctorDetail);
+export default connect(null, mapDispatchToProps)(DoctorDetailPage);
