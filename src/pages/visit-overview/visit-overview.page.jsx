@@ -1,5 +1,6 @@
 import React from 'react';
 import { connect } from 'react-redux';
+import CostEstimateContainer from '../../components/cost-estimate/cost-estimate.container';
 import Footer from '../../components/footer/footer.component';
 import NavigationBar from '../../components/navigation-bar/navigation-bar.component';
 import { fetchVisitStartAsync } from '../../redux/visit/visit.actions';
@@ -21,6 +22,8 @@ class VisitOverview extends React.Component {
             <NavigationBar />
           </div>
         </header>
+
+        <CostEstimateContainer />
 
         <Footer />
       </div>
