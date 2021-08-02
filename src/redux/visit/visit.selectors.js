@@ -12,4 +12,7 @@ export const selectIsVisitFetching = createSelector(
   (visit) => visit.isFetchingVisit
 );
 
-export const selectVisit = createSelector([visit], (visit) => visit.visit_data);
+export const selectVisitData = createSelector(
+  [visit],
+  (visit) => visit.visitData
+);

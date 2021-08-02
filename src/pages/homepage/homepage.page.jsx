@@ -176,7 +176,10 @@ class HomePage extends React.Component {
                   </div>
                 </div>
 
-                <CustomButton onClick={this.handleSubmit}>
+                <CustomButton
+                  className="search__submit btn"
+                  onClick={this.handleSubmit}
+                >
                   Get Care Now
                 </CustomButton>
               </div>

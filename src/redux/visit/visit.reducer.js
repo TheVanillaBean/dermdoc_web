@@ -1,7 +1,7 @@
 import VisitActionTypes from './visit.types';
 
 const INITIAL_STATE = {
-  visit_data: null,
+  visitData: null,
   isFetchingVisit: true,
   visitErrorMessage: undefined,
 };
@@ -17,7 +17,7 @@ const visitReducer = (state = INITIAL_STATE, action) => {
       return {
         ...state,
         isFetchingVisit: false,
-        visit_data: action.payload,
+        visitData: action.payload,
       };
     case VisitActionTypes.FETCH_VISIT_FAILURE:
       return {
