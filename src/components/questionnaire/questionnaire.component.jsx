@@ -2,6 +2,8 @@ import React from 'react';
 import { connect } from 'react-redux';
 import { withRouter } from 'react-router-dom';
 import { createStructuredSelector } from 'reselect';
+import * as Survey from 'survey-react';
+import 'survey-react/modern.css';
 import { fetchQuestionsStartAsync } from '../../redux/questionnaire/questionnaire.actions';
 import {
   selectIsQuestionnaireFetching,
@@ -9,6 +11,8 @@ import {
   selectQuestions,
 } from '../../redux/questionnaire/questionnaire.selectors';
 import { selectVisitData } from '../../redux/visit/visit.selectors';
+
+Survey.StylesManager.applyTheme('modern');
 class Questionnaire extends React.Component {
   componentDidMount() {
     const {
@@ -21,6 +25,11 @@ class Questionnaire extends React.Component {
   handleSubmit = async (event) => {
     event.preventDefault();
   };
+
+  onComplete(survey, options) {
+    //Write survey results into database
+    console.log('Survey results: ' + JSON.stringify(survey.data));
+  }
 
   render() {
     const { visit, questions, questionsError, questionsIsFetching } =
@@ -40,7 +49,24 @@ class Questionnaire extends React.Component {
           </div>
         );
       } else {
-        return <section className="cost-estimate"></section>;
+        const model = new Survey.Model(questions);
+
+        return (
+          <section className="questionnaire">
+            <div className="container">
+              <h1>
+                Please fill out the folllowing quesitions. You can return to a
+                question at anytime.
+              </h1>
+
+              <Survey.Survey
+                model={model}
+                showPreviewBeforeComplete="showAnsweredQuestions"
+                Complete={this.onComplete}
+              />
+            </div>
+          </section>
+        );
       }
     }
   }
