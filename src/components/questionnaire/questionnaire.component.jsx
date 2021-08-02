@@ -1,6 +1,4 @@
 import React from 'react';
-import { connect } from 'react-redux';
-import { withRouter } from 'react-router-dom';
 import { createStructuredSelector } from 'reselect';
 import { fetchQuestionsStartAsync } from '../../redux/questionnaire/questionnaire.actions';
 import {
@@ -27,7 +25,23 @@ class Questionnaire extends React.Component {
     const { visit, questions, questionsError, questionsIsFetching } =
       this.props;
 
-    return <section className="cost-estimate"></section>;
+    if (questionsError) {
+      return (
+        <div className="spinner-overlay">
+          <h1>questionsError</h1>
+        </div>
+      );
+    } else {
+      if (questionsIsFetching) {
+        return (
+          <div className="spinner-overlay">
+            <div className="spinner-container" />
+          </div>
+        );
+      } else {
+        return <section className="cost-estimate"></section>;
+      }
+    }
   }
 }
 
