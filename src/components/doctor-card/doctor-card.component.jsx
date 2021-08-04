@@ -56,7 +56,9 @@ const DoctorCard = ({
       </div>
 
       {showButton && (
-        <CustomButton onClick={handleClick}>{buttonText}</CustomButton>
+        <CustomButton className="search__submit btn" onClick={handleClick}>
+          {buttonText}
+        </CustomButton>
       )}
     </div>
   );

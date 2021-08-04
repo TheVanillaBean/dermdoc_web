@@ -522,6 +522,21 @@ body {
   to {
     -webkit-transform: rotate(360deg); } }
 
+.questionnaire__header {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-bottom: 2rem; }
+  .questionnaire__header > h1 {
+    font-size: 2rem;
+    font-weight: 300;
+    color: var(--color-primary);
+    text-align: center;
+    max-width: 75%; }
+    @media screen and (max-width: 768px) {
+      .questionnaire__header > h1 {
+        font-size: 1.6rem; } }
+
 @keyframes pulsate {
   0% {
     transform: scale(1);

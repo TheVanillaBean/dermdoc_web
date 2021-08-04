@@ -92,9 +92,10 @@ export const convertVisitSnapshotToMap = (visit) => {
   return transformedCollection;
 };
 
-export const convertQuestionnaireSnapshotToMap = (
+export const convertQuestionnaireSnapshotToPageMap = (
   visitName,
-  questionsDocument
+  questionsDocument,
+  popLast = false
 ) => {
   //Since it is retrieved from a collection, it is a list
   const elements = questionsDocument['screening_questions'].map(
@@ -105,22 +106,14 @@ export const convertQuestionnaireSnapshotToMap = (
     }
   );
 
-  const surveySchema = {
-    pages: [
-      {
-        elements: elements,
-        name: visitName,
-        navigationTitle: visitName,
-        questionTitleLocation: 'top',
-      },
-    ],
-    showProgressBar: 'top',
-    showQuestionNumbers: 'off',
-    progressBarType: 'buttons',
-    title: 'Medicall Questionnaire',
-  };
+  if (popLast) elements.pop();
 
-  return surveySchema;
+  return {
+    elements: elements,
+    name: visitName,
+    navigationTitle: visitName,
+    questionTitleLocation: 'top',
+  };
 };
 
 export const convertQuestionToSurveySchema = (questionMap) => {
@@ -145,6 +138,17 @@ export const convertQuestionToSurveySchema = (questionMap) => {
   }
 
   return element;
+};
+
+export const mergePagesIntoSurveySchema = (pages) => {
+  const surveySchema = {
+    pages: pages,
+    showProgressBar: 'top',
+    showQuestionNumbers: 'on',
+    progressBarType: 'pages',
+  };
+
+  return surveySchema;
 };
 
 firebase.initializeApp(config);

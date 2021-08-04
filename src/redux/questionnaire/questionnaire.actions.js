@@ -1,6 +1,7 @@
 import {
-  convertQuestionnaireSnapshotToMap,
+  convertQuestionnaireSnapshotToPageMap,
   firestore,
+  mergePagesIntoSurveySchema,
 } from '../../firebase/firebase.utils';
 import QuestionnaireActionTypes from './questionnaire.types';
 
@@ -19,10 +20,18 @@ export const fetchQuestionsFailure = (errorMessage) => ({
 });
 
 export const fetchQuestionsStartAsync = (symptom) => {
-  return (dispatch) => {
+  return async (dispatch) => {
     dispatch(fetchQuestionsStart());
 
-    const documentRef = firestore
+    const generalMedicalHistoyDoc = firestore
+      .collection('services')
+      .doc('dermatology')
+      .collection('symptoms')
+      .doc('General Medical History')
+      .collection('questionaire')
+      .doc('screening-questions');
+
+    const symptomDoc = firestore
       .collection('services')
       .doc('dermatology')
       .collection('symptoms')
@@ -30,21 +39,30 @@ export const fetchQuestionsStartAsync = (symptom) => {
       .collection('questionaire')
       .doc('screening-questions');
 
-    documentRef
-      .get()
-      .then(async (snapshot) => {
-        if (snapshot.exists) {
-          const questionsMap = convertQuestionnaireSnapshotToMap(
-            symptom,
-            snapshot.data()
-          );
-          dispatch(fetchQuestionsSuccess(questionsMap));
-        } else {
-          dispatch(fetchQuestionsFailure('Failed to load questions'));
-        }
-      })
-      .catch((error) => {
-        dispatch(fetchQuestionsFailure(error.message));
-      });
+    try {
+      const generalMedicalHistoyQuestions = await generalMedicalHistoyDoc.get();
+      const symptomQuestions = await symptomDoc.get();
+
+      if (generalMedicalHistoyQuestions.exists && symptomQuestions.exists) {
+        const medicalHistoryPage = convertQuestionnaireSnapshotToPageMap(
+          'Medical History',
+          generalMedicalHistoyQuestions.data()
+        );
+        const symptomPage = convertQuestionnaireSnapshotToPageMap(
+          symptom,
+          symptomQuestions.data(),
+          true
+        );
+        const survey = mergePagesIntoSurveySchema([
+          medicalHistoryPage,
+          symptomPage,
+        ]);
+        dispatch(fetchQuestionsSuccess(survey));
+      } else {
+        dispatch(fetchQuestionsFailure('Failed to load questions'));
+      }
+    } catch (e) {
+      dispatch(fetchQuestionsFailure(e));
+    }
   };
 };

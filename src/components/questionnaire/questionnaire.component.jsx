@@ -54,16 +54,15 @@ class Questionnaire extends React.Component {
         return (
           <section className="questionnaire">
             <div className="container">
-              <h1>
-                Please fill out the folllowing quesitions. You can return to a
-                question at anytime.
-              </h1>
+              <div className="questionnaire__header">
+                <h1>
+                  Please fill out the following questions. This will help your
+                  doctor provider better care during your upcoming video visit.
+                  You can return to the questions at anytime.
+                </h1>
+              </div>
 
-              <Survey.Survey
-                model={model}
-                showPreviewBeforeComplete="showAnsweredQuestions"
-                Complete={this.onComplete}
-              />
+              <Survey.Survey model={model} onComplete={this.onComplete} />
             </div>
           </section>
         );
