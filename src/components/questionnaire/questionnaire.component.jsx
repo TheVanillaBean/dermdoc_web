@@ -4,6 +4,7 @@ import { withRouter } from 'react-router-dom';
 import { createStructuredSelector } from 'reselect';
 import * as Survey from 'survey-react';
 import 'survey-react/modern.css';
+import { saveQuestionnaireResponse } from '../../firebase/firebase.utils';
 import { fetchQuestionsStartAsync } from '../../redux/questionnaire/questionnaire.actions';
 import {
   selectIsQuestionnaireFetching,
@@ -13,6 +14,18 @@ import {
 import { selectVisitData } from '../../redux/visit/visit.selectors';
 
 Survey.StylesManager.applyTheme('modern');
+
+export const thankYouHTML = `
+<section class="questionnaire__thank-you">
+  <h2>Thank you for filling out the questionnaire!</h2>
+  <p>
+    Next you will be asked to create a password for your account. This insures
+    that you can securly and privately proceed with this visit.
+  </p>
+
+  <button class="btn questionnaire">Answer Questions</button>
+</section>
+`;
 class Questionnaire extends React.Component {
   componentDidMount() {
     const {
@@ -24,12 +37,25 @@ class Questionnaire extends React.Component {
 
   handleSubmit = async (event) => {
     event.preventDefault();
+    const {
+      history,
+      visit: { visit_id },
+    } = this.props;
+    history.push(`/auth/${visit_id}`);
   };
 
-  onComplete(survey, options) {
-    //Write survey results into database
-    console.log('Survey results: ' + JSON.stringify(survey.data));
-  }
+  onComplete = async (survey, options) => {
+    const {
+      visit: { visit_id },
+    } = this.props;
+    const saveQuestionnaire = await saveQuestionnaireResponse(
+      visit_id,
+      survey.data
+    );
+    if (saveQuestionnaire.error) {
+      console.log(saveQuestionnaire.message);
+    }
+  };
 
   render() {
     const { questions, questionsError, questionsIsFetching } = this.props;

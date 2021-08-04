@@ -1,6 +1,6 @@
 import firebase from 'firebase/app';
 import 'firebase/firestore';
-
+import { thankYouHTML } from '../components/questionnaire/questionnaire.component';
 const {
   REACT_APP_FIREBASE_API_KEY,
   REACT_APP_FIREBASE_AUTH_DOMAIN,
@@ -20,16 +20,6 @@ const config = {
   messagingSenderId: REACT_APP_FIREBASE_MESSAGING_SENDER_ID,
   appId: REACT_APP_FIREBASE_APP_ID,
 };
-
-const thankYouHTML = `
-  <section class="questionnaire__thank-you">
-    <h2>Thank you for filling out the questionnaire!</h2>
-    <p>
-      Next you will be asked to create a password for your account. This insures
-      that you can securly and privately proceed with this visit.
-    </p>
-  </section>
-`;
 
 export const convertDoctorsListSnapshotToMap = (doctors) => {
   const transformedCollection = doctors.docs.map((doc) => {
@@ -164,8 +154,8 @@ export const mergePagesIntoSurveySchema = (pages) => {
 
 export const saveQuestionnaireResponse = async (visitID, questionnaire) => {
   const visitRef = firestore
-    .collection(`visits/${visitID}/answers`)
-    .doc('questionnaire');
+    .collection(`visits/${visitID}/questionnaire`)
+    .doc('answers');
 
   try {
     await visitRef.set({
