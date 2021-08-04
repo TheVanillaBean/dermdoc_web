@@ -21,6 +21,16 @@ const config = {
   appId: REACT_APP_FIREBASE_APP_ID,
 };
 
+const thankYouHTML = `
+  <section class="questionnaire__thank-you">
+    <h2>Thank you for filling out the questionnaire!</h2>
+    <p>
+      Next you will be asked to create a password for your account. This insures
+      that you can securly and privately proceed with this visit.
+    </p>
+  </section>
+`;
+
 export const convertDoctorsListSnapshotToMap = (doctors) => {
   const transformedCollection = doctors.docs.map((doc) => {
     const {
@@ -142,6 +152,7 @@ export const convertQuestionToSurveySchema = (questionMap) => {
 
 export const mergePagesIntoSurveySchema = (pages) => {
   const surveySchema = {
+    completedHtml: thankYouHTML,
     pages: pages,
     showProgressBar: 'top',
     showQuestionNumbers: 'on',

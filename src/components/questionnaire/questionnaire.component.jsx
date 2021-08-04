@@ -32,8 +32,7 @@ class Questionnaire extends React.Component {
   }
 
   render() {
-    const { visit, questions, questionsError, questionsIsFetching } =
-      this.props;
+    const { questions, questionsError, questionsIsFetching } = this.props;
 
     if (questionsError) {
       return (

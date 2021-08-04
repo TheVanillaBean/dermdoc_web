@@ -537,6 +537,20 @@ body {
       .questionnaire__header > h1 {
         font-size: 1.6rem; } }
 
+.questionnaire__thank-you {
+  margin: 1.5rem; }
+  .questionnaire__thank-you > h2 {
+    font-size: 1.8rem;
+    font-weight: 400;
+    color: var(--color-primary);
+    text-align: center;
+    margin-bottom: 1rem; }
+  .questionnaire__thank-you > p {
+    font-size: 1.4rem;
+    font-weight: 300;
+    color: var(--color-grey-dark-1);
+    text-align: center; }
+
 @keyframes pulsate {
   0% {
     transform: scale(1);
