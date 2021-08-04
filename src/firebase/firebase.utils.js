@@ -97,14 +97,23 @@ export const convertQuestionnaireSnapshotToPageMap = (
   questionsDocument,
   popLast = false
 ) => {
-  //Since it is retrieved from a collection, it is a list
-  const elements = questionsDocument['screening_questions'].map(
-    (questionMap) => {
-      const questionSchema = convertQuestionToSurveySchema(questionMap);
+  let elements = [];
+  let questionMapIndex = 0;
 
-      return questionSchema;
+  while (questionMapIndex < questionsDocument['screening_questions'].length) {
+    const questionMap =
+      questionsDocument['screening_questions'][questionMapIndex];
+    const questionSchema = convertQuestionToSurveySchema(questionMap);
+    elements.push(questionSchema.element);
+    if (questionSchema.sub_questions.length > 0) {
+      questionsDocument['screening_questions'].splice(
+        questionMapIndex + 1,
+        0,
+        ...questionSchema.sub_questions
+      );
     }
-  );
+    questionMapIndex++;
+  }
 
   if (popLast) elements.pop();
 
@@ -117,9 +126,10 @@ export const convertQuestionnaireSnapshotToPageMap = (
 };
 
 export const convertQuestionToSurveySchema = (questionMap) => {
-  const { question, type, options } = questionMap;
+  const { question, type, options, visibleIf } = questionMap;
 
   let element = {};
+  let subQuestions = [];
   if (type === 'SC') {
     element.type = 'radiogroup';
   } else if (type === 'MC') {
@@ -134,10 +144,22 @@ export const convertQuestionToSurveySchema = (questionMap) => {
   element.colCount = 4;
 
   if (type === 'SC' || type === 'MC') {
-    element.choices = options.map((option) => option.value);
+    element.choices = options.map((option) => {
+      if (option.has_sub_questions) {
+        subQuestions = subQuestions.concat(option.sub_questions);
+        option.sub_questions.map((subQuestion) => {
+          const updatedSubQuestion = subQuestion;
+          updatedSubQuestion.visibleIf = `{${question}} contains ["${option.value}"]`;
+          return updatedSubQuestion;
+        });
+      }
+      return option.value;
+    });
   }
 
-  return element;
+  element.visibleIf = visibleIf;
+
+  return { element: element, sub_questions: subQuestions };
 };
 
 export const mergePagesIntoSurveySchema = (pages) => {
@@ -146,7 +168,7 @@ export const mergePagesIntoSurveySchema = (pages) => {
     pages: pages,
     showProgressBar: 'top',
     showQuestionNumbers: 'on',
-    progressBarType: 'pages',
+    progressBarType: 'buttons',
   };
 
   return surveySchema;
