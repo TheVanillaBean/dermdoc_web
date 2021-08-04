@@ -162,6 +162,22 @@ export const mergePagesIntoSurveySchema = (pages) => {
   return surveySchema;
 };
 
+export const saveQuestionnaireResponse = async (visitID, questionnaire) => {
+  const visitRef = firestore
+    .collection(`visits/${visitID}/answers`)
+    .doc('questionnaire');
+
+  try {
+    await visitRef.set({
+      answered_date: new Date(),
+      answers: questionnaire,
+    });
+    return { error: false };
+  } catch (e) {
+    return { error: true, message: e.message };
+  }
+};
+
 firebase.initializeApp(config);
 
 export const firestore = firebase.firestore();
