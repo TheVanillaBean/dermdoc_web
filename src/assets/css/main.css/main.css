@@ -556,6 +556,96 @@ body {
     margin-bottom: 2rem;
     max-width: 80%; }
 
+.sign-up {
+  display: flex;
+  flex-direction: column;
+  width: 380px; }
+  .sign-up .title {
+    margin: 10px 0; }
+
+.sign-in {
+  width: 380px;
+  display: flex;
+  flex-direction: column; }
+  .sign-in .title {
+    margin: 10px 0; }
+  .sign-in .buttons {
+    display: flex;
+    justify-content: space-between; }
+
+.form-input-container {
+  position: relative;
+  margin: 45px 0; }
+  .form-input-container__input {
+    background: none;
+    background-color: white;
+    color: grey;
+    font-size: 18px;
+    padding: 10px 10px 10px 5px;
+    display: block;
+    width: 100%;
+    border: none;
+    border-radius: 0;
+    border-bottom: 1px solid grey;
+    margin: 25px 0; }
+    .form-input-container__input:focus {
+      outline: none; }
+    .form-input-container__input:focus ~ .form-input-label {
+      top: -14px;
+      font-size: 12px;
+      color: black; }
+  .form-input-container input[type='password'] {
+    letter-spacing: 0.3em; }
+  .form-input-container__label {
+    color: grey;
+    font-size: 16px;
+    font-weight: normal;
+    position: absolute;
+    pointer-events: none;
+    left: 5px;
+    top: 10px;
+    transition: 300ms ease all; }
+    .form-input-container__label__shrink {
+      top: -14px;
+      font-size: 12px;
+      color: black; }
+
+.custom-button {
+  min-width: 165px;
+  width: auto;
+  height: 50px;
+  letter-spacing: 0.5px;
+  line-height: 50px;
+  padding: 0 35px 0 35px;
+  font-size: 15px;
+  background-color: black;
+  color: white;
+  text-transform: uppercase;
+  font-family: 'Open Sans Condensed';
+  font-weight: bolder;
+  border: none;
+  cursor: pointer;
+  display: flex;
+  justify-content: center; }
+  .custom-button:hover {
+    background-color: white;
+    color: black;
+    border: 1px solid black; }
+  .custom-button.google-sign-in {
+    background-color: #4285f4;
+    color: white; }
+    .custom-button.google-sign-in:hover {
+      background-color: #357ae8;
+      border: none; }
+  .custom-button.inverted {
+    background-color: white;
+    color: black;
+    border: 1px solid black; }
+    .custom-button.inverted:hover {
+      background-color: black;
+      color: white;
+      border: none; }
+
 @keyframes pulsate {
   0% {
     transform: scale(1);

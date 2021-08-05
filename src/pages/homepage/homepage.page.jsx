@@ -10,8 +10,8 @@ import { ReactComponent as WalletSVG } from '../../assets/svg/SVG/wallet.svg';
 import CustomButton from '../../components/custom-button/custom-button.component';
 import Dropdown from '../../components/dropdown/dropdown.component';
 import Footer from '../../components/footer/footer.component';
-import FormInput from '../../components/form-input/form-input.component';
 import NavigationBar from '../../components/navigation-bar/navigation-bar.component';
+import SearchInput from '../../components/search-input/search-input.component';
 import {
   updateInsuranceType,
   updateVisitReason,
@@ -140,7 +140,7 @@ class HomePage extends React.Component {
                 <div className="search__options">
                   <div className="search__zipcode">
                     <label className="search__options--label">Zipcode</label>
-                    <FormInput
+                    <SearchInput
                       type="number"
                       name="zipcode"
                       value={zipcode}
