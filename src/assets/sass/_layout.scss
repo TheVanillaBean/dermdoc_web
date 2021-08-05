@@ -128,6 +128,14 @@
   }
 }
 
+.auth-page {
+  & > .container {
+    & > .flex {
+      gap: 3rem;
+    }
+  }
+}
+
 //Temp take out of landing page
 // .how-it-works {
 //   & > .container {
