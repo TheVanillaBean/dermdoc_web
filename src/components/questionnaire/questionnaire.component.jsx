@@ -15,7 +15,7 @@ import { selectVisitData } from '../../redux/visit/visit.selectors';
 
 Survey.StylesManager.applyTheme('modern');
 
-export const thankYouHTML = `
+export const reviewHtml = `
 <section class="questionnaire__thank-you">
   <h2>Thank you for filling out the questionnaire!</h2>
   <p>
@@ -23,7 +23,6 @@ export const thankYouHTML = `
     that you can securly and privately proceed with this visit.
   </p>
 
-  <button class="btn questionnaire">Answer Questions</button>
 </section>
 `;
 class Questionnaire extends React.Component {
@@ -46,6 +45,7 @@ class Questionnaire extends React.Component {
 
   onComplete = async (survey, options) => {
     const {
+      history,
       visit: { visit_id },
     } = this.props;
     const saveQuestionnaire = await saveQuestionnaireResponse(
@@ -54,6 +54,8 @@ class Questionnaire extends React.Component {
     );
     if (saveQuestionnaire.error) {
       console.log(saveQuestionnaire.message);
+    } else {
+      history.push(`/auth/${visit_id}`);
     }
   };
 

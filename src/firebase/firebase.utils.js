@@ -1,6 +1,6 @@
 import firebase from 'firebase/app';
 import 'firebase/firestore';
-import { thankYouHTML } from '../components/questionnaire/questionnaire.component';
+import { reviewHtml } from '../components/questionnaire/questionnaire.component';
 const {
   REACT_APP_FIREBASE_API_KEY,
   REACT_APP_FIREBASE_AUTH_DOMAIN,
@@ -163,9 +163,22 @@ export const convertQuestionToSurveySchema = (questionMap) => {
 };
 
 export const mergePagesIntoSurveySchema = (pages) => {
+  const reviewPage = {
+    elements: [
+      {
+        type: 'html',
+        name: 'review',
+        html: reviewHtml,
+      },
+    ],
+    name: 'Review',
+    navigationTitle: 'Review',
+    questionTitleLocation: 'top',
+  };
+  pages.push(reviewPage);
   const surveySchema = {
-    completedHtml: thankYouHTML,
     pages: pages,
+    showCompletedPage: false,
     showProgressBar: 'top',
     showQuestionNumbers: 'on',
     progressBarType: 'buttons',
