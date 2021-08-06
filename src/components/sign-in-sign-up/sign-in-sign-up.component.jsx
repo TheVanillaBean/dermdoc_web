@@ -1,16 +1,54 @@
 import React from 'react';
+import { connect } from 'react-redux';
+import { withRouter } from 'react-router-dom';
+import { createStructuredSelector } from 'reselect';
 import SignIn from '../../components/sign-in/sign-in.component';
 import SignUp from '../../components/sign-up/sign-up.component';
+import { selectCurrentUser } from '../../redux/user/user.selectors';
+import { updateVisitAsync } from '../../redux/visit/visit.actions';
+import { selectVisitData } from '../../redux/visit/visit.selectors';
 
-const SignInSignUp = () => (
-  <div className="auth-page">
-    <div className="container">
-      <div className="flex">
-        <SignIn />
-        <SignUp />
+class SignInSignUp extends React.Component {
+  componentDidUpdate(prevProps) {
+    const {
+      currentUser,
+      visit: { visit_id, status },
+      updateVisitAsync,
+      history,
+    } = this.props;
+
+    if (status === 'Authenticated') {
+      history.push(`/checkout/${visit_id}`);
+    } else {
+      if (currentUser != null) {
+        updateVisitAsync(visit_id, { status: 'Authenticated' });
+      }
+    }
+  }
+
+  render() {
+    return (
+      <div className="auth-page">
+        <div className="container">
+          <div className="flex">
+            <SignIn />
+            <SignUp />
+          </div>
+        </div>
       </div>
-    </div>
-  </div>
-);
+    );
+  }
+}
 
-export default SignInSignUp;
+const mapStateToProps = createStructuredSelector({
+  visit: selectVisitData,
+  currentUser: selectCurrentUser,
+});
+
+const mapDispatchToProps = (dispatch) => ({
+  updateVisitAsync: (visitID, updatedVisitData) =>
+    dispatch(updateVisitAsync(visitID, updatedVisitData)),
+});
+export default withRouter(
+  connect(mapStateToProps, mapDispatchToProps)(SignInSignUp)
+);

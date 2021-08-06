@@ -30,16 +30,18 @@ export const createUserProfileDocument = async (userAuth, additionalData) => {
   const snapshot = await usersRef.get();
 
   if (!snapshot.exists) {
-    const { displayName, email } = userAuth;
+    const { email } = userAuth;
     const createdAt = new Date();
 
     try {
-      await usersRef.set({
-        displayName,
-        email,
-        createdAt,
-        ...additionalData,
-      });
+      await usersRef.set(
+        {
+          email,
+          createdAt,
+          ...additionalData,
+        },
+        { merge: true }
+      );
     } catch (e) {
       console.log('error creating user', e.message);
     }
@@ -224,6 +226,17 @@ export const saveQuestionnaireResponse = async (visitID, questionnaire) => {
       answered_date: new Date(),
       answers: questionnaire,
     });
+    return { error: false };
+  } catch (e) {
+    return { error: true, message: e.message };
+  }
+};
+
+export const updateVisit = async (visitID, updatedVisitData) => {
+  const visitRef = firestore.collection(`visits`).doc(visitID);
+
+  try {
+    await visitRef.set(updatedVisitData, { merge: true });
     return { error: false };
   } catch (e) {
     return { error: true, message: e.message };
