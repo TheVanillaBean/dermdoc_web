@@ -217,15 +217,16 @@ export const mergePagesIntoSurveySchema = (pages) => {
 };
 
 export const saveQuestionnaireResponse = async (visitID, questionnaire) => {
-  const visitRef = firestore
+  const questionnaireRef = firestore
     .collection(`visits/${visitID}/questionnaire`)
     .doc('answers');
 
   try {
-    await visitRef.set({
+    await questionnaireRef.set({
       answered_date: new Date(),
       answers: questionnaire,
     });
+    await updateVisit(visitID, { status: 'FilledOut' });
     return { error: false };
   } catch (e) {
     return { error: true, message: e.message };
