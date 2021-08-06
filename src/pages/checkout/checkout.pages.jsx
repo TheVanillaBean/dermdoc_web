@@ -1,15 +1,15 @@
-import React from 'react';
+import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import { withRouter } from 'react-router-dom';
 import { createStructuredSelector } from 'reselect';
-import SignIn from '../../components/sign-in/sign-in.component';
-import SignUp from '../../components/sign-up/sign-up.component';
 import { firestore } from '../../firebase/firebase.utils';
-import { selectCurrentUser } from '../../redux/user/user.selectors';
-import { updateVisitAsync } from '../../redux/visit/visit.actions';
 import { selectVisitData } from '../../redux/visit/visit.selectors';
 
-class SignInSignUp extends React.Component {
+class CheckoutPage extends Component {
+  state = {
+    visitPaid: false,
+  };
+
   unsubscribeFromVisitSnapshot = null;
 
   componentDidMount() {
@@ -34,25 +34,15 @@ class SignInSignUp extends React.Component {
     this.unsubscribeFromVisitSnapshot();
   }
 
-  componentDidUpdate(prevProps) {
-    const {
-      currentUser,
-      visit: { visit_id },
-      updateVisitAsync,
-    } = this.props;
-
-    if (currentUser != null && prevProps.visit.status === 'filled_out') {
-      updateVisitAsync(visit_id, { status: 'authenticated' });
-    }
-  }
-
   render() {
+    const {
+      visit: { status },
+    } = this.props;
     return (
-      <div className="auth-page">
+      <div className="checkout-page">
         <div className="container">
           <div className="flex">
-            <SignIn />
-            <SignUp />
+            <h1>Status: {status}</h1>
           </div>
         </div>
       </div>
@@ -62,13 +52,6 @@ class SignInSignUp extends React.Component {
 
 const mapStateToProps = createStructuredSelector({
   visit: selectVisitData,
-  currentUser: selectCurrentUser,
 });
 
-const mapDispatchToProps = (dispatch) => ({
-  updateVisitAsync: (visitID, updatedVisitData) =>
-    dispatch(updateVisitAsync(visitID, updatedVisitData)),
-});
-export default withRouter(
-  connect(mapStateToProps, mapDispatchToProps)(SignInSignUp)
-);
+export default withRouter(connect(mapStateToProps, null)(CheckoutPage));

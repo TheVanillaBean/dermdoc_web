@@ -4,6 +4,7 @@ import { Redirect, Route, Switch } from 'react-router-dom';
 import '../src/assets/css/main.css/main.css';
 import { auth, createUserProfileDocument } from './firebase/firebase.utils';
 import AuthPage from './pages/auth/auth.pages';
+import CheckoutPage from './pages/checkout/checkout.pages';
 import DoctorDetailPage from './pages/doctor-detail/doctor-detail.page';
 import DoctorSearchPage from './pages/doctor-search/doctor-search.page';
 import HomePage from './pages/homepage/homepage.page';
@@ -49,6 +50,7 @@ class App extends Component {
         />
         <Route path="/visits/questions/:visit_id" component={QuestionsPage} />
         <Route path="/auth/:visit_id" component={AuthPage} />
+        <Route path="/visits/checkout/:visit_id" component={CheckoutPage} />
         <Route exact path="*">
           <Redirect to="/" />
         </Route>
