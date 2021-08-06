@@ -7,11 +7,9 @@ import { fetchVisitStartAsync } from '../../redux/visit/visit.actions';
 
 class VisitOverviewPage extends React.Component {
   componentDidMount() {
-    if (this.props.doctor == null) {
-      const { match, fetchVisitStartAsync } = this.props;
-      const visitID = match.params.visit_id;
-      fetchVisitStartAsync(visitID);
-    }
+    const { match, fetchVisitStartAsync } = this.props;
+    const visitID = match.params.visit_id;
+    fetchVisitStartAsync(visitID);
   }
 
   render() {
