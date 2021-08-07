@@ -1,57 +1,64 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import { withRouter } from 'react-router-dom';
-import { createStructuredSelector } from 'reselect';
-import { firestore } from '../../firebase/firebase.utils';
-import { selectVisitData } from '../../redux/visit/visit.selectors';
+import Checkout from '../../components/checkout/checkout.component';
+import Footer from '../../components/footer/footer.component';
+import NavigationBar from '../../components/navigation-bar/navigation-bar.component';
+import { fetchVisitStartAsync } from '../../redux/visit/visit.actions';
 
 class CheckoutPage extends Component {
-  state = {
-    visitPaid: false,
-  };
-
-  unsubscribeFromVisitSnapshot = null;
-
   componentDidMount() {
-    const {
-      visit: { visit_id },
-      history,
-    } = this.props;
-    this.unsubscribeFromVisitSnapshot = firestore
-      .collection('visits')
-      .doc(visit_id)
-      .onSnapshot((doc) => {
-        if (doc.exists) {
-          const visit = doc.data();
-          if (visit.status === 'authenticated') {
-            history.push(`/checkout/${visit_id}`);
-          }
-        }
-      });
-  }
-
-  componentWillUnmount() {
-    this.unsubscribeFromVisitSnapshot();
+    const { match, fetchVisitStartAsync } = this.props;
+    const visitID = match.params.visit_id;
+    fetchVisitStartAsync(visitID);
   }
 
   render() {
-    const {
-      visit: { status },
-    } = this.props;
     return (
-      <div className="checkout-page">
-        <div className="container">
-          <div className="flex">
-            <h1>Status: {status}</h1>
+      <div>
+        <header className="header">
+          <div className="container">
+            <NavigationBar />
           </div>
-        </div>
+        </header>
+
+        <Checkout />
+
+        <Footer />
       </div>
     );
   }
 }
 
-const mapStateToProps = createStructuredSelector({
-  visit: selectVisitData,
+const mapDispatchToProps = (dispatch) => ({
+  fetchVisitStartAsync: (visit_id) => dispatch(fetchVisitStartAsync(visit_id)),
 });
 
-export default withRouter(connect(mapStateToProps, null)(CheckoutPage));
+export default withRouter(connect(null, mapDispatchToProps)(CheckoutPage));
+
+//https://us-central1-medicall-dev-58c31.cloudfunctions.net/api/checkout/create-checkout-session
+//https://acfb9630196f.ngrok.io/medicall-dev-58c31/us-central1/api/checkout/create-checkout-session
+
+// String idToken = await auth.currentUserIdToken();
+
+// var params = {
+//   "consultId": consultId,
+// };
+
+// final response = await http.post(
+//   Uri.parse(settings.stripeCheckoutSessionURL),
+//   body: json.encode(params),
+//   headers: {
+//     HttpHeaders.authorizationHeader: "Bearer $idToken",
+//     HttpHeaders.contentTypeHeader: "application/json",
+//   },
+// );
+
+// if (response.statusCode != 200) {
+//   throw response.statusCode.toString();
+// }
+
+// final responseJson = json.decode(response.body);
+// String url = responseJson['url'];
+
+// return url;

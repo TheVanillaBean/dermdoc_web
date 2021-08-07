@@ -24,7 +24,7 @@ class SignInSignUp extends React.Component {
         if (doc.exists) {
           const visit = doc.data();
           if (visit.status === 'authenticated') {
-            history.push(`/checkout/${visit_id}`);
+            history.push(`/visits/checkout/${visit_id}`);
           }
         }
       });
