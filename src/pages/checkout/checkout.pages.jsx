@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import { withRouter } from 'react-router-dom';
-import Checkout from '../../components/checkout/checkout.component';
+import CheckoutContainer from '../../components/checkout/checkout.container';
 import Footer from '../../components/footer/footer.component';
 import NavigationBar from '../../components/navigation-bar/navigation-bar.component';
 import { fetchVisitStartAsync } from '../../redux/visit/visit.actions';
@@ -22,7 +22,7 @@ class CheckoutPage extends Component {
           </div>
         </header>
 
-        <Checkout />
+        <CheckoutContainer />
 
         <Footer />
       </div>
