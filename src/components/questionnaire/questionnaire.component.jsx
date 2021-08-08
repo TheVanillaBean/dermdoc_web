@@ -34,15 +34,6 @@ class Questionnaire extends React.Component {
     fetchQuestionsStartAsync(visit_reason);
   }
 
-  handleSubmit = async (event) => {
-    event.preventDefault();
-    const {
-      history,
-      visit: { visit_id },
-    } = this.props;
-    history.push(`/auth/${visit_id}`);
-  };
-
   onComplete = async (survey, options) => {
     const {
       history,

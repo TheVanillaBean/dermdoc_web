@@ -5,6 +5,9 @@ import {
 } from '../../firebase/firebase.utils';
 import VisitActionTypes from './visit.types';
 
+const visitErrorMessage =
+  'We could not find information for this visit. Please contact omar@medicall.com for fast assistance.';
+
 export const fetchVisitStart = () => ({
   type: VisitActionTypes.FETCH_VISIT_START,
 });
@@ -45,13 +48,13 @@ const fetchVisitData = async (visitID, dispatch) => {
   const documentRef = firestore.collection('visits').doc(visitID);
   try {
     const visitSnapshot = await documentRef.get();
-    const visitMap = convertVisitSnapshotToMap(visitSnapshot.data());
-    dispatch(fetchVisitSuccess(visitMap[0]));
+    if (visitSnapshot.exists) {
+      const visitMap = convertVisitSnapshotToMap(visitSnapshot.data());
+      dispatch(fetchVisitSuccess(visitMap));
+    } else {
+      dispatch(fetchVisitFailure(visitErrorMessage));
+    }
   } catch (e) {
-    dispatch(
-      fetchVisitFailure(
-        'We could not find information for this visit. Please contact omar@medicall.com for fast assistance.'
-      )
-    );
+    dispatch(fetchVisitFailure(visitErrorMessage));
   }
 };

@@ -18,6 +18,7 @@ class Checkout extends React.Component {
   componentDidMount() {
     const {
       visit: { visit_id },
+      fetchVisitSuccess,
       history,
     } = this.props;
     this.unsubscribeFromVisitSnapshot = firestore
@@ -28,8 +29,12 @@ class Checkout extends React.Component {
           const visit = doc.data();
           if (visit.status === 'paid') {
             fetchVisitSuccess(visit);
+          } else if (visit.status === 'authenticated') {
+            fetchVisitSuccess(visit);
           } else if (visit.status === 'filled_out') {
             history.push(`/auth/${visit_id}`);
+          } else {
+            fetchVisitSuccess(visit);
           }
         }
       });
@@ -39,14 +44,18 @@ class Checkout extends React.Component {
     this.unsubscribeFromVisitSnapshot();
   }
 
-  fetchStripeCheckoutURL() {
+  componentDidUpdate() {
+    this.fetchStripeCheckoutURL();
+  }
+
+  fetchStripeCheckoutURL = () => {
     const {
       updateVisitAsync,
       currentUser,
       visit: { visit_id, status },
       history,
     } = this.props;
-    if (currentUser != null) {
+    if (currentUser != null && status !== 'paid') {
       const headers = {
         'Content-Type': 'application/json',
         Authorization: `Bearer ${currentUser.idToken}`,
@@ -56,7 +65,7 @@ class Checkout extends React.Component {
         .post(
           `https://acfb9630196f.ngrok.io/medicall-dev-58c31/us-central1/api/checkout/create-checkout-session`,
           {
-            consultId: visit_id,
+            visitId: visit_id,
           },
           {
             headers: headers,
@@ -71,10 +80,10 @@ class Checkout extends React.Component {
         });
     } else {
       if (status === 'authenticated') {
-        updateVisitAsync(visit_id, { status: 'filled_out' });
+        updateVisitAsync(visit_id, { status: 'filled_out' }); //revert to previous state if user is no longer logged in
       }
     }
-  }
+  };
 
   render() {
     const {

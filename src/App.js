@@ -22,51 +22,17 @@ class App extends Component {
 
     this.unsubscribeFromAuth = auth.onAuthStateChanged(async (userAuth) => {
       if (userAuth) {
-        const {
-          insurance_brand,
-          member_id,
-          original_patient_information: {
-            first_name,
-            last_name,
-            email,
-            dob,
-            phone_number,
-            mailing_address,
-            mailing_city,
-            mailing_state,
-            mailing_zip_code,
-          },
-        } = this.visit;
+        const userRef = await createUserProfileDocument(userAuth);
 
-        const additionalData = {
-          first_name,
-          last_name,
-          email,
-          dob,
-          phone_number,
-          mailing_address,
-          mailing_city,
-          mailing_state,
-          mailing_zip_code,
-          insurance_brand,
-          member_id,
-        };
-
-        const userRef = await createUserProfileDocument(
-          userAuth,
-          additionalData
-        );
-
-        userRef.onSnapshot(async (snapshot) => {
-          const idToken = await userAuth.getIdToken();
-          setCurrentUser({
-            id: snapshot.id,
-            idToken: idToken,
-            ...snapshot.data(),
-          });
+        const user = await userRef.get();
+        const idToken = await userAuth.getIdToken();
+        setCurrentUser({
+          id: user.id,
+          idToken: idToken,
+          ...user.data(),
         });
       } else {
-        setCurrentUser(userAuth);
+        setCurrentUser(null);
       }
     });
   }

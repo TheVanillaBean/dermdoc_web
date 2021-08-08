@@ -93,32 +93,27 @@ export const convertDoctorsListSnapshotToMap = (doctors) => {
 };
 
 export const convertVisitSnapshotToMap = (visit) => {
-  //Since it is retrieved from a collection, it is a list
-  const transformedCollection = visit.docs.map((visit) => {
-    const {
-      date,
-      insurance_info,
-      original_patient_information,
-      provider_id,
-      seen_doctor,
-      status,
-      visit_reason,
-      visit_id,
-    } = visit.data();
+  const {
+    date,
+    insurance_info,
+    original_patient_information,
+    provider_id,
+    seen_doctor,
+    status,
+    visit_reason,
+    visit_id,
+  } = visit;
 
-    return {
-      date,
-      insurance_info,
-      original_patient_information,
-      provider_id,
-      seen_doctor,
-      status,
-      visit_reason,
-      visit_id,
-    };
-  });
-
-  return transformedCollection;
+  return {
+    date,
+    insurance_info,
+    original_patient_information,
+    provider_id,
+    seen_doctor,
+    status,
+    visit_reason,
+    visit_id,
+  };
 };
 
 export const convertQuestionnaireSnapshotToPageMap = (
