@@ -10,7 +10,7 @@ import DoctorDetailPage from './pages/doctor-detail/doctor-detail.page';
 import DoctorSearchPage from './pages/doctor-search/doctor-search.page';
 import HomePage from './pages/homepage/homepage.page';
 import QuestionsPage from './pages/questions/questions.page';
-import VisitOverviewPage from './pages/visit-overview/visit-overview.page';
+import VisitCostPage from './pages/visit-overview/visit-overview.page';
 import { setCurrentUser } from './redux/user/user.actions';
 import { selectVisitData } from './redux/visit/visit.selectors';
 
@@ -18,7 +18,7 @@ class App extends Component {
   unsubscribeFromAuth = null;
 
   componentDidMount() {
-    const { setCurrentUser, visit } = this.props;
+    const { setCurrentUser } = this.props;
 
     this.unsubscribeFromAuth = auth.onAuthStateChanged(async (userAuth) => {
       if (userAuth) {
@@ -47,10 +47,7 @@ class App extends Component {
         <Route exact path="/" component={HomePage} />
         <Route exact path="/search-doctors" component={DoctorSearchPage} />
         <Route path="/doctors/:doctor_route" component={DoctorDetailPage} />
-        <Route
-          path="/visits/overview/:visit_id"
-          component={VisitOverviewPage}
-        />
+        <Route path="/visits/cost/:visit_id" component={VisitCostPage} />
         <Route path="/visits/questions/:visit_id" component={QuestionsPage} />
         <Route path="/auth/:visit_id" component={AuthPage} />
         <Route path="/visits/checkout/:visit_id" component={CheckoutPage} />
