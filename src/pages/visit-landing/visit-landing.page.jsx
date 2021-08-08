@@ -1,5 +1,6 @@
 import React from 'react';
 import { connect } from 'react-redux';
+import { Route } from 'react-router-dom';
 import { firestore } from '../../firebase/firebase.utils';
 import {
   fetchVisitFailure,
@@ -7,13 +8,24 @@ import {
   fetchVisitSuccess,
   updateVisitAsync,
 } from '../../redux/visit/visit.actions';
+import AuthPage from '../auth/auth.page';
+import CheckoutPage from '../checkout/checkout.page';
+import QuestionsPage from '../questions/questions.page';
+import VisitCostPage from '../visit-cost/visit-cost.page';
 
 class VisitLandingPage extends React.Component {
   unsubscribeFromVisitSnapshot = null;
 
   componentDidMount() {
-    const { match, history, fetchVisitSuccess, fetchVisitFailure } = this.props;
+    const {
+      match,
+      history,
+      fetchVisitStart,
+      fetchVisitSuccess,
+      fetchVisitFailure,
+    } = this.props;
     const visitID = match.params.visit_id;
+    fetchVisitStart();
     this.unsubscribeFromVisitSnapshot = firestore
       .collection('visits')
       .doc(visitID)
@@ -24,13 +36,13 @@ class VisitLandingPage extends React.Component {
             fetchVisitSuccess(visit);
 
             if (visit.status === 'paid') {
-              // fetchVisitSuccess(visit);
+              history.push(`/visits/checkout/${visit.visit_id}`);
             } else if (visit.status === 'authenticated') {
-              // fetchVisitSuccess(visit);
+              history.push(`/visits/checkout/${visit.visit_id}`);
             } else if (visit.status === 'filled_out') {
-              // history.push(`/auth/${visit_id}`);
+              history.push(`/visits/auth/${visit.visit_id}`);
             } else {
-              // fetchVisitSuccess(visit);
+              history.push(`/visits/cost/${visit.visit_id}`);
             }
           }
         },
@@ -47,7 +59,25 @@ class VisitLandingPage extends React.Component {
   }
 
   render() {
-    return <div></div>;
+    const { match } = this.props;
+
+    return (
+      <div>
+        <Route
+          path={`${match.path}/cost/:visit_id`}
+          component={VisitCostPage}
+        />
+        <Route
+          path={`${match.path}/questions/:visit_id`}
+          component={QuestionsPage}
+        />
+        <Route path={`${match.path}/auth/:visit_id`} component={AuthPage} />
+        <Route
+          path={`${match.path}/checkout/:visit_id`}
+          component={CheckoutPage}
+        />
+      </div>
+    );
   }
 }
 
