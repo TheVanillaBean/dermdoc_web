@@ -1,7 +1,9 @@
 import React from 'react';
 import { connect } from 'react-redux';
-import { Route } from 'react-router-dom';
+import { Redirect, Route, Switch } from 'react-router-dom';
+import { createStructuredSelector } from 'reselect';
 import { firestore } from '../../firebase/firebase.utils';
+import { selectCurrentUser } from '../../redux/user/user.selectors';
 import {
   fetchVisitFailure,
   fetchVisitStart,
@@ -20,6 +22,8 @@ class VisitLandingPage extends React.Component {
     const {
       match,
       history,
+      currentUser,
+      updateVisitAsync,
       fetchVisitStart,
       fetchVisitSuccess,
       fetchVisitFailure,
@@ -35,14 +39,21 @@ class VisitLandingPage extends React.Component {
             const visit = doc.data();
             fetchVisitSuccess(visit);
 
-            if (visit.status === 'paid') {
-              history.push(`/visits/checkout/${visit.visit_id}`);
-            } else if (visit.status === 'authenticated') {
-              history.push(`/visits/checkout/${visit.visit_id}`);
+            if (visit.status === 'scheduled') {
+              history.push(`/visits/${visit.visit_id}/cost`);
             } else if (visit.status === 'filled_out') {
-              history.push(`/visits/auth/${visit.visit_id}`);
-            } else {
-              history.push(`/visits/cost/${visit.visit_id}`);
+              history.push(`/visits/${visit.visit_id}/questions`);
+            } else if (visit.status === 'authenticated') {
+              if (!currentUser) {
+                //if user is not authenticated, revert status back to "filled_out"
+                updateVisitAsync(visit.visit_id, { status: 'filled_out' });
+              } else {
+                //if user is authenticated, then route to checkout like normal
+                history.push(`/visits/${visit.visit_id}/checkout`);
+              }
+              //This can happen if a user comes back later or on a seperate browser and is no longer logged in
+            } else if (visit.status === 'paid') {
+              history.push(`/visits/${visit.visit_id}/checkout`);
             }
           }
         },
@@ -60,26 +71,23 @@ class VisitLandingPage extends React.Component {
 
   render() {
     const { match } = this.props;
-
     return (
-      <div>
-        <Route
-          path={`${match.path}/cost/:visit_id`}
-          component={VisitCostPage}
-        />
-        <Route
-          path={`${match.path}/questions/:visit_id`}
-          component={QuestionsPage}
-        />
-        <Route path={`${match.path}/auth/:visit_id`} component={AuthPage} />
-        <Route
-          path={`${match.path}/checkout/:visit_id`}
-          component={CheckoutPage}
-        />
-      </div>
+      <Switch>
+        <Route path={`${match.path}/cost`} component={VisitCostPage} />
+        <Route path={`${match.path}/questions`} component={QuestionsPage} />
+        <Route path={`${match.path}/auth`} component={AuthPage} />
+        <Route path={`${match.path}/checkout`} component={CheckoutPage} />
+        <Route exact path="*">
+          <Redirect to={`/visits/${match.params.visit_id}/cost`} />
+        </Route>
+      </Switch>
     );
   }
 }
+
+const mapStateToProps = createStructuredSelector({
+  currentUser: selectCurrentUser,
+});
 
 const mapDispatchToProps = (dispatch) => ({
   updateVisitAsync: (visitID, updatedVisitData) =>
@@ -89,4 +97,15 @@ const mapDispatchToProps = (dispatch) => ({
   fetchVisitFailure: (errorMsg) => dispatch(fetchVisitFailure(errorMsg)),
 });
 
-export default connect(null, mapDispatchToProps)(VisitLandingPage);
+export default connect(mapStateToProps, mapDispatchToProps)(VisitLandingPage);
+
+// <Route
+//           path={`${match.path}/checkout`}
+//           render={() =>
+//             this.props.currentUser ? (
+//               <Redirect to={`/visits/${match.params.visit_id}/questions`} />
+//             ) : (
+//               <CheckoutPage />
+//             )
+//           }
+//         />

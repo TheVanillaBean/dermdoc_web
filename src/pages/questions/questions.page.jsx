@@ -3,15 +3,8 @@ import { connect } from 'react-redux';
 import Footer from '../../components/footer/footer.component';
 import NavigationBar from '../../components/navigation-bar/navigation-bar.component';
 import QuestionnaireContainer from '../../components/questionnaire/questionnaire.container';
-import { fetchVisitStartAsync } from '../../redux/visit/visit.actions';
 
 class QuestionsPage extends React.Component {
-  componentDidMount() {
-    const { match, fetchVisitStartAsync } = this.props;
-    const visitID = match.params.visit_id;
-    fetchVisitStartAsync(visitID);
-  }
-
   render() {
     return (
       <div>
@@ -29,8 +22,4 @@ class QuestionsPage extends React.Component {
   }
 }
 
-const mapDispatchToProps = (dispatch) => ({
-  fetchVisitStartAsync: (visit_id) => dispatch(fetchVisitStartAsync(visit_id)),
-});
-
-export default connect(null, mapDispatchToProps)(QuestionsPage);
+export default connect(null, null)(QuestionsPage);

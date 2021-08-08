@@ -13,7 +13,7 @@ class CostEstimate extends React.Component {
       history,
       visit: { visit_id },
     } = this.props;
-    history.push(`/visits/questions/${visit_id}`);
+    history.push(`/visits/${visit_id}/questions`);
   };
 
   render() {

@@ -46,7 +46,7 @@ class Questionnaire extends React.Component {
     if (saveQuestionnaire.error) {
       console.log(saveQuestionnaire.message);
     } else {
-      history.push(`/visits/auth/${visit_id}`);
+      history.push(`/visits/${visit_id}/auth`);
     }
   };
 
