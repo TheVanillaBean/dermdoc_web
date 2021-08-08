@@ -5,7 +5,7 @@ import {
 } from '../../firebase/firebase.utils';
 import VisitActionTypes from './visit.types';
 
-const visitErrorMessage =
+export const visitErrorMessage =
   'We could not find information for this visit. Please contact omar@medicall.com for fast assistance.';
 
 export const fetchVisitStart = () => ({
