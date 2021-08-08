@@ -20,23 +20,10 @@ export const fetchVisitFailure = (errorMessage) => ({
 });
 
 export const fetchVisitStartAsync = (visitID) => {
-  return (dispatch) => {
+  return async (dispatch) => {
     dispatch(fetchVisitStart());
 
-    const collectionRef = firestore
-      .collection('visits')
-      .where('visit_id', '==', visitID);
-
-    collectionRef
-      .get()
-      .then(async (snapshot) => {
-        const visitMap = convertVisitSnapshotToMap(snapshot);
-        dispatch(fetchVisitSuccess(visitMap[0]));
-        // dispatch(fetchDoctorsListFailure('Error'));
-      })
-      .catch((error) => {
-        dispatch(fetchVisitFailure(error.message));
-      });
+    await fetchVisitData(visitID, dispatch);
   };
 };
 
@@ -47,15 +34,24 @@ export const updateVisitAsync = (visitID, updatedVisitData) => {
     const updateVisitAPICall = await updateVisit(visitID, updatedVisitData);
 
     if (!updateVisitAPICall.error) {
-      const collectionRef = firestore
-        .collection('visits')
-        .where('visit_id', '==', visitID);
-
-      const visit = await collectionRef.get();
-      const visitMap = convertVisitSnapshotToMap(visit);
-      dispatch(fetchVisitSuccess(visitMap[0]));
+      await fetchVisitData(visitID, dispatch);
     } else {
       dispatch(fetchVisitFailure(updateVisitAPICall.message));
     }
   };
+};
+
+const fetchVisitData = async (visitID, dispatch) => {
+  const documentRef = firestore.collection('visits').doc(visitID);
+  try {
+    const visitSnapshot = await documentRef.get();
+    const visitMap = convertVisitSnapshotToMap(visitSnapshot.data());
+    dispatch(fetchVisitSuccess(visitMap[0]));
+  } catch (e) {
+    dispatch(
+      fetchVisitFailure(
+        'We could not find information for this visit. Please contact omar@medicall.com for fast assistance.'
+      )
+    );
+  }
 };

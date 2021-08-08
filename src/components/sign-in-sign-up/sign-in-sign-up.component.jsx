@@ -42,7 +42,10 @@ class SignInSignUp extends React.Component {
     } = this.props;
 
     if (currentUser != null && prevProps.visit.status === 'filled_out') {
-      updateVisitAsync(visit_id, { status: 'authenticated' });
+      updateVisitAsync(visit_id, {
+        status: 'authenticated',
+        patient_id: currentUser.id,
+      });
     }
   }
 
