@@ -1,6 +1,7 @@
 import { combineReducers } from 'redux';
 import { persistReducer } from 'redux-persist';
 import storage from 'redux-persist/lib/storage';
+import checkoutReducer from './checkout/checkout.reducer';
 import doctorsReducer from './doctors/doctors.reducer';
 import questionnaireReducer from './questionnaire/questionnaire.reducer';
 import searchReducer from './search/search.reducer';
@@ -15,6 +16,7 @@ const rootReducer = combineReducers({
   visit: visitReducer,
   questionnaire: questionnaireReducer,
   user: userReducer,
+  checkout: checkoutReducer,
 });
 
 export default persistReducer(persistConfig, rootReducer);
