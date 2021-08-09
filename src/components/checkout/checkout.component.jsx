@@ -11,10 +11,16 @@ import {
   updateVisitAsync,
 } from '../../redux/visit/visit.actions';
 import { selectVisitData } from '../../redux/visit/visit.selectors';
-import CustomButton from '../custom-button/custom-button.component';
 class Checkout extends React.Component {
   componentDidMount() {
+    const {
+      currentUser,
+      visit: { visit_id, status },
+    } = this.props;
     this.revertStatusIfNoUser();
+    if (currentUser && status !== 'paid') {
+      this.openStripeCheckoutURL(currentUser.idToken, visit_id);
+    }
   }
 
   componentDidUpdate() {
@@ -31,16 +37,6 @@ class Checkout extends React.Component {
       //if user is not authenticated but status is, revert status back to "filled_out"
       updateVisitAsync(visit_id, { status: 'filled_out' });
       //This can happen if a user comes back later or on a seperate browser and is no longer logged in
-    }
-  };
-
-  handleClick = async () => {
-    const {
-      currentUser,
-      visit: { visit_id, status },
-    } = this.props;
-    if (currentUser && status !== 'paid') {
-      await this.openStripeCheckoutURL(currentUser.idToken, visit_id);
     }
   };
 
@@ -62,8 +58,7 @@ class Checkout extends React.Component {
 
     if (fetchStripeURL.status === 200) {
       const url = fetchStripeURL.data.url;
-      const newWindow = window.open(url, '_blank', 'noopener,noreferrer');
-      if (newWindow) newWindow.opener = null;
+      window.location.replace(url);
     } else {
       console.log('fetch stripe URL error');
     }
@@ -77,12 +72,6 @@ class Checkout extends React.Component {
       <div className="checkout-page">
         <div className="container">
           <h1>Visit Status: {status}</h1>
-          <CustomButton
-            className="search__submit btn"
-            onClick={this.handleClick}
-          >
-            Pay with Stripe
-          </CustomButton>
         </div>
       </div>
     );

@@ -22,7 +22,6 @@ class VisitLandingPage extends React.Component {
     const {
       match,
       history,
-
       fetchVisitStart,
       fetchVisitSuccess,
       fetchVisitFailure,
