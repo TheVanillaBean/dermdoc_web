@@ -4,7 +4,6 @@ import { connect } from 'react-redux';
 import { withRouter } from 'react-router-dom';
 import { createStructuredSelector } from 'reselect';
 import 'survey-react/modern.css';
-import { firestore } from '../../firebase/firebase.utils';
 import { fetchQuestionsStartAsync } from '../../redux/questionnaire/questionnaire.actions';
 import { selectCurrentUser } from '../../redux/user/user.selectors';
 import {
@@ -12,76 +11,61 @@ import {
   updateVisitAsync,
 } from '../../redux/visit/visit.actions';
 import { selectVisitData } from '../../redux/visit/visit.selectors';
+import CustomButton from '../custom-button/custom-button.component';
 class Checkout extends React.Component {
-  unsubscribeFromVisitSnapshot = null;
-
   componentDidMount() {
-    const {
-      visit: { visit_id },
-      fetchVisitSuccess,
-      history,
-    } = this.props;
-    this.unsubscribeFromVisitSnapshot = firestore
-      .collection('visits')
-      .doc(visit_id)
-      .onSnapshot((doc) => {
-        if (doc.exists) {
-          const visit = doc.data();
-          if (visit.status === 'paid') {
-            fetchVisitSuccess(visit);
-          } else if (visit.status === 'authenticated') {
-            fetchVisitSuccess(visit);
-          } else if (visit.status === 'filled_out') {
-            history.push(`/auth/${visit_id}`);
-          } else {
-            fetchVisitSuccess(visit);
-          }
-        }
-      });
-  }
-
-  componentWillUnmount() {
-    this.unsubscribeFromVisitSnapshot();
+    this.revertStatusIfNoUser();
   }
 
   componentDidUpdate() {
-    this.fetchStripeCheckoutURL();
+    this.revertStatusIfNoUser();
   }
 
-  fetchStripeCheckoutURL = () => {
+  revertStatusIfNoUser = () => {
     const {
       updateVisitAsync,
       currentUser,
       visit: { visit_id, status },
-      history,
     } = this.props;
-    if (currentUser != null && status !== 'paid') {
-      const headers = {
-        'Content-Type': 'application/json',
-        Authorization: `Bearer ${currentUser.idToken}`,
-      };
+    if (!currentUser && status === 'authenticated') {
+      //if user is not authenticated but status is, revert status back to "filled_out"
+      updateVisitAsync(visit_id, { status: 'filled_out' });
+      //This can happen if a user comes back later or on a seperate browser and is no longer logged in
+    }
+  };
 
-      axios
-        .post(
-          `https://acfb9630196f.ngrok.io/medicall-dev-58c31/us-central1/api/checkout/create-checkout-session`,
-          {
-            visitId: visit_id,
-          },
-          {
-            headers: headers,
-          }
-        )
-        .then((response) => {
-          if (response.status === 200) {
-            const url = response.data.url;
-            const newWindow = window.open(url, '_blank', 'noopener,noreferrer');
-            if (newWindow) newWindow.opener = null;
-          }
-        });
-    } else {
-      if (status === 'authenticated') {
-        updateVisitAsync(visit_id, { status: 'filled_out' }); //revert to previous state if user is no longer logged in
+  handleClick = async () => {
+    const {
+      currentUser,
+      visit: { visit_id, status },
+    } = this.props;
+    if (currentUser && status !== 'paid') {
+      await this.openStripeCheckoutURL(currentUser.idToken, visit_id);
+    }
+  };
+
+  openStripeCheckoutURL = async (idToken, visitID) => {
+    const headers = {
+      'Content-Type': 'application/json',
+      Authorization: `Bearer ${idToken}`,
+    };
+
+    const fetchStripeURL = await axios.post(
+      `https://acfb9630196f.ngrok.io/medicall-dev-58c31/us-central1/api/checkout/create-checkout-session`,
+      {
+        visitId: visitID,
+      },
+      {
+        headers: headers,
       }
+    );
+
+    if (fetchStripeURL.status === 200) {
+      const url = fetchStripeURL.data.url;
+      const newWindow = window.open(url, '_blank', 'noopener,noreferrer');
+      if (newWindow) newWindow.opener = null;
+    } else {
+      console.log('fetch stripe URL error');
     }
   };
 
@@ -92,9 +76,13 @@ class Checkout extends React.Component {
     return (
       <div className="checkout-page">
         <div className="container">
-          <div className="flex">
-            <h1>Visit Status: {status}</h1>
-          </div>
+          <h1>Visit Status: {status}</h1>
+          <CustomButton
+            className="search__submit btn"
+            onClick={this.handleClick}
+          >
+            Pay with Stripe
+          </CustomButton>
         </div>
       </div>
     );

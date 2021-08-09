@@ -22,8 +22,7 @@ class VisitLandingPage extends React.Component {
     const {
       match,
       history,
-      currentUser,
-      updateVisitAsync,
+
       fetchVisitStart,
       fetchVisitSuccess,
       fetchVisitFailure,
@@ -42,16 +41,9 @@ class VisitLandingPage extends React.Component {
             if (visit.status === 'scheduled') {
               history.push(`/visits/${visit.visit_id}/cost`);
             } else if (visit.status === 'filled_out') {
-              history.push(`/visits/${visit.visit_id}/questions`);
+              history.push(`/visits/${visit.visit_id}/auth`);
             } else if (visit.status === 'authenticated') {
-              if (!currentUser) {
-                //if user is not authenticated, revert status back to "filled_out"
-                updateVisitAsync(visit.visit_id, { status: 'filled_out' });
-              } else {
-                //if user is authenticated, then route to checkout like normal
-                history.push(`/visits/${visit.visit_id}/checkout`);
-              }
-              //This can happen if a user comes back later or on a seperate browser and is no longer logged in
+              history.push(`/visits/${visit.visit_id}/checkout`);
             } else if (visit.status === 'paid') {
               history.push(`/visits/${visit.visit_id}/checkout`);
             }
@@ -98,14 +90,3 @@ const mapDispatchToProps = (dispatch) => ({
 });
 
 export default connect(mapStateToProps, mapDispatchToProps)(VisitLandingPage);
-
-// <Route
-//           path={`${match.path}/checkout`}
-//           render={() =>
-//             this.props.currentUser ? (
-//               <Redirect to={`/visits/${match.params.visit_id}/questions`} />
-//             ) : (
-//               <CheckoutPage />
-//             )
-//           }
-//         />
