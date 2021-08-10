@@ -1,30 +1,36 @@
-import axios from 'axios';
 import React from 'react';
 import { connect } from 'react-redux';
 import { withRouter } from 'react-router-dom';
 import { createStructuredSelector } from 'reselect';
 import 'survey-react/modern.css';
-import { fetchQuestionsStartAsync } from '../../redux/questionnaire/questionnaire.actions';
-import { selectCurrentUser } from '../../redux/user/user.selectors';
+import { fetchCheckoutURLStartAsync } from '../../redux/checkout/checkout.actions';
 import {
-  fetchVisitSuccess,
-  updateVisitAsync,
-} from '../../redux/visit/visit.actions';
+  selectCheckoutErrorMessage,
+  selectCheckoutIsFetchingURL,
+  selectCheckoutURL,
+} from '../../redux/checkout/checkout.selectors';
+import { selectCurrentUser } from '../../redux/user/user.selectors';
+import { updateVisitAsync } from '../../redux/visit/visit.actions';
 import { selectVisitData } from '../../redux/visit/visit.selectors';
 class Checkout extends React.Component {
   componentDidMount() {
     const {
       currentUser,
       visit: { visit_id, status },
+      fetchCheckoutURLStartAsync,
     } = this.props;
     this.revertStatusIfNoUser();
     if (currentUser && status !== 'paid') {
-      this.openStripeCheckoutURL(currentUser.idToken, visit_id);
+      fetchCheckoutURLStartAsync(currentUser.idToken, visit_id);
     }
   }
 
   componentDidUpdate() {
     this.revertStatusIfNoUser();
+    const { currentUser, stripeCheckoutURL } = this.props;
+    if (currentUser && stripeCheckoutURL) {
+      window.location.replace(stripeCheckoutURL);
+    }
   }
 
   revertStatusIfNoUser = () => {
@@ -40,55 +46,62 @@ class Checkout extends React.Component {
     }
   };
 
-  openStripeCheckoutURL = async (idToken, visitID) => {
-    const headers = {
-      'Content-Type': 'application/json',
-      Authorization: `Bearer ${idToken}`,
-    };
-
-    const fetchStripeURL = await axios.post(
-      `https://acfb9630196f.ngrok.io/medicall-dev-58c31/us-central1/api/checkout/create-checkout-session`,
-      {
-        visitId: visitID,
-      },
-      {
-        headers: headers,
-      }
-    );
-
-    if (fetchStripeURL.status === 200) {
-      const url = fetchStripeURL.data.url;
-      window.location.replace(url);
-    } else {
-      console.log('fetch stripe URL error');
-    }
-  };
-
   render() {
-    const {
-      visit: { status },
-    } = this.props;
-    return (
-      <div className="checkout-page">
-        <div className="container">
-          <h1>Visit Status: {status}</h1>
+    const { isFetchingURL, stripeErrorMessage, visit } = this.props;
+
+    if (visit.status === 'paid') {
+      return (
+        <div className="checkout-page">
+          <div className="container">
+            <div className="visit-paid-container">
+              <h1>Hooray! You have successful scheduled a live video visit.</h1>
+              <p>
+                An email has been sent to{' '}
+                {visit.original_patient_information.email} with details
+                pertaining to your visit.
+              </p>
+              <p>
+                If you have any questions, please email omar@medicall.com for
+                same-day responses.
+              </p>
+            </div>
+          </div>
         </div>
-      </div>
-    );
+      );
+    } else {
+      if (stripeErrorMessage) {
+        return (
+          <div className="spinner-overlay">
+            <h1>{stripeErrorMessage}</h1>
+          </div>
+        );
+      } else {
+        if (isFetchingURL) {
+          return (
+            <div className="spinner-overlay">
+              <h2>Loading your checkout. Please wait...</h2>
+              <div className="spinner-container" />
+            </div>
+          );
+        }
+      }
+    }
   }
 }
 
 const mapStateToProps = createStructuredSelector({
   visit: selectVisitData,
   currentUser: selectCurrentUser,
+  stripeCheckoutURL: selectCheckoutURL,
+  isFetchingURL: selectCheckoutIsFetchingURL,
+  stripeErrorMessage: selectCheckoutErrorMessage,
 });
 
 const mapDispatchToProps = (dispatch) => ({
-  fetchQuestionsStartAsync: (symptom) =>
-    dispatch(fetchQuestionsStartAsync(symptom)),
   updateVisitAsync: (visitID, updatedVisitData) =>
     dispatch(updateVisitAsync(visitID, updatedVisitData)),
-  fetchVisitSuccess: (visitMap) => dispatch(fetchVisitSuccess(visitMap)),
+  fetchCheckoutURLStartAsync: (idToken, visitID) =>
+    dispatch(fetchCheckoutURLStartAsync(idToken, visitID)),
 });
 
 export default withRouter(

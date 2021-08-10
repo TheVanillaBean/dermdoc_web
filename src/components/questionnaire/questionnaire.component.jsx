@@ -56,7 +56,7 @@ class Questionnaire extends React.Component {
     if (questionsError) {
       return (
         <div className="spinner-overlay">
-          <h1>questionsError</h1>
+          <h1>{questionsError}</h1>
         </div>
       );
     } else {
