@@ -49,12 +49,18 @@ class Checkout extends React.Component {
   render() {
     const { isFetchingURL, stripeErrorMessage, visit } = this.props;
 
-    if (visit.status === 'paid') {
+    if (
+      visit.status === 'paid' ||
+      visit.status === 'email_ready' ||
+      visit.status === 'emails_sent'
+    ) {
       return (
         <div className="checkout-page">
           <div className="container">
             <div className="visit-paid-container">
-              <h1>Hooray! You have successful scheduled a live video visit.</h1>
+              <h1>
+                Hooray! You have successfully scheduled a live video visit.
+              </h1>
               <p>
                 An email has been sent to{' '}
                 {visit.original_patient_information.email} with details
@@ -80,6 +86,13 @@ class Checkout extends React.Component {
           return (
             <div className="spinner-overlay">
               <h2>Loading your checkout. Please wait...</h2>
+              <div className="spinner-container" />
+            </div>
+          );
+        } else {
+          return (
+            <div className="spinner-overlay">
+              <h2>Redirecting to secure checkout page...</h2>
               <div className="spinner-container" />
             </div>
           );
