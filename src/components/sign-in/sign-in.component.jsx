@@ -1,5 +1,9 @@
 import React, { Component } from 'react';
-import { auth, signInWithGoogle } from '../../firebase/firebase.utils';
+import { connect } from 'react-redux';
+import { withRouter } from 'react-router-dom';
+import { createStructuredSelector } from 'reselect';
+import { auth } from '../../firebase/firebase.utils';
+import { selectVisitData } from '../../redux/visit/visit.selectors';
 import CustomButton from '../custom-button/custom-button.component';
 import FormInput from '../form-input/form-input.component';
 
@@ -7,8 +11,14 @@ class SignIn extends Component {
   constructor(props) {
     super(props);
 
+    const { visit } = this.props;
+
+    const {
+      original_patient_information: { email },
+    } = visit;
+
     this.state = {
-      email: '',
+      email: email,
       password: '',
     };
   }
@@ -41,8 +51,8 @@ class SignIn extends Component {
           <FormInput
             name="email"
             type="email"
-            handleChange={this.handleChange}
             value={this.state.email}
+            disabled
             label="email"
             required
           />
@@ -58,14 +68,6 @@ class SignIn extends Component {
             <CustomButton className="custom-button" type="submit">
               Sign in
             </CustomButton>
-            <CustomButton
-              className="custom-button"
-              type="button"
-              onClick={signInWithGoogle}
-              isGoogleSignIn
-            >
-              Sign in with Google
-            </CustomButton>
           </div>
         </form>
       </div>
@@ -73,4 +75,8 @@ class SignIn extends Component {
   }
 }
 
-export default SignIn;
+const mapStateToProps = createStructuredSelector({
+  visit: selectVisitData,
+});
+
+export default withRouter(connect(mapStateToProps)(SignIn));

@@ -43,7 +43,11 @@ class VisitLandingPage extends React.Component {
               history.push(`/visits/${visit.visit_id}/auth`);
             } else if (visit.status === 'authenticated') {
               history.push(`/visits/${visit.visit_id}/checkout`);
-            } else if (visit.status === 'paid') {
+            } else if (
+              visit.status === 'paid' ||
+              visit.status === 'email_ready' ||
+              visit.status === 'emails_sent'
+            ) {
               history.push(`/visits/${visit.visit_id}/checkout`);
             }
           }

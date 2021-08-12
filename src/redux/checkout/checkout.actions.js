@@ -1,6 +1,6 @@
 import axios from 'axios';
 import CheckoutActionTypes from './checkout.types';
-
+const { REACT_APP_CHECKOUT_URL } = process.env;
 export const fetchCheckoutURLStart = () => ({
   type: CheckoutActionTypes.FETCH_STRIPE_URL_START,
 });
@@ -26,7 +26,7 @@ export const fetchCheckoutURLStartAsync = (idToken, visitID) => {
 
     try {
       const fetchStripeURL = await axios.post(
-        `https://acfb9630196f.ngrok.io/medicall-dev-58c31/us-central1/api/checkout/create-checkout-session`,
+        REACT_APP_CHECKOUT_URL,
         {
           visitId: visitID,
         },
