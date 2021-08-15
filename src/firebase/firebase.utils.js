@@ -206,6 +206,7 @@ export const mergePagesIntoSurveySchema = (pages) => {
     showProgressBar: 'top',
     showQuestionNumbers: 'on',
     progressBarType: 'buttons',
+    clearInvisibleValues: 'onHidden',
   };
 
   return surveySchema;
@@ -241,6 +242,7 @@ export const updateVisit = async (visitID, updatedVisitData) => {
 
 firebase.initializeApp(config);
 
+export const NON_PERSITANCE = firebase.auth.Auth.Persistence.NONE;
 export const auth = firebase.auth();
 export const firestore = firebase.firestore();
 

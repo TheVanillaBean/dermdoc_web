@@ -2,7 +2,7 @@ import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import { withRouter } from 'react-router-dom';
 import { createStructuredSelector } from 'reselect';
-import { auth } from '../../firebase/firebase.utils';
+import { auth, NON_PERSITANCE } from '../../firebase/firebase.utils';
 import { selectVisitData } from '../../redux/visit/visit.selectors';
 import CustomButton from '../custom-button/custom-button.component';
 import FormInput from '../form-input/form-input.component';
@@ -28,6 +28,7 @@ class SignIn extends Component {
     const { email, password } = this.state;
 
     try {
+      await auth.setPersistence(NON_PERSITANCE);
       await auth.signInWithEmailAndPassword(email, password);
     } catch (e) {
       console.error(e);

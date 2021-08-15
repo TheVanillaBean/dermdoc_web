@@ -13,6 +13,16 @@ import {
 } from '../../redux/questionnaire/questionnaire.selectors';
 import { selectVisitData } from '../../redux/visit/visit.selectors';
 
+Survey.StylesManager.ThemeColors['modern']['$main-color'] = '#90024c';
+Survey.StylesManager.ThemeColors['modern']['$header-color'] = '#8e201d';
+Survey.StylesManager.ThemeColors['modern']['$header-background-color'] =
+  '#8e201d';
+Survey.StylesManager.ThemeColors['modern']['$body-container-background-color'] =
+  '#90024c';
+Survey.StylesManager.ThemeColors['modern']['$answer-background-color'] =
+  '#ebb9ae';
+Survey.StylesManager.ThemeColors['modern']['$progress-buttons-color'] =
+  '#8e201d';
 Survey.StylesManager.applyTheme('modern');
 
 export const reviewHtml = `

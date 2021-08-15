@@ -2,7 +2,11 @@ import React from 'react';
 import { connect } from 'react-redux';
 import { withRouter } from 'react-router-dom';
 import { createStructuredSelector } from 'reselect';
-import { auth, createUserProfileDocument } from '../../firebase/firebase.utils';
+import {
+  auth,
+  createUserProfileDocument,
+  NON_PERSITANCE,
+} from '../../firebase/firebase.utils';
 import { selectVisitData } from '../../redux/visit/visit.selectors';
 import CustomButton from '../custom-button/custom-button.component';
 import FormInput from '../form-input/form-input.component';
@@ -36,6 +40,7 @@ class SignUp extends React.Component {
     }
 
     try {
+      await auth.setPersistence(NON_PERSITANCE);
       const { user } = await auth.createUserWithEmailAndPassword(
         email,
         password
