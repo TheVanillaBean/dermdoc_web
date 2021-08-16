@@ -10,18 +10,13 @@ const NavigationBar = () => {
       </Link>
       <ul className="nav-list">
         <li className="nav-list__item">
-          <Link className="nav-list__link" to="/list-practice">
-            List your practice
+          <Link className="nav-list__link" to="/terms">
+            Terms
           </Link>
         </li>
         <li className="nav-list__item">
-          <Link className="nav-list__link" to="/help">
-            Help
-          </Link>
-        </li>
-        <li className="nav-list__item">
-          <Link className="nav-list__link" to="/login">
-            Login
+          <Link className="nav-list__link" to="/privacy">
+            Privacy
           </Link>
         </li>
       </ul>
