@@ -1,6 +1,8 @@
 import React from 'react';
 import { connect } from 'react-redux';
 import { withRouter } from 'react-router-dom';
+import { toast, ToastContainer } from 'react-toastify';
+import 'react-toastify/dist/ReactToastify.css';
 import { createStructuredSelector } from 'reselect';
 import {
   auth,
@@ -35,7 +37,7 @@ class SignUp extends React.Component {
     const { displayName, email, password, confirmPassword } = this.state;
 
     if (password !== confirmPassword) {
-      alert("passwords don't match");
+      toast.error("passwords don't match");
       return;
     }
 
@@ -55,7 +57,7 @@ class SignUp extends React.Component {
         confirmPassword: '',
       });
     } catch (e) {
-      console.error(e);
+      toast.error(e.message);
     }
   };
 
@@ -100,6 +102,16 @@ class SignUp extends React.Component {
             SIGN UP
           </CustomButton>
         </form>
+        <ToastContainer
+          position="top-right"
+          autoClose={5000}
+          hideProgressBar={false}
+          newestOnTop={false}
+          closeOnClick
+          pauseOnFocusLoss
+          draggable
+          pauseOnHover
+        />
       </div>
     );
   }

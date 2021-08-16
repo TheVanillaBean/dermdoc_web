@@ -1,12 +1,13 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import { withRouter } from 'react-router-dom';
+import { toast, ToastContainer } from 'react-toastify';
+import 'react-toastify/dist/ReactToastify.css';
 import { createStructuredSelector } from 'reselect';
 import { auth, NON_PERSITANCE } from '../../firebase/firebase.utils';
 import { selectVisitData } from '../../redux/visit/visit.selectors';
 import CustomButton from '../custom-button/custom-button.component';
 import FormInput from '../form-input/form-input.component';
-
 class SignIn extends Component {
   constructor(props) {
     super(props);
@@ -31,10 +32,10 @@ class SignIn extends Component {
       await auth.setPersistence(NON_PERSITANCE);
       await auth.signInWithEmailAndPassword(email, password);
     } catch (e) {
-      console.error(e);
+      toast.error(e.message);
     }
 
-    this.setState({ email: '', password: '' });
+    this.setState({ password: '' });
   };
 
   handleChange = (event) => {
@@ -71,6 +72,16 @@ class SignIn extends Component {
             </CustomButton>
           </div>
         </form>
+        <ToastContainer
+          position="top-right"
+          autoClose={5000}
+          hideProgressBar={false}
+          newestOnTop={false}
+          closeOnClick
+          pauseOnFocusLoss
+          draggable
+          pauseOnHover
+        />
       </div>
     );
   }
