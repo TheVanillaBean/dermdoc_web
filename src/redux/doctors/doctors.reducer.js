@@ -16,12 +16,14 @@ const doctorsReducer = (state = INITIAL_STATE, action) => {
       return {
         ...state,
         isFetchingDoctor: true,
+        doctorErrorMessage: undefined,
       };
     case DoctorActionTypes.FETCH_DOCTOR_SUCCESS:
       return {
         ...state,
         isFetchingDoctor: false,
         doctor: action.payload,
+        doctorErrorMessage: undefined,
       };
     case DoctorActionTypes.FETCH_DOCTOR_FAILURE:
       return {
@@ -34,12 +36,14 @@ const doctorsReducer = (state = INITIAL_STATE, action) => {
       return {
         ...state,
         isFetchingDoctorsList: true,
+        doctorsListErrorMessage: undefined,
       };
     case DoctorActionTypes.FETCH_DOCTORS_LIST_SUCCESS:
       return {
         ...state,
         isFetchingDoctorsList: false,
         doctorsList: action.payload,
+        doctorsListErrorMessage: undefined,
       };
     case DoctorActionTypes.FETCH_DOCTORS_LIST_FAILURE:
       return {

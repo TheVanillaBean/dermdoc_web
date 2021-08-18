@@ -261,6 +261,14 @@
 }
 
 //////////////////////////
+// Doctor Search
+
+.not-in-area {
+  font-size: 2.5rem;
+  font-weight: 400;
+  color: var(--color-grey-dark-1);
+}
+//////////////////////////
 // DOCTOR
 
 .doctor {
@@ -614,7 +622,7 @@ $main-color: black;
 }
 
 //////////////////////////
-// ANIMATIONS
+// Checkout
 
 .visit-paid-container {
   & > h1 {

@@ -21,10 +21,21 @@ class DoctorSearchPage extends React.Component {
   render() {
     if (this.props.mailing_state !== 'MA') {
       return (
-        <h4>
-          Medicall only has doctors in Massachuetts currently, but you can join
-          the waitlist to recieve a 20% coupon when we are in your area.
-        </h4>
+        <div>
+          <header className="header">
+            <div className="container">
+              <NavigationBar />
+            </div>
+          </header>
+
+          <div className="container">
+            <div className="not-in-area">
+              <p>Medicall only has doctors in Massachusetts currently</p>
+            </div>
+          </div>
+
+          <Footer />
+        </div>
       );
     }
     return (

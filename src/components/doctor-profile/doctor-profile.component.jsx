@@ -20,6 +20,9 @@ class DoctorProfile extends React.Component {
       doctor: { provider_bio, accepted_insurances, slug },
     } = this.props;
 
+    const mailing_address = '2820 S Alma School Rd';
+    const name = 'Victoria Alimov';
+
     return (
       <section className="doctor-profile">
         <div className="container">
@@ -40,15 +43,20 @@ class DoctorProfile extends React.Component {
               <div className="additional-info__insurances">
                 <h1>Accepted Insurances:</h1>
                 {accepted_insurances.map((insurance) => (
-                  <p className="additional-info--insurance-name">{insurance}</p>
+                  <p
+                    key={insurance}
+                    className="additional-info--insurance-name"
+                  >
+                    {insurance}
+                  </p>
                 ))}
               </div>
             </div>
-
+            <div className="js-modal-inline"></div>
             <iframe
-              src={`https://schedule.nylas.com/${slug}/?prefilled_readonly=true&mailing_zipcode=${zipcode}&visit_reason=${visitReason}&insurance_brand=${insuranceBrand}&mailing_zipcode=${zipcode}&mailing_state=MA`}
+              src={`https://schedule.nylas.com/${slug}/?prefilled_readonly=false&mailing_zipcode=${zipcode}&visit_reason=${visitReason}&insurance_brand=${insuranceBrand}&email=aalimov@asu.edu&mailing_address=${mailing_address}&mailing_city=Beverly&mailing_zipcode=01915&seen_doctor=no&visit_reason=Acne&insurance=UnitedHealthCare&member_id=COST_ESTIMATES_001&name=${name}&mailing_state=MA`}
               title="Weekly available"
-              frameborder="0"
+              frameBorder="0"
               className="doctor-profile__schedule"
             ></iframe>
           </div>

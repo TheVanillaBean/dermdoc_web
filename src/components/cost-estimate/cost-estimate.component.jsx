@@ -33,15 +33,16 @@ class CostEstimate extends React.Component {
           <div className="cost-estimate__details">
             <p>Your insurance plan covers your {visit.visit_reason} visit!</p>
             <p>
-              Your cost:
+              Your cost:{' '}
               <span className="cost-estimate__details__cost-span">
                 ${visit.insurance_info.cost_estimate}
               </span>
             </p>
 
             <p>
-              Your next steps will be to answer some questions and then pay for
-              your visit.
+              {visit.insurance_info.cost_estimate > 0
+                ? 'Your next steps will be to answer some questions and then pay for your visit.'
+                : 'Your next steps will be to answer some questions and then create an account.'}
             </p>
           </div>
 

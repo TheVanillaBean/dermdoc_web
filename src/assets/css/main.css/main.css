@@ -404,6 +404,11 @@ body {
         align-self: center;
         margin-bottom: 3rem; } }
 
+.not-in-area {
+  font-size: 2.5rem;
+  font-weight: 400;
+  color: var(--color-grey-dark-1); }
+
 .doctor {
   font-size: 1.4rem;
   font-weight: 400;

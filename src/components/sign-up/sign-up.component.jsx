@@ -57,7 +57,22 @@ class SignUp extends React.Component {
         confirmPassword: '',
       });
     } catch (e) {
-      toast.error(e.message);
+      let errorText = 'An error occured with sign up';
+      if (e.code === 'auth/email-already-in-use') {
+        errorText = 'This email is already associated with an account.';
+      } else if (e.code === 'auth/operation-not-allowed') {
+        errorText =
+          'We could not create an account for you. Please contact omar@medicall.com for fast support.';
+      } else if (e.code === 'auth/weak-password') {
+        errorText =
+          'This password is too weak. Passwords need a minimum of 6 characters.';
+      } else if (e.code === 'auth/invalid-email') {
+        errorText = 'This email is invalid';
+      } else if (e.code === 'auth/too-many-requests') {
+        errorText =
+          'You have made too many requests. Please try again in 5 minutes.';
+      }
+      toast.error(errorText);
     }
   };
 

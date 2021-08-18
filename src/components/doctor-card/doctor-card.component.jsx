@@ -49,7 +49,9 @@ const DoctorCard = ({
           <div className="doctor__insurances">
             <p>Accepted Insurances:</p>
             {accepted_insurances.map((insurance) => (
-              <p className="additional-info--insurance-name">{insurance}</p>
+              <p key={insurance} className="additional-info--insurance-name">
+                {insurance}
+              </p>
             ))}
           </div>
         )}
