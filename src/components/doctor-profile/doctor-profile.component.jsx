@@ -21,7 +21,7 @@ class DoctorProfile extends React.Component {
     } = this.props;
 
     const mailing_address = '2820 S Alma School Rd';
-    const name = 'Victoria Alimov';
+    const name = 'Alex Alimov';
 
     return (
       <section className="doctor-profile">
@@ -54,7 +54,7 @@ class DoctorProfile extends React.Component {
             </div>
             <div className="js-modal-inline"></div>
             <iframe
-              src={`https://schedule.nylas.com/${slug}/?prefilled_readonly=false&mailing_zipcode=${zipcode}&visit_reason=${visitReason}&insurance_brand=${insuranceBrand}&email=aalimov@asu.edu&mailing_address=${mailing_address}&mailing_city=Beverly&mailing_zipcode=01915&seen_doctor=no&visit_reason=Acne&insurance=UnitedHealthCare&member_id=COST_ESTIMATES_001&name=${name}&mailing_state=MA`}
+              src={`https://schedule.nylas.com/${slug}/?prefilled_readonly=false&mailing_zipcode=${zipcode}&visit_reason=${visitReason}&insurance_brand=${insuranceBrand}&email=aalimov@asu.edu&mailing_address=${mailing_address}&mailing_city=Beverly&mailing_zipcode=01915&seen_doctor=no&visit_reason=Acne&insurance=Aetna&member_id=COST_ESTIMATES_001&name=${name}&mailing_state=MA`}
               title="Weekly available"
               frameBorder="0"
               className="doctor-profile__schedule"

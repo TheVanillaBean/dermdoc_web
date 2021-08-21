@@ -144,7 +144,7 @@ body {
   .cost-estimate__details > p {
     color: var(--color-grey-dark-1);
     font-weight: 400;
-    font-size: 1.6rem;
+    font-size: 1.8rem;
     margin-bottom: 1rem;
     text-align: center; }
   .cost-estimate__details__cost-span {
