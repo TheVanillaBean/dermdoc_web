@@ -16,11 +16,11 @@ class Checkout extends React.Component {
   componentDidMount() {
     const {
       currentUser,
-      visit: { visit_id, status },
+      visit: { visit_id, status, insurance_info },
       fetchCheckoutURLStartAsync,
     } = this.props;
     this.revertStatusIfNoUser();
-    if (currentUser && status !== 'paid') {
+    if (currentUser && status !== 'paid' && !insurance_info.error) {
       fetchCheckoutURLStartAsync(currentUser.idToken, visit_id);
     }
   }
@@ -82,20 +82,32 @@ class Checkout extends React.Component {
           </div>
         );
       } else {
-        if (isFetchingURL) {
+        if (visit.insurance_info.error) {
           return (
-            <div className="spinner-overlay">
-              <h2>Loading your checkout. Please wait...</h2>
-              <div className="spinner-container" />
+            <div className="checkout_insurance_header">
+              <h2>Awaiting insurance cost...</h2>
+              <p>
+                Our medical support staff will be reaching out to you very
+                shortly
+              </p>
             </div>
           );
         } else {
-          return (
-            <div className="spinner-overlay">
-              <h2>Redirecting to secure checkout page...</h2>
-              <div className="spinner-container" />
-            </div>
-          );
+          if (isFetchingURL) {
+            return (
+              <div className="spinner-overlay">
+                <h2>Loading your checkout. Please wait...</h2>
+                <div className="spinner-container" />
+              </div>
+            );
+          } else {
+            return (
+              <div className="spinner-overlay">
+                <h2>Redirecting to secure checkout page...</h2>
+                <div className="spinner-container" />
+              </div>
+            );
+          }
         }
       }
     }
