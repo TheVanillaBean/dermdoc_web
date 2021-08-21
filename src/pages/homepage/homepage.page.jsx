@@ -2,8 +2,8 @@ import React from 'react';
 import { connect } from 'react-redux';
 import { withRouter } from 'react-router-dom';
 import { createStructuredSelector } from 'reselect';
-import { default as OmarHeadshot } from '../../assets/omar-headshot.jpeg';
 import { ReactComponent as CalendarSVG } from '../../assets/svg/SVG/calendar.svg';
+import { ReactComponent as DoctorSVG } from '../../assets/svg/SVG/doctor_illustration.svg';
 import { ReactComponent as MobileSVG } from '../../assets/svg/SVG/mobile.svg';
 import { ReactComponent as PersonSVG } from '../../assets/svg/SVG/profile-male.svg';
 import { ReactComponent as WalletSVG } from '../../assets/svg/SVG/wallet.svg';
@@ -103,31 +103,9 @@ class HomePage extends React.Component {
             <NavigationBar />
 
             <div className="flex">
-              <div className="featured-doctor">
-                <h1 className="featured-doctor__header">Featured Doctor</h1>
-
-                <div className="featured-doctor__doctor-box">
-                  <img
-                    src={OmarHeadshot}
-                    alt="Doctor Headshot"
-                    className="featured-doctor__headshot"
-                  />
-
-                  <div className="featured-doctor__description">
-                    <p className="featured-doctor__name">Omar Badri, MD</p>
-                    <p className="featured-doctor__location">
-                      Boston, Massachusetts
-                    </p>
-                    <p className="featured-doctor__specialty">
-                      Specialty: Dermatology
-                    </p>
-                    <p className="featured-doctor__school">
-                      Medical School: Harvard
-                    </p>
-                    <p className="featured-doctor__residency">
-                      Residency: Harvard
-                    </p>
-                  </div>
+              <div className="video_graphic">
+                <div className="video_graphic__doctor-box">
+                  <DoctorSVG />
                 </div>
               </div>
 

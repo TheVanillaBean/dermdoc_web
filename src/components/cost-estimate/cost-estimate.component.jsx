@@ -18,8 +18,6 @@ class CostEstimate extends React.Component {
   };
 
   insuranceErrorUI = () => {
-    const { visit } = this.props;
-
     return (
       <React.Fragment>
         <div className="cost-estimate__header">
