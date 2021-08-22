@@ -29,23 +29,17 @@ class CostEstimate extends React.Component {
         </div>
         <div className="cost-estimate__details">
           <p>
-            Unfortuantely, we were not able to determine your copay
-            automatically. This can occur with certain insurance plans that
-            require manual cost estimate retrieval (especially Medicare).
+            We were not able to determine your copay automatically. We have just
+            notified our customer service team. They will talk to your insurance
+            company to clarify your benefits and our team will email you as soon
+            as possible (few hours) with the price.
           </p>
-          <p>
-            No worries though! We have just notified our medical support staff
-            of this issue and we will be manually running your insurance
-            shortly.
-          </p>
-          <p>
-            You should be expecting an email within a few hours (1-3) with
-            further clarifications.
-          </p>
+
           <br />
           <p>
-            In the meantime, you can still finish answering questions, but will
-            only be required to pay once we notify you of your copay.
+            In the meantime, you can still finish getting ready for your video
+            visit and we will only have you checkout once our team determines
+            the price.
           </p>
         </div>
       </React.Fragment>
