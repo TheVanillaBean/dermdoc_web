@@ -50,6 +50,32 @@ export const createUserProfileDocument = async (userAuth, additionalData) => {
   return usersRef;
 };
 
+export const joinWaitlistWithEmail = async (email, state) => {
+  const waitlistRef = firestore.collection('waitlist').doc(email);
+
+  const snapshot = await waitlistRef.get();
+
+  if (!snapshot.exists) {
+    const joinedDate = new Date();
+
+    try {
+      await waitlistRef.set(
+        {
+          email,
+          state,
+          joinedDate,
+        },
+        { merge: true }
+      );
+      return { error: false };
+    } catch (e) {
+      return { error: true, message: e.message };
+    }
+  }
+
+  return { error: true, message: 'This email is already on the waitlist!' };
+};
+
 export const convertDoctorsListSnapshotToMap = (doctors) => {
   const transformedCollection = doctors.docs.map((doc) => {
     const {

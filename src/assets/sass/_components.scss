@@ -642,6 +642,14 @@ $main-color: black;
 }
 
 //////////////////////////
+// TOAST MESSAGES
+
+.toastBody {
+  font-family: 'Inter' sans-serif;
+  font-size: 2rem !important;
+}
+
+//////////////////////////
 // ANIMATIONS
 
 @keyframes pulsate {

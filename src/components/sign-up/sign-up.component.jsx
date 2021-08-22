@@ -119,6 +119,7 @@ class SignUp extends React.Component {
         </form>
         <ToastContainer
           position="top-right"
+          bodyClassName="toastBody"
           autoClose={5000}
           hideProgressBar={false}
           newestOnTop={false}
