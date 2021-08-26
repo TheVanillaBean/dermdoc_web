@@ -18,6 +18,22 @@ const dropdownStyles = {
   },
 };
 
-const Dropdown = ({ defaultValue, handleChange, label, dataOptions, ...otherProps }) => <Select defaultValue={defaultValue} label={label} options={dataOptions} styles={dropdownStyles} onChange={handleChange} {...otherProps} />;
+const Dropdown = ({
+  defaultValue,
+  handleChange,
+  label,
+  dataOptions,
+  ...otherProps
+}) => (
+  <Select
+    defaultValue={defaultValue}
+    label={label}
+    options={dataOptions}
+    styles={dropdownStyles}
+    onChange={handleChange}
+    classNamePrefix="lp-copy-sel"
+    {...otherProps}
+  />
+);
 
 export default Dropdown;

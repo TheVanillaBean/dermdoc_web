@@ -23,6 +23,7 @@ import {
   selectVisitReason,
   selectZipCode,
 } from '../../redux/search/search.selectors';
+import insuranceBrands from './payer_names.json';
 
 const visitReasons = [
   { value: 'Acne', label: 'Acne' },
@@ -43,33 +44,6 @@ const visitReasons = [
   { value: 'Tattoo Removal', label: 'Tattoo Removal' },
   { value: 'Under Eye Circles', label: 'Under Eye Circles' },
   { value: 'Wrinkles', label: 'Wrinkles' },
-];
-
-const insuranceBrands = [
-  { value: 'Aetna', label: 'Aetna' },
-  { value: 'AllWays Health Plan', label: 'AllWays Health Plan' },
-  {
-    value: 'Blue Cross and Blue Shield of Massachusetts',
-    label: 'Blue Cross and Blue Shield of Massachusetts',
-  },
-  { value: 'Cigna', label: 'Cigna' },
-  {
-    value: 'Fallon Community Health Plan',
-    label: 'Fallon Community Health Plan',
-  },
-  {
-    value: 'Harvard Pilgrim Health Care',
-    label: 'Harvard Pilgrim Health Care',
-  },
-  { value: 'Health Plans Inc.', label: 'Health Plans Inc.' },
-  { value: 'Humana', label: 'Humana' },
-  { value: 'Medicare', label: 'Medicare' },
-  { value: 'Tufts Health Plan', label: 'Tufts Health Plan' },
-  { value: 'UnitedHealthcare', label: 'UnitedHealthcare' },
-  {
-    value: 'AARP Medicare Replacement',
-    label: 'AARP Medicare Replacement',
-  },
 ];
 
 class HomePage extends React.Component {
