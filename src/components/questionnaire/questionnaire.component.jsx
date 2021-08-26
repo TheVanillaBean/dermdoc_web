@@ -27,10 +27,10 @@ Survey.StylesManager.applyTheme('modern');
 
 export const reviewHtml = `
 <section class="questionnaire__thank-you">
-  <h2>Thank you for filling out the questionnaire!</h2>
+  <h2>Almost There!</h2>
   <p>
-    Next you will be asked to create a password for your account. This insures
-    that you can securly and privately proceed with this visit.
+    Your visit is almost booked! The only step left is to create a password for your account. This insures
+    that you can securely and privately proceed with this visit.
   </p>
 
 </section>

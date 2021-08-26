@@ -9,7 +9,10 @@ import DoctorListContainer from '../../components/doctors-list/doctors-list.cont
 import Footer from '../../components/footer/footer.component';
 import FormInput from '../../components/form-input/form-input.component';
 import NavigationBar from '../../components/navigation-bar/navigation-bar.component';
-import { joinWaitlistWithEmail } from '../../firebase/firebase.utils';
+import {
+  analytics,
+  joinWaitlistWithEmail,
+} from '../../firebase/firebase.utils';
 import { fetchDoctorsListStartAsync } from '../../redux/doctors/doctors.actions';
 import {
   selectInsuranceBrand,
@@ -27,6 +30,8 @@ class DoctorSearchPage extends React.Component {
   }
 
   componentDidMount() {
+    analytics.logEvent('Doctor Search Page Viewed');
+
     const { fetchDoctorsListStartAsync, insuranceBrand, zipcode } = this.props;
 
     fetchDoctorsListStartAsync(insuranceBrand, zipcode);

@@ -1,7 +1,9 @@
+import 'firebase/analytics';
 import firebase from 'firebase/app';
 import 'firebase/auth';
 import 'firebase/firestore';
 import { reviewHtml } from '../components/questionnaire/questionnaire.component';
+
 const {
   REACT_APP_FIREBASE_API_KEY,
   REACT_APP_FIREBASE_AUTH_DOMAIN,
@@ -10,6 +12,7 @@ const {
   REACT_APP_FIREBASE_STORAGE_BUCKET,
   REACT_APP_FIREBASE_MESSAGING_SENDER_ID,
   REACT_APP_FIREBASE_APP_ID,
+  REACT_APP_FIREBASE_MEASUREMENT_ID,
 } = process.env;
 
 const config = {
@@ -20,6 +23,7 @@ const config = {
   storageBucket: REACT_APP_FIREBASE_STORAGE_BUCKET,
   messagingSenderId: REACT_APP_FIREBASE_MESSAGING_SENDER_ID,
   appId: REACT_APP_FIREBASE_APP_ID,
+  measurementId: REACT_APP_FIREBASE_MEASUREMENT_ID,
 };
 
 export const createUserProfileDocument = async (userAuth, additionalData) => {
@@ -221,8 +225,8 @@ export const mergePagesIntoSurveySchema = (pages) => {
         html: reviewHtml,
       },
     ],
-    name: 'Review',
-    navigationTitle: 'Review',
+    name: 'Finish',
+    navigationTitle: 'Finish',
     questionTitleLocation: 'top',
   };
   pages.push(reviewPage);
@@ -267,10 +271,12 @@ export const updateVisit = async (visitID, updatedVisitData) => {
 };
 
 firebase.initializeApp(config);
+firebase.analytics();
 
 export const NON_PERSITANCE = firebase.auth.Auth.Persistence.NONE;
 export const auth = firebase.auth();
 export const firestore = firebase.firestore();
+export const analytics = firebase.analytics();
 
 const provider = new firebase.auth.GoogleAuthProvider();
 provider.setCustomParameters({ promp: 'select_account' });

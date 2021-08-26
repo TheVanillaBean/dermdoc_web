@@ -680,6 +680,40 @@ body {
   font-family: 'Inter' sans-serif;
   font-size: 2rem !important; }
 
+.user-reviews__header {
+  font-size: 2.5rem;
+  font-weight: 500;
+  letter-spacing: 1px;
+  margin-bottom: 2rem;
+  text-align: center;
+  color: var(--color-primary); }
+  @media screen and (max-width: 768px) {
+    .user-reviews__header {
+      text-align: start; } }
+
+.review {
+  background-color: #fff;
+  box-shadow: var(--shadow-light);
+  padding: 5rem;
+  margin-bottom: 1rem;
+  position: relative;
+  overflow: hidden; }
+  .review__text {
+    z-index: 2;
+    position: relative;
+    font-size: 1.7rem;
+    font-weight: 400; }
+  .review::before {
+    content: '\201C';
+    position: absolute;
+    top: -2.75rem;
+    left: -1rem;
+    line-height: 1;
+    font-size: 20rem;
+    color: var(--color-grey-light-2);
+    font-family: sans-serif;
+    z-index: 1; }
+
 @keyframes pulsate {
   0% {
     transform: scale(1);

@@ -50,22 +50,50 @@ class Checkout extends React.Component {
     const { isFetchingURL, stripeErrorMessage, visit } = this.props;
 
     if (
-      visit.status === 'paid' ||
-      visit.status === 'email_ready' ||
-      visit.status === 'emails_sent'
+      visit.payment_status === 'needs_insurance_info' ||
+      visit.payment_status === 'awaiting_cost' ||
+      visit.payment_status === 'paid'
     ) {
+      let headerText = '';
+
+      if (visit.payment_status === 'paid') {
+        if (visit.cost > 0) {
+          headerText =
+            'Hooray! You have successfully paid for this live video visit.';
+        } else {
+          headerText =
+            'Hooray! Your out of pocket cost for this visit was $0 so you are all set!';
+        }
+      } else {
+        headerText =
+          'Hooray! You have successfully scheduled a live video visit.';
+      }
+
+      let additionalInfo = '';
+      if (visit.payment_status === 'needs_insurance_info') {
+        additionalInfo =
+          'Keep in mind, you will be asked for your insurance member ID before the visit starts';
+      } else if (visit.payment_status === 'awaiting_cost') {
+        additionalInfo =
+          "Keep in mind, we will send you an email with your out of pocket cost (if any) once your doctor's front-desk runs your insurance information.  ";
+      }
       return (
         <div className="checkout-page">
           <div className="container">
             <div className="visit-paid-container">
-              <h1>
-                Hooray! You have successfully scheduled a live video visit.
-              </h1>
-              <p>
-                An email has been sent to{' '}
-                {visit.original_patient_information.email} with details
-                pertaining to your visit.
-              </p>
+              <h1>{headerText}</h1>
+
+              {(visit.payment_status === 'needs_insurance_info' ||
+                visit.payment_status === 'awaiting_cost') && (
+                <p>
+                  An email has been sent to{' '}
+                  {visit.original_patient_information.email} with details
+                  pertaining to your visit.
+                </p>
+              )}
+
+              <p>{additionalInfo}</p>
+
               <p>
                 If you have any questions, please email omar@medicall.com for
                 same-day responses.
@@ -82,32 +110,20 @@ class Checkout extends React.Component {
           </div>
         );
       } else {
-        if (visit.insurance_info.error) {
+        if (isFetchingURL) {
           return (
-            <div className="checkout_insurance_header">
-              <h2>Awaiting insurance cost...</h2>
-              <p>
-                Our medical support staff will be reaching out to you very
-                shortly
-              </p>
+            <div className="spinner-overlay">
+              <h2>Loading your checkout. Please wait...</h2>
+              <div className="spinner-container" />
             </div>
           );
         } else {
-          if (isFetchingURL) {
-            return (
-              <div className="spinner-overlay">
-                <h2>Loading your checkout. Please wait...</h2>
-                <div className="spinner-container" />
-              </div>
-            );
-          } else {
-            return (
-              <div className="spinner-overlay">
-                <h2>Redirecting to secure checkout page...</h2>
-                <div className="spinner-container" />
-              </div>
-            );
-          }
+          return (
+            <div className="spinner-overlay">
+              <h2>Redirecting to secure checkout page...</h2>
+              <div className="spinner-container" />
+            </div>
+          );
         }
       }
     }

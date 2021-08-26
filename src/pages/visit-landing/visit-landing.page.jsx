@@ -13,7 +13,6 @@ import {
 import AuthPage from '../auth/auth.page';
 import CheckoutPage from '../checkout/checkout.page';
 import QuestionsPage from '../questions/questions.page';
-import VisitCostPage from '../visit-cost/visit-cost.page';
 
 class VisitLandingPage extends React.Component {
   unsubscribeFromVisitSnapshot = null;
@@ -37,16 +36,14 @@ class VisitLandingPage extends React.Component {
             const visit = doc.data();
             fetchVisitSuccess(visit);
 
-            if (visit.status === 'scheduled') {
-              history.push(`/visits/${visit.visit_id}/cost`);
+            if (visit.status === 'initiated') {
+              history.push(`/visits/${visit.visit_id}/questions`);
             } else if (visit.status === 'filled_out') {
               history.push(`/visits/${visit.visit_id}/auth`);
-            } else if (visit.status === 'authenticated') {
-              history.push(`/visits/${visit.visit_id}/checkout`);
             } else if (
-              visit.status === 'paid' ||
-              visit.status === 'email_ready' ||
-              visit.status === 'emails_sent'
+              visit.status === 'authenticated' ||
+              visit.status === 'video_links_generated' ||
+              visit.status === 'ready'
             ) {
               history.push(`/visits/${visit.visit_id}/checkout`);
             }
@@ -68,12 +65,11 @@ class VisitLandingPage extends React.Component {
     const { match } = this.props;
     return (
       <Switch>
-        <Route path={`${match.path}/cost`} component={VisitCostPage} />
         <Route path={`${match.path}/questions`} component={QuestionsPage} />
         <Route path={`${match.path}/auth`} component={AuthPage} />
         <Route path={`${match.path}/checkout`} component={CheckoutPage} />
         <Route exact path="*">
-          <Redirect to={`/visits/${match.params.visit_id}/cost`} />
+          <Redirect to={`/visits/${match.params.visit_id}/questions`} />
         </Route>
       </Switch>
     );

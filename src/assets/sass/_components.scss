@@ -650,6 +650,55 @@ $main-color: black;
 }
 
 //////////////////////////
+// REVIEW
+
+.user-reviews {
+  &__header {
+    font-size: 2.5rem;
+    font-weight: 500;
+    letter-spacing: 1px;
+    margin-bottom: 2rem;
+    text-align: center;
+    color: var(--color-primary);
+
+    @media screen and (max-width: 768px) {
+      text-align: start;
+    }
+  }
+}
+
+//////////////////////////
+// REVIEW
+
+.review {
+  background-color: #fff;
+  box-shadow: var(--shadow-light);
+  padding: 5rem;
+  margin-bottom: 1rem;
+  position: relative;
+  overflow: hidden;
+
+  &__text {
+    z-index: 2;
+    position: relative;
+    font-size: 1.7rem;
+    font-weight: 400;
+  }
+
+  &::before {
+    content: '\201C';
+    position: absolute;
+    top: -2.75rem;
+    left: -1rem;
+    line-height: 1;
+    font-size: 20rem;
+    color: var(--color-grey-light-2);
+    font-family: sans-serif;
+    z-index: 1;
+  }
+}
+
+//////////////////////////
 // ANIMATIONS
 
 @keyframes pulsate {

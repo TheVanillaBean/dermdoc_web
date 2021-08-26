@@ -20,9 +20,6 @@ class DoctorProfile extends React.Component {
       doctor: { provider_bio, accepted_insurances, slug },
     } = this.props;
 
-    const mailing_address = '2820 S Alma School Rd';
-    const name = 'Alex Alimov';
-
     return (
       <section className="doctor-profile">
         <div className="container">
@@ -41,7 +38,7 @@ class DoctorProfile extends React.Component {
               </div>
 
               <div className="additional-info__insurances">
-                <h1>Accepted Insurances:</h1>
+                <h1>Accepted Insurances</h1>
                 {accepted_insurances.map((insurance) => (
                   <p
                     key={insurance}
@@ -52,9 +49,28 @@ class DoctorProfile extends React.Component {
                 ))}
               </div>
             </div>
-            <div className="js-modal-inline"></div>
+            <div className="user-reviews">
+              <h1 className="user-reviews__header">Testimonials</h1>
+              <figure className="review">
+                <blockquote className="review__text">
+                  Had seen several doctors for the same issue. He spent a lot of
+                  time with me and was able to solve my issue. Excellent.
+                </blockquote>
+              </figure>
+              <figure className="review">
+                <blockquote className="review__text">
+                  Dr. Badri and his team were excellent!!
+                </blockquote>
+              </figure>
+              <figure className="review">
+                <blockquote className="review__text">
+                  He [Dr. Badri] went above and beyond to make sure I got
+                  everything I needed.
+                </blockquote>
+              </figure>
+            </div>
             <iframe
-              src={`https://schedule.nylas.com/${slug}/?prefilled_readonly=false&mailing_zipcode=${zipcode}&visit_reason=${visitReason}&insurance_brand=${insuranceBrand}&email=aalimov@asu.edu&mailing_address=${mailing_address}&mailing_city=Beverly&mailing_zipcode=01915&seen_doctor=no&visit_reason=Acne&insurance=Aetna&member_id=COST_ESTIMATES_001&name=${name}&mailing_state=MA`}
+              src={`https://schedule.nylas.com/${slug}/?prefilled_readonly=false&mailing_zipcode=${zipcode}&visit_reason=${visitReason}&insurance_brand=${insuranceBrand}&mailing_zipcode=${zipcode}&mailing_state=MA`}
               title="Weekly available"
               frameBorder="0"
               className="doctor-profile__schedule"

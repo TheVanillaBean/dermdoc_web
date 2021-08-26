@@ -12,6 +12,7 @@ import Dropdown from '../../components/dropdown/dropdown.component';
 import Footer from '../../components/footer/footer.component';
 import NavigationBar from '../../components/navigation-bar/navigation-bar.component';
 import SearchInput from '../../components/search-input/search-input.component';
+import { analytics } from '../../firebase/firebase.utils';
 import {
   updateInsuranceType,
   updateVisitReason,
@@ -72,6 +73,10 @@ const insuranceBrands = [
 ];
 
 class HomePage extends React.Component {
+  componentDidMount() {
+    analytics.logEvent('Homepage Viewed');
+  }
+
   handleZipcodeChange = (event) => {
     const { updateZipCode } = this.props;
     const { value } = event.target;
