@@ -334,7 +334,8 @@ body {
     padding: 1.5rem;
     display: flex;
     justify-content: space-between;
-    flex-wrap: nowrap; }
+    flex-wrap: nowrap;
+    flex: 0 1 50%; }
     @media screen and (max-width: 768px) {
       .search__options {
         flex-direction: column;
@@ -346,7 +347,7 @@ body {
     border: 1px solid var(--color-grey-dark-3);
     padding: 1rem 2rem;
     gap: 1.5rem;
-    min-width: 45%; }
+    min-width: 40%; }
     .search__options > div:not(:last-of-type) {
       border-right: 0; }
       @media screen and (max-width: 768px) {

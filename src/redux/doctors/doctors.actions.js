@@ -71,8 +71,7 @@ export const fetchDoctorsListStartAsync = (insuranceBrand, zipcode) => {
         .collection('users')
         .where('type', '==', 'PROVIDER')
         .where('stripe_connect_authorized', '==', true)
-        .where('mailing_state', '==', state)
-        .where('accepted_insurances', 'array-contains', insuranceBrand);
+        .where('mailing_state', '==', state);
 
       collectionRef
         .get()

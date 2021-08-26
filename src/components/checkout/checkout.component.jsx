@@ -16,11 +16,15 @@ class Checkout extends React.Component {
   componentDidMount() {
     const {
       currentUser,
-      visit: { visit_id, status, insurance_info },
+      visit: { visit_id, status, payment_status },
       fetchCheckoutURLStartAsync,
     } = this.props;
     this.revertStatusIfNoUser();
-    if (currentUser && status !== 'paid' && !insurance_info.error) {
+    if (
+      currentUser &&
+      status === 'ready' &&
+      payment_status === 'awaiting_payment'
+    ) {
       fetchCheckoutURLStartAsync(currentUser.idToken, visit_id);
     }
   }
@@ -50,6 +54,7 @@ class Checkout extends React.Component {
     const { isFetchingURL, stripeErrorMessage, visit } = this.props;
 
     if (
+      typeof visit.payment_status === 'undefined' ||
       visit.payment_status === 'needs_insurance_info' ||
       visit.payment_status === 'awaiting_cost' ||
       visit.payment_status === 'paid'
@@ -69,13 +74,11 @@ class Checkout extends React.Component {
           'Hooray! You have successfully scheduled a live video visit.';
       }
 
-      let additionalInfo = '';
-      if (visit.payment_status === 'needs_insurance_info') {
+      let additionalInfo =
+        'Keep in mind, you will be asked for your insurance member ID before the visit starts.';
+      if (visit.payment_status === 'awaiting_cost') {
         additionalInfo =
-          'Keep in mind, you will be asked for your insurance member ID before the visit starts';
-      } else if (visit.payment_status === 'awaiting_cost') {
-        additionalInfo =
-          "Keep in mind, we will send you an email with your out of pocket cost (if any) once your doctor's front-desk runs your insurance information.  ";
+          "Keep in mind, we will send you an email with your out of pocket cost (if any) once your doctor's front-desk runs your insurance information.";
       }
       return (
         <div className="checkout-page">
