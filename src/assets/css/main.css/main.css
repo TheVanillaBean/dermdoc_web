@@ -197,7 +197,7 @@ body {
     justify-content: center;
     gap: 3rem; }
   .doctor-profile__schedule {
-    height: 75vh; }
+    height: 100vh; }
 
 .footer {
   background-color: var(--color-primary);
