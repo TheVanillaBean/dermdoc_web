@@ -1,0 +1,72 @@
+.btn,
+.btn:link,
+.btn:visited {
+  display: inline-block;
+  text-decoration: none;
+  font-size: 2rem;
+  padding: 1.6rem 3.2rem;
+  border-radius: 9px;
+
+  /* For button tag only */
+  border: none;
+  cursor: pointer;
+  font-family: inherit;
+
+  transition: all 0.3s;
+}
+
+.btn--full:link,
+.btn--full:visited {
+  background-color: var(--color-primary);
+  color: #fff;
+}
+
+.btn--full:hover,
+.btn--full:active {
+  background-color: var(--color-shade-1);
+  color: #fff;
+}
+
+.btn--outline:link,
+.btn--outline:visited {
+  background-color: #fff;
+  color: var(--color-grey-dark-2);
+}
+
+.btn--outline:hover,
+.btn--outline:active {
+  background-color: #f4e6ed;
+  color: var(--color-grey-dark-2);
+
+  box-shadow: inset 0 0 0 3px #fff;
+}
+
+.btn--form {
+  background-color: var(--color-shade-2);
+  color: #f4e6ed;
+  align-self: end;
+  padding: 1.2rem;
+
+  transition: all 0.4s;
+}
+
+.btn--form:hover {
+  background-color: #fff;
+  color: var(--color-grey-dark-2);
+}
+
+.link:link,
+.link:visited {
+  display: inline-block;
+  color: var(--color-primary);
+  text-decoration: none;
+  border-bottom: 1px solid currentColor;
+  padding-bottom: 4px;
+  transition: all 0.3s;
+}
+
+.link:hover,
+.link:active {
+  color: var(--color-shade-1);
+  border-bottom: 1px solid transparent;
+}

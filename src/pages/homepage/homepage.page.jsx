@@ -2,16 +2,6 @@ import React from 'react';
 import { connect } from 'react-redux';
 import { withRouter } from 'react-router-dom';
 import { createStructuredSelector } from 'reselect';
-import { ReactComponent as CalendarSVG } from '../../assets/svg/SVG/calendar.svg';
-import { ReactComponent as DoctorSVG } from '../../assets/svg/SVG/doctor_illustration.svg';
-import { ReactComponent as MobileSVG } from '../../assets/svg/SVG/mobile.svg';
-import { ReactComponent as PersonSVG } from '../../assets/svg/SVG/profile-male.svg';
-import { ReactComponent as WalletSVG } from '../../assets/svg/SVG/wallet.svg';
-import CustomButton from '../../components/custom-button/custom-button.component';
-import Dropdown from '../../components/dropdown/dropdown.component';
-import Footer from '../../components/footer/footer.component';
-import NavigationBar from '../../components/navigation-bar/navigation-bar.component';
-import SearchInput from '../../components/search-input/search-input.component';
 import { analytics } from '../../firebase/firebase.utils';
 import {
   updateInsuranceType,
@@ -23,7 +13,6 @@ import {
   selectVisitReason,
   selectZipCode,
 } from '../../redux/search/search.selectors';
-import insuranceBrands from './payer_names.json';
 
 const visitReasons = [
   { value: 'Acne', label: 'Acne' },
@@ -76,127 +65,425 @@ class HomePage extends React.Component {
   render() {
     const { visitReason, zipcode, insuranceBrand } = this.props;
     return (
-      <div>
-        <header className="header">
-          <div className="container">
-            <NavigationBar />
+      <main>
+        <section className="section-hero">
+          <header className="header">
+            <a href="#">
+              <img src="img/logo.png" alt="Medicall logo" className="logo" />
+            </a>
 
-            <div className="flex">
-              <div className="video_graphic">
-                <div className="video_graphic__doctor-box">
-                  <DoctorSVG />
-                </div>
-              </div>
+            <nav className="main-nav">
+              <ul className="main-nav-list">
+                <li>
+                  <a className="main-nav-link" href="#">
+                    Our Doctors
+                  </a>
+                </li>
+                <li>
+                  <a className="main-nav-link" href="#">
+                    How it works
+                  </a>
+                </li>
+                <li>
+                  <a className="main-nav-link" href="#">
+                    Testimonials
+                  </a>
+                </li>
+                <li>
+                  <a className="main-nav-link nav-cta" href="#">
+                    Get Started
+                  </a>
+                </li>
+              </ul>
+            </nav>
+          </header>
+          <div className="hero">
+            <div className="hero-text-box">
+              <h1 className="heading-primary">
+                Get a video visit with a dermatologist. Anywhere. Anytime.
+              </h1>
 
-              <div className="search">
-                <h1 className="search__header">
-                  Schedule a video visit with a local board-certified
-                  dermatologist.
-                </h1>
+              <p className="hero-description">
+                - Use your insurance for the visit
+                <br />
+                - Video chat from your computer or phone
+                <br />- Get connected with top local dermatologists
+              </p>
 
-                <div className="search__options">
-                  <div className="search__zipcode">
-                    <label className="search__options--label">Zipcode</label>
-                    <SearchInput
-                      type="number"
-                      name="zipcode"
-                      value={zipcode}
-                      onChange={this.handleZipcodeChange}
-                      placeholder="What is your zipcode"
-                      required
-                    />
-                  </div>
-                  <div className="search__reason">
-                    <label className="search__options--label">
-                      Visit Reason
-                    </label>
-                    <Dropdown
-                      handleChange={this.handleReasonChange}
-                      label="Visit Reason"
-                      dataOptions={visitReasons}
-                      defaultValue={{ label: visitReason, value: visitReason }}
-                    />
-                  </div>
-                  <div className="search__insurance">
-                    <label className="search__options--label">
-                      Insurance Type
-                    </label>
-                    <Dropdown
-                      handleChange={this.handleInsuranceChange}
-                      label="Insurance Brand"
-                      dataOptions={insuranceBrands}
-                      defaultValue={{
-                        label: insuranceBrand,
-                        value: insuranceBrand,
-                      }}
-                    />
-                  </div>
-                </div>
-
-                <CustomButton
-                  className="search__submit btn"
-                  onClick={this.handleSubmit}
-                >
-                  Get Care Now
-                </CustomButton>
-              </div>
+              <a href="#" className="btn btn--full margin-right-sm">
+                Explore Doctors
+              </a>
+              <a href="#" className="btn btn--outline">
+                Learn more &darr;
+              </a>
             </div>
           </div>
-        </header>
-        <div className="about">
-          <div className="container">
-            <h1 className="about__header">Why use Medicall?</h1>
-            <p className="about__description">
-              We make it easy for you to schedule a live video visit with a
-              local dermatologist. Choose your doctor, verify your insurance,
-              fill out questionnaires, schedule, and pay using one service. No
-              more waiting rooms or phone calls.
-            </p>
-            <div className="flex">
-              <div className="about__item">
-                <div className="about__item__image">
-                  <CalendarSVG />
+        </section>
+
+        <section className="section-doctors">
+          <div className="container center-text">
+            <span className="subheading">Our Doctors</span>
+            <h2 className="heading-secondary">
+              Board-certified. Stellar Reviews.
+            </h2>
+          </div>
+          <div className="container grid grid--3-cols margin-bottom-md">
+            <div className="doctor">
+              <img
+                className="doctor-img"
+                src="img/omar-headshot.jpeg"
+                alt="Omar Badri Headshot"
+              />
+              <div className="doctor-content">
+                <div className="doctor-tags">
+                  <span className="tag tag--neda">Northeast Dermatology</span>
                 </div>
-                <p>
-                  Choose a doctor in your area. View their availability and
-                  schedule a time that works for you.
-                </p>
+                <p className="doctor-title">Omar Badri, MD</p>
+                <ul className="doctor-attributes">
+                  <li className="doctor-attribute">
+                    <ion-icon
+                      className="doctor-icon"
+                      name="location-outline"
+                    ></ion-icon>
+                    <span>Boston, Massachusetts</span>
+                  </li>
+                  <li className="doctor-attribute">
+                    <ion-icon
+                      className="doctor-icon"
+                      name="school-outline"
+                    ></ion-icon>
+                    <span>Harvard Medical School</span>
+                  </li>
+                  <li className="doctor-attribute">
+                    <ion-icon
+                      className="doctor-icon"
+                      name="star-outline"
+                    ></ion-icon>
+                    <span>
+                      <strong>4.94</strong> rating (537)
+                    </span>
+                  </li>
+                </ul>
               </div>
-              <div className="about__item">
-                <div className="about__item__image">
-                  <WalletSVG />
+              <a href="#" className="btn btn--full">
+                View Profile
+              </a>
+            </div>
+            <div className="doctor">
+              <img
+                className="doctor-img"
+                src="img/omar-headshot.jpeg"
+                alt="Omar Badri Headshot"
+              />
+              <div className="doctor-content">
+                <div className="doctor-tags">
+                  <span className="tag tag--skincare">
+                    Skincare Physicians Group
+                  </span>
                 </div>
-                <p>
-                  We run your insurance and charge you your copay /
-                  deductible...before your visit. No suprise billing.
-                </p>
+                <p className="doctor-title">Omar Badri, MD</p>
+                <ul className="doctor-attributes">
+                  <li className="doctor-attribute">
+                    <ion-icon
+                      className="doctor-icon"
+                      name="location-outline"
+                    ></ion-icon>
+                    <span>Boston, Massachusetts</span>
+                  </li>
+                  <li className="doctor-attribute">
+                    <ion-icon
+                      className="doctor-icon"
+                      name="school-outline"
+                    ></ion-icon>
+                    <span>Tufts University</span>
+                  </li>
+                  <li className="doctor-attribute">
+                    <ion-icon
+                      className="doctor-icon"
+                      name="star-outline"
+                    ></ion-icon>
+                    <span>
+                      <strong>4.91</strong> rating (441)
+                    </span>
+                  </li>
+                </ul>
               </div>
-              <div className="about__item">
-                <div className="about__item__image">
-                  <MobileSVG />
-                </div>
-                <p>
-                  Forget filling out paperwork in a waiting room. With us, you
-                  can securily tell us all your neccessary health information
-                  from home.
-                </p>
-              </div>
-              <div className="about__item">
-                <div className="about__item__image">
-                  <PersonSVG />
-                </div>
-                <p>
-                  All of our doctors have physical practices as well, meaning if
-                  your doctor needs to see you in-person, it can be scheduled
-                  easily.
-                </p>
-              </div>
+              <a href="#" className="btn btn--full">
+                View Profile
+              </a>
+            </div>
+            <div className="insurances">
+              <h3 className="heading-tertiary">
+                Our doctors accept most insurances:
+              </h3>
+              <ul className="list">
+                <li className="list-item">
+                  <ion-icon
+                    className="list-icon"
+                    name="checkmark-outline"
+                  ></ion-icon>
+                  <span>Aetna</span>
+                </li>
+                <li className="list-item">
+                  <ion-icon
+                    className="list-icon"
+                    name="checkmark-outline"
+                  ></ion-icon>
+                  <span>Blue Cross and Blue Shield</span>
+                </li>
+                <li className="list-item">
+                  <ion-icon
+                    className="list-icon"
+                    name="checkmark-outline"
+                  ></ion-icon>
+                  <span>AllWays Health Plan</span>
+                </li>
+                <li className="list-item">
+                  <ion-icon
+                    className="list-icon"
+                    name="checkmark-outline"
+                  ></ion-icon>
+                  <span>Cigna</span>
+                </li>
+                <li className="list-item">
+                  <ion-icon
+                    className="list-icon"
+                    name="checkmark-outline"
+                  ></ion-icon>
+                  <span>UnitedHealthcare</span>
+                </li>
+                <li className="list-item">
+                  <ion-icon
+                    className="list-icon"
+                    name="checkmark-outline"
+                  ></ion-icon>
+                  <span>Humana</span>
+                </li>
+                <li className="list-item">
+                  <ion-icon
+                    className="list-icon"
+                    name="checkmark-outline"
+                  ></ion-icon>
+                  <span>Health Plans Inc.</span>
+                </li>
+                <li className="list-item">
+                  <ion-icon
+                    className="list-icon"
+                    name="checkmark-outline"
+                  ></ion-icon>
+                  <span>Tufts Health Plan</span>
+                </li>
+                <li className="list-item">
+                  <ion-icon
+                    className="list-icon"
+                    name="checkmark-outline"
+                  ></ion-icon>
+                  <span>Medicare</span>
+                </li>
+              </ul>
             </div>
           </div>
-        </div>
+        </section>
 
-        <Footer />
-      </div>
+        <section className="section-how">
+          <div className="container center-text margin-bottom-lg">
+            <span className="subheading">How it works</span>
+            <h2 className="heading-secondary">
+              Seeing a dermatologist doesn't have to be hard. <br /> We make it
+              easy.
+            </h2>
+          </div>
+
+          <div className="container grid grid--4-cols">
+            <div className="feature">
+              <div className="feature-icon">
+                <p className="feature-icon-text">01</p>
+              </div>
+              <p className="feature-title">Pick a timeslot</p>
+              <p className="feature-text">
+                Fill out some basic information about yourself (i.e. name, dob,
+                email, and visit reason)
+              </p>
+            </div>
+            <div className="feature">
+              <div className="feature-icon">
+                <p className="feature-icon-text">02</p>
+              </div>
+              <p className="feature-title">Answer Health Questions</p>
+              <p className="feature-text">
+                Give your doctor details about your medical history. This should
+                only take 3-5 minutes.
+              </p>
+            </div>
+            <div className="feature">
+              <div className="feature-icon">
+                <p className="feature-icon-text">03</p>
+              </div>
+              <p className="feature-title">Share your insurance info</p>
+              <p className="feature-text">
+                Your doctor's front-office will run your insurance just like an
+                in-person visit.
+              </p>
+            </div>
+            <div className="feature">
+              <div className="feature-icon">
+                <p className="feature-icon-text">04</p>
+              </div>
+              <p className="feature-title">Video chat</p>
+              <p className="feature-text">
+                We will send you a secure link to video chat with your doctor
+                right from your browser.
+              </p>
+            </div>
+          </div>
+        </section>
+
+        <section className="section-testimonials">
+          <div className="container center-text margin-bottom-lg">
+            <span className="subheading">
+              Our doctors are loved by their patients
+            </span>
+            <h2 className="heading-secondary">
+              Here's some kind words from a few of them
+            </h2>
+          </div>
+          <div className="testimonials">
+            <figure className="testimonial">
+              <img
+                className="testimonial-img"
+                src="img/customers/dave.jpg"
+                alt="Dave photo"
+              />
+              <blockquote className="testimonial-text">
+                Dr. Badri and his team were excellent!!
+              </blockquote>
+              <p className="testimonial-date">&mdash; August 27, 2021</p>
+            </figure>
+
+            <figure className="testimonial">
+              <img
+                className="testimonial-img"
+                src="img/customers/ben.jpg"
+                alt="Ben Hadley photo"
+              />
+              <blockquote className="testimonial-text">
+                Had seen several doctors for the same issue. He spent a lot of
+                time with me and was able to solve my issue. Excellent.
+              </blockquote>
+              <p className="testimonial-date">&mdash; August 14, 2021</p>
+            </figure>
+
+            <figure className="testimonial">
+              <img
+                className="testimonial-img"
+                src="img/customers/steve.jpg"
+                alt="Steve Miller photo"
+              />
+              <blockquote className="testimonial-text">
+                He [Dr. Badri] went above and beyond to make sure I got
+                everything I needed.
+              </blockquote>
+              <p className="testimonial-date">&mdash; August 18, 2021</p>
+            </figure>
+
+            <figure className="testimonial">
+              <img
+                className="testimonial-img"
+                src="img/customers/dave.jpg"
+                alt="Dave photo"
+              />
+              <blockquote className="testimonial-text">
+                Dr. Badri and his team were excellent!!
+              </blockquote>
+              <p className="testimonial-date">&mdash; August 27, 2021</p>
+            </figure>
+
+            <figure className="testimonial">
+              <img
+                className="testimonial-img"
+                src="img/customers/ben.jpg"
+                alt="Ben Hadley photo"
+              />
+              <blockquote className="testimonial-text">
+                Had seen several doctors for the same issue. He spent a lot of
+                time with me and was able to solve my issue. Excellent.
+              </blockquote>
+              <p className="testimonial-date">&mdash; August 14, 2021</p>
+            </figure>
+
+            <figure className="testimonial">
+              <img
+                className="testimonial-img"
+                src="img/customers/steve.jpg"
+                alt="Steve Miller photo"
+              />
+              <blockquote className="testimonial-text">
+                He [Dr. Badri] went above and beyond to make sure I got
+                everything I needed.
+              </blockquote>
+              <p className="testimonial-date">&mdash; August 18, 2021</p>
+            </figure>
+          </div>
+        </section>
+
+        <footer className="footer">
+          <div className="container grid grid--footer">
+            <div className="logo-col">
+              <a href="#" className="footer-logo">
+                <img src="img/logo.png" alt="Omnifood logo" className="logo" />
+              </a>
+
+              <img
+                className="hipaa-icon"
+                src="img/hipaa-badge.png"
+                alt="HIPAA Bage"
+              />
+
+              <p className="copyright">
+                Copyright &copy; 2021 by Medicall, Inc. All Rights Reserved.
+              </p>
+            </div>
+            <div className="address-col">
+              <p className="footer-heading">Contact Us</p>
+              <address className="contacts">
+                <p className="address">
+                  401 Park Drive, Suite 1009 Boston, MA 02115
+                </p>
+                <p>
+                  <a className="footer-link" href="mailto:contact@medicall.com">
+                    contact@medicall.com
+                  </a>
+                </p>
+              </address>
+            </div>
+            <nav className="nav-col">
+              <p className="footer-heading">Company</p>
+              <ul className="footer-nav">
+                <li>
+                  <a className="footer-link" href="#">
+                    About Medicall
+                  </a>
+                </li>
+                <li>
+                  <a className="footer-link" href="#">
+                    Terms of Service
+                  </a>
+                </li>
+                <li>
+                  <a className="footer-link" href="#">
+                    Privacy Policy
+                  </a>
+                </li>
+                <li>
+                  <a className="footer-link" href="#">
+                    Telehealth Consent
+                  </a>
+                </li>
+              </ul>
+            </nav>
+          </div>
+        </footer>
+      </main>
     );
   }
 }
