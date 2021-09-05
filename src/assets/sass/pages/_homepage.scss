@@ -1,0 +1,226 @@
+/***************************/
+/* HERO SECTION */
+/***************************/
+
+.section-hero {
+  /* background-color: #f4e6ed;
+  /* padding: 4.8rem 0 4.8rem 0; */ */
+
+  background-image: -webkit-linear-gradient(
+      rgba(0, 0, 0, 0.7),
+      rgba(0, 0, 0, 0.7)
+    ),
+    url(../img/hero-long-3);
+  background-image: linear-gradient(rgb(244, 230, 237, 0.4), rgb(244, 230, 237, 0.4)),
+    url(../img/hero-long-3.png);
+  background-size: cover;
+  background-position: top center;
+  height: 70vh;
+  background-attachment: fixed;
+}
+
+.hero {
+  max-width: 130rem;
+  margin: 0 auto;
+  padding: 9.6rem 3.2rem;
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 9.6rem;
+  align-items: center;
+}
+
+.hero-description {
+  font-size: 2rem;
+  line-height: 1.6;
+  margin-bottom: 4.8rem;
+}
+
+.hero-img {
+  width: 100%;
+}
+
+/***************************/
+/* MEALS SECTION */
+/***************************/
+
+.section-doctors {
+  padding: 4.8rem 0;
+}
+
+.doctor {
+  box-shadow: 0 2.4rem 4.8rem rgba(0, 0, 0, 0.075);
+  border-radius: 11px;
+  overflow: hidden;
+  transition: all 0.4s;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding-bottom: 3.2rem;
+}
+
+.doctor:hover {
+  transform: translateY(-1.2rem);
+  box-shadow: 0 3.2rem 6.4rem rgba(0, 0, 0, 0.06);
+}
+
+.doctor-content {
+  padding: 3.2rem 4.8rem;
+}
+
+.doctor-tags {
+  margin-bottom: 1.2rem;
+  display: flex;
+  gap: 1rem;
+}
+
+.tag {
+  display: inline-block;
+  padding: 0.4rem 0.8rem;
+  font-size: 1.2rem;
+  text-transform: uppercase;
+  color: #333;
+  border-radius: 150px;
+  font-weight: 500;
+}
+
+.tag--neda {
+  background-color: #51cf66;
+}
+
+.tag--skincare {
+  background-color: #fcc419;
+}
+
+.doctor-title {
+  font-size: 2.4rem;
+  color: #333;
+  font-weight: 600;
+  margin-bottom: 3.2rem;
+}
+
+.doctor-attributes {
+  list-style: none;
+  display: flex;
+  flex-direction: column;
+  gap: 2rem;
+}
+
+.doctor-attribute {
+  font-size: 1.8rem;
+  display: flex;
+  align-items: center;
+  gap: 2rem;
+  white-space: nowrap;
+}
+
+.doctor-icon {
+  height: 2.4rem;
+  width: 2.4rem;
+  color: #90024c;
+}
+
+.doctor-img {
+  width: 100%;
+}
+
+/***************************/
+/* HOW IT WORKS SECTION */
+/***************************/
+
+.section-how {
+  padding: 9.6rem 0;
+}
+
+.feature-icon {
+  position: relative;
+  margin-bottom: 7.2rem;
+}
+
+.feature-icon::before,
+.feature-icon::after {
+  content: '';
+  display: block;
+  border-radius: 50%;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+}
+
+.feature-icon::before {
+  width: 60%;
+  padding-bottom: 60%;
+  background-color: #f4e6ed;
+  z-index: -2;
+}
+
+.feature-icon::after {
+  width: 45%;
+  padding-bottom: 45%;
+  background-color: #e9ccdb;
+  z-index: -1;
+}
+
+.feature-icon-text {
+  color: #90024c;
+  font-size: 3.2rem;
+  text-align: center;
+}
+
+.feature-title {
+  font-size: 2.4rem;
+  color: #333;
+  font-weight: 700;
+  margin-bottom: 1.6rem;
+  text-align: center;
+}
+
+.feature-text {
+  font-size: 1.8rem;
+  line-height: 1.8;
+  text-align: center;
+}
+
+/***************************/
+/* TESTIMONIALS SECTION */
+/***************************/
+
+.section-testimonials {
+  /* background-color: #f4e6ed; */
+  padding: 9.6rem;
+}
+
+.testimonials {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  row-gap: 4.8rem;
+  column-gap: 8rem;
+  margin: 0 6.4rem;
+}
+
+.testimonial {
+  background-color: #f4e6ed;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  padding: 2.4rem 3.2rem;
+  gap: 1.6rem;
+  border-radius: 11px;
+}
+
+.testimonial-img {
+  width: 6.4rem;
+  border-radius: 50%;
+}
+
+.testimonial-text {
+  font-size: 1.8rem;
+  font-weight: 400;
+  line-height: 1.8;
+}
+
+.testimonial-date {
+  font-size: 1.6rem;
+  color: #6f6f6f;
+  margin-top: auto;
+}

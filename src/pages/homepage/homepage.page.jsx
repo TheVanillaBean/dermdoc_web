@@ -2,6 +2,7 @@ import React from 'react';
 import { connect } from 'react-redux';
 import { withRouter } from 'react-router-dom';
 import { createStructuredSelector } from 'reselect';
+import Header from '../../components/header/header.component';
 import { analytics } from '../../firebase/firebase.utils';
 import {
   updateInsuranceType,
@@ -67,36 +68,7 @@ class HomePage extends React.Component {
     return (
       <main>
         <section className="section-hero">
-          <header className="header">
-            <a href="#">
-              <img src="img/logo.png" alt="Medicall logo" className="logo" />
-            </a>
-
-            <nav className="main-nav">
-              <ul className="main-nav-list">
-                <li>
-                  <a className="main-nav-link" href="#">
-                    Our Doctors
-                  </a>
-                </li>
-                <li>
-                  <a className="main-nav-link" href="#">
-                    How it works
-                  </a>
-                </li>
-                <li>
-                  <a className="main-nav-link" href="#">
-                    Testimonials
-                  </a>
-                </li>
-                <li>
-                  <a className="main-nav-link nav-cta" href="#">
-                    Get Started
-                  </a>
-                </li>
-              </ul>
-            </nav>
-          </header>
+          <Header />
           <div className="hero">
             <div className="hero-text-box">
               <h1 className="heading-primary">

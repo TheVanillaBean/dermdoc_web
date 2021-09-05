@@ -1,37 +1,62 @@
 import React from 'react';
-import { Link } from 'react-router-dom';
-import logo from '../../assets/logo-white.png';
 
 const Footer = () => {
   return (
     <footer className="footer">
-      <div className="container">
-        <div className="flex">
-          <div className="footer__logo">
-            <img src={logo} alt="logo" className="footer__logo" />
-          </div>
+      <div className="container grid grid--footer">
+        <div className="logo-col">
+          <a href="#" className="footer-logo">
+            <img src="img/logo.png" alt="Omnifood logo" className="logo" />
+          </a>
 
-          <div className="footer__info">
-            <ul className="footer__list--contact">
-              <li>
-                <h1>Contact</h1>
-              </li>
-              <li>contact@medicall.com</li>
-              <li>401 Park Drive, Suite 1009 Boston, MA 02115</li>
-            </ul>
-            <ul className="footer__list--legal">
-              <li>
-                <h1>About us</h1>
-              </li>
-              <li>
-                <Link to="/terms">Terms of Service</Link>
-              </li>
-              <li>
-                <Link to="/privacy">Privacy Policy</Link>
-              </li>
-            </ul>
-          </div>
+          <img
+            className="hipaa-icon"
+            src="img/hipaa-badge.png"
+            alt="HIPAA Bage"
+          />
+
+          <p className="copyright">
+            Copyright &copy; 2021 by Medicall, Inc. All Rights Reserved.
+          </p>
         </div>
+        <div className="address-col">
+          <p className="footer-heading">Contact Us</p>
+          <address className="contacts">
+            <p className="address">
+              401 Park Drive, Suite 1009 Boston, MA 02115
+            </p>
+            <p>
+              <a className="footer-link" href="mailto:contact@medicall.com">
+                contact@medicall.com
+              </a>
+            </p>
+          </address>
+        </div>
+        <nav className="nav-col">
+          <p className="footer-heading">Company</p>
+          <ul className="footer-nav">
+            <li>
+              <a className="footer-link" href="#">
+                About Medicall
+              </a>
+            </li>
+            <li>
+              <a className="footer-link" href="#">
+                Terms of Service
+              </a>
+            </li>
+            <li>
+              <a className="footer-link" href="#">
+                Privacy Policy
+              </a>
+            </li>
+            <li>
+              <a className="footer-link" href="#">
+                Telehealth Consent
+              </a>
+            </li>
+          </ul>
+        </nav>
       </div>
     </footer>
   );

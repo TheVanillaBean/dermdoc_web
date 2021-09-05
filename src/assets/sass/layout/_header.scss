@@ -1,0 +1,14 @@
+.header {
+  background-color: transparent;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+
+  /* Sticky header so fixed height helps */
+  height: 9.6rem;
+  padding: 0 4.8rem;
+}
+
+.logo {
+  height: 3.2rem;
+}
