@@ -101,15 +101,18 @@ Medium: 11px
 
 html {
   font-size: 62.5%; //1rem = 10px, 10px/16px = 62.5%
+  overflow-x: hidden;
 }
 
 body {
   box-sizing: border-box;
+  /* Only works if the overflow element does not have position: absolute in relation to body. The parent element of the overflow should not be the body */
+  overflow-x: hidden;
 }
 
 *:focus {
   outline: none;
-  box-shadow: 0 0 0 0.8rem rgb(144, 2, 76, 0.5);
+  box-shadow: 0 0 0 0.8rem rgba(144, 2, 76, 0.5);
 }
 
 // //Root is the ID of the first div after the body tag

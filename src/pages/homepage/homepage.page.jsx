@@ -1,7 +1,18 @@
 import React from 'react';
+import {
+  IoCheckmarkOutline,
+  IoLocationOutline,
+  IoSchoolOutline,
+  IoStarOutline,
+} from 'react-icons/io5';
 import { connect } from 'react-redux';
 import { withRouter } from 'react-router-dom';
 import { createStructuredSelector } from 'reselect';
+import CustomerTwo from '../../assets/img/customers/ben.jpg';
+import CustomerOne from '../../assets/img/customers/dave.jpg';
+import CustomerThree from '../../assets/img/customers/steve.jpg';
+import OmarHeadshot from '../../assets/img/omar-headshot.jpeg';
+import Footer from '../../components/footer/footer.component';
 import Header from '../../components/header/header.component';
 import { analytics } from '../../firebase/firebase.utils';
 import {
@@ -15,47 +26,10 @@ import {
   selectZipCode,
 } from '../../redux/search/search.selectors';
 
-const visitReasons = [
-  { value: 'Acne', label: 'Acne' },
-  { value: 'Brown Spots', label: 'Brown Spots' },
-  { value: 'Cellulite', label: 'Cellulite' },
-  { value: 'Droopy Eyelids', label: 'Droopy Eyelids' },
-  { value: 'Excess Fat', label: 'Excess Fat' },
-  { value: 'Hairloss', label: 'Hairloss' },
-  { value: 'Latisse', label: 'Latisse' },
-  { value: 'Leg Veins', label: 'Leg Veins' },
-  { value: 'Loose Sagging Skin', label: 'Loose Sagging Skin' },
-  { value: 'Melasma', label: 'Melasma' },
-  { value: 'Rash', label: 'Rash' },
-  { value: 'Redness', label: 'Redness' },
-  { value: 'Rosacea', label: 'Rosacea' },
-  { value: 'Skin Spots', label: 'Skin Spots' },
-  { value: 'Skin Texture', label: 'Skin Texture' },
-  { value: 'Tattoo Removal', label: 'Tattoo Removal' },
-  { value: 'Under Eye Circles', label: 'Under Eye Circles' },
-  { value: 'Wrinkles', label: 'Wrinkles' },
-];
-
 class HomePage extends React.Component {
   componentDidMount() {
     analytics.logEvent('Homepage Viewed');
   }
-
-  handleZipcodeChange = (event) => {
-    const { updateZipCode } = this.props;
-    const { value } = event.target;
-    updateZipCode(value);
-  };
-
-  handleReasonChange = ({ value }) => {
-    const { updateVisitReason } = this.props;
-    updateVisitReason(value);
-  };
-
-  handleInsuranceChange = ({ value }) => {
-    const { updateInsuranceBrand } = this.props;
-    updateInsuranceBrand(value);
-  };
 
   handleSubmit = async (event) => {
     event.preventDefault();
@@ -64,7 +38,6 @@ class HomePage extends React.Component {
   };
 
   render() {
-    const { visitReason, zipcode, insuranceBrand } = this.props;
     return (
       <main>
         <section className="section-hero">
@@ -85,14 +58,14 @@ class HomePage extends React.Component {
               <a href="#" className="btn btn--full margin-right-sm">
                 Explore Doctors
               </a>
-              <a href="#" className="btn btn--outline">
+              <a href="#doctors" className="btn btn--outline">
                 Learn more &darr;
               </a>
             </div>
           </div>
         </section>
 
-        <section className="section-doctors">
+        <section className="section-doctors" id="doctors">
           <div className="container center-text">
             <span className="subheading">Our Doctors</span>
             <h2 className="heading-secondary">
@@ -103,7 +76,7 @@ class HomePage extends React.Component {
             <div className="doctor">
               <img
                 className="doctor-img"
-                src="img/omar-headshot.jpeg"
+                src={OmarHeadshot}
                 alt="Omar Badri Headshot"
               />
               <div className="doctor-content">
@@ -113,24 +86,15 @@ class HomePage extends React.Component {
                 <p className="doctor-title">Omar Badri, MD</p>
                 <ul className="doctor-attributes">
                   <li className="doctor-attribute">
-                    <ion-icon
-                      className="doctor-icon"
-                      name="location-outline"
-                    ></ion-icon>
+                    <IoLocationOutline className="list-icon" />
                     <span>Boston, Massachusetts</span>
                   </li>
                   <li className="doctor-attribute">
-                    <ion-icon
-                      className="doctor-icon"
-                      name="school-outline"
-                    ></ion-icon>
+                    <IoSchoolOutline className="list-icon" />
                     <span>Harvard Medical School</span>
                   </li>
                   <li className="doctor-attribute">
-                    <ion-icon
-                      className="doctor-icon"
-                      name="star-outline"
-                    ></ion-icon>
+                    <IoStarOutline className="list-icon" />
                     <span>
                       <strong>4.94</strong> rating (537)
                     </span>
@@ -144,7 +108,7 @@ class HomePage extends React.Component {
             <div className="doctor">
               <img
                 className="doctor-img"
-                src="img/omar-headshot.jpeg"
+                src={OmarHeadshot}
                 alt="Omar Badri Headshot"
               />
               <div className="doctor-content">
@@ -156,24 +120,16 @@ class HomePage extends React.Component {
                 <p className="doctor-title">Omar Badri, MD</p>
                 <ul className="doctor-attributes">
                   <li className="doctor-attribute">
-                    <ion-icon
-                      className="doctor-icon"
-                      name="location-outline"
-                    ></ion-icon>
+                    <IoLocationOutline className="list-icon" />
                     <span>Boston, Massachusetts</span>
                   </li>
                   <li className="doctor-attribute">
-                    <ion-icon
-                      className="doctor-icon"
-                      name="school-outline"
-                    ></ion-icon>
+                    <IoSchoolOutline className="list-icon" />
                     <span>Tufts University</span>
                   </li>
                   <li className="doctor-attribute">
-                    <ion-icon
-                      className="doctor-icon"
-                      name="star-outline"
-                    ></ion-icon>
+                    <IoStarOutline className="list-icon" />
+
                     <span>
                       <strong>4.91</strong> rating (441)
                     </span>
@@ -190,66 +146,39 @@ class HomePage extends React.Component {
               </h3>
               <ul className="list">
                 <li className="list-item">
-                  <ion-icon
-                    className="list-icon"
-                    name="checkmark-outline"
-                  ></ion-icon>
+                  <IoCheckmarkOutline className="list-icon" />
                   <span>Aetna</span>
                 </li>
                 <li className="list-item">
-                  <ion-icon
-                    className="list-icon"
-                    name="checkmark-outline"
-                  ></ion-icon>
+                  <IoCheckmarkOutline className="list-icon" />
                   <span>Blue Cross and Blue Shield</span>
                 </li>
                 <li className="list-item">
-                  <ion-icon
-                    className="list-icon"
-                    name="checkmark-outline"
-                  ></ion-icon>
+                  <IoCheckmarkOutline className="list-icon" />
                   <span>AllWays Health Plan</span>
                 </li>
                 <li className="list-item">
-                  <ion-icon
-                    className="list-icon"
-                    name="checkmark-outline"
-                  ></ion-icon>
+                  <IoCheckmarkOutline className="list-icon" />
                   <span>Cigna</span>
                 </li>
                 <li className="list-item">
-                  <ion-icon
-                    className="list-icon"
-                    name="checkmark-outline"
-                  ></ion-icon>
+                  <IoCheckmarkOutline className="list-icon" />
                   <span>UnitedHealthcare</span>
                 </li>
                 <li className="list-item">
-                  <ion-icon
-                    className="list-icon"
-                    name="checkmark-outline"
-                  ></ion-icon>
+                  <IoCheckmarkOutline className="list-icon" />
                   <span>Humana</span>
                 </li>
                 <li className="list-item">
-                  <ion-icon
-                    className="list-icon"
-                    name="checkmark-outline"
-                  ></ion-icon>
+                  <IoCheckmarkOutline className="list-icon" />
                   <span>Health Plans Inc.</span>
                 </li>
                 <li className="list-item">
-                  <ion-icon
-                    className="list-icon"
-                    name="checkmark-outline"
-                  ></ion-icon>
+                  <IoCheckmarkOutline className="list-icon" />
                   <span>Tufts Health Plan</span>
                 </li>
                 <li className="list-item">
-                  <ion-icon
-                    className="list-icon"
-                    name="checkmark-outline"
-                  ></ion-icon>
+                  <IoCheckmarkOutline className="list-icon" />
                   <span>Medicare</span>
                 </li>
               </ul>
@@ -257,7 +186,7 @@ class HomePage extends React.Component {
           </div>
         </section>
 
-        <section className="section-how">
+        <section className="section-how" id="how">
           <div className="container center-text margin-bottom-lg">
             <span className="subheading">How it works</span>
             <h2 className="heading-secondary">
@@ -310,7 +239,7 @@ class HomePage extends React.Component {
           </div>
         </section>
 
-        <section className="section-testimonials">
+        <section className="section-testimonials" id="testimonials">
           <div className="container center-text margin-bottom-lg">
             <span className="subheading">
               Our doctors are loved by their patients
@@ -323,7 +252,7 @@ class HomePage extends React.Component {
             <figure className="testimonial">
               <img
                 className="testimonial-img"
-                src="img/customers/dave.jpg"
+                src={CustomerOne}
                 alt="Dave photo"
               />
               <blockquote className="testimonial-text">
@@ -335,7 +264,7 @@ class HomePage extends React.Component {
             <figure className="testimonial">
               <img
                 className="testimonial-img"
-                src="img/customers/ben.jpg"
+                src={CustomerTwo}
                 alt="Ben Hadley photo"
               />
               <blockquote className="testimonial-text">
@@ -348,7 +277,7 @@ class HomePage extends React.Component {
             <figure className="testimonial">
               <img
                 className="testimonial-img"
-                src="img/customers/steve.jpg"
+                src={CustomerThree}
                 alt="Steve Miller photo"
               />
               <blockquote className="testimonial-text">
@@ -361,7 +290,7 @@ class HomePage extends React.Component {
             <figure className="testimonial">
               <img
                 className="testimonial-img"
-                src="img/customers/dave.jpg"
+                src={CustomerOne}
                 alt="Dave photo"
               />
               <blockquote className="testimonial-text">
@@ -373,7 +302,7 @@ class HomePage extends React.Component {
             <figure className="testimonial">
               <img
                 className="testimonial-img"
-                src="img/customers/ben.jpg"
+                src={CustomerTwo}
                 alt="Ben Hadley photo"
               />
               <blockquote className="testimonial-text">
@@ -386,7 +315,7 @@ class HomePage extends React.Component {
             <figure className="testimonial">
               <img
                 className="testimonial-img"
-                src="img/customers/steve.jpg"
+                src={CustomerThree}
                 alt="Steve Miller photo"
               />
               <blockquote className="testimonial-text">
@@ -398,63 +327,7 @@ class HomePage extends React.Component {
           </div>
         </section>
 
-        <footer className="footer">
-          <div className="container grid grid--footer">
-            <div className="logo-col">
-              <a href="#" className="footer-logo">
-                <img src="img/logo.png" alt="Omnifood logo" className="logo" />
-              </a>
-
-              <img
-                className="hipaa-icon"
-                src="img/hipaa-badge.png"
-                alt="HIPAA Bage"
-              />
-
-              <p className="copyright">
-                Copyright &copy; 2021 by Medicall, Inc. All Rights Reserved.
-              </p>
-            </div>
-            <div className="address-col">
-              <p className="footer-heading">Contact Us</p>
-              <address className="contacts">
-                <p className="address">
-                  401 Park Drive, Suite 1009 Boston, MA 02115
-                </p>
-                <p>
-                  <a className="footer-link" href="mailto:contact@medicall.com">
-                    contact@medicall.com
-                  </a>
-                </p>
-              </address>
-            </div>
-            <nav className="nav-col">
-              <p className="footer-heading">Company</p>
-              <ul className="footer-nav">
-                <li>
-                  <a className="footer-link" href="#">
-                    About Medicall
-                  </a>
-                </li>
-                <li>
-                  <a className="footer-link" href="#">
-                    Terms of Service
-                  </a>
-                </li>
-                <li>
-                  <a className="footer-link" href="#">
-                    Privacy Policy
-                  </a>
-                </li>
-                <li>
-                  <a className="footer-link" href="#">
-                    Telehealth Consent
-                  </a>
-                </li>
-              </ul>
-            </nav>
-          </div>
-        </footer>
+        <Footer />
       </main>
     );
   }

@@ -1,4 +1,6 @@
 import React from 'react';
+import HIPAABadge from '../../assets/img/hipaa-badge.png';
+import Logo from '../../assets/img/logo.png';
 
 const Footer = () => {
   return (
@@ -6,17 +8,14 @@ const Footer = () => {
       <div className="container grid grid--footer">
         <div className="logo-col">
           <a href="#" className="footer-logo">
-            <img src="img/logo.png" alt="Omnifood logo" className="logo" />
+            <img src={Logo} alt="Omnifood logo" className="logo" />
           </a>
 
-          <img
-            className="hipaa-icon"
-            src="img/hipaa-badge.png"
-            alt="HIPAA Bage"
-          />
+          <img className="hipaa-icon" src={HIPAABadge} alt="HIPAA Bage" />
 
           <p className="copyright">
-            Copyright &copy; 2021 by Medicall, Inc. All Rights Reserved.
+            Copyright &copy; <span className="year">2021</span> by Medicall,
+            Inc. All Rights Reserved.
           </p>
         </div>
         <div className="address-col">
