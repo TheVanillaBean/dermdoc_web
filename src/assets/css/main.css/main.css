@@ -379,7 +379,7 @@ strong {
 .main-nav-list {
   list-style: none;
   display: flex;
-  gap: 3.2rem;
+  gap: 4.8rem;
   align-items: center; }
 
 .main-nav-link:link,
@@ -443,15 +443,18 @@ strong {
 /***************************/
 /* HERO SECTION */
 /***************************/
-.section-hero {
+.hero-container {
   /* background-color: #f4e6ed;
   /* padding: 4.8rem 0 4.8rem 0; */
-  background-image: -webkit-linear-gradient(rgba(244, 230, 237, 0.4), rgba(244, 230, 237, 0.4)), url(../../img//hero-long-3.png);
-  background-image: linear-gradient(rgba(244, 230, 237, 0.4), rgba(244, 230, 237, 0.4)), url(../../img//hero-long-3.png);
+  background-image: -webkit-linear-gradient(rgba(244, 230, 237, 0.4), rgba(244, 230, 237, 0.4)), url(../../img/hero-long-3.png);
+  background-image: linear-gradient(rgba(244, 230, 237, 0.4), rgba(244, 230, 237, 0.4)), url(../../img/hero-long-3.png);
   background-size: cover;
-  background-position: top center;
-  height: 70vh;
-  background-attachment: fixed; }
+  background-position: center;
+  background-attachment: fixed;
+  height: 75vh; }
+
+.section-hero {
+  padding: 4.8rem 0 4.8rem 0; }
 
 .hero {
   max-width: 130rem;

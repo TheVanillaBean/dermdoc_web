@@ -2,7 +2,7 @@
 /* HERO SECTION */
 /***************************/
 
-.section-hero {
+.hero-container {
   /* background-color: #f4e6ed;
   /* padding: 4.8rem 0 4.8rem 0; */
 
@@ -10,16 +10,20 @@
       rgba(244, 230, 237, 0.4),
       rgba(244, 230, 237, 0.4)
     ),
-    url(../../img//hero-long-3.png);
+    url(../../img/hero-long-3.png);
   background-image: linear-gradient(
       rgba(244, 230, 237, 0.4),
       rgba(244, 230, 237, 0.4)
     ),
-    url(../../img//hero-long-3.png);
+    url(../../img/hero-long-3.png);
   background-size: cover;
-  background-position: top center;
-  height: 70vh;
+  background-position: center;
   background-attachment: fixed;
+  height: 75vh;
+}
+
+.section-hero {
+  padding: 4.8rem 0 4.8rem 0;
 }
 
 .hero {

@@ -40,31 +40,32 @@ class HomePage extends React.Component {
   render() {
     return (
       <main>
-        <section className="section-hero">
+        <div className="hero-container">
           <Header />
-          <div className="hero">
-            <div className="hero-text-box">
-              <h1 className="heading-primary">
-                Get a video visit with a dermatologist. Anywhere. Anytime.
-              </h1>
+          <section className="section-hero">
+            <div className="hero">
+              <div className="hero-text-box">
+                <h1 className="heading-primary">
+                  Get a video visit with a dermatologist. Anywhere. Anytime.
+                </h1>
 
-              <p className="hero-description">
-                - Use your insurance for the visit
-                <br />
-                - Video chat from your computer or phone
-                <br />- Get connected with top local dermatologists
-              </p>
+                <p className="hero-description">
+                  - Use your insurance for the visit
+                  <br />
+                  - Video chat from your computer or phone
+                  <br />- Get connected with top local dermatologists
+                </p>
 
-              <a href="#" className="btn btn--full margin-right-sm">
-                Explore Doctors
-              </a>
-              <a href="#doctors" className="btn btn--outline">
-                Learn more &darr;
-              </a>
+                <a href="#" className="btn btn--full margin-right-sm">
+                  Explore Doctors
+                </a>
+                <a href="#doctors" className="btn btn--outline">
+                  Learn more &darr;
+                </a>
+              </div>
             </div>
-          </div>
-        </section>
-
+          </section>
+        </div>
         <section className="section-doctors" id="doctors">
           <div className="container center-text">
             <span className="subheading">Our Doctors</span>
@@ -190,8 +191,9 @@ class HomePage extends React.Component {
           <div className="container center-text">
             <span className="subheading">How it works</span>
             <h2 className="heading-secondary">
-              Seeing a dermatologist doesn't have to be hard. <br /> We make it
-              easy.
+              Seeing a dermatologist doesn't have to be hard.
+              <br />
+              We make it easy.
             </h2>
           </div>
 
@@ -326,7 +328,6 @@ class HomePage extends React.Component {
             </figure>
           </div>
         </section>
-
         <Footer />
       </main>
     );
