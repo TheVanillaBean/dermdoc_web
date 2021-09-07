@@ -56,10 +56,13 @@ class HomePage extends React.Component {
                   <br />- Get connected with top local dermatologists
                 </p>
 
-                <a href="#" className="btn btn--full margin-right-sm">
+                <a
+                  href="#"
+                  className="btn btn--full margin-right-sm margin-bottom-md"
+                >
                   Explore Doctors
                 </a>
-                <a href="#doctors" className="btn btn--outline">
+                <a href="#doctors" className="btn btn--outline margin-right-sm">
                   Learn more &darr;
                 </a>
               </div>
@@ -197,22 +200,22 @@ class HomePage extends React.Component {
             </h2>
           </div>
 
-          <div className="container grid grid--4-cols">
+          <div className="steps container grid grid--4-cols">
             <div className="feature">
               <div className="feature-icon">
                 <p className="feature-icon-text">01</p>
               </div>
               <p className="feature-title">Pick a timeslot</p>
               <p className="feature-text">
-                Fill out some basic information about yourself (i.e. name, dob,
-                email, and visit reason)
+                Choose a time and fill out some basic information about yourself
+                (i.e. name, dob, email, and visit reason)
               </p>
             </div>
             <div className="feature">
               <div className="feature-icon">
                 <p className="feature-icon-text">02</p>
               </div>
-              <p className="feature-title">Answer Health Questions</p>
+              <p className="feature-title">Answer health questions</p>
               <p className="feature-text">
                 Give your doctor details about your medical history. This should
                 only take 3-5 minutes.
@@ -234,8 +237,8 @@ class HomePage extends React.Component {
               </div>
               <p className="feature-title">Video chat</p>
               <p className="feature-text">
-                We will send you a secure link to video chat with your doctor
-                right from your browser.
+                We will send you a secure link to video chat with your doctor at
+                the specified timeslot, right from your browser.
               </p>
             </div>
           </div>

@@ -14,10 +14,6 @@
   .heading-primary {
     font-size: 4.4rem;
   }
-
-  .section-testimonials {
-    padding: 9.6rem 6.4rem;
-  }
 }
 
 /***************************/
@@ -53,10 +49,6 @@
   .hero {
     gap: 4.8rem;
   }
-
-  .section-testimonials {
-    padding: 9.6rem 4.8rem;
-  }
 }
 
 /***************************/
@@ -69,15 +61,8 @@
     font-size: 50%;
   }
 
-  .section-hero {
-    background-position: center;
-    height: 70vh;
-  }
-
   .hero {
     grid-template-columns: 1fr;
-    padding: 0 8rem;
-    gap: 6.4rem;
   }
 
   .hero-text-box {
@@ -88,55 +73,14 @@
     padding: 2.4rem 3.2rem;
   }
 
-  .btn--form {
-    margin-top: 1.2rem;
-  }
-
-  .section-how {
-    padding: 9.6rem 0 0 0;
-  }
-
-  .feature-icon {
-    position: relative;
-    margin-bottom: 7.2rem;
-  }
-
-  .feature-icon::before,
-  .feature-icon::after {
-    content: '';
-    display: block;
-    border-radius: 50%;
-    position: absolute;
-    top: 50%;
-    left: 50%;
-    transform: translate(-50%, -50%);
-  }
-
-  .feature-icon::before {
-    width: 42%;
-    padding-bottom: 42%;
-    background-color: #f4e6ed;
-    z-index: -2;
-  }
-
-  .feature-icon::after {
-    width: 31.5%;
-    padding-bottom: 31.5%;
-    background-color: #e9ccdb;
-    z-index: -1;
-  }
-
-  .section-testimonial {
-    padding: 9.6rem 0 0 0;
-  }
-
-  .testimonial {
-    gap: 2.4rem;
+  .section-testimonials {
+    padding: 9.6rem 0 4.8rem 0;
   }
 
   .testimonials {
     column-gap: 4.8rem;
     grid-template-columns: 1fr 1fr;
+    margin: 0 3.2rem;
   }
 
   /* MOBILE NAVIGATION   */
@@ -205,8 +149,11 @@
 /* BELOW 704px (Tablets) */
 /***************************/
 @media (max-width: 44em) {
-  html {
-    font-size: 45%;
+  .hero-container {
+    background-color: #f4e6ed;
+    background-image: none;
+    height: inherit;
+    padding-bottom: 8rem;
   }
 
   .heading-primary {
@@ -227,18 +174,43 @@
     justify-self: center;
   }
 
-  .testimonials {
-    grid-template-columns: 1fr;
+  .steps {
+    margin-top: 9.6rem;
   }
 
-  .logo-col,
-  .address-col {
-    grid-column: span 3;
-    margin-bottom: 3.2rem;
+  /* FEATURE BUBBLE   */
+
+  .feature {
+    margin-bottom: 2.4rem;
   }
 
-  .nav-col {
-    display: none;
+  .feature-icon {
+    margin-bottom: 8rem;
+  }
+
+  .feature-icon::before,
+  .feature-icon::after {
+    content: '';
+    display: block;
+    border-radius: 50%;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+  }
+
+  .feature-icon::before {
+    width: 42%;
+    padding-bottom: 42%;
+    background-color: #f4e6ed;
+    z-index: -2;
+  }
+
+  .feature-icon::after {
+    width: 31.5%;
+    padding-bottom: 31.5%;
+    background-color: #e9ccdb;
+    z-index: -1;
   }
 }
 
@@ -271,8 +243,104 @@
     padding: 0 3.2rem;
   }
 
+  .feature-icon::before,
+  .feature-icon::after {
+    content: '';
+    display: block;
+    border-radius: 50%;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+  }
+
+  .feature-icon::before {
+    width: 30%;
+    padding-bottom: 30%;
+    background-color: #f4e6ed;
+    z-index: -2;
+  }
+
+  .feature-icon::after {
+    width: 22.5%;
+    padding-bottom: 22.5%;
+    background-color: #e9ccdb;
+    z-index: -1;
+  }
+}
+
+/***************************/
+/* 544/16 = 32 */
+/* BELOW 544px (Phones) */
+/***************************/
+@media (max-width: 34em) {
+  .grid {
+    row-gap: 4.8rem;
+  }
+
+  .grid--2-cols,
+  .grid--3-cols,
+  .grid--4-cols {
+    grid-template-columns: 1fr;
+  }
+
+  .btn,
+  .btn:link,
+  .btn:visited {
+    padding: 2.4rem 1.6rem;
+  }
+
+  .section-hero {
+    padding: 2.4rem 0 6.4rem 0;
+  }
+
+  .hero {
+    padding: 0 3.2rem;
+  }
+
+  .feature-icon::before,
+  .feature-icon::after {
+    content: '';
+    display: block;
+    border-radius: 50%;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+  }
+
+  .feature-icon::before {
+    width: 30%;
+    padding-bottom: 30%;
+    background-color: #f4e6ed;
+    z-index: -2;
+  }
+
+  .feature-icon::after {
+    width: 22.5%;
+    padding-bottom: 22.5%;
+    background-color: #e9ccdb;
+    z-index: -1;
+  }
+
+  .testimonials {
+    grid-template-columns: 1fr;
+  }
+
   .grid--footer {
-    grid-template-columns: repeat(6, 1fr);
+    grid-template-columns: repeat(2, 1fr);
+  }
+
+  .logo-col {
+    grid-row: 1;
+  }
+
+  .address-col {
+    grid-row: 2;
+  }
+
+  .nav-col {
+    grid-row: 2;
   }
 }
 
@@ -298,6 +366,14 @@
 
 .no-flexbox-gap .doctor-icon {
   margin-right: 1.6rem;
+}
+
+.no-flexbox-gap .testimonial-img {
+  margin-bottom: 1.6rem;
+}
+
+.no-flexbox-gap .testimonial-text {
+  margin-bottom: 1.6rem;
 }
 
 .no-flexbox-gap .footer-row div:not(:last-child) {
