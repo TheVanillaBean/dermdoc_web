@@ -20,16 +20,17 @@
   background-position: center;
   background-attachment: fixed;
   height: 75vh;
+  overflow: hidden;
 }
 
 .section-hero {
-  padding: 4.8rem 0 4.8rem 0;
+  padding: 4.8rem 0 0 0;
 }
 
 .hero {
   max-width: 130rem;
   margin: 0 auto;
-  padding: 9.6rem 3.2rem;
+  padding: 0 3.2rem;
   display: grid;
   grid-template-columns: 1fr 1fr;
   gap: 9.6rem;
@@ -43,7 +44,7 @@
 }
 
 /***************************/
-/* MEALS SECTION */
+/* DOCTORS SECTION */
 /***************************/
 
 .section-doctors {
@@ -131,7 +132,7 @@
 /***************************/
 
 .section-how {
-  padding: 9.6rem 0;
+  padding: 4.8rem 0 3.2rem 0;
 }
 
 .feature-icon {
@@ -189,7 +190,7 @@
 /***************************/
 
 .section-testimonials {
-  padding: 9.6rem 12.8rem;
+  padding: 4.8rem 0 3.2rem 0;
 }
 
 .testimonials {
@@ -197,6 +198,7 @@
   grid-template-columns: repeat(3, 1fr);
   row-gap: 4.8rem;
   column-gap: 8rem;
+  margin: 0 9.6rem;
 }
 
 .testimonial {
