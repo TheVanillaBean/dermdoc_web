@@ -187,7 +187,7 @@ class HomePage extends React.Component {
         </section>
 
         <section className="section-how" id="how">
-          <div className="container center-text margin-bottom-lg">
+          <div className="container center-text">
             <span className="subheading">How it works</span>
             <h2 className="heading-secondary">
               Seeing a dermatologist doesn't have to be hard. <br /> We make it
@@ -240,7 +240,7 @@ class HomePage extends React.Component {
         </section>
 
         <section className="section-testimonials" id="testimonials">
-          <div className="container center-text margin-bottom-lg">
+          <div className="container center-text">
             <span className="subheading">
               Our doctors are loved by their patients
             </span>

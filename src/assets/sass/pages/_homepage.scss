@@ -38,10 +38,6 @@
   margin-bottom: 4.8rem;
 }
 
-.hero-img {
-  width: 100%;
-}
-
 /***************************/
 /* MEALS SECTION */
 /***************************/
@@ -189,8 +185,7 @@
 /***************************/
 
 .section-testimonials {
-  /* background-color: #f4e6ed; */
-  padding: 9.6rem;
+  padding: 9.6rem 12.8rem;
 }
 
 .testimonials {
@@ -198,7 +193,6 @@
   grid-template-columns: repeat(3, 1fr);
   row-gap: 4.8rem;
   column-gap: 8rem;
-  margin: 0 6.4rem;
 }
 
 .testimonial {

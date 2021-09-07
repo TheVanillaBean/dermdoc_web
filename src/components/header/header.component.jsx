@@ -35,8 +35,8 @@ const Header = () => {
       </nav>
 
       <button className="btn-mobile-nav">
-        <IoMenuOutline className="icon-mobile-nav icon-mobile-nav-menu" />
-        <IoCloseOutline className="icon-mobile-nav icon-mobile-nav-close" />
+        <IoMenuOutline className="icon-mobile-nav" name="menu-outline" />
+        <IoCloseOutline className="icon-mobile-nav" name="close-outline" />
       </button>
     </header>
   );

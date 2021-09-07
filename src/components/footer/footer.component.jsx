@@ -14,8 +14,8 @@ const Footer = () => {
           <img className="hipaa-icon" src={HIPAABadge} alt="HIPAA Bage" />
 
           <p className="copyright">
-            Copyright &copy; <span className="year">2021</span> by Medicall,
-            Inc. All Rights Reserved.
+            Copyright &copy; <span className="year"></span> by Medicall, Inc.
+            All Rights Reserved.
           </p>
         </div>
         <div className="address-col">
