@@ -24,7 +24,8 @@ class DoctorList extends React.Component {
 
           {doctorsList.map((doctor) => (
             <DoctorCard
-              showInsurances={true}
+              horizontal
+              showInsurances={false}
               key={doctor.uid}
               showButton={true}
               doctor={doctor}

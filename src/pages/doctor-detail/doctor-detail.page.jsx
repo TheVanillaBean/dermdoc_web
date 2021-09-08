@@ -2,7 +2,7 @@ import React from 'react';
 import { connect } from 'react-redux';
 import DoctorProfileContainer from '../../components/doctor-profile/doctor-profile.container';
 import Footer from '../../components/footer/footer.component';
-import NavigationBar from '../../components/navigation-bar/navigation-bar.component';
+import Header from '../../components/header/header.component';
 import { analytics } from '../../firebase/firebase.utils';
 import { fetchDoctorStartAsync } from '../../redux/doctors/doctors.actions';
 
@@ -20,11 +20,7 @@ class DoctorDetailPage extends React.Component {
   render() {
     return (
       <div>
-        <header className="header">
-          <div className="container">
-            <NavigationBar />
-          </div>
-        </header>
+        <Header />
 
         <DoctorProfileContainer />
 

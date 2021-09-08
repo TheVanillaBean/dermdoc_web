@@ -2,13 +2,18 @@ import React from 'react';
 import { connect } from 'react-redux';
 import { withRouter } from 'react-router-dom';
 import { createStructuredSelector } from 'reselect';
+import CustomerTwo from '../../assets/img/customers/ben.jpg';
+import CustomerOne from '../../assets/img/customers/dave.jpg';
+import CustomerThree from '../../assets/img/customers/steve.jpg';
+import OmarHeadshot from '../../assets/img/omar-headshot.jpeg';
+import Testimonial from '../../components/testimonial/testimonial.component';
 import { selectDoctor } from '../../redux/doctors/doctors.selectors';
 import {
   selectInsuranceBrand,
   selectVisitReason,
   selectZipCode,
 } from '../../redux/search/search.selectors';
-import DoctorCard from '../doctor-card/doctor-card.component';
+import Doctor from '../doctor-card/doctor-card.component';
 
 class DoctorProfile extends React.Component {
   render() {
@@ -19,15 +24,29 @@ class DoctorProfile extends React.Component {
       doctor,
       doctor: { provider_bio, accepted_insurances, slug },
     } = this.props;
-
+    const omar = {
+      uid: '1',
+      first_name: 'Omar',
+      last_name: 'Badri',
+      professional_title: 'MD',
+      accepted_insurances: '',
+      tag: 'Northeast Dermatology',
+      med_school: 'Harvard Medical School',
+      rating: '4.94',
+      total_ratings: '537',
+      headshot: OmarHeadshot,
+      alt: 'Omar Badri Headshot',
+    };
     return (
       <section className="doctor-profile">
         <div className="container">
           <div className="doctor-profile__sections">
-            <DoctorCard
+            <Doctor
+              horizontal
               showInsurances={false}
-              doctor={doctor}
+              key={doctor.uid}
               showButton={false}
+              doctor={doctor}
               buttonText="Schedule a Health Visit"
             />
 
@@ -49,26 +68,36 @@ class DoctorProfile extends React.Component {
                 ))}
               </div>
             </div>
-            <div className="user-reviews">
-              <h1 className="user-reviews__header">Testimonials</h1>
-              <figure className="review">
-                <blockquote className="review__text">
-                  Had seen several doctors for the same issue. He spent a lot of
-                  time with me and was able to solve my issue. Excellent.
-                </blockquote>
-              </figure>
-              <figure className="review">
-                <blockquote className="review__text">
-                  Dr. Badri and his team were excellent!!
-                </blockquote>
-              </figure>
-              <figure className="review">
-                <blockquote className="review__text">
-                  He [Dr. Badri] went above and beyond to make sure I got
-                  everything I needed.
-                </blockquote>
-              </figure>
-            </div>
+            <section className="section-testimonials" id="testimonials">
+              <div className="container center-text">
+                <span className="subheading">testimonials</span>
+                <h2 className="heading-secondary">
+                  Here's some kind words from Dr. Badri's patients
+                </h2>
+              </div>
+              <div className="testimonials">
+                <Testimonial
+                  img={CustomerOne}
+                  alt="Customer 1"
+                  text="Dr. Badri and his team were excellent!!"
+                  date="August 27, 2021"
+                />
+                <Testimonial
+                  img={CustomerTwo}
+                  alt="Customer 2"
+                  text="Had seen several doctors for the same issue. He spent a lot of
+              time with me and was able to solve my issue. Excellent."
+                  date="August 14, 2021"
+                />
+                <Testimonial
+                  img={CustomerThree}
+                  alt="Customer 3"
+                  text="He [Dr. Badri] went above and beyond to make sure I got
+              everything I needed."
+                  date="August 18, 2021"
+                />
+              </div>
+            </section>
             <iframe
               src={`https://schedule.nylas.com/${slug}/?prefilled_readonly=false&mailing_zipcode=${zipcode}&visit_reason=${visitReason}&insurance_brand=${insuranceBrand}&mailing_zipcode=${zipcode}&mailing_state=MA&notify_cost=No`}
               title="Weekly available"

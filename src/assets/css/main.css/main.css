@@ -157,9 +157,6 @@ body {
   /* Only works if the overflow element does not have position: absolute in relation to body. The parent element of the overflow should not be the body */
   overflow-x: hidden; }
 
-.footer {
-  margin-top: auto; }
-
 #root,
 #root > div {
   min-height: 100vh;
@@ -360,6 +357,8 @@ strong {
   flex-direction: column;
   align-items: center;
   padding-bottom: 3.2rem; }
+  .doctor--horizontal {
+    flex-direction: row; }
 
 .doctor:hover {
   transform: translateY(-1.2rem);
@@ -394,6 +393,8 @@ strong {
 
 .doctor--img {
   width: 100%; }
+  .doctor--img--horizontal {
+    width: 30%; }
 
 .sign-up {
   font-size: 1.8rem;
@@ -527,7 +528,8 @@ strong {
 
 .footer {
   padding: 9.6rem 0 12.8rem 0;
-  border-top: 1px solid #eee; }
+  border-top: 1px solid #eee;
+  margin-top: auto; }
 
 .grid--footer {
   grid-template-columns: 1.5fr 1.5fr 1fr;
@@ -863,6 +865,50 @@ strong {
     gap: 3rem; }
   .doctor-profile__schedule {
     height: 100vh; }
+
+.doctor-profile {
+  margin-top: 2rem;
+  position: relative; }
+  .doctor-profile__sections {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    gap: 3rem; }
+  .doctor-profile__schedule {
+    height: 100vh; }
+
+.additional-info {
+  font-size: 1.4rem;
+  font-weight: 400;
+  letter-spacing: 1px;
+  border-bottom: var(--line-2);
+  padding-bottom: 2rem;
+  display: flex;
+  gap: 3rem;
+  justify-content: space-between; }
+  @media screen and (max-width: 768px) {
+    .additional-info {
+      flex-direction: column; } }
+  .additional-info__bio {
+    display: flex;
+    flex-direction: column;
+    gap: 2rem;
+    flex: 0 1 60%;
+    text-align: start;
+    line-height: 2.5rem; }
+  .additional-info__bio--name {
+    color: var(--color-primary-dark); }
+    @media screen and (max-width: 768px) {
+      .additional-info__bio--name {
+        margin-bottom: 1rem; } }
+  .additional-info__insurances {
+    display: flex;
+    flex-direction: column;
+    text-align: start;
+    line-height: 2.5rem; }
+  .additional-info__insurances > h1 {
+    color: var(--color-primary-dark);
+    margin-bottom: 2rem; }
 
 /* rem and em do NOT depend on html font-size in media queries.
    Instead, 1rem = 1em = 16px;

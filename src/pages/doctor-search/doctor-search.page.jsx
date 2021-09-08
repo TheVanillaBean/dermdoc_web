@@ -9,7 +9,6 @@ import DoctorListContainer from '../../components/doctors-list/doctors-list.cont
 import Footer from '../../components/footer/footer.component';
 import FormInput from '../../components/form-input/form-input.component';
 import Header from '../../components/header/header.component';
-import NavigationBar from '../../components/navigation-bar/navigation-bar.component';
 import { joinWaitlistWithEmail } from '../../firebase/firebase.utils';
 import { fetchDoctorsListStartAsync } from '../../redux/doctors/doctors.actions';
 import {
@@ -114,12 +113,8 @@ class DoctorSearchPage extends React.Component {
       );
     }
     return (
-      <div className="page-container">
-        <header className="header">
-          <div className="container">
-            <NavigationBar />
-          </div>
-        </header>
+      <div>
+        <Header />
 
         <DoctorListContainer />
 

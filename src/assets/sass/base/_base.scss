@@ -110,9 +110,10 @@ body {
   overflow-x: hidden;
 }
 
-.footer {
-  margin-top: auto;
-}
+// *:focus{
+//   outline: none;
+//   box-shadow: 0 0 0 0.8rem rgba(144, 2, 76, 0.5);
+// }
 
 //Root is the ID of the first div after the body tag
 //There is usully another div underneath it
