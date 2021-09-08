@@ -5,6 +5,7 @@ import {
   IoStarOutline,
 } from 'react-icons/io5';
 import CustomButton from '../custom-button/custom-button.component';
+import Tag from '../tag/tag.component';
 
 const DoctorCard = ({
   doctor,
@@ -30,7 +31,7 @@ const DoctorCard = ({
       <img className="doctor--img" src={headshot} alt={alt} />
       <div className="doctor__content">
         <div className="doctor__content--tags">
-          <span className="tag">{tag}</span>
+          <Tag tag={tag} />
         </div>
         <p className="doctor__content--title">
           {first_name} {last_name}, {professional_title}
