@@ -19,3 +19,20 @@
 strong {
   font-weight: 500;
 }
+
+//////////////////////////
+// REACT-SELECT
+
+// Used so label word-wraps
+.lp-copy-sel__option,
+.lp-copy-sel__single-value {
+  white-space: pre-wrap !important;
+}
+
+//////////////////////////
+// TOAST MESSAGES
+
+.toastBody {
+  font-family: 'Inter' sans-serif;
+  font-size: 2rem !important;
+}

@@ -16,7 +16,7 @@ class HomePage extends React.Component {
     analytics.logEvent('Homepage Viewed');
   }
 
-  handleSubmit = async (event) => {
+  handleClick = async (event) => {
     event.preventDefault();
     const { history } = this.props;
     history.push('/search-doctors');
@@ -68,7 +68,10 @@ class HomePage extends React.Component {
                   &mdash; Get connected with top local dermatologists
                 </p>
 
-                <CustomButton className="btn btn--full margin-right-sm">
+                <CustomButton
+                  className="btn btn--full margin-right-sm"
+                  onClick={this.handleClick}
+                >
                   Explore Doctors
                 </CustomButton>
                 <a href="#doctors" className="btn btn--outline">

@@ -8,11 +8,9 @@ import CustomButton from '../../components/custom-button/custom-button.component
 import DoctorListContainer from '../../components/doctors-list/doctors-list.container';
 import Footer from '../../components/footer/footer.component';
 import FormInput from '../../components/form-input/form-input.component';
+import Header from '../../components/header/header.component';
 import NavigationBar from '../../components/navigation-bar/navigation-bar.component';
-import {
-  analytics,
-  joinWaitlistWithEmail,
-} from '../../firebase/firebase.utils';
+import { joinWaitlistWithEmail } from '../../firebase/firebase.utils';
 import { fetchDoctorsListStartAsync } from '../../redux/doctors/doctors.actions';
 import {
   selectInsuranceBrand,
@@ -30,8 +28,6 @@ class DoctorSearchPage extends React.Component {
   }
 
   componentDidMount() {
-    analytics.logEvent('Doctor Search Page Viewed');
-
     const { fetchDoctorsListStartAsync, insuranceBrand, zipcode } = this.props;
 
     fetchDoctorsListStartAsync(insuranceBrand, zipcode);
@@ -75,13 +71,9 @@ class DoctorSearchPage extends React.Component {
       const { email } = this.state;
       return (
         <div>
-          <header className="header">
-            <div className="container">
-              <NavigationBar />
-            </div>
-          </header>
+          <Header />
 
-          <div className="container">
+          <div className="container margin-bottom-md">
             <div className="not-in-area">
               <p>Medicall only has doctors in Massachusetts currently</p>
               <p>
@@ -103,6 +95,7 @@ class DoctorSearchPage extends React.Component {
                 JOIN WAITLIST!
               </CustomButton>
             </form>
+
             <ToastContainer
               position="top-right"
               bodyClassName="toastBody"

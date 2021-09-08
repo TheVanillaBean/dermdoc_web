@@ -238,7 +238,7 @@
   }
 
   .section-hero {
-    padding: 0rem 0 6.4rem 0;
+    padding: 2.4rem 0 6.4rem 0;
   }
 
   .hero {
@@ -307,12 +307,8 @@
   margin-right: 1.6rem;
 }
 
-.no-flexbox-gap .doctor-attribute:not(:last-child) {
+.no-flexbox-gap .doctor__content--attribute:not(:last-child) {
   margin-bottom: 2rem;
-}
-
-.no-flexbox-gap .doctor-icon {
-  margin-right: 1.6rem;
 }
 
 .no-flexbox-gap .testimonial--img {

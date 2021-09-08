@@ -1,3 +1,4 @@
+@import 'abstracts/animations';
 @import 'abstracts/mixins';
 @import 'abstracts/variables';
 
@@ -9,12 +10,19 @@
 @import 'components/list';
 @import 'components/testimonial';
 @import 'components/doctor';
+@import 'components/auth';
+@import 'components/form-input';
+@import 'components/questionnaire';
+@import 'components/spinner';
 @import 'components/tag';
 
 @import 'layout/footer';
 @import 'layout/grid';
 @import 'layout/header';
 @import 'layout/navigation';
+@import 'layout/checkout';
 
+@import 'pages/legal';
 @import 'pages/homepage';
+@import 'pages/search';
 @import 'pages/queries';

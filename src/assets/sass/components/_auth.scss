@@ -1,0 +1,36 @@
+//////////////////////////
+// SIGN-UP
+
+.sign-up {
+  font-size: 1.8rem;
+  font-weight: 300;
+  color: var(--color-primary);
+
+  display: flex;
+  flex-direction: column;
+
+  .title {
+    margin: 10px 0;
+  }
+}
+
+//////////////////////////
+// SIGN-IN
+
+.sign-in {
+  font-size: 1.8rem;
+  font-weight: 300;
+  color: var(--color-primary);
+
+  display: flex;
+  flex-direction: column;
+
+  .title {
+    margin: 10px 0;
+  }
+
+  .buttons {
+    display: flex;
+    justify-content: space-between;
+  }
+}
