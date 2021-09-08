@@ -114,7 +114,7 @@ class DoctorSearchPage extends React.Component {
       );
     }
     return (
-      <div>
+      <div className="page-container">
         <header className="header">
           <div className="container">
             <NavigationBar />

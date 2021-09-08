@@ -157,9 +157,16 @@ body {
   /* Only works if the overflow element does not have position: absolute in relation to body. The parent element of the overflow should not be the body */
   overflow-x: hidden; }
 
-*:focus {
-  outline: none;
-  box-shadow: 0 0 0 0.8rem rgba(144, 2, 76, 0.5); }
+.footer {
+  margin-top: auto; }
+
+#root,
+#root > div {
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  align-items: stretch; }
 
 body {
   font-family: 'Rubik', sans-serif;
