@@ -13,7 +13,7 @@ import {
   selectVisitReason,
   selectZipCode,
 } from '../../redux/search/search.selectors';
-import Doctor from '../doctor-card/doctor-card.component';
+import DoctorCard from '../doctor-card/doctor-card.component';
 
 class DoctorProfile extends React.Component {
   render() {
@@ -41,8 +41,7 @@ class DoctorProfile extends React.Component {
       <section className="doctor-profile">
         <div className="container">
           <div className="doctor-profile__sections">
-            <Doctor
-              horizontal
+            <DoctorCard
               showInsurances={false}
               key={doctor.uid}
               showButton={false}

@@ -95,6 +95,8 @@ export const convertDoctorsListSnapshotToMap = (doctors) => {
       mailing_zipcode,
       med_residency,
       provider_bio,
+      rating,
+      total_ratings,
       slug,
     } = doc.data();
 
@@ -115,6 +117,8 @@ export const convertDoctorsListSnapshotToMap = (doctors) => {
       mailing_zipcode,
       med_residency,
       provider_bio,
+      rating,
+      total_ratings,
       slug,
     };
   });

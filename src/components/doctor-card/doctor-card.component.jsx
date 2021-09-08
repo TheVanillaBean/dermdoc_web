@@ -9,7 +9,7 @@ import CustomButton from '../custom-button/custom-button.component';
 import Tag from '../tag/tag.component';
 
 const DoctorCard = ({
-  horizontal,
+  vertical,
   doctor,
   showInsurances,
   showButton,
@@ -25,11 +25,11 @@ const DoctorCard = ({
     rating,
     total_ratings,
   } = doctor;
-  if (horizontal) {
+  if (vertical) {
     return (
-      <div className="doctor doctor--horizontal">
+      <div className="doctor doctor--vertical">
         <img
-          className="doctor--img doctor--img--horizontal"
+          className="doctor--img doctor--img--vertical"
           src={first_name === 'Omar' ? OmarHeadshot : OmarHeadshot}
           alt={`${first_name} ${last_name} ${professional_title} Headshot`}
         />
@@ -93,7 +93,7 @@ const DoctorCard = ({
             <Tag
               tag={
                 first_name === 'Omar'
-                  ? 'Northeast Dermatology'
+                  ? 'Northeast Dermatology Group'
                   : 'Tufts Dermatology'
               }
             />
@@ -129,7 +129,10 @@ const DoctorCard = ({
           </div>
         )}
         {showButton && (
-          <CustomButton className="btn btn--full" onClick={handleClick}>
+          <CustomButton
+            className="btn btn--full doctor--search-btn"
+            onClick={handleClick}
+          >
             {buttonText}
           </CustomButton>
         )}

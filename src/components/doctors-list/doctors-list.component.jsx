@@ -24,12 +24,11 @@ class DoctorList extends React.Component {
 
           {doctorsList.map((doctor) => (
             <DoctorCard
-              horizontal
               showInsurances={false}
               key={doctor.uid}
               showButton={true}
               doctor={doctor}
-              buttonText="View Available Appointment Times"
+              buttonText="View Appointment Times"
               handleClick={() => {
                 this.handleDoctorClick(doctor);
               }}

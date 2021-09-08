@@ -6,7 +6,7 @@ import CustomerOne from '../../assets/img/customers/dave.jpg';
 import CustomerThree from '../../assets/img/customers/steve.jpg';
 import OmarHeadshot from '../../assets/img/omar-headshot.jpeg';
 import CustomButton from '../../components/custom-button/custom-button.component';
-import Doctor from '../../components/doctor-card/doctor-card.component';
+import DoctorCard from '../../components/doctor-card/doctor-card.component';
 import Footer from '../../components/footer/footer.component';
 import Header from '../../components/header/header.component';
 import Testimonial from '../../components/testimonial/testimonial.component';
@@ -15,12 +15,6 @@ class HomePage extends React.Component {
   componentDidMount() {
     analytics.logEvent('Homepage Viewed');
   }
-
-  handleClick = async (event) => {
-    event.preventDefault();
-    const { history } = this.props;
-    history.push('/search-doctors');
-  };
 
   render() {
     const omar = {
@@ -70,7 +64,10 @@ class HomePage extends React.Component {
 
                 <CustomButton
                   className="btn btn--full margin-right-sm"
-                  onClick={this.handleClick}
+                  onClick={() => {
+                    const { history } = this.props;
+                    history.push('/search-doctors');
+                  }}
                 >
                   Explore Doctors
                 </CustomButton>
@@ -89,21 +86,29 @@ class HomePage extends React.Component {
             </h2>
           </div>
           <div className="container grid grid--3-cols margin-bottom-md">
-            <Doctor
+            <DoctorCard
+              vertical
               showInsurances={false}
               key={omar.uid}
               showButton={true}
               doctor={omar}
               buttonText="View Profile"
-              handleClick={() => {}}
+              handleClick={() => {
+                const { history } = this.props;
+                history.push('/doctors/omar_badri');
+              }}
             />
-            <Doctor
+            <DoctorCard
+              vertical
               showInsurances={false}
               key={farah.uid}
               showButton={true}
               doctor={farah}
               buttonText="View Profile"
-              handleClick={() => {}}
+              handleClick={() => {
+                const { history } = this.props;
+                history.push('/doctors/farah_moustafa');
+              }}
             />
             <div className="insurances">
               <h3 className="heading-tertiary">

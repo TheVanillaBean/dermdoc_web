@@ -349,18 +349,18 @@ strong {
   margin-top: auto; }
 
 .doctor {
-  box-shadow: 0 2.4rem 4.8rem rgba(0, 0, 0, 0.075);
   border-radius: 11px;
   overflow: hidden;
   transition: all 0.4s;
   display: flex;
-  flex-direction: column;
+  flex-direction: row;
   align-items: center;
   padding-bottom: 3.2rem; }
-  .doctor--horizontal {
-    flex-direction: row; }
+  .doctor--vertical {
+    box-shadow: 0 2.4rem 4.8rem rgba(0, 0, 0, 0.075);
+    flex-direction: column; }
 
-.doctor:hover {
+.doctor:hover .doctor--vertical {
   transform: translateY(-1.2rem);
   box-shadow: 0 3.2rem 6.4rem rgba(0, 0, 0, 0.06); }
 
@@ -392,9 +392,13 @@ strong {
   white-space: nowrap; }
 
 .doctor--img {
-  width: 100%; }
-  .doctor--img--horizontal {
-    width: 30%; }
+  width: 30%; }
+  .doctor--img--vertical {
+    width: 100%; }
+
+.doctor--search-btn {
+  margin-left: auto;
+  align-self: flex-end; }
 
 .sign-up {
   font-size: 1.8rem;
