@@ -51,82 +51,6 @@
   padding: 4.8rem 0;
 }
 
-.doctor {
-  box-shadow: 0 2.4rem 4.8rem rgba(0, 0, 0, 0.075);
-  border-radius: 11px;
-  overflow: hidden;
-  transition: all 0.4s;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  padding-bottom: 3.2rem;
-}
-
-.doctor:hover {
-  transform: translateY(-1.2rem);
-  box-shadow: 0 3.2rem 6.4rem rgba(0, 0, 0, 0.06);
-}
-
-.doctor-content {
-  padding: 3.2rem 4.8rem;
-}
-
-.doctor-tags {
-  margin-bottom: 1.2rem;
-  display: flex;
-  gap: 1rem;
-}
-
-.tag {
-  display: inline-block;
-  padding: 0.4rem 0.8rem;
-  font-size: 1.2rem;
-  text-transform: uppercase;
-  color: #333;
-  border-radius: 150px;
-  font-weight: 500;
-}
-
-.tag--neda {
-  background-color: #51cf66;
-}
-
-.tag--skincare {
-  background-color: #fcc419;
-}
-
-.doctor-title {
-  font-size: 2.4rem;
-  color: #333;
-  font-weight: 600;
-  margin-bottom: 3.2rem;
-}
-
-.doctor-attributes {
-  list-style: none;
-  display: flex;
-  flex-direction: column;
-  gap: 2rem;
-}
-
-.doctor-attribute {
-  font-size: 1.8rem;
-  display: flex;
-  align-items: center;
-  gap: 2rem;
-  white-space: nowrap;
-}
-
-.doctor-icon {
-  height: 2.4rem;
-  width: 2.4rem;
-  color: #90024c;
-}
-
-.doctor-img {
-  width: 100%;
-}
-
 /***************************/
 /* HOW IT WORKS SECTION */
 /***************************/
@@ -199,31 +123,4 @@
   row-gap: 4.8rem;
   column-gap: 8rem;
   margin: 0 9.6rem;
-}
-
-.testimonial {
-  background-color: #f4e6ed;
-  display: flex;
-  flex-direction: column;
-  align-items: flex-start;
-  padding: 2.4rem 3.2rem;
-  gap: 1.6rem;
-  border-radius: 11px;
-}
-
-.testimonial-img {
-  width: 6.4rem;
-  border-radius: 50%;
-}
-
-.testimonial-text {
-  font-size: 1.8rem;
-  font-weight: 400;
-  line-height: 1.8;
-}
-
-.testimonial-date {
-  font-size: 1.6rem;
-  color: #6f6f6f;
-  margin-top: auto;
 }

@@ -1,64 +1,69 @@
 import React from 'react';
-import headshot from '../../assets/omar-headshot.jpeg';
+import {
+  IoLocationOutline,
+  IoSchoolOutline,
+  IoStarOutline,
+} from 'react-icons/io5';
 import CustomButton from '../custom-button/custom-button.component';
+
 const DoctorCard = ({
   doctor,
   showInsurances,
   showButton,
   buttonText,
   handleClick,
-  ...otherProps
 }) => {
   const {
     first_name,
     last_name,
     professional_title,
     accepted_insurances,
+    tag,
     med_school,
-    med_residency,
+    rating,
+    total_ratings,
+    headshot,
+    alt,
   } = doctor;
   return (
     <div className="doctor">
-      <div className="flex">
-        <img
-          src={headshot}
-          alt="Doctor Headshot"
-          className="doctor__headshot"
-        />
-
-        <div className="doctor__information">
-          <h1 className="doctor__information--name">
-            {first_name} {last_name}, {professional_title}
-          </h1>
-          <p className="doctor__information--location">Boston, Massachusetts</p>
-          <p className="doctor__information--specialty">
-            Specialty: Dermatology
-          </p>
-          <p className="doctor__information--school">
-            Medical School: {med_school}
-          </p>
-          <p className="doctor__information--residency">
-            Residency: {med_residency}
-          </p>
-          <p className="doctor__information--avg-response">
-            Average Response: 2 hr
-          </p>
+      <img className="doctor--img" src={headshot} alt={alt} />
+      <div className="doctor__content">
+        <div className="doctor__content--tags">
+          <span className="tag">{tag}</span>
         </div>
-
-        {showInsurances && (
-          <div className="doctor__insurances">
-            <p>Accepted Insurances:</p>
-            {accepted_insurances.map((insurance) => (
-              <p key={insurance} className="additional-info--insurance-name">
-                {insurance}
-              </p>
-            ))}
-          </div>
-        )}
+        <p className="doctor__content--title">
+          {first_name} {last_name}, {professional_title}
+        </p>
+        <ul className="doctor__content--attributes">
+          <li className="doctor__content--attribute">
+            <IoLocationOutline className="list-icon" />
+            <span>Boston, Massachusetts</span>
+          </li>
+          <li className="doctor__content--attribute">
+            <IoSchoolOutline className="list-icon" />
+            <span>{med_school}</span>
+          </li>
+          <li className="doctor__content--attribute">
+            <IoStarOutline className="list-icon" />
+            <span>
+              <strong>{rating}</strong> rating ({total_ratings})
+            </span>
+          </li>
+        </ul>
       </div>
-
+      {showInsurances && (
+        <div className="doctor__insurances">
+          <p>Accepted Insurances:</p>
+          {accepted_insurances.map((insurance) => (
+            <p key={insurance} className="doctor__insurances--name">
+              {insurance}
+            </p>
+          ))}
+        </div>
+      )}
       {showButton && (
-        <CustomButton className="search__submit btn" onClick={handleClick}>
+        <CustomButton className="btn btn--full" onClick={handleClick}>
           {buttonText}
         </CustomButton>
       )}

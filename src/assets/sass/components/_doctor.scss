@@ -1,0 +1,70 @@
+.doctor {
+  box-shadow: 0 2.4rem 4.8rem rgba(0, 0, 0, 0.075);
+  border-radius: 11px;
+  overflow: hidden;
+  transition: all 0.4s;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding-bottom: 3.2rem;
+}
+
+.doctor:hover {
+  transform: translateY(-1.2rem);
+  box-shadow: 0 3.2rem 6.4rem rgba(0, 0, 0, 0.06);
+}
+
+.doctor__content {
+  padding: 3.2rem 4.8rem;
+}
+
+.doctor__content--tags {
+  margin-bottom: 1.2rem;
+  display: flex;
+  gap: 1rem;
+}
+
+.tag {
+  display: inline-block;
+  padding: 0.4rem 0.8rem;
+  font-size: 1.2rem;
+  text-transform: uppercase;
+  color: #333;
+  border-radius: 150px;
+  font-weight: 500;
+  background-color: #51cf66;
+}
+
+.tag--neda {
+  background-color: #51cf66;
+}
+
+.tag--tufts {
+  background-color: #fcc419;
+}
+
+.doctor__content--title {
+  font-size: 2.4rem;
+  color: #333;
+  font-weight: 600;
+  margin-bottom: 3.2rem;
+}
+
+.doctor__content--attributes {
+  list-style: none;
+  display: flex;
+  flex-direction: column;
+  gap: 2rem;
+}
+
+.doctor__content--attribute {
+  font-size: 1.8rem;
+  display: flex;
+  align-items: center;
+  gap: 2rem;
+  white-space: nowrap;
+}
+
+.doctor--img {
+  width: 100%;
+}

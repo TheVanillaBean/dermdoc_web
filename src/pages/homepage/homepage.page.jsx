@@ -1,31 +1,15 @@
 import React from 'react';
-import {
-  IoCheckmarkOutline,
-  IoLocationOutline,
-  IoSchoolOutline,
-  IoStarOutline,
-} from 'react-icons/io5';
-import { connect } from 'react-redux';
+import { IoCheckmarkOutline } from 'react-icons/io5';
 import { withRouter } from 'react-router-dom';
-import { createStructuredSelector } from 'reselect';
 import CustomerTwo from '../../assets/img/customers/ben.jpg';
 import CustomerOne from '../../assets/img/customers/dave.jpg';
 import CustomerThree from '../../assets/img/customers/steve.jpg';
 import OmarHeadshot from '../../assets/img/omar-headshot.jpeg';
+import Doctor from '../../components/doctor-card/doctor-card.component';
 import Footer from '../../components/footer/footer.component';
 import Header from '../../components/header/header.component';
+import Testimonial from '../../components/testimonial/testimonial.component';
 import { analytics } from '../../firebase/firebase.utils';
-import {
-  updateInsuranceType,
-  updateVisitReason,
-  updateZipCode,
-} from '../../redux/search/search.actions';
-import {
-  selectInsuranceBrand,
-  selectVisitReason,
-  selectZipCode,
-} from '../../redux/search/search.selectors';
-
 class HomePage extends React.Component {
   componentDidMount() {
     analytics.logEvent('Homepage Viewed');
@@ -38,6 +22,32 @@ class HomePage extends React.Component {
   };
 
   render() {
+    const omar = {
+      uid: '1',
+      first_name: 'Omar',
+      last_name: 'Badri',
+      professional_title: 'MD',
+      accepted_insurances: '',
+      tag: 'Northeast Dermatology',
+      med_school: 'Harvard Medical School',
+      rating: '4.94',
+      total_ratings: '537',
+      headshot: OmarHeadshot,
+      alt: 'Omar Badri Headshot',
+    };
+    const farah = {
+      uid: '2',
+      first_name: 'Farah',
+      last_name: 'Moustafa',
+      professional_title: 'MD',
+      accepted_insurances: '',
+      tag: 'Tufts Dermatology',
+      med_school: 'Tufts University',
+      rating: '4.91',
+      total_ratings: '441',
+      headshot: OmarHeadshot,
+      alt: 'Omar Badri Headshot',
+    };
     return (
       <main>
         <div className="hero-container">
@@ -77,73 +87,22 @@ class HomePage extends React.Component {
             </h2>
           </div>
           <div className="container grid grid--3-cols margin-bottom-md">
-            <div className="doctor">
-              <img
-                className="doctor-img"
-                src={OmarHeadshot}
-                alt="Omar Badri Headshot"
-              />
-              <div className="doctor-content">
-                <div className="doctor-tags">
-                  <span className="tag tag--neda">Northeast Dermatology</span>
-                </div>
-                <p className="doctor-title">Omar Badri, MD</p>
-                <ul className="doctor-attributes">
-                  <li className="doctor-attribute">
-                    <IoLocationOutline className="list-icon" />
-                    <span>Boston, Massachusetts</span>
-                  </li>
-                  <li className="doctor-attribute">
-                    <IoSchoolOutline className="list-icon" />
-                    <span>Harvard Medical School</span>
-                  </li>
-                  <li className="doctor-attribute">
-                    <IoStarOutline className="list-icon" />
-                    <span>
-                      <strong>4.94</strong> rating (537)
-                    </span>
-                  </li>
-                </ul>
-              </div>
-              <a href="#" className="btn btn--full">
-                View Profile
-              </a>
-            </div>
-            <div className="doctor">
-              <img
-                className="doctor-img"
-                src={OmarHeadshot}
-                alt="Omar Badri Headshot"
-              />
-              <div className="doctor-content">
-                <div className="doctor-tags">
-                  <span className="tag tag--skincare">
-                    Skincare Physicians Group
-                  </span>
-                </div>
-                <p className="doctor-title">Omar Badri, MD</p>
-                <ul className="doctor-attributes">
-                  <li className="doctor-attribute">
-                    <IoLocationOutline className="list-icon" />
-                    <span>Boston, Massachusetts</span>
-                  </li>
-                  <li className="doctor-attribute">
-                    <IoSchoolOutline className="list-icon" />
-                    <span>Tufts University</span>
-                  </li>
-                  <li className="doctor-attribute">
-                    <IoStarOutline className="list-icon" />
-
-                    <span>
-                      <strong>4.91</strong> rating (441)
-                    </span>
-                  </li>
-                </ul>
-              </div>
-              <a href="#" className="btn btn--full">
-                View Profile
-              </a>
-            </div>
+            <Doctor
+              showInsurances={false}
+              key={omar.uid}
+              showButton={true}
+              doctor={omar}
+              buttonText="View Profile"
+              handleClick={() => {}}
+            />
+            <Doctor
+              showInsurances={false}
+              key={farah.uid}
+              showButton={true}
+              doctor={farah}
+              buttonText="View Profile"
+              handleClick={() => {}}
+            />
             <div className="insurances">
               <h3 className="heading-tertiary">
                 Our doctors accept most insurances:
@@ -254,81 +213,46 @@ class HomePage extends React.Component {
             </h2>
           </div>
           <div className="testimonials">
-            <figure className="testimonial">
-              <img
-                className="testimonial-img"
-                src={CustomerOne}
-                alt="Dave photo"
-              />
-              <blockquote className="testimonial-text">
-                Dr. Badri and his team were excellent!!
-              </blockquote>
-              <p className="testimonial-date">&mdash; August 27, 2021</p>
-            </figure>
-
-            <figure className="testimonial">
-              <img
-                className="testimonial-img"
-                src={CustomerTwo}
-                alt="Ben Hadley photo"
-              />
-              <blockquote className="testimonial-text">
-                Had seen several doctors for the same issue. He spent a lot of
-                time with me and was able to solve my issue. Excellent.
-              </blockquote>
-              <p className="testimonial-date">&mdash; August 14, 2021</p>
-            </figure>
-
-            <figure className="testimonial">
-              <img
-                className="testimonial-img"
-                src={CustomerThree}
-                alt="Steve Miller photo"
-              />
-              <blockquote className="testimonial-text">
-                He [Dr. Badri] went above and beyond to make sure I got
-                everything I needed.
-              </blockquote>
-              <p className="testimonial-date">&mdash; August 18, 2021</p>
-            </figure>
-
-            <figure className="testimonial">
-              <img
-                className="testimonial-img"
-                src={CustomerOne}
-                alt="Dave photo"
-              />
-              <blockquote className="testimonial-text">
-                Dr. Badri and his team were excellent!!
-              </blockquote>
-              <p className="testimonial-date">&mdash; August 27, 2021</p>
-            </figure>
-
-            <figure className="testimonial">
-              <img
-                className="testimonial-img"
-                src={CustomerTwo}
-                alt="Ben Hadley photo"
-              />
-              <blockquote className="testimonial-text">
-                Had seen several doctors for the same issue. He spent a lot of
-                time with me and was able to solve my issue. Excellent.
-              </blockquote>
-              <p className="testimonial-date">&mdash; August 14, 2021</p>
-            </figure>
-
-            <figure className="testimonial">
-              <img
-                className="testimonial-img"
-                src={CustomerThree}
-                alt="Steve Miller photo"
-              />
-              <blockquote className="testimonial-text">
-                He [Dr. Badri] went above and beyond to make sure I got
-                everything I needed.
-              </blockquote>
-              <p className="testimonial-date">&mdash; August 18, 2021</p>
-            </figure>
+            <Testimonial
+              img={CustomerOne}
+              alt="Customer 1"
+              text="Dr. Badri and his team were excellent!!"
+              date="August 27, 2021"
+            />
+            <Testimonial
+              img={CustomerTwo}
+              alt="Customer 2"
+              text="Had seen several doctors for the same issue. He spent a lot of
+            time with me and was able to solve my issue. Excellent."
+              date="August 14, 2021"
+            />
+            <Testimonial
+              img={CustomerThree}
+              alt="Customer 3"
+              text="He [Dr. Badri] went above and beyond to make sure I got
+            everything I needed."
+              date="August 18, 2021"
+            />
+            <Testimonial
+              img={CustomerOne}
+              alt="Customer 1"
+              text="Dr. Badri and his team were excellent!!"
+              date="August 27, 2021"
+            />
+            <Testimonial
+              img={CustomerTwo}
+              alt="Customer 2"
+              text="Had seen several doctors for the same issue. He spent a lot of
+            time with me and was able to solve my issue. Excellent."
+              date="August 14, 2021"
+            />
+            <Testimonial
+              img={CustomerThree}
+              alt="Customer 3"
+              text="He [Dr. Badri] went above and beyond to make sure I got
+            everything I needed."
+              date="August 18, 2021"
+            />
           </div>
         </section>
         <Footer />
@@ -337,18 +261,4 @@ class HomePage extends React.Component {
   }
 }
 
-const mapStateToProps = createStructuredSelector({
-  zipcode: selectZipCode,
-  insuranceBrand: selectInsuranceBrand,
-  visitReason: selectVisitReason,
-});
-
-const mapDispatchToProps = (dispatch) => ({
-  updateZipCode: (zipcode) => dispatch(updateZipCode(zipcode)),
-  updateInsuranceBrand: (insurance) => dispatch(updateInsuranceType(insurance)),
-  updateVisitReason: (reason) => dispatch(updateVisitReason(reason)),
-});
-
-export default withRouter(
-  connect(mapStateToProps, mapDispatchToProps)(HomePage)
-);
+export default withRouter(HomePage);
