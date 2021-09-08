@@ -1,6 +1,6 @@
 import React from 'react';
 import Footer from '../../components/footer/footer.component';
-import NavigationBar from '../../components/navigation-bar/navigation-bar.component';
+import Header from '../../components/header/header.component';
 import { consent_text, privacy_text, terms_text } from './legal.text';
 
 class LegalPage extends React.Component {
@@ -20,11 +20,7 @@ class LegalPage extends React.Component {
     }
     return (
       <div>
-        <header className="header">
-          <div className="container">
-            <NavigationBar />
-          </div>
-        </header>
+        <Header />
 
         <div className="legal-container">
           <div className="container">

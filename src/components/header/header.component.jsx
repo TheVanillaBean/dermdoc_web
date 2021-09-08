@@ -1,35 +1,37 @@
 import React from 'react';
 import { IoCloseOutline, IoMenuOutline } from 'react-icons/io5';
+import { Link } from 'react-router-dom';
+import { HashLink } from 'react-router-hash-link';
 import Logo from '../../assets/img/logo.png';
 
 const Header = () => {
   return (
     <header className="header">
-      <a href="#">
+      <Link to="/">
         <img src={Logo} alt="Medicall logo" className="logo" />
-      </a>
+      </Link>
 
       <nav className="main-nav">
         <ul className="main-nav-list">
           <li>
-            <a className="main-nav-link" href="#doctors">
+            <HashLink className="main-nav-link" to="/#doctors">
               Our Doctors
-            </a>
+            </HashLink>
           </li>
           <li>
-            <a className="main-nav-link" href="#how">
+            <HashLink className="main-nav-link" to="/#how">
               How it works
-            </a>
+            </HashLink>
           </li>
           <li>
-            <a className="main-nav-link" href="#testimonials">
+            <HashLink className="main-nav-link" to="/#testimonials">
               Testimonials
-            </a>
+            </HashLink>
           </li>
           <li>
-            <a className="main-nav-link nav-cta" href="#">
+            <Link className="main-nav-link nav-cta" to="/search-doctors">
               Get Started
-            </a>
+            </Link>
           </li>
         </ul>
       </nav>

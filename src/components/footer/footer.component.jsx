@@ -1,4 +1,5 @@
 import React from 'react';
+import { Link } from 'react-router-dom';
 import HIPAABadge from '../../assets/img/hipaa-badge.png';
 import Logo from '../../assets/img/logo.png';
 
@@ -7,9 +8,9 @@ const Footer = () => {
     <footer className="footer">
       <div className="container grid grid--footer">
         <div className="logo-col">
-          <a href="#" className="footer-logo">
+          <Link to="/" className="footer-logo">
             <img src={Logo} alt="Omnifood logo" className="logo" />
-          </a>
+          </Link>
 
           <img className="hipaa-icon" src={HIPAABadge} alt="HIPAA Bage" />
 
@@ -35,24 +36,24 @@ const Footer = () => {
           <p className="footer-heading">Company</p>
           <ul className="footer-nav">
             <li>
-              <a className="footer-link" href="#">
+              <Link to="/" className="footer-link">
                 About Medicall
-              </a>
+              </Link>
             </li>
             <li>
-              <a className="footer-link" href="#">
+              <Link to="/terms" className="footer-link">
                 Terms of Service
-              </a>
+              </Link>
             </li>
             <li>
-              <a className="footer-link" href="#">
+              <Link to="/privacy" className="footer-link">
                 Privacy Policy
-              </a>
+              </Link>
             </li>
             <li>
-              <a className="footer-link" href="#">
+              <Link to="/consent" className="footer-link">
                 Telehealth Consent
-              </a>
+              </Link>
             </li>
           </ul>
         </nav>
