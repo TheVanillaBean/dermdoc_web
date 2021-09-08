@@ -5,6 +5,7 @@ import CustomerTwo from '../../assets/img/customers/ben.jpg';
 import CustomerOne from '../../assets/img/customers/dave.jpg';
 import CustomerThree from '../../assets/img/customers/steve.jpg';
 import OmarHeadshot from '../../assets/img/omar-headshot.jpeg';
+import CustomButton from '../../components/custom-button/custom-button.component';
 import Doctor from '../../components/doctor-card/doctor-card.component';
 import Footer from '../../components/footer/footer.component';
 import Header from '../../components/header/header.component';
@@ -60,19 +61,17 @@ class HomePage extends React.Component {
                 </h1>
 
                 <p className="hero-description">
-                  - Use your insurance for the visit
+                  &mdash; Use your insurance for the visit
                   <br />
-                  - Video chat from your computer or phone
-                  <br />- Get connected with top local dermatologists
+                  &mdash; Video chat from your computer or phone
+                  <br />
+                  &mdash; Get connected with top local dermatologists
                 </p>
 
-                <a
-                  href="#"
-                  className="btn btn--full margin-right-sm margin-bottom-md"
-                >
+                <CustomButton className="btn btn--full margin-right-sm">
                   Explore Doctors
-                </a>
-                <a href="#doctors" className="btn btn--outline margin-right-sm">
+                </CustomButton>
+                <a href="#doctors" className="btn btn--outline">
                   Learn more &darr;
                 </a>
               </div>
