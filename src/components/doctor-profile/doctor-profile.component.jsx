@@ -5,6 +5,7 @@ import { createStructuredSelector } from 'reselect';
 import CustomerTwo from '../../assets/img/customers/ben.jpg';
 import CustomerOne from '../../assets/img/customers/dave.jpg';
 import CustomerThree from '../../assets/img/customers/steve.jpg';
+import FarahHeadshot from '../../assets/img/farah-headshot-1.jpg';
 import OmarHeadshot from '../../assets/img/omar-headshot.jpeg';
 import Testimonial from '../../components/testimonial/testimonial.component';
 import { selectDoctor } from '../../redux/doctors/doctors.selectors';
@@ -22,21 +23,9 @@ class DoctorProfile extends React.Component {
       visitReason,
       zipcode,
       doctor,
-      doctor: { provider_bio, accepted_insurances, slug },
+      doctor: { last_name, provider_bio, accepted_insurances, slug },
     } = this.props;
-    const omar = {
-      uid: '1',
-      first_name: 'Omar',
-      last_name: 'Badri',
-      professional_title: 'MD',
-      accepted_insurances: '',
-      tag: 'Northeast Dermatology',
-      med_school: 'Harvard Medical School',
-      rating: '4.94',
-      total_ratings: '537',
-      headshot: OmarHeadshot,
-      alt: 'Omar Badri Headshot',
-    };
+
     return (
       <section className="doctor-profile">
         <div className="container">
@@ -46,6 +35,9 @@ class DoctorProfile extends React.Component {
               key={doctor.uid}
               showButton={false}
               doctor={doctor}
+              headshot={
+                doctor.first_name === 'Farah' ? FarahHeadshot : OmarHeadshot
+              }
               buttonText="Schedule a Health Visit"
             />
 
@@ -71,10 +63,10 @@ class DoctorProfile extends React.Component {
               <div className="container center-text">
                 <span className="subheading">testimonials</span>
                 <h2 className="heading-secondary">
-                  Here's some kind words from Dr. Badri's patients
+                  Here's some kind words from Dr. {last_name}'s patients
                 </h2>
               </div>
-              <div className="testimonialss">
+              <div className="testimonials">
                 <Testimonial
                   img={CustomerOne}
                   alt="Customer 1"

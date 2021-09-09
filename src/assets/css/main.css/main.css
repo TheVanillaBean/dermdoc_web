@@ -394,7 +394,9 @@ strong {
 .doctor--img {
   width: 30%; }
   .doctor--img--vertical {
-    width: 100%; }
+    width: 100%;
+    height: 50%;
+    object-fit: cover; }
 
 .doctor--search-btn {
   margin-left: auto;

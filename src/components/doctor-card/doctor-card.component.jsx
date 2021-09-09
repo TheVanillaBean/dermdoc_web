@@ -4,13 +4,13 @@ import {
   IoSchoolOutline,
   IoStarOutline,
 } from 'react-icons/io5';
-import OmarHeadshot from '../../assets/img/omar-headshot.jpeg';
 import CustomButton from '../custom-button/custom-button.component';
 import Tag from '../tag/tag.component';
 
 const DoctorCard = ({
   vertical,
   doctor,
+  headshot,
   showInsurances,
   showButton,
   buttonText,
@@ -20,6 +20,7 @@ const DoctorCard = ({
     first_name,
     last_name,
     professional_title,
+    tag,
     accepted_insurances,
     med_school,
     rating,
@@ -30,18 +31,12 @@ const DoctorCard = ({
       <div className="doctor doctor--vertical">
         <img
           className="doctor--img doctor--img--vertical"
-          src={first_name === 'Omar' ? OmarHeadshot : OmarHeadshot}
+          src={headshot}
           alt={`${first_name} ${last_name} ${professional_title} Headshot`}
         />
         <div className="doctor__content">
           <div className="doctor__content--tags">
-            <Tag
-              tag={
-                first_name === 'Omar'
-                  ? 'Northeast Dermatology'
-                  : 'Tufts Dermatology'
-              }
-            />
+            <Tag tag={tag} />
           </div>
           <p className="doctor__content--title">
             {first_name} {last_name}, {professional_title}
@@ -85,18 +80,12 @@ const DoctorCard = ({
       <div className="doctor">
         <img
           className="doctor--img"
-          src={first_name === 'Omar' ? OmarHeadshot : OmarHeadshot}
+          src={headshot}
           alt={`${first_name} ${last_name} ${professional_title} Headshot`}
         />
         <div className="doctor__content">
           <div className="doctor__content--tags">
-            <Tag
-              tag={
-                first_name === 'Omar'
-                  ? 'Northeast Dermatology Group'
-                  : 'Tufts Dermatology'
-              }
-            />
+            <Tag tag={tag} />
           </div>
           <p className="doctor__content--title">
             {first_name} {last_name}, {professional_title}

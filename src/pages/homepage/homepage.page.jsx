@@ -4,6 +4,7 @@ import { withRouter } from 'react-router-dom';
 import CustomerTwo from '../../assets/img/customers/ben.jpg';
 import CustomerOne from '../../assets/img/customers/dave.jpg';
 import CustomerThree from '../../assets/img/customers/steve.jpg';
+import FarahHeadshot from '../../assets/img/farah-headshot-1.jpg';
 import OmarHeadshot from '../../assets/img/omar-headshot.jpeg';
 import CustomButton from '../../components/custom-button/custom-button.component';
 import DoctorCard from '../../components/doctor-card/doctor-card.component';
@@ -17,31 +18,27 @@ class HomePage extends React.Component {
   }
 
   render() {
-    const omar = {
+    const omarDetails = {
       uid: '1',
       first_name: 'Omar',
       last_name: 'Badri',
       professional_title: 'MD',
       accepted_insurances: '',
-      tag: 'Northeast Dermatology',
+      tag: 'Northeast Dermatology Group',
       med_school: 'Harvard Medical School',
       rating: '4.94',
       total_ratings: '537',
-      headshot: OmarHeadshot,
-      alt: 'Omar Badri Headshot',
     };
-    const farah = {
+    const farahDetails = {
       uid: '2',
       first_name: 'Farah',
       last_name: 'Moustafa',
       professional_title: 'MD',
       accepted_insurances: '',
-      tag: 'Tufts Dermatology',
-      med_school: 'Tufts University',
-      rating: '4.91',
+      tag: 'Tufts Medical Center',
+      med_school: 'Wake Forest University',
+      rating: '4.81',
       total_ratings: '441',
-      headshot: OmarHeadshot,
-      alt: 'Omar Badri Headshot',
     };
     return (
       <main>
@@ -89,9 +86,10 @@ class HomePage extends React.Component {
             <DoctorCard
               vertical
               showInsurances={false}
-              key={omar.uid}
+              key={omarDetails.uid}
               showButton={true}
-              doctor={omar}
+              doctor={omarDetails}
+              headshot={OmarHeadshot}
               buttonText="View Profile"
               handleClick={() => {
                 const { history } = this.props;
@@ -101,9 +99,10 @@ class HomePage extends React.Component {
             <DoctorCard
               vertical
               showInsurances={false}
-              key={farah.uid}
+              key={farahDetails.uid}
               showButton={true}
-              doctor={farah}
+              doctor={farahDetails}
+              headshot={FarahHeadshot}
               buttonText="View Profile"
               handleClick={() => {
                 const { history } = this.props;

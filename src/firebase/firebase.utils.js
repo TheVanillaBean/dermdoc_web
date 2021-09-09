@@ -98,6 +98,7 @@ export const convertDoctorsListSnapshotToMap = (doctors) => {
       rating,
       total_ratings,
       slug,
+      tag,
     } = doc.data();
 
     //route name is the URL route for the doctor
@@ -120,6 +121,7 @@ export const convertDoctorsListSnapshotToMap = (doctors) => {
       rating,
       total_ratings,
       slug,
+      tag,
     };
   });
 
