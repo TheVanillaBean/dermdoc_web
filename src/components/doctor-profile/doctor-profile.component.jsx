@@ -67,14 +67,14 @@ class DoctorProfile extends React.Component {
                 ))}
               </div>
             </div>
-            <section className="section-testimonials" id="testimonials">
+            <section className="section-testimonials">
               <div className="container center-text">
                 <span className="subheading">testimonials</span>
                 <h2 className="heading-secondary">
                   Here's some kind words from Dr. Badri's patients
                 </h2>
               </div>
-              <div className="testimonials">
+              <div className="testimonialss">
                 <Testimonial
                   img={CustomerOne}
                   alt="Customer 1"

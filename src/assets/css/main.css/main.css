@@ -746,8 +746,8 @@ strong {
 /* HERO SECTION */
 /***************************/
 .hero-container {
-  background-image: -webkit-linear-gradient(rgba(244, 230, 237, 0.4), rgba(244, 230, 237, 0.4)), url(../../img/hero-long-3.png);
-  background-image: linear-gradient(rgba(244, 230, 237, 0.4), rgba(244, 230, 237, 0.4)), url(../../img/hero-long-3.png);
+  background-image: -webkit-linear-gradient(rgba(144, 2, 76, 0.05), rgba(144, 2, 76, 0.05)), url(../../img/hero.jpeg);
+  background-image: linear-gradient(rgba(144, 2, 76, 0.05), rgba(144, 2, 76, 0.05)), url(../../img/hero.jpeg);
   background-size: cover;
   background-position: center;
   background-attachment: fixed;
@@ -837,7 +837,7 @@ strong {
   grid-template-columns: repeat(3, 1fr);
   row-gap: 4.8rem;
   column-gap: 8rem;
-  margin: 0 9.6rem; }
+  margin: 0 7.2rem; }
 
 .not-in-area {
   font-size: 2.5rem;
@@ -1098,6 +1098,13 @@ strong {
     z-index: -1; }
   .testimonials {
     grid-template-columns: 1fr; }
+  .doctor {
+    flex-direction: column; }
+  .doctor--img {
+    width: 100%; }
+  .doctor--search-btn {
+    margin-left: 0;
+    align-self: center; }
   .grid--footer {
     grid-template-columns: repeat(2, 1fr); }
   .logo-col {

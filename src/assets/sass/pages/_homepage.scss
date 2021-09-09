@@ -4,15 +4,15 @@
 
 .hero-container {
   background-image: -webkit-linear-gradient(
-      rgba(244, 230, 237, 0.4),
-      rgba(244, 230, 237, 0.4)
+      rgba(144, 2, 76, 0.05),
+      rgba(144, 2, 76, 0.05)
     ),
-    url(../../img/hero-long-3.png);
+    url(../../img/hero.jpeg);
   background-image: linear-gradient(
-      rgba(244, 230, 237, 0.4),
-      rgba(244, 230, 237, 0.4)
+      rgba(144, 2, 76, 0.05),
+      rgba(144, 2, 76, 0.05)
     ),
-    url(../../img/hero-long-3.png);
+    url(../../img/hero.jpeg);
   background-size: cover;
   background-position: center;
   background-attachment: fixed;
@@ -119,5 +119,5 @@
   grid-template-columns: repeat(3, 1fr);
   row-gap: 4.8rem;
   column-gap: 8rem;
-  margin: 0 9.6rem;
+  margin: 0 7.2rem;
 }
