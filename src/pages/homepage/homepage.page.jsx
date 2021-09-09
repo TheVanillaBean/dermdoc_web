@@ -1,7 +1,10 @@
 import React from 'react';
 import { IoCheckmarkOutline } from 'react-icons/io5';
 import { withRouter } from 'react-router-dom';
-import CustomerTwo from '../../assets/img/customers/ben.jpg';
+import CustomerFour from '../../assets/img/customers/ben.jpg';
+import CustomerTwo from '../../assets/img/customers/customer-1.jpg';
+import CustomerFive from '../../assets/img/customers/customer-4.jpg';
+import CustomerSix from '../../assets/img/customers/customer-6.jpg';
 import CustomerOne from '../../assets/img/customers/dave.jpg';
 import CustomerThree from '../../assets/img/customers/steve.jpg';
 import FarahHeadshot from '../../assets/img/farah-headshot-1.jpg';
@@ -12,6 +15,7 @@ import Footer from '../../components/footer/footer.component';
 import Header from '../../components/header/header.component';
 import Testimonial from '../../components/testimonial/testimonial.component';
 import { analytics } from '../../firebase/firebase.utils';
+
 class HomePage extends React.Component {
   componentDidMount() {
     analytics.logEvent('Homepage Viewed');
@@ -240,24 +244,23 @@ class HomePage extends React.Component {
               date="August 18, 2021"
             />
             <Testimonial
-              img={CustomerOne}
+              img={CustomerFour}
               alt="Customer 1"
-              text="Dr. Badri and his team were excellent!!"
-              date="August 27, 2021"
+              text="The staff, doctors and nurses were all great! I was early and they saw me early. They answered all of my questions and gave great recommendations for my conditions. I highly recommend this office!"
+              date="July 26, 2021"
             />
             <Testimonial
-              img={CustomerTwo}
+              img={CustomerFive}
               alt="Customer 2"
-              text="Had seen several doctors for the same issue. He spent a lot of
-            time with me and was able to solve my issue. Excellent."
-              date="August 14, 2021"
+              text="It was a great experience. The staff were hospitable and Dr. Farah was very friendly and gave me listening ear to what I was saying. Her reception was awesome. I will choose tufts medical center, Dermatology department over over all."
+              date="August 3, 2021"
             />
             <Testimonial
-              img={CustomerThree}
+              img={CustomerSix}
               alt="Customer 3"
-              text="He [Dr. Badri] went above and beyond to make sure I got
-            everything I needed."
-              date="August 18, 2021"
+              text="Dr. Moustafa was a friendly, a great listener, and wonderfully knowledgeable. I appreciate that she took the time to speak with me about several options for my acne and explained possible side effects of medications thoroughly. Can’t recommend her and the office highly enough!"
+              date="August 20, 2021"
+            />
             />
           </div>
         </section>

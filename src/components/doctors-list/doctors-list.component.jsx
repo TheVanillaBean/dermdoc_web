@@ -2,10 +2,11 @@ import React from 'react';
 import { connect } from 'react-redux';
 import { withRouter } from 'react-router-dom';
 import { createStructuredSelector } from 'reselect';
+import FarahHeadshot from '../../assets/img/farah-headshot-1.jpg';
+import OmarHeadshot from '../../assets/img/omar-headshot.jpeg';
 import { fetchDoctorSuccess } from '../../redux/doctors/doctors.actions';
 import { selectDoctorsList } from '../../redux/doctors/doctors.selectors';
 import DoctorCard from '../doctor-card/doctor-card.component';
-
 class DoctorList extends React.Component {
   handleDoctorClick = (doctor) => {
     const { fetchDoctorSuccess, history } = this.props;
@@ -19,21 +20,42 @@ class DoctorList extends React.Component {
       <section className="doctor-list">
         <div className="container">
           <h1 className="doctor-list__title">
-            Dermatologists in Massachusetts
+            Dermatologists in Massachusetts ({doctorsList.length})
           </h1>
 
-          {doctorsList.map((doctor) => (
-            <DoctorCard
-              showInsurances={false}
-              key={doctor.uid}
-              showButton={true}
-              doctor={doctor}
-              buttonText="View Appointment Times"
-              handleClick={() => {
-                this.handleDoctorClick(doctor);
-              }}
-            />
-          ))}
+          <DoctorCard
+            showInsurances={false}
+            key={doctorsList[1].uid}
+            showButton={true}
+            doctor={doctorsList[1]}
+            headshot={
+              doctorsList[1].first_name === 'Farah'
+                ? FarahHeadshot
+                : OmarHeadshot
+            }
+            buttonText="View Appointment Times"
+            handleClick={() => {
+              this.handleDoctorClick(doctorsList[1]);
+            }}
+          />
+
+          <div className="border"></div>
+
+          <DoctorCard
+            showInsurances={false}
+            key={doctorsList[0].uid}
+            showButton={true}
+            doctor={doctorsList[0]}
+            headshot={
+              doctorsList[0].first_name === 'Farah'
+                ? FarahHeadshot
+                : OmarHeadshot
+            }
+            buttonText="View Appointment Times"
+            handleClick={() => {
+              this.handleDoctorClick(doctorsList[0]);
+            }}
+          />
         </div>
       </section>
     );
