@@ -2,26 +2,9 @@
 /* HERO SECTION */
 /***************************/
 
-.hero-container {
-  background-image: -webkit-linear-gradient(
-      rgba(144, 2, 76, 0.05),
-      rgba(144, 2, 76, 0.05)
-    ),
-    url(../../img/hero.jpeg);
-  background-image: linear-gradient(
-      rgba(144, 2, 76, 0.05),
-      rgba(144, 2, 76, 0.05)
-    ),
-    url(../../img/hero.jpeg);
-  background-size: cover;
-  background-position: center;
-  background-attachment: fixed;
-  height: 75vh;
-  overflow: hidden;
-}
-
 .section-hero {
-  padding: 4.8rem 0 0 0;
+  background-color: #f4e6ed;
+  padding: 4.8rem 0 4.8rem 0;
 }
 
 .hero {
@@ -38,6 +21,10 @@
   font-size: 2rem;
   line-height: 1.6;
   margin-bottom: 4.8rem;
+}
+
+.hero-img {
+  width: 100%;
 }
 
 /***************************/
