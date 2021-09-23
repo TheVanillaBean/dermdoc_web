@@ -54,7 +54,7 @@ export const createUserProfileDocument = async (userAuth, additionalData) => {
   return usersRef;
 };
 
-export const joinWaitlistWithEmail = async (email, state) => {
+export const joinWaitlistWithEmail = async (email, state = 'N/A') => {
   const waitlistRef = firestore.collection('waitlist').doc(email);
 
   const snapshot = await waitlistRef.get();
@@ -103,9 +103,7 @@ export const convertDoctorsListSnapshotToMap = (doctors) => {
 
     //route name is the URL route for the doctor
     return {
-      routeName: encodeURI(
-        `${first_name.toLowerCase()}_${last_name.toLowerCase()}`
-      ),
+      routeName: encodeURI(`${first_name.toLowerCase()}_${last_name.toLowerCase()}`),
       uid,
       first_name,
       last_name,
@@ -161,8 +159,7 @@ export const convertQuestionnaireSnapshotToPageMap = (
   let questionMapIndex = 0;
 
   while (questionMapIndex < questionsDocument['screening_questions'].length) {
-    const questionMap =
-      questionsDocument['screening_questions'][questionMapIndex];
+    const questionMap = questionsDocument['screening_questions'][questionMapIndex];
     const questionSchema = convertQuestionToSurveySchema(questionMap);
     elements.push(questionSchema.element);
     if (questionSchema.sub_questions.length > 0) {
@@ -249,9 +246,7 @@ export const mergePagesIntoSurveySchema = (pages) => {
 };
 
 export const saveQuestionnaireResponse = async (visitID, questionnaire) => {
-  const questionnaireRef = firestore
-    .collection(`visits/${visitID}/questionnaire`)
-    .doc('answers');
+  const questionnaireRef = firestore.collection(`visits/${visitID}/questionnaire`).doc('answers');
 
   try {
     await questionnaireRef.set({

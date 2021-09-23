@@ -47,7 +47,7 @@ class ServicesPage extends React.Component {
               className='btn btn--full'
               onClick={() => {
                 const { history } = this.props;
-                history.push('/search-doctors');
+                history.push('/waitlist');
               }}>
               Don't live in Massachusetts?
             </CustomButton>

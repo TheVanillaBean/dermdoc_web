@@ -5,11 +5,11 @@ import { createStructuredSelector } from 'reselect';
 import '../src/assets/css/main.css/main.css';
 import { auth, createUserProfileDocument } from './firebase/firebase.utils';
 import DoctorDetailPage from './pages/doctor-detail/doctor-detail.page';
-import DoctorSearchPage from './pages/doctor-search/doctor-search.page';
 import HomePage from './pages/homepage/homepage.page';
 import LegalPage from './pages/legal/legal.pages';
 import ServicesPages from './pages/services/services.pages';
 import VisitLandingPage from './pages/visit-landing/visit-landing.page';
+import WaitlistPage from './pages/waitlist/waitlist.page';
 import { setCurrentUser } from './redux/user/user.actions';
 import { selectVisitData } from './redux/visit/visit.selectors';
 
@@ -44,7 +44,7 @@ class App extends Component {
     return (
       <Switch>
         <Route exact path='/' component={HomePage} />
-        <Route exact path='/search-doctors' component={DoctorSearchPage} />
+        <Route exact path='/waitlist' component={WaitlistPage} />
         <Route exact path='/services' component={ServicesPages} />
         <Route path='/doctors/:doctor_route' component={DoctorDetailPage} />
         <Route path='/visits/:visit_id' component={VisitLandingPage} />
