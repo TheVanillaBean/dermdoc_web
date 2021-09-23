@@ -1,7 +1,8 @@
 import React from 'react';
 import { IoCashOutline, IoHappyOutline, IoTimeOutline } from 'react-icons/io5';
+import CustomButton from '../custom-button/custom-button.component';
 
-const ServiceCard = ({ service, image }) => {
+const ServiceCard = ({ service, image, showButton = false }) => {
   return (
     <div className='service'>
       <img className='service--img service--img--vertical' src={image} alt={`${service}`} />
@@ -24,6 +25,12 @@ const ServiceCard = ({ service, image }) => {
           </li>
         </ul>
       </div>
+
+      {showButton && (
+        <CustomButton className='btn btn--full' onClick={() => {}}>
+          Start visit
+        </CustomButton>
+      )}
     </div>
   );
 };

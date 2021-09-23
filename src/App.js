@@ -8,6 +8,7 @@ import DoctorDetailPage from './pages/doctor-detail/doctor-detail.page';
 import DoctorSearchPage from './pages/doctor-search/doctor-search.page';
 import HomePage from './pages/homepage/homepage.page';
 import LegalPage from './pages/legal/legal.pages';
+import ServicesPages from './pages/services/services.pages';
 import VisitLandingPage from './pages/visit-landing/visit-landing.page';
 import { setCurrentUser } from './redux/user/user.actions';
 import { selectVisitData } from './redux/visit/visit.selectors';
@@ -42,15 +43,16 @@ class App extends Component {
   render() {
     return (
       <Switch>
-        <Route exact path="/" component={HomePage} />
-        <Route exact path="/search-doctors" component={DoctorSearchPage} />
-        <Route path="/doctors/:doctor_route" component={DoctorDetailPage} />
-        <Route path="/visits/:visit_id" component={VisitLandingPage} />
-        <Route path="/privacy" render={() => <LegalPage page="privacy" />} />
-        <Route path="/terms" render={() => <LegalPage page="terms" />} />
-        <Route path="/consent" render={() => <LegalPage page="consent" />} />
-        <Route exact path="*">
-          <Redirect to="/" />
+        <Route exact path='/' component={HomePage} />
+        <Route exact path='/search-doctors' component={DoctorSearchPage} />
+        <Route exact path='/services' component={ServicesPages} />
+        <Route path='/doctors/:doctor_route' component={DoctorDetailPage} />
+        <Route path='/visits/:visit_id' component={VisitLandingPage} />
+        <Route path='/privacy' render={() => <LegalPage page='privacy' />} />
+        <Route path='/terms' render={() => <LegalPage page='terms' />} />
+        <Route path='/consent' render={() => <LegalPage page='consent' />} />
+        <Route exact path='*'>
+          <Redirect to='/' />
         </Route>
       </Switch>
     );

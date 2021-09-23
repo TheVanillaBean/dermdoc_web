@@ -2,9 +2,9 @@ import React from 'react';
 import { withRouter } from 'react-router-dom';
 import HeroImg from '../../assets/img/hero.jpeg';
 import OmarHeadshot from '../../assets/img/omar-headshot.jpeg';
-import AcnePhoto from '../../assets/img/specialty-photos/Acne.jpg';
-import HairlossPhoto from '../../assets/img/specialty-photos/Hairloss.jpg';
-import SkinSpotsPhoto from '../../assets/img/specialty-photos/Skin Spots.jpg';
+import AcnePhoto from '../../assets/img/specialty-photos/Acne.jpeg';
+import HairlossPhoto from '../../assets/img/specialty-photos/Hairloss.jpeg';
+import SkinSpotsPhoto from '../../assets/img/specialty-photos/SkinSpots.jpeg';
 import CustomButton from '../../components/custom-button/custom-button.component';
 import Footer from '../../components/footer/footer.component';
 import Header from '../../components/header/header.component';
@@ -18,28 +18,6 @@ class HomePage extends React.Component {
   }
 
   render() {
-    const omarDetails = {
-      uid: '1',
-      first_name: 'Omar',
-      last_name: 'Badri',
-      professional_title: 'MD',
-      accepted_insurances: '',
-      tag: 'Northeast Dermatology Group',
-      med_school: 'Harvard Medical School',
-      rating: '4.94',
-      total_ratings: '537',
-    };
-    const farahDetails = {
-      uid: '2',
-      first_name: 'Farah',
-      last_name: 'Moustafa',
-      professional_title: 'MD',
-      accepted_insurances: '',
-      tag: 'Tufts Medical Center',
-      med_school: 'Wake Forest University',
-      rating: '4.81',
-      total_ratings: '441',
-    };
     return (
       <main>
         <div className='hero-container'>
