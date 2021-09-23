@@ -1,12 +1,5 @@
 import React from 'react';
-import { IoCheckmarkOutline } from 'react-icons/io5';
 import { withRouter } from 'react-router-dom';
-import CustomerFour from '../../assets/img/customers/ben.jpg';
-import CustomerTwo from '../../assets/img/customers/customer-1.jpg';
-import CustomerFive from '../../assets/img/customers/customer-4.jpg';
-import CustomerSix from '../../assets/img/customers/customer-6.jpg';
-import CustomerOne from '../../assets/img/customers/dave.jpg';
-import CustomerThree from '../../assets/img/customers/steve.jpg';
 import HeroImg from '../../assets/img/hero.jpeg';
 import OmarHeadshot from '../../assets/img/omar-headshot.jpeg';
 import CustomButton from '../../components/custom-button/custom-button.component';
@@ -68,9 +61,9 @@ class HomePage extends React.Component {
                     const { history } = this.props;
                     history.push('/search-doctors');
                   }}>
-                  Explore Doctors
+                  Explore Services
                 </CustomButton>
-                <a href='#doctors' className='btn btn--outline'>
+                <a href='#how' className='btn btn--outline'>
                   Learn more &darr;
                 </a>
               </div>
@@ -121,7 +114,7 @@ class HomePage extends React.Component {
                 <div className='feature-icon'>
                   <p className='feature-icon-text'>04</p>
                 </div>
-                <p className='feature-title'>Prescription prescribed</p>
+                <p className='feature-title'>Prescriptions prescribed</p>
                 <p className='feature-text'>
                   If Dr. Badri prescribes you a prescription, you can fill it at any pharmacy, even
                   with your insurance.
@@ -129,17 +122,17 @@ class HomePage extends React.Component {
               </div>
             </div>
           </section>
-          <section className='section-doctors' id='doctors'>
+          <section className='section-services' id='services'>
             <div className='container center-text'>
-              <span className='subheading'>Our Doctors</span>
-              <h2 className='heading-secondary'>Board-certified. Stellar Reviews.</h2>
+              <span className='subheading'>Our Services</span>
+              <h2 className='heading-secondary'>Wide variety. Same flat-cost.</h2>
             </div>
             <div className='container grid grid--3-cols margin-bottom-md'>
               <DoctorCard
                 vertical
                 showInsurances={false}
                 key={omarDetails.uid}
-                showButton={true}
+                showButton={false}
                 doctor={omarDetails}
                 headshot={OmarHeadshot}
                 buttonText='View Profile'
@@ -152,7 +145,7 @@ class HomePage extends React.Component {
                 vertical
                 showInsurances={false}
                 key={farahDetails.uid}
-                showButton={true}
+                showButton={false}
                 doctor={farahDetails}
                 buttonText='View Profile'
                 handleClick={() => {
@@ -160,93 +153,80 @@ class HomePage extends React.Component {
                   history.push('/doctors/farah_moustafa');
                 }}
               />
-              <div className='insurances'>
-                <h3 className='heading-tertiary'>Our doctors accept most insurances:</h3>
-                <ul className='list'>
-                  <li className='list-item'>
-                    <IoCheckmarkOutline className='list-icon' />
-                    <span>Aetna</span>
-                  </li>
-                  <li className='list-item'>
-                    <IoCheckmarkOutline className='list-icon' />
-                    <span>Blue Cross and Blue Shield</span>
-                  </li>
-                  <li className='list-item'>
-                    <IoCheckmarkOutline className='list-icon' />
-                    <span>AllWays Health Plan</span>
-                  </li>
-                  <li className='list-item'>
-                    <IoCheckmarkOutline className='list-icon' />
-                    <span>Cigna</span>
-                  </li>
-                  <li className='list-item'>
-                    <IoCheckmarkOutline className='list-icon' />
-                    <span>UnitedHealthcare</span>
-                  </li>
-                  <li className='list-item'>
-                    <IoCheckmarkOutline className='list-icon' />
-                    <span>Humana</span>
-                  </li>
-                  <li className='list-item'>
-                    <IoCheckmarkOutline className='list-icon' />
-                    <span>Health Plans Inc.</span>
-                  </li>
-                  <li className='list-item'>
-                    <IoCheckmarkOutline className='list-icon' />
-                    <span>Tufts Health Plan</span>
-                  </li>
-                  <li className='list-item'>
-                    <IoCheckmarkOutline className='list-icon' />
-                    <span>Medicare</span>
-                  </li>
-                </ul>
-              </div>
+              <DoctorCard
+                vertical
+                showInsurances={false}
+                key={omarDetails.uid}
+                showButton={false}
+                doctor={omarDetails}
+                headshot={OmarHeadshot}
+                buttonText='View Profile'
+                handleClick={() => {
+                  const { history } = this.props;
+                  history.push('/doctors/omar_badri');
+                }}
+              />
+            </div>
+            <div class='container center-text'>
+              <CustomButton
+                className='btn btn--full'
+                onClick={() => {
+                  const { history } = this.props;
+                  history.push('/search-doctors');
+                }}>
+                See all Services
+              </CustomButton>
             </div>
           </section>
-          <section className='section-testimonials' id='testimonials'>
+          <section className='section-about' id='about'>
             <div className='container center-text'>
-              <span className='subheading'>Our doctors are loved by their patients</span>
-              <h2 className='heading-secondary'>Here's some kind words from a few of them</h2>
+              <span className='subheading'>About Dr. Badri</span>
+              <h2 className='heading-secondary'>Board-certified. Award Winning.</h2>
             </div>
-            <div className='testimonials'>
-              <Testimonial
-                img={CustomerOne}
-                alt='Customer 1'
-                text='Dr. Badri and his team were excellent!!'
-                date='August 27, 2021'
-              />
-              <Testimonial
-                img={CustomerTwo}
-                alt='Customer 2'
-                text='Had seen several doctors for the same issue. He spent a lot of
+            <div className='container grid grid--2-cols margin-bottom-md'>
+              <div className='about-description'>
+                <img
+                  className='doctor--img doctor--img--vertical margin-bottom-sm'
+                  src={OmarHeadshot}
+                  alt={`Omar Badri M.D Headshot`}
+                />
+                <h3 className='subheading'>Bio</h3>
+                <div className='about-text paragraph margin-bottom-md'>
+                  <p className='paragraph'>
+                    Dr. Badri attended Harvard Medical School where he earned top honors and was
+                    awarded the Thayer Award for the highest academic achievement. He completed
+                    residency training in Dermatology at Harvard (Brigham & Women’s Hospital,
+                    Massachusetts General Hospital, and Boston Children’s Hospital) and Internal
+                    Medicine at Harvard (Brigham & Women’s Hospital). <br /> <br />
+                    Dr. Badri started Medicall so he can help a broader range of people in his
+                    community.
+                    <br /> <br />
+                    He is currently a member of Northeast Dermatology Group.{' '}
+                    <a href='https://www.nedermatology.com/team/omar-badri'> Check out his page.</a>
+                  </p>
+                </div>
+              </div>
+
+              <div className='about-testimonials'>
+                <h2 className='heading-tertiary'>Stellar Reviews</h2>
+                <h2 className='subheading'>Here's some kind words from a few patients</h2>
+                <div className='testimonials'>
+                  <Testimonial
+                    text='Dr. Badri and his team were excellent!!'
+                    date='August 27, 2021'
+                  />
+                  <Testimonial
+                    text='Had seen several doctors for the same issue. He spent a lot of
             time with me and was able to solve my issue. Excellent.'
-                date='August 14, 2021'
-              />
-              <Testimonial
-                img={CustomerThree}
-                alt='Customer 3'
-                text='He [Dr. Badri] went above and beyond to make sure I got
+                    date='August 14, 2021'
+                  />
+                  <Testimonial
+                    text='He [Dr. Badri] went above and beyond to make sure I got
             everything I needed.'
-                date='August 18, 2021'
-              />
-              <Testimonial
-                img={CustomerFour}
-                alt='Customer 1'
-                text='The staff, doctors and nurses were all great! I was early and they saw me early. They answered all of my questions and gave great recommendations for my conditions. I highly recommend this office!'
-                date='July 26, 2021'
-              />
-              <Testimonial
-                img={CustomerFive}
-                alt='Customer 2'
-                text='It was a great experience. The staff were hospitable and Dr. Farah was very friendly and gave me listening ear to what I was saying. Her reception was awesome. I will choose tufts medical center, Dermatology department over over all.'
-                date='August 3, 2021'
-              />
-              <Testimonial
-                img={CustomerSix}
-                alt='Customer 3'
-                text='Dr. Moustafa was a friendly, a great listener, and wonderfully knowledgeable. I appreciate that she took the time to speak with me about several options for my acne and explained possible side effects of medications thoroughly. Can’t recommend her and the office highly enough!'
-                date='August 20, 2021'
-              />
+                    date='August 18, 2021'
+                  />
+                </div>
+              </div>
             </div>
           </section>
           <Footer />

@@ -28,14 +28,6 @@
 }
 
 /***************************/
-/* DOCTORS SECTION */
-/***************************/
-
-.section-doctors {
-  padding: 4.8rem 0;
-}
-
-/***************************/
 /* HOW IT WORKS SECTION */
 /***************************/
 
@@ -94,6 +86,22 @@
 }
 
 /***************************/
+/* SERVICES SECTION */
+/***************************/
+
+.section-services {
+  padding: 4.8rem 0 0 0;
+}
+
+/***************************/
+/* ABOUT DOCTOR SECTION */
+/***************************/
+
+.section-about {
+  padding: 4.8rem 0 0 0;
+}
+
+/***************************/
 /* TESTIMONIALS SECTION */
 /***************************/
 
@@ -103,8 +111,6 @@
 
 .testimonials {
   display: grid;
-  grid-template-columns: repeat(3, 1fr);
+  grid-template-columns: repeat(1, 1fr);
   row-gap: 4.8rem;
-  column-gap: 8rem;
-  margin: 0 7.2rem;
 }
