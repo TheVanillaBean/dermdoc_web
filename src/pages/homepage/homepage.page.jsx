@@ -80,6 +80,55 @@ class HomePage extends React.Component {
               </div>
             </div>
           </section>
+          <section className='section-how' id='how'>
+            <div className='container center-text'>
+              <span className='subheading'>How it works</span>
+              <h2 className='heading-secondary'>
+                We only charge for your doctors time. We don't inflate prescription costs.
+              </h2>
+            </div>
+
+            <div className='steps container grid grid--4-cols'>
+              <div className='feature'>
+                <div className='feature-icon'>
+                  <p className='feature-icon-text'>01</p>
+                </div>
+                <p className='feature-title'>Answer health questions</p>
+                <p className='feature-text'>
+                  Give your doctor details about your medical history. This should only take 3-5
+                  minutes.
+                </p>
+              </div>
+              <div className='feature'>
+                <div className='feature-icon'>
+                  <p className='feature-icon-text'>02</p>
+                </div>
+                <p className='feature-title'>Upload photos of your issue</p>
+                <p className='feature-text'>
+                  Share photos of your specific issue so Dr. Badri can give an accurate diagnosis.
+                </p>
+              </div>
+              <div className='feature'>
+                <div className='feature-icon'>
+                  <p className='feature-icon-text'>03</p>
+                </div>
+                <p className='feature-title'>Recieve a personal diagnosis</p>
+                <p className='feature-text'>
+                  Dr. Badri will give you a diagnosis and treatment plan within 24 hours.
+                </p>
+              </div>
+              <div className='feature'>
+                <div className='feature-icon'>
+                  <p className='feature-icon-text'>04</p>
+                </div>
+                <p className='feature-title'>Prescription prescribed</p>
+                <p className='feature-text'>
+                  If Dr. Badri prescribes you a prescription, you can fill it at any pharmacy, even
+                  with your insurance.
+                </p>
+              </div>
+            </div>
+          </section>
           <section className='section-doctors' id='doctors'>
             <div className='container center-text'>
               <span className='subheading'>Our Doctors</span>
@@ -154,58 +203,6 @@ class HomePage extends React.Component {
               </div>
             </div>
           </section>
-
-          <section className='section-how' id='how'>
-            <div className='container center-text'>
-              <span className='subheading'>How it works</span>
-              <h2 className='heading-secondary'>
-                We only charge you for your doctors time. We don't inflate prescription costs.
-              </h2>
-            </div>
-
-            <div className='steps container grid grid--4-cols'>
-              <div className='feature'>
-                <div className='feature-icon'>
-                  <p className='feature-icon-text'>01</p>
-                </div>
-                <p className='feature-title'>Pick a timeslot</p>
-                <p className='feature-text'>
-                  Choose a time and fill out some basic information about yourself (i.e. name, dob,
-                  email, and visit reason)
-                </p>
-              </div>
-              <div className='feature'>
-                <div className='feature-icon'>
-                  <p className='feature-icon-text'>02</p>
-                </div>
-                <p className='feature-title'>Answer health questions</p>
-                <p className='feature-text'>
-                  Give your doctor details about your medical history. This should only take 3-5
-                  minutes.
-                </p>
-              </div>
-              <div className='feature'>
-                <div className='feature-icon'>
-                  <p className='feature-icon-text'>03</p>
-                </div>
-                <p className='feature-title'>Share your insurance info</p>
-                <p className='feature-text'>
-                  Your doctor's front-office will run your insurance just like an in-person visit.
-                </p>
-              </div>
-              <div className='feature'>
-                <div className='feature-icon'>
-                  <p className='feature-icon-text'>04</p>
-                </div>
-                <p className='feature-title'>Video chat</p>
-                <p className='feature-text'>
-                  We will send you a secure link to video chat with your doctor at the specified
-                  timeslot, right from your browser.
-                </p>
-              </div>
-            </div>
-          </section>
-
           <section className='section-testimonials' id='testimonials'>
             <div className='container center-text'>
               <span className='subheading'>Our doctors are loved by their patients</span>
