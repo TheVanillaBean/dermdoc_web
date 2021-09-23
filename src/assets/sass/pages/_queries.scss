@@ -75,6 +75,10 @@
     padding: 2.4rem 3.2rem;
   }
 
+  .service-content {
+    padding: 2.4rem 3.2rem;
+  }
+
   .section-testimonials {
     padding: 9.6rem 0 4.8rem 0;
   }
@@ -245,6 +249,15 @@
     padding: 0 0;
   }
 
+  .hero-description {
+    text-align: start;
+    padding-left: 1.2rem;
+  }
+
+  .hero-text-box {
+    padding: 0 1.2rem;
+  }
+
   .feature-icon::before,
   .feature-icon::after {
     content: '';
@@ -287,6 +300,19 @@
     align-self: center;
   }
 
+  .service {
+    flex-direction: column;
+  }
+
+  .service--img {
+    width: 100%;
+  }
+
+  .service--search-btn {
+    margin-left: 0;
+    align-self: center;
+  }
+
   .grid--footer {
     grid-template-columns: repeat(2, 1fr);
   }
@@ -321,6 +347,10 @@
 }
 
 .no-flexbox-gap .doctor__content--attribute:not(:last-child) {
+  margin-bottom: 2rem;
+}
+
+.no-flexbox-gap .service__content--attribute:not(:last-child) {
   margin-bottom: 2rem;
 }
 

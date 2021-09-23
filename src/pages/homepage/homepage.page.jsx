@@ -40,7 +40,7 @@ class HomePage extends React.Component {
                   className='btn btn--full margin-right-sm'
                   onClick={() => {
                     const { history } = this.props;
-                    history.push('/search-doctors');
+                    history.push('/services');
                   }}>
                   Explore Services
                 </CustomButton>
@@ -119,7 +119,7 @@ class HomePage extends React.Component {
               className='btn btn--full'
               onClick={() => {
                 const { history } = this.props;
-                history.push('/search-doctors');
+                history.push('/services');
               }}>
               See all Services
             </CustomButton>
@@ -127,7 +127,7 @@ class HomePage extends React.Component {
         </section>
         <section className='section-about' id='about'>
           <div className='container center-text'>
-            <span className='subheading'>About Dr. Badri</span>
+            <span className='subheading'>Meet your personal dermatologist</span>
             <h2 className='heading-secondary'>Board-certified. Award Winning.</h2>
           </div>
           <div className='container grid grid--2-cols margin-bottom-md'>
@@ -144,30 +144,37 @@ class HomePage extends React.Component {
                   awarded the Thayer Award for the highest academic achievement. He completed
                   residency training in Dermatology at Harvard (Brigham & Women’s Hospital,
                   Massachusetts General Hospital, and Boston Children’s Hospital) and Internal
-                  Medicine at Harvard (Brigham & Women’s Hospital). <br /> <br />
+                  Medicine at Harvard (Brigham & Women’s Hospital).
+                  <br /> <br />
                   Dr. Badri started Medicall so he can help a broader range of people in his
                   community.
                   <br /> <br />
-                  He is currently a member of Northeast Dermatology Group in Beverly, MA.{' '}
-                  <a href='https://www.nedermatology.com/team/omar-badri'>Check out his page.</a>
+                  He is currently a member of Northeast Dermatology Group in Beverly, MA.
+                  <br /> <br />
+                  <a href='https://www.nedermatology.com/team/omar-badri'>
+                    Check out his doctor profile page
+                  </a>
                 </p>
               </div>
             </div>
 
             <div className='about-testimonials'>
-              <h2 className='heading-tertiary'>Stellar Reviews</h2>
-              <h2 className='subheading'>Here's some kind words from a few patients</h2>
+              <h2 className='heading-tertiary center-text'>Stellar Reviews</h2>
+              <h2 className='subheading center-text'>Here's some kind words from a few patients</h2>
               <div className='testimonials'>
                 <Testimonial
+                  service='Acne'
                   text='Dr. Badri and his team were excellent!!'
                   date='August 27, 2021'
                 />
                 <Testimonial
+                  service='Under Eye Circles'
                   text='Had seen several doctors for the same issue. He spent a lot of
             time with me and was able to solve my issue. Excellent.'
                   date='August 14, 2021'
                 />
                 <Testimonial
+                  service='Rosacea'
                   text='He [Dr. Badri] went above and beyond to make sure I got
             everything I needed.'
                   date='August 18, 2021'

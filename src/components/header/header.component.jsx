@@ -29,7 +29,7 @@ const Header = () => {
             </HashLink>
           </li>
           <li>
-            <Link className='main-nav-link nav-cta' to='/search-doctors'>
+            <Link className='main-nav-link nav-cta' to='/services'>
               Get Started
             </Link>
           </li>

@@ -39,7 +39,7 @@ class ServicesPage extends React.Component {
 
         <section className='section-services' id='services'>
           <div className='container center-text'>
-            <span className='subheading'>Select your service need</span>
+            <span className='subheading'>What seems to be your issue?</span>
             <h2 className='heading-secondary'>Our questions are tailored for each service</h2>
           </div>
           <div class='container center-text margin-bottom-md'>
