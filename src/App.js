@@ -4,7 +4,6 @@ import { Redirect, Route, Switch } from 'react-router-dom';
 import { createStructuredSelector } from 'reselect';
 import '../src/assets/css/main.css/main.css';
 import { auth, createUserProfileDocument } from './firebase/firebase.utils';
-import DoctorDetailPage from './pages/doctor-detail/doctor-detail.page';
 import HomePage from './pages/homepage/homepage.page';
 import LegalPage from './pages/legal/legal.pages';
 import ServicesPages from './pages/services/services.pages';
@@ -46,7 +45,6 @@ class App extends Component {
         <Route exact path='/' component={HomePage} />
         <Route exact path='/waitlist' component={WaitlistPage} />
         <Route exact path='/services' component={ServicesPages} />
-        <Route path='/doctors/:doctor_route' component={DoctorDetailPage} />
         <Route path='/visits/:visit_id' component={VisitLandingPage} />
         <Route path='/privacy' render={() => <LegalPage page='privacy' />} />
         <Route path='/terms' render={() => <LegalPage page='terms' />} />

@@ -1,5 +1,7 @@
 import React from 'react';
 import { withRouter } from 'react-router-dom';
+import { toast, ToastContainer } from 'react-toastify';
+import 'react-toastify/dist/ReactToastify.css';
 import AcnePhoto from '../../assets/img/specialty-photos/Acne.jpeg';
 import AthletesPhoto from '../../assets/img/specialty-photos/AthletesFoot.jpeg';
 import BrownSpotsPhoto from '../../assets/img/specialty-photos/BrownSpots.jpeg';
@@ -30,8 +32,28 @@ import CustomButton from '../../components/custom-button/custom-button.component
 import Footer from '../../components/footer/footer.component';
 import Header from '../../components/header/header.component';
 import ServiceCard from '../../components/service-card/service-card.component';
+import { createVisit } from '../../firebase/firebase.utils';
 
 class ServicesPage extends React.Component {
+  handleClick = async (service) => {
+    toast.info('Setting up questions. Please wait...');
+
+    try {
+      const newVisit = await createVisit(service);
+
+      if (newVisit.error) {
+        toast.error(newVisit.message);
+      } else {
+        const { history } = this.props;
+        history.push(`/visits/${newVisit.visitId}/questions`);
+      }
+    } catch (e) {
+      let errorText = e.message;
+
+      toast.error(errorText);
+    }
+  };
+
   render() {
     return (
       <div>
@@ -54,50 +76,184 @@ class ServicesPage extends React.Component {
           </div>
 
           <div className='container grid grid--3-cols margin-bottom-md'>
-            <ServiceCard service='Acne' image={AcnePhoto} showButton={true} />
-            <ServiceCard service='Hairloss' image={HairlossPhoto} showButton={true} />
-            <ServiceCard service='Skin Spots' image={SkinSpotsPhoto} showButton={true} />
+            <ServiceCard
+              service='Acne'
+              image={AcnePhoto}
+              showButton={true}
+              handleClick={this.handleClick}
+            />
+            <ServiceCard
+              service='Hairloss'
+              image={HairlossPhoto}
+              showButton={true}
+              handleClick={this.handleClick}
+            />
+            <ServiceCard
+              service='Skin Spots'
+              image={SkinSpotsPhoto}
+              showButton={true}
+              handleClick={this.handleClick}
+            />
 
-            <ServiceCard service="Athlete's Foot" image={AthletesPhoto} showButton={true} />
-            <ServiceCard service='Brown Spots' image={BrownSpotsPhoto} showButton={true} />
-            <ServiceCard service='Cellulite' image={CellulitePhoto} showButton={true} />
+            <ServiceCard
+              service="Athlete's Foot"
+              image={AthletesPhoto}
+              showButton={true}
+              handleClick={this.handleClick}
+            />
+            <ServiceCard
+              service='Brown Spots'
+              image={BrownSpotsPhoto}
+              showButton={true}
+              handleClick={this.handleClick}
+            />
+            <ServiceCard
+              service='Cellulite'
+              image={CellulitePhoto}
+              showButton={true}
+              handleClick={this.handleClick}
+            />
 
-            <ServiceCard service='Double Chin' image={DoubleChinPhoto} showButton={true} />
-            <ServiceCard service='Droopy Eyelids' image={DroopyEyelidsPhoto} showButton={true} />
-            <ServiceCard service='Excess Fat' image={ExcessFatPhoto} showButton={true} />
+            <ServiceCard
+              service='Double Chin'
+              image={DoubleChinPhoto}
+              showButton={true}
+              handleClick={this.handleClick}
+            />
+            <ServiceCard
+              service='Droopy Eyelids'
+              image={DroopyEyelidsPhoto}
+              showButton={true}
+              handleClick={this.handleClick}
+            />
+            <ServiceCard
+              service='Excess Fat'
+              image={ExcessFatPhoto}
+              showButton={true}
+              handleClick={this.handleClick}
+            />
 
-            <ServiceCard service='Excess Hair' image={ExcessHairPhoto} showButton={true} />
-            <ServiceCard service='Filler' image={FillerPhoto} showButton={true} />
-            <ServiceCard service='Latisse' image={LatissePhoto} showButton={true} />
+            <ServiceCard
+              service='Excess Hair'
+              image={ExcessHairPhoto}
+              showButton={true}
+              handleClick={this.handleClick}
+            />
+            <ServiceCard
+              service='Filler'
+              image={FillerPhoto}
+              showButton={true}
+              handleClick={this.handleClick}
+            />
+            <ServiceCard
+              service='Latisse'
+              image={LatissePhoto}
+              showButton={true}
+              handleClick={this.handleClick}
+            />
 
-            <ServiceCard service='Leg Veins' image={LegVeinsPhoto} showButton={true} />
+            <ServiceCard
+              service='Leg Veins'
+              image={LegVeinsPhoto}
+              showButton={true}
+              handleClick={this.handleClick}
+            />
             <ServiceCard
               service='Loose Sagging Skin'
               image={LooseSaggingSkinPhoto}
               showButton={true}
+              handleClick={this.handleClick}
             />
-            <ServiceCard service='Melasma' image={MelasmaPhoto} showButton={true} />
+            <ServiceCard
+              service='Melasma'
+              image={MelasmaPhoto}
+              showButton={true}
+              handleClick={this.handleClick}
+            />
 
-            <ServiceCard service='Nail' image={NailPhoto} showButton={true} />
-            <ServiceCard service='Psoriasis' image={PsoriasisPhoto} showButton={true} />
-            <ServiceCard service='Rash' image={RashPhoto} showButton={true} />
+            <ServiceCard
+              service='Nail'
+              image={NailPhoto}
+              showButton={true}
+              handleClick={this.handleClick}
+            />
+            <ServiceCard
+              service='Psoriasis'
+              image={PsoriasisPhoto}
+              showButton={true}
+              handleClick={this.handleClick}
+            />
+            <ServiceCard
+              service='Rash'
+              image={RashPhoto}
+              showButton={true}
+              handleClick={this.handleClick}
+            />
 
-            <ServiceCard service='Redness' image={RednessPhoto} showButton={true} />
-            <ServiceCard service='Rosacea' image={RosaceaPhoto} showButton={true} />
-            <ServiceCard service='Scar' image={ScarPhoto} showButton={true} />
+            <ServiceCard
+              service='Redness'
+              image={RednessPhoto}
+              showButton={true}
+              handleClick={this.handleClick}
+            />
+            <ServiceCard
+              service='Rosacea'
+              image={RosaceaPhoto}
+              showButton={true}
+              handleClick={this.handleClick}
+            />
+            <ServiceCard
+              service='Scar'
+              image={ScarPhoto}
+              showButton={true}
+              handleClick={this.handleClick}
+            />
 
-            <ServiceCard service='Skin Texture' image={SkinTexturePhoto} showButton={true} />
-            <ServiceCard service='Sun Burn' image={SunBurnPhoto} showButton={true} />
-            <ServiceCard service='Tattoo Removal' image={TattooRemovalPhoto} showButton={true} />
+            <ServiceCard
+              service='Skin Texture'
+              image={SkinTexturePhoto}
+              showButton={true}
+              handleClick={this.handleClick}
+            />
+            <ServiceCard
+              service='Sun Burn'
+              image={SunBurnPhoto}
+              showButton={true}
+              handleClick={this.handleClick}
+            />
+            <ServiceCard
+              service='Tattoo Removal'
+              image={TattooRemovalPhoto}
+              showButton={true}
+              handleClick={this.handleClick}
+            />
 
             <ServiceCard
               service='Under Eye Circles'
               image={UnderEyeCirclesPhoto}
               showButton={true}
+              handleClick={this.handleClick}
             />
-            <ServiceCard service='Wrinkles' image={WrinklesPhoto} showButton={true} />
+            <ServiceCard
+              service='Wrinkles'
+              image={WrinklesPhoto}
+              showButton={true}
+              handleClick={this.handleClick}
+            />
           </div>
         </section>
+
+        <ToastContainer
+          position='top-right'
+          bodyClassName='toastBody'
+          autoClose={5000}
+          hideProgressBar={false}
+          newestOnTop={false}
+          closeOnClick
+          pauseOnFocusLoss
+          draggable
+          pauseOnHover
+        />
 
         <Footer />
       </div>

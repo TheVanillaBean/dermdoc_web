@@ -80,6 +80,31 @@ export const joinWaitlistWithEmail = async (email, state = 'N/A') => {
   return { error: true, message: 'This email is already on the waitlist!' };
 };
 
+export const createVisit = async (service) => {
+  const visitRef = firestore.collection('visits').doc();
+
+  const snapshot = await visitRef.get();
+
+  if (!snapshot.exists) {
+    const date = new Date();
+
+    try {
+      await visitRef.set(
+        {
+          date,
+          visit_reason: service,
+        },
+        { merge: true }
+      );
+      return { error: false, visitId: visitRef.id };
+    } catch (e) {
+      return { error: true, message: e.message };
+    }
+  }
+
+  return { error: true, message: 'Failed to setip visit!' };
+};
+
 export const convertDoctorsListSnapshotToMap = (doctors) => {
   const transformedCollection = doctors.docs.map((doc) => {
     const {
