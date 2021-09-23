@@ -114,14 +114,3 @@ body {
 //   outline: none;
 //   box-shadow: 0 0 0 0.8rem rgba(144, 2, 76, 0.5);
 // }
-
-//Root is the ID of the first div after the body tag
-//There is usully another div underneath it
-#root,
-#root > div {
-  min-height: 100vh;
-  display: flex;
-  flex-direction: column;
-  justify-content: flex-start;
-  align-items: stretch;
-}
