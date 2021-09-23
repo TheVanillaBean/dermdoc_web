@@ -4,11 +4,7 @@ import { withRouter } from 'react-router-dom';
 import { toast, ToastContainer } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
 import { createStructuredSelector } from 'reselect';
-import {
-  auth,
-  createUserProfileDocument,
-  NON_PERSITANCE,
-} from '../../firebase/firebase.utils';
+import { auth, createUserProfileDocument, NON_PERSITANCE } from '../../firebase/firebase.utils';
 import { selectVisitData } from '../../redux/visit/visit.selectors';
 import CustomButton from '../custom-button/custom-button.component';
 import FormInput from '../form-input/form-input.component';
@@ -16,16 +12,9 @@ import FormInput from '../form-input/form-input.component';
 class SignUp extends React.Component {
   constructor(props) {
     super(props);
-
-    const { visit } = this.props;
-
-    const {
-      original_patient_information: { email },
-    } = visit;
-
     this.state = {
       displayName: '',
-      email: email,
+      email: '',
       password: '',
       confirmPassword: '',
     };
@@ -43,10 +32,7 @@ class SignUp extends React.Component {
 
     try {
       await auth.setPersistence(NON_PERSITANCE);
-      const { user } = await auth.createUserWithEmailAndPassword(
-        email,
-        password
-      );
+      const { user } = await auth.createUserWithEmailAndPassword(email, password);
 
       await createUserProfileDocument(user, { displayName });
 
@@ -64,13 +50,11 @@ class SignUp extends React.Component {
         errorText =
           'We could not create an account for you. Please contact omar@medicall.com for fast support.';
       } else if (e.code === 'auth/weak-password') {
-        errorText =
-          'This password is too weak. Passwords need a minimum of 6 characters.';
+        errorText = 'This password is too weak. Passwords need a minimum of 6 characters.';
       } else if (e.code === 'auth/invalid-email') {
         errorText = 'This email is invalid';
       } else if (e.code === 'auth/too-many-requests') {
-        errorText =
-          'You have made too many requests. Please try again in 5 minutes.';
+        errorText = 'You have made too many requests. Please try again in 5 minutes.';
       }
       toast.error(errorText);
     }
@@ -85,41 +69,41 @@ class SignUp extends React.Component {
   render() {
     const { email, password, confirmPassword } = this.state;
     return (
-      <div className="sign-up">
-        <h2 className="title">I do not have an account</h2>
+      <div className='sign-up'>
+        <h2 className='title'>I do not have an account</h2>
         <span>Sign up with your email and password</span>
-        <form className="sign-up-form" onSubmit={this.handleSubmit}>
+        <form className='sign-up-form' onSubmit={this.handleSubmit}>
           <FormInput
-            type="email"
-            name="email"
+            type='email'
+            name='email'
             value={email}
-            disabled
-            label="Email"
+            onChange={this.handleChange}
+            label='Email'
             required
           />
           <FormInput
-            type="password"
-            name="password"
+            type='password'
+            name='password'
             value={password}
             onChange={this.handleChange}
-            label="Password"
+            label='Password'
             required
           />
           <FormInput
-            type="password"
-            name="confirmPassword"
+            type='password'
+            name='confirmPassword'
             value={confirmPassword}
             onChange={this.handleChange}
-            label="Confirm Password"
+            label='Confirm Password'
             required
           />
-          <CustomButton className="custom-button" type="submit">
+          <CustomButton className='custom-button' type='submit'>
             SIGN UP
           </CustomButton>
         </form>
         <ToastContainer
-          position="top-right"
-          bodyClassName="toastBody"
+          position='top-right'
+          bodyClassName='toastBody'
           autoClose={5000}
           hideProgressBar={false}
           newestOnTop={false}

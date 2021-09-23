@@ -18,13 +18,7 @@ class VisitLandingPage extends React.Component {
   unsubscribeFromVisitSnapshot = null;
 
   componentDidMount() {
-    const {
-      match,
-      history,
-      fetchVisitStart,
-      fetchVisitSuccess,
-      fetchVisitFailure,
-    } = this.props;
+    const { match, history, fetchVisitStart, fetchVisitSuccess, fetchVisitFailure } = this.props;
     const visitID = match.params.visit_id;
     fetchVisitStart();
     this.unsubscribeFromVisitSnapshot = firestore
@@ -40,11 +34,7 @@ class VisitLandingPage extends React.Component {
               history.push(`/visits/${visit.visit_id}/questions`);
             } else if (visit.status === 'filled_out') {
               history.push(`/visits/${visit.visit_id}/auth`);
-            } else if (
-              visit.status === 'authenticated' ||
-              visit.status === 'video_links_generated' ||
-              visit.status === 'ready'
-            ) {
+            } else if (visit.status === 'authenticated' || visit.status === 'paid') {
               history.push(`/visits/${visit.visit_id}/checkout`);
             }
           }
@@ -68,7 +58,7 @@ class VisitLandingPage extends React.Component {
         <Route path={`${match.path}/questions`} component={QuestionsPage} />
         <Route path={`${match.path}/auth`} component={AuthPage} />
         <Route path={`${match.path}/checkout`} component={CheckoutPage} />
-        <Route exact path="*">
+        <Route exact path='*'>
           <Redirect to={`/visits/${match.params.visit_id}/questions`} />
         </Route>
       </Switch>

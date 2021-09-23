@@ -12,14 +12,8 @@ class SignIn extends Component {
   constructor(props) {
     super(props);
 
-    const { visit } = this.props;
-
-    const {
-      original_patient_information: { email },
-    } = visit;
-
     this.state = {
-      email: email,
+      email: '',
       password: '',
     };
   }
@@ -42,8 +36,7 @@ class SignIn extends Component {
       } else if (e.code === 'auth/invalid-email') {
         errorText = 'This email is invalid';
       } else if (e.code === 'auth/too-many-requests') {
-        errorText =
-          'You have made too many requests. Please try again in 5 minutes.';
+        errorText = 'You have made too many requests. Please try again in 5 minutes.';
       }
       toast.error(errorText);
     }
@@ -59,9 +52,7 @@ class SignIn extends Component {
   handleForgotPassword = async () => {
     try {
       await auth.sendPasswordResetEmail(this.state.email);
-      toast.success(
-        `A password reset email has just been sent to ${this.state.email}!`
-      );
+      toast.success(`A password reset email has just been sent to ${this.state.email}!`);
     } catch (e) {
       let errorText = 'An error occured';
       if (e.code === 'auth/user-not-found') {
@@ -75,42 +66,39 @@ class SignIn extends Component {
 
   render() {
     return (
-      <div className="sign-in">
-        <h2 className="title">I already have an account</h2>
+      <div className='sign-in'>
+        <h2 className='title'>I already have an account</h2>
         <span>Sign in with your email and password</span>
 
         <form onSubmit={this.handleSubmit}>
           <FormInput
-            name="email"
-            type="email"
+            name='email'
+            type='email'
             value={this.state.email}
-            disabled
-            label="email"
+            handleChange={this.handleChange}
+            label='email'
             required
           />
           <FormInput
-            name="password"
-            type="password"
+            name='password'
+            type='password'
             value={this.state.password}
             handleChange={this.handleChange}
-            label="password"
+            label='password'
             required
           />
-          <div className="buttons">
-            <CustomButton className="custom-button" type="submit">
+          <div className='buttons'>
+            <CustomButton className='custom-button' type='submit'>
               Sign in
             </CustomButton>
-            <CustomButton
-              className="custom-button"
-              onClick={this.handleForgotPassword}
-            >
+            <CustomButton className='custom-button' onClick={this.handleForgotPassword}>
               Forgot password
             </CustomButton>
           </div>
         </form>
         <ToastContainer
-          position="top-right"
-          bodyClassName="toastBody"
+          position='top-right'
+          bodyClassName='toastBody'
           autoClose={5000}
           hideProgressBar={false}
           newestOnTop={false}

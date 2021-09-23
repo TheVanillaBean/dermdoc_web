@@ -36,8 +36,6 @@ import { createVisit } from '../../firebase/firebase.utils';
 
 class ServicesPage extends React.Component {
   handleClick = async (service) => {
-    toast.info('Setting up questions. Please wait...');
-
     try {
       const newVisit = await createVisit(service);
 

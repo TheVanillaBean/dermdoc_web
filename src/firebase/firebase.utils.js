@@ -93,6 +93,8 @@ export const createVisit = async (service) => {
         {
           date,
           visit_reason: service,
+          status: 'initiated',
+          visit_id: visitRef.id,
         },
         { merge: true }
       );
