@@ -2,10 +2,13 @@ import React from 'react';
 import { withRouter } from 'react-router-dom';
 import HeroImg from '../../assets/img/hero.jpeg';
 import OmarHeadshot from '../../assets/img/omar-headshot.jpeg';
+import AcnePhoto from '../../assets/img/specialty-photos/Acne.jpg';
+import HairlossPhoto from '../../assets/img/specialty-photos/Hairloss.jpg';
+import SkinSpotsPhoto from '../../assets/img/specialty-photos/Skin Spots.jpg';
 import CustomButton from '../../components/custom-button/custom-button.component';
-import DoctorCard from '../../components/doctor-card/doctor-card.component';
 import Footer from '../../components/footer/footer.component';
 import Header from '../../components/header/header.component';
+import ServiceCard from '../../components/service-card/service-card.component';
 import Testimonial from '../../components/testimonial/testimonial.component';
 import { analytics } from '../../firebase/firebase.utils';
 
@@ -129,44 +132,9 @@ class HomePage extends React.Component {
             <h2 className='heading-secondary'>Wide variety. Same flat-cost.</h2>
           </div>
           <div className='container grid grid--3-cols margin-bottom-md'>
-            <DoctorCard
-              vertical
-              showInsurances={false}
-              key={omarDetails.uid}
-              showButton={false}
-              doctor={omarDetails}
-              headshot={OmarHeadshot}
-              buttonText='View Profile'
-              handleClick={() => {
-                const { history } = this.props;
-                history.push('/doctors/omar_badri');
-              }}
-            />
-            <DoctorCard
-              vertical
-              showInsurances={false}
-              key={farahDetails.uid}
-              showButton={false}
-              doctor={farahDetails}
-              buttonText='View Profile'
-              handleClick={() => {
-                const { history } = this.props;
-                history.push('/doctors/farah_moustafa');
-              }}
-            />
-            <DoctorCard
-              vertical
-              showInsurances={false}
-              key={omarDetails.uid}
-              showButton={false}
-              doctor={omarDetails}
-              headshot={OmarHeadshot}
-              buttonText='View Profile'
-              handleClick={() => {
-                const { history } = this.props;
-                history.push('/doctors/omar_badri');
-              }}
-            />
+            <ServiceCard service='Acne' image={AcnePhoto} />
+            <ServiceCard service='Hairloss' image={HairlossPhoto} />
+            <ServiceCard service='Skin Spots' image={SkinSpotsPhoto} />
           </div>
           <div class='container center-text'>
             <CustomButton
@@ -194,7 +162,7 @@ class HomePage extends React.Component {
               <h3 className='subheading'>Bio</h3>
               <div className='about-text paragraph margin-bottom-md'>
                 <p className='paragraph'>
-                  Dr. Badri attended Harvard Medical School where he earned top honors and was
+                  Dr. Omar Badri attended Harvard Medical School where he earned top honors and was
                   awarded the Thayer Award for the highest academic achievement. He completed
                   residency training in Dermatology at Harvard (Brigham & Women’s Hospital,
                   Massachusetts General Hospital, and Boston Children’s Hospital) and Internal
@@ -202,8 +170,8 @@ class HomePage extends React.Component {
                   Dr. Badri started Medicall so he can help a broader range of people in his
                   community.
                   <br /> <br />
-                  He is currently a member of Northeast Dermatology Group.{' '}
-                  <a href='https://www.nedermatology.com/team/omar-badri'> Check out his page.</a>
+                  He is currently a member of Northeast Dermatology Group in Beverly, MA.{' '}
+                  <a href='https://www.nedermatology.com/team/omar-badri'>Check out his page.</a>
                 </p>
               </div>
             </div>
