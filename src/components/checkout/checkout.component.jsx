@@ -16,15 +16,11 @@ class Checkout extends React.Component {
   componentDidMount() {
     const {
       currentUser,
-      visit: { visit_id, status, payment_status },
+      visit: { visit_id, status },
       fetchCheckoutURLStartAsync,
     } = this.props;
     this.revertStatusIfNoUser();
-    if (
-      currentUser &&
-      status === 'ready' &&
-      payment_status === 'awaiting_payment'
-    ) {
+    if (currentUser && status !== 'paid') {
       fetchCheckoutURLStartAsync(currentUser.idToken, visit_id);
     }
   }
@@ -53,53 +49,17 @@ class Checkout extends React.Component {
   render() {
     const { isFetchingURL, stripeErrorMessage, visit } = this.props;
 
-    if (
-      typeof visit.payment_status === 'undefined' ||
-      visit.payment_status === 'needs_insurance_info' ||
-      visit.payment_status === 'awaiting_cost' ||
-      visit.payment_status === 'paid'
-    ) {
-      let headerText = '';
-
-      if (visit.payment_status === 'paid') {
-        if (visit.cost > 0) {
-          headerText =
-            'Hooray! You have successfully paid for this live video visit.';
-        } else {
-          headerText =
-            'Hooray! Your out of pocket cost for this visit was $0 so you are all set!';
-        }
-      } else {
-        headerText =
-          'Hooray! You have successfully scheduled a live video visit.';
-      }
-
-      let additionalInfo =
-        'Keep in mind, you will be asked for your insurance member ID before the visit starts.';
-      if (visit.payment_status === 'awaiting_cost') {
-        additionalInfo =
-          "Keep in mind, we will send you an email with your out of pocket cost (if any) once your doctor's front-desk runs your insurance information.";
-      }
+    if (visit.status === 'paid') {
       return (
-        <div className="checkout-page">
-          <div className="container">
-            <div className="visit-paid-container">
-              <h1>{headerText}</h1>
-
-              {(visit.payment_status === 'needs_insurance_info' ||
-                visit.payment_status === 'awaiting_cost') && (
-                <p>
-                  An email has been sent to{' '}
-                  {visit.original_patient_information.email} with details
-                  pertaining to your visit.
-                </p>
-              )}
-
-              <p>{additionalInfo}</p>
-
+        <div className='checkout-page'>
+          <div className='container'>
+            <div className='visit-paid-container'>
+              <h1>Hooray! You have successfully paid for this visit.</h1>
               <p>
-                If you have any questions, please email omar@medicall.com for
-                same-day responses.
+                You will recieve a diagnosis and any prescriptions (if applicable) within 24 hours.
+              </p>
+              <p>
+                If you have any questions, please email omar@medicall.com for same-day responses.
               </p>
             </div>
           </div>
@@ -108,23 +68,23 @@ class Checkout extends React.Component {
     } else {
       if (stripeErrorMessage) {
         return (
-          <div className="spinner-overlay">
+          <div className='spinner-overlay'>
             <h1>{stripeErrorMessage}</h1>
           </div>
         );
       } else {
         if (isFetchingURL) {
           return (
-            <div className="spinner-overlay">
+            <div className='spinner-overlay'>
               <h2>Loading your checkout. Please wait...</h2>
-              <div className="spinner-container" />
+              <div className='spinner-container' />
             </div>
           );
         } else {
           return (
-            <div className="spinner-overlay">
+            <div className='spinner-overlay'>
               <h2>Redirecting to secure checkout page...</h2>
-              <div className="spinner-container" />
+              <div className='spinner-container' />
             </div>
           );
         }
@@ -148,6 +108,4 @@ const mapDispatchToProps = (dispatch) => ({
     dispatch(fetchCheckoutURLStartAsync(idToken, visitID)),
 });
 
-export default withRouter(
-  connect(mapStateToProps, mapDispatchToProps)(Checkout)
-);
+export default withRouter(connect(mapStateToProps, mapDispatchToProps)(Checkout));

@@ -5,7 +5,7 @@ import CustomButton from '../custom-button/custom-button.component';
 const ServiceCard = ({ service, image, showButton = false, handleClick }) => {
   return (
     <div className='service'>
-      <img className='service--img service--img--vertical' src={image} alt={`${service}`} />
+      <img className='service--img' src={image} alt={`${service}`} />
       <div className='service__content'>
         <p className='service__content--title'>{service}</p>
         <ul className='service__content--attributes'>

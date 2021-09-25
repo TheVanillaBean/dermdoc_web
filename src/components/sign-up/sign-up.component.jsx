@@ -23,7 +23,7 @@ class SignUp extends React.Component {
   handleSubmit = async (event) => {
     event.preventDefault();
 
-    const { displayName, email, password, confirmPassword } = this.state;
+    const { email, password, confirmPassword } = this.state;
 
     if (password !== confirmPassword) {
       toast.error("passwords don't match");
@@ -34,10 +34,9 @@ class SignUp extends React.Component {
       await auth.setPersistence(NON_PERSITANCE);
       const { user } = await auth.createUserWithEmailAndPassword(email, password);
 
-      await createUserProfileDocument(user, { displayName });
+      await createUserProfileDocument(user, { email });
 
       this.setState({
-        displayName: '',
         email: '',
         password: '',
         confirmPassword: '',

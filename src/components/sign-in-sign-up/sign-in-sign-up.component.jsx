@@ -20,15 +20,16 @@ class SignInSignUp extends React.Component {
       updateVisitAsync(visit_id, {
         status: 'authenticated',
         patient_id: currentUser.id,
+        email: currentUser.email,
       });
     }
   }
 
   render() {
     return (
-      <div className="auth-page">
-        <div className="container">
-          <div className="flex">
+      <div className='auth-page'>
+        <div className='container'>
+          <div className='flex'>
             <SignIn />
             <SignUp />
           </div>
@@ -47,6 +48,4 @@ const mapDispatchToProps = (dispatch) => ({
   updateVisitAsync: (visitID, updatedVisitData) =>
     dispatch(updateVisitAsync(visitID, updatedVisitData)),
 });
-export default withRouter(
-  connect(mapStateToProps, mapDispatchToProps)(SignInSignUp)
-);
+export default withRouter(connect(mapStateToProps, mapDispatchToProps)(SignInSignUp));
