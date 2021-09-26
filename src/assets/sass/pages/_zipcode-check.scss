@@ -1,0 +1,26 @@
+.zipcode-input {
+  background: none;
+  background-color: white;
+  color: #555;
+  font-size: 1.8rem;
+  padding: 10px 10px 10px 5px;
+  display: inline;
+  width: 25%;
+  border: none;
+  border-radius: 0;
+  border-bottom: 1px solid $sub-color;
+  margin-right: 3.2rem;
+
+  &:focus {
+    outline: none;
+  }
+}
+
+input::-webkit-outer-spin-button,
+input::-webkit-inner-spin-button {
+  -webkit-appearance: none;
+  margin: 0;
+}
+input[type='number'] {
+  -moz-appearance: textfield;
+}

@@ -1,0 +1,29 @@
+.legal-checkbox {
+  &__input {
+    margin-right: 3.2rem;
+  }
+
+  &__label {
+    font-size: 1.8rem;
+    color: #333;
+    font-weight: 500;
+    margin-bottom: 1.6rem;
+    text-align: center;
+
+    &--link:link,
+    &--link:visited {
+      display: inline-block;
+
+      text-decoration: none;
+      color: #820244;
+      font-weight: 500;
+      font-size: 1.8rem;
+      transition: all 0.3s;
+    }
+
+    &--link:hover,
+    &--link:active {
+      color: #a63570;
+    }
+  }
+}

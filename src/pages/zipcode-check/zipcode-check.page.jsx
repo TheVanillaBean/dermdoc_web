@@ -5,9 +5,8 @@ import { toast, ToastContainer } from 'react-toastify';
 import { createStructuredSelector } from 'reselect';
 import CustomButton from '../../components/custom-button/custom-button.component';
 import Footer from '../../components/footer/footer.component';
-import FormInput from '../../components/form-input/form-input.component';
 import Header from '../../components/header/header.component';
-import SearchInput from '../../components/search-input/search-input.component';
+import LegalCheckbox from '../../components/legal-checkbox/legal-checkbox.component';
 import { createVisit } from '../../firebase/firebase.utils';
 import { updateZipCode } from '../../redux/search/search.actions';
 import { selectState, selectVisitReason, selectZipCode } from '../../redux/search/search.selectors';
@@ -25,8 +24,8 @@ class ZipCodeCheck extends Component {
   };
 
   handleTermsCheckboxChange = (event) => {
-    const { value } = event.target;
-    this.setState({ termsChecked: value });
+    const { checked } = event.target;
+    this.setState({ termsChecked: checked });
   };
 
   handleSubmit = async (event) => {
@@ -44,6 +43,14 @@ class ZipCodeCheck extends Component {
   };
 
   createNewVisit = async () => {
+    if (!this.state.termsChecked) {
+      toast.info(
+        'You must agree to the terms and conditions, privacy policy, and telehealth consent before continuing.'
+      );
+
+      return;
+    }
+
     const { visitReason } = this.props;
 
     try {
@@ -75,7 +82,8 @@ class ZipCodeCheck extends Component {
             <h2 className='heading-secondary'>Check if Medicall has doctors in your state</h2>
           </div>
           <div className='container center-text margin-bottom-md'>
-            <SearchInput
+            <input
+              class='zipcode-input'
               type='number'
               name='zipcode'
               value={zipcode}
@@ -86,26 +94,25 @@ class ZipCodeCheck extends Component {
             <CustomButton className='btn btn--full' onClick={this.handleSubmit}>
               Continue
             </CustomButton>
-            <FormInput
-              type='checkbox'
-              name='checkbox'
+          </div>
+          <div className='container center-text margin-bottom-md'>
+            <LegalCheckbox
               value={this.state.termsChecked}
-              onChange={this.handleTermsCheckboxChange}
-              label='I agree to the Terms and Conditions, Privacy Policy, and Telehealth Consent'
+              handleChange={this.handleTermsCheckboxChange}
               required
             />
-            {this.state.doctorsAvailable && (
-              <>
-                <span className='subheading'>We are in your state!</span>
-
-                <CustomButton
-                  className='btn btn--full'
-                  onClick={() => this.createNewVisit(visitReason)}>
-                  Continue with your {visitReason} visit
-                </CustomButton>
-              </>
-            )}
           </div>
+          {this.state.doctorsAvailable && (
+            <div className='container center-text margin-bottom-md'>
+              <span className='subheading'>We are in your state!</span>
+
+              <CustomButton
+                className='btn btn--full'
+                onClick={() => this.createNewVisit(visitReason)}>
+                Continue with your {visitReason} visit
+              </CustomButton>
+            </div>
+          )}
         </section>
 
         <ToastContainer

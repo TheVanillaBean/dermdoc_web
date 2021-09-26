@@ -475,29 +475,29 @@ strong {
 
 .form-input-container {
   position: relative;
-  margin: 45px 0; }
+  margin: 3.2rem 0; }
   .form-input-container__input {
     background: none;
     background-color: white;
-    color: grey;
-    font-size: 18px;
+    color: #555;
+    font-size: 1.8rem;
     padding: 10px 10px 10px 5px;
     display: block;
     width: 100%;
     border: none;
     border-radius: 0;
-    border-bottom: 1px solid grey;
-    margin: 25px 0; }
+    border-bottom: 1px solid #555;
+    margin: 2.5rem 0; }
     .form-input-container__input:focus {
       outline: none; }
     .form-input-container__input:focus ~ .form-input-label {
       top: -14px;
-      font-size: 12px;
-      color: black; }
+      font-size: 1.2rem;
+      color: #333; }
   .form-input-container input[type='password'] {
     letter-spacing: 0.3em; }
   .form-input-container__label {
-    color: grey;
+    color: #555;
     font-size: 16px;
     font-weight: normal;
     position: absolute;
@@ -507,8 +507,8 @@ strong {
     transition: 300ms ease all; }
     .form-input-container__label__shrink {
       top: -14px;
-      font-size: 12px;
-      color: black; }
+      font-size: 1.2rem;
+      color: #333; }
 
 .questionnaire__header {
   display: flex;
@@ -581,6 +581,25 @@ strong {
 
 .tag--tufts {
   background-color: #fcc419; }
+
+.legal-checkbox__input {
+  margin-right: 3.2rem; }
+
+.legal-checkbox__label {
+  font-size: 1.8rem;
+  color: #333;
+  font-weight: 500;
+  margin-bottom: 1.6rem;
+  text-align: center; }
+  .legal-checkbox__label--link:link, .legal-checkbox__label--link:visited {
+    display: inline-block;
+    text-decoration: none;
+    color: #820244;
+    font-weight: 500;
+    font-size: 1.8rem;
+    transition: all 0.3s; }
+  .legal-checkbox__label--link:hover, .legal-checkbox__label--link:active {
+    color: #a63570; }
 
 .footer {
   padding: 9.6rem 0 12.8rem 0;
@@ -967,6 +986,29 @@ strong {
   .additional-info__insurances > h1 {
     color: var(--color-primary-dark);
     margin-bottom: 2rem; }
+
+.zipcode-input {
+  background: none;
+  background-color: white;
+  color: #555;
+  font-size: 1.8rem;
+  padding: 10px 10px 10px 5px;
+  display: inline;
+  width: 25%;
+  border: none;
+  border-radius: 0;
+  border-bottom: 1px solid #555;
+  margin-right: 3.2rem; }
+  .zipcode-input:focus {
+    outline: none; }
+
+input::-webkit-outer-spin-button,
+input::-webkit-inner-spin-button {
+  -webkit-appearance: none;
+  margin: 0; }
+
+input[type='number'] {
+  -moz-appearance: textfield; }
 
 /* rem and em do NOT depend on html font-size in media queries.
    Instead, 1rem = 1em = 16px;
