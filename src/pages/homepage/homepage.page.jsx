@@ -105,7 +105,7 @@ class HomePage extends React.Component {
             <ServiceCard service='Hairloss' image={HairlossPhoto} />
             <ServiceCard service='Skin Spots' image={SkinSpotsPhoto} />
           </div>
-          <div class='container center-text'>
+          <div className='container center-text'>
             <CustomButton
               className='btn btn--full'
               onClick={() => {

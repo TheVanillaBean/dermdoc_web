@@ -9,6 +9,7 @@ import LegalPage from './pages/legal/legal.pages';
 import ServicesPages from './pages/services/services.pages';
 import VisitLandingPage from './pages/visit-landing/visit-landing.page';
 import WaitlistPage from './pages/waitlist/waitlist.page';
+import ZipcodeCheckPage from './pages/zipcode-check/zipcode-check.page';
 import { setCurrentUser } from './redux/user/user.actions';
 import { selectVisitData } from './redux/visit/visit.selectors';
 
@@ -45,6 +46,7 @@ class App extends Component {
         <Route exact path='/' component={HomePage} />
         <Route exact path='/waitlist' component={WaitlistPage} />
         <Route exact path='/services' component={ServicesPages} />
+        <Route exact path='/get_started' component={ZipcodeCheckPage} />
         <Route path='/visits/:visit_id' component={VisitLandingPage} />
         <Route path='/privacy' render={() => <LegalPage page='privacy' />} />
         <Route path='/terms' render={() => <LegalPage page='terms' />} />

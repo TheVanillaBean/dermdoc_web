@@ -1,6 +1,7 @@
 import React from 'react';
+import { connect } from 'react-redux';
 import { withRouter } from 'react-router-dom';
-import { toast, ToastContainer } from 'react-toastify';
+import { ToastContainer } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
 import AcnePhoto from '../../assets/img/specialty-photos/Acne.jpeg';
 import AthletesPhoto from '../../assets/img/specialty-photos/AthletesFoot.jpeg';
@@ -28,28 +29,17 @@ import SunBurnPhoto from '../../assets/img/specialty-photos/SunBurn.jpeg';
 import TattooRemovalPhoto from '../../assets/img/specialty-photos/TattooRemoval.jpeg';
 import UnderEyeCirclesPhoto from '../../assets/img/specialty-photos/UnderEyeCircles.jpeg';
 import WrinklesPhoto from '../../assets/img/specialty-photos/Wrinkles.jpeg';
-import CustomButton from '../../components/custom-button/custom-button.component';
 import Footer from '../../components/footer/footer.component';
 import Header from '../../components/header/header.component';
 import ServiceCard from '../../components/service-card/service-card.component';
-import { createVisit } from '../../firebase/firebase.utils';
+import { updateVisitReason } from '../../redux/search/search.actions';
 
 class ServicesPage extends React.Component {
-  handleClick = async (service) => {
-    try {
-      const newVisit = await createVisit(service);
+  handleClick = (service) => {
+    const { history, updateVisitReason } = this.props;
 
-      if (newVisit.error) {
-        toast.error(newVisit.message);
-      } else {
-        const { history } = this.props;
-        history.push(`/visits/${newVisit.visitId}/questions`);
-      }
-    } catch (e) {
-      let errorText = e.message;
-
-      toast.error(errorText);
-    }
+    updateVisitReason(service);
+    history.push(`get_started`);
   };
 
   render() {
@@ -62,17 +52,6 @@ class ServicesPage extends React.Component {
             <span className='subheading'>What seems to be your issue?</span>
             <h2 className='heading-secondary'>Our questions are tailored for each service</h2>
           </div>
-          <div class='container center-text margin-bottom-md'>
-            <CustomButton
-              className='btn btn--full'
-              onClick={() => {
-                const { history } = this.props;
-                history.push('/waitlist');
-              }}>
-              Don't live in Massachusetts?
-            </CustomButton>
-          </div>
-
           <div className='container grid grid--3-cols margin-bottom-md'>
             <ServiceCard
               service='Acne'
@@ -240,7 +219,6 @@ class ServicesPage extends React.Component {
             />
           </div>
         </section>
-
         <ToastContainer
           position='top-right'
           bodyClassName='toastBody'
@@ -252,11 +230,14 @@ class ServicesPage extends React.Component {
           draggable
           pauseOnHover
         />
-
         <Footer />
       </div>
     );
   }
 }
 
-export default withRouter(ServicesPage);
+const mapDispatchToProps = (dispatch) => ({
+  updateVisitReason: (reason) => dispatch(updateVisitReason(reason)),
+});
+
+export default withRouter(connect(null, mapDispatchToProps)(ServicesPage));
