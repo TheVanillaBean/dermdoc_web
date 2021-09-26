@@ -83,12 +83,12 @@ class ZipCodeCheck extends Component {
           </div>
           <div className='container center-text margin-bottom-md'>
             <input
-              class='zipcode-input'
+              className='zipcode-input'
               type='number'
               name='zipcode'
               value={zipcode}
               onChange={this.handleZipcodeChange}
-              placeholder='What is your zipcode'
+              placeholder='What is your zipcode?'
               required
             />
             <CustomButton className='btn btn--full' onClick={this.handleSubmit}>

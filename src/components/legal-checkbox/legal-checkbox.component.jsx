@@ -5,7 +5,7 @@ const LegalCheckbox = ({ handleChange, ...otherProps }) => (
     <input
       type='checkbox'
       className='legal-checkbox__input'
-      onClick={handleChange}
+      onChange={handleChange}
       {...otherProps}
     />
     <label className='legal-checkbox__label'>
