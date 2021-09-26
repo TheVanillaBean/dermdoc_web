@@ -49,8 +49,8 @@ class HomePage extends React.Component {
                 </a>
               </div>
 
-              <div class='hero-img-box'>
-                <img src={HeroImg} alt='Woman with acne' class='hero-img' />
+              <div className='hero-img-box'>
+                <img src={HeroImg} alt='Woman with acne' className='hero-img' />
               </div>
             </div>
           </section>
@@ -59,11 +59,11 @@ class HomePage extends React.Component {
           <div className='container center-text'>
             <span className='subheading'>How it works</span>
             <h2 className='heading-secondary'>
-              We only charge for your doctors time. We don't inflate prescription costs.
+              We only charge you for the visit. We don't inflate prescription costs.
             </h2>
           </div>
 
-          <div className='steps container grid grid--4-cols'>
+          <div className='steps container grid grid--3-cols'>
             <div className='feature'>
               <div className='feature-icon'>
                 <p className='feature-icon-text'>01</p>
@@ -80,26 +80,17 @@ class HomePage extends React.Component {
               </div>
               <p className='feature-title'>Upload photos of your issue</p>
               <p className='feature-text'>
-                Share photos of your specific issue so Dr. Badri can give an accurate diagnosis.
+                Share photos of your specific issue so our doctors can give an accurate diagnosis.
               </p>
             </div>
             <div className='feature'>
               <div className='feature-icon'>
                 <p className='feature-icon-text'>03</p>
               </div>
-              <p className='feature-title'>Recieve a personal diagnosis</p>
+              <p className='feature-title'>Recieve a personalized plan</p>
               <p className='feature-text'>
-                Dr. Badri will give you a diagnosis and treatment plan within 24 hours.
-              </p>
-            </div>
-            <div className='feature'>
-              <div className='feature-icon'>
-                <p className='feature-icon-text'>04</p>
-              </div>
-              <p className='feature-title'>Prescriptions prescribed</p>
-              <p className='feature-text'>
-                If Dr. Badri prescribes you a prescription, you can fill it at any pharmacy, even
-                with your insurance.
+                You will get a personalized treatment plan within 24 hours with prescriptions sent
+                anywhere you’d like.
               </p>
             </div>
           </div>
@@ -127,7 +118,7 @@ class HomePage extends React.Component {
         </section>
         <section className='section-about' id='about'>
           <div className='container center-text'>
-            <span className='subheading'>Meet your personal dermatologist</span>
+            <span className='subheading'>Featured dermatologist</span>
             <h2 className='heading-secondary'>Board-certified. Award Winning.</h2>
           </div>
           <div className='container grid grid--2-cols margin-bottom-md'>

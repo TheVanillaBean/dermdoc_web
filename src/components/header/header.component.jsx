@@ -25,7 +25,7 @@ const Header = () => {
           </li>
           <li>
             <HashLink className='main-nav-link' to='/#about'>
-              About Dr. Badri
+              Featured Doctor
             </HashLink>
           </li>
           <li>

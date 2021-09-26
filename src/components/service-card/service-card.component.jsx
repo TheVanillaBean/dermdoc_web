@@ -20,7 +20,7 @@ const ServiceCard = ({ service, image, showButton = false, handleClick }) => {
           <li className='service__content--attribute'>
             <IoHappyOutline className='list-icon' />
             <span>
-              <strong>100%</strong> money-back gurantee
+              <strong>100%</strong> money-back guarantee
             </span>
           </li>
         </ul>
