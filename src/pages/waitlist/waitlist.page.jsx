@@ -1,12 +1,15 @@
 import React from 'react';
+import { connect } from 'react-redux';
 import { withRouter } from 'react-router-dom';
 import { toast, ToastContainer } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
+import { createStructuredSelector } from 'reselect';
 import CustomButton from '../../components/custom-button/custom-button.component';
 import Footer from '../../components/footer/footer.component';
 import FormInput from '../../components/form-input/form-input.component';
 import Header from '../../components/header/header.component';
 import { joinWaitlistWithEmail } from '../../firebase/firebase.utils';
+import { selectState, selectVisitReason } from '../../redux/search/search.selectors';
 
 class WaitlistPage extends React.Component {
   constructor(props) {
@@ -22,8 +25,10 @@ class WaitlistPage extends React.Component {
 
     const { email } = this.state;
 
+    const { mailing_state, visitReason } = this.props;
+
     try {
-      const joinWaitlist = await joinWaitlistWithEmail(email);
+      const joinWaitlist = await joinWaitlistWithEmail(email, mailing_state, visitReason);
 
       if (joinWaitlist.error) {
         toast.error(joinWaitlist.message);
@@ -49,17 +54,19 @@ class WaitlistPage extends React.Component {
 
   render() {
     const { email } = this.state;
+    const { mailing_state } = this.props;
+
     return (
       <div>
         <Header />
 
         <div className='container margin-bottom-md'>
           <div className='not-in-area'>
-            <p>Dr. Badri is only licensed in Massachusetts.</p>
+            <p>We don't have any doctors licensed in your state ({mailing_state}).</p>
             <br />
             <p>
-              If you join our waitlist, we will send you a 50% discount when we onboard a doctor in
-              your state.
+              If you join our waitlist, we will send you a 50% discount when we onboard a doctor in{' '}
+              {mailing_state}.
             </p>
           </div>
 
@@ -96,4 +103,9 @@ class WaitlistPage extends React.Component {
   }
 }
 
-export default withRouter(WaitlistPage);
+const mapStateToProps = createStructuredSelector({
+  mailing_state: selectState,
+  visitReason: selectVisitReason,
+});
+
+export default withRouter(connect(mapStateToProps)(WaitlistPage));

@@ -54,7 +54,7 @@ export const createUserProfileDocument = async (userAuth, additionalData) => {
   return usersRef;
 };
 
-export const joinWaitlistWithEmail = async (email, state = 'N/A') => {
+export const joinWaitlistWithEmail = async (email, state = 'N/A', service = 'N/A') => {
   const waitlistRef = firestore.collection('waitlist').doc(email);
 
   const snapshot = await waitlistRef.get();
@@ -67,6 +67,7 @@ export const joinWaitlistWithEmail = async (email, state = 'N/A') => {
         {
           email,
           state,
+          service,
           joinedDate,
         },
         { merge: true }
