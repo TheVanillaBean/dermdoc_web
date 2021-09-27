@@ -81,7 +81,7 @@ class ZipCodeCheck extends Component {
             <span className='subheading'>First things first</span>
             <h2 className='heading-secondary'>Check if Medicall has doctors in your state</h2>
           </div>
-          <div className='container center-text margin-bottom-md'>
+          <div className='zipcode container center-text margin-bottom-md'>
             <input
               className='zipcode-input'
               type='number'

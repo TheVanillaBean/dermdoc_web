@@ -590,7 +590,8 @@ strong {
   color: #333;
   font-weight: 500;
   margin-bottom: 1.6rem;
-  text-align: center; }
+  text-align: center;
+  line-height: 1.4; }
   .legal-checkbox__label--link:link, .legal-checkbox__label--link:visited {
     display: inline-block;
     text-decoration: none;
@@ -987,6 +988,10 @@ strong {
     color: var(--color-primary-dark);
     margin-bottom: 2rem; }
 
+.zipcode {
+  display: flex;
+  justify-content: center; }
+
 .zipcode-input {
   background: none;
   background-color: white;
@@ -998,7 +1003,8 @@ strong {
   border: none;
   border-radius: 0;
   border-bottom: 1px solid #555;
-  margin-right: 3.2rem; }
+  margin-right: 3.2rem;
+  margin-bottom: 1.2rem; }
   .zipcode-input:focus {
     outline: none; }
 
@@ -1222,7 +1228,12 @@ input[type='number'] {
   .address-col {
     grid-row: 2; }
   .nav-col {
-    grid-row: 2; } }
+    grid-row: 2; }
+  .zipcode {
+    flex-direction: column; }
+  .zipcode-input {
+    width: 100%;
+    text-align: center; } }
 
 /**************************/
 /* Fixing Safari flexbox gap */

@@ -328,6 +328,15 @@
   .nav-col {
     grid-row: 2;
   }
+
+  .zipcode {
+    flex-direction: column;
+  }
+
+  .zipcode-input {
+    width: 100%;
+    text-align: center;
+  }
 }
 
 /**************************/

@@ -1,3 +1,8 @@
+.zipcode {
+  display: flex;
+  justify-content: center;
+}
+
 .zipcode-input {
   background: none;
   background-color: white;
@@ -10,6 +15,7 @@
   border-radius: 0;
   border-bottom: 1px solid $sub-color;
   margin-right: 3.2rem;
+  margin-bottom: 1.2rem;
 
   &:focus {
     outline: none;
