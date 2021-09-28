@@ -6,27 +6,16 @@ import 'react-toastify/dist/ReactToastify.css';
 import AcnePhoto from '../../assets/img/specialty-photos/Acne.jpeg';
 import AthletesPhoto from '../../assets/img/specialty-photos/AthletesFoot.jpeg';
 import BrownSpotsPhoto from '../../assets/img/specialty-photos/BrownSpots.jpeg';
-import CellulitePhoto from '../../assets/img/specialty-photos/Cellulite.jpeg';
-import DoubleChinPhoto from '../../assets/img/specialty-photos/DoubleChin.jpeg';
-import DroopyEyelidsPhoto from '../../assets/img/specialty-photos/DroopyEyelids.jpeg';
-import ExcessFatPhoto from '../../assets/img/specialty-photos/ExcessFat.jpeg';
 import ExcessHairPhoto from '../../assets/img/specialty-photos/ExcessHair.jpeg';
-import FillerPhoto from '../../assets/img/specialty-photos/Filler.jpeg';
 import HairlossPhoto from '../../assets/img/specialty-photos/Hairloss.jpeg';
 import LatissePhoto from '../../assets/img/specialty-photos/Latisse.jpeg';
-import LegVeinsPhoto from '../../assets/img/specialty-photos/LegVeins.jpeg';
-import LooseSaggingSkinPhoto from '../../assets/img/specialty-photos/LooseSaggingSkin.jpeg';
 import MelasmaPhoto from '../../assets/img/specialty-photos/Melasma.jpeg';
 import NailPhoto from '../../assets/img/specialty-photos/Nail.jpeg';
-import PsoriasisPhoto from '../../assets/img/specialty-photos/Psoriasis.jpeg';
-import RashPhoto from '../../assets/img/specialty-photos/Rash.jpeg';
 import RednessPhoto from '../../assets/img/specialty-photos/Redness.jpeg';
 import RosaceaPhoto from '../../assets/img/specialty-photos/Rosacea.jpeg';
-import ScarPhoto from '../../assets/img/specialty-photos/Scar.jpeg';
 import SkinSpotsPhoto from '../../assets/img/specialty-photos/SkinSpots.jpeg';
 import SkinTexturePhoto from '../../assets/img/specialty-photos/SkinTexture.jpeg';
 import SunBurnPhoto from '../../assets/img/specialty-photos/SunBurn.jpeg';
-import TattooRemovalPhoto from '../../assets/img/specialty-photos/TattooRemoval.jpeg';
 import UnderEyeCirclesPhoto from '../../assets/img/specialty-photos/UnderEyeCircles.jpeg';
 import WrinklesPhoto from '../../assets/img/specialty-photos/Wrinkles.jpeg';
 import Footer from '../../components/footer/footer.component';
@@ -50,7 +39,7 @@ class ServicesPage extends React.Component {
         <section className='section-services' id='services'>
           <div className='container center-text'>
             <span className='subheading'>What seems to be your issue?</span>
-            <h2 className='heading-secondary'>Our questions are tailored for each service</h2>
+            <h2 className='heading-secondary'>Personalized care to solve your problem</h2>
           </div>
           <div className='container grid grid--3-cols margin-bottom-md'>
             <ServiceCard
@@ -71,7 +60,6 @@ class ServicesPage extends React.Component {
               showButton={true}
               handleClick={this.handleClick}
             />
-
             <ServiceCard
               service="Athlete's Foot"
               image={AthletesPhoto}
@@ -85,40 +73,8 @@ class ServicesPage extends React.Component {
               handleClick={this.handleClick}
             />
             <ServiceCard
-              service='Cellulite'
-              image={CellulitePhoto}
-              showButton={true}
-              handleClick={this.handleClick}
-            />
-
-            <ServiceCard
-              service='Double Chin'
-              image={DoubleChinPhoto}
-              showButton={true}
-              handleClick={this.handleClick}
-            />
-            <ServiceCard
-              service='Droopy Eyelids'
-              image={DroopyEyelidsPhoto}
-              showButton={true}
-              handleClick={this.handleClick}
-            />
-            <ServiceCard
-              service='Excess Fat'
-              image={ExcessFatPhoto}
-              showButton={true}
-              handleClick={this.handleClick}
-            />
-
-            <ServiceCard
               service='Excess Hair'
               image={ExcessHairPhoto}
-              showButton={true}
-              handleClick={this.handleClick}
-            />
-            <ServiceCard
-              service='Filler'
-              image={FillerPhoto}
               showButton={true}
               handleClick={this.handleClick}
             />
@@ -128,45 +84,18 @@ class ServicesPage extends React.Component {
               showButton={true}
               handleClick={this.handleClick}
             />
-
-            <ServiceCard
-              service='Leg Veins'
-              image={LegVeinsPhoto}
-              showButton={true}
-              handleClick={this.handleClick}
-            />
-            <ServiceCard
-              service='Loose Sagging Skin'
-              image={LooseSaggingSkinPhoto}
-              showButton={true}
-              handleClick={this.handleClick}
-            />
             <ServiceCard
               service='Melasma'
               image={MelasmaPhoto}
               showButton={true}
               handleClick={this.handleClick}
             />
-
             <ServiceCard
               service='Nail'
               image={NailPhoto}
               showButton={true}
               handleClick={this.handleClick}
             />
-            <ServiceCard
-              service='Psoriasis'
-              image={PsoriasisPhoto}
-              showButton={true}
-              handleClick={this.handleClick}
-            />
-            <ServiceCard
-              service='Rash'
-              image={RashPhoto}
-              showButton={true}
-              handleClick={this.handleClick}
-            />
-
             <ServiceCard
               service='Redness'
               image={RednessPhoto}
@@ -180,13 +109,6 @@ class ServicesPage extends React.Component {
               handleClick={this.handleClick}
             />
             <ServiceCard
-              service='Scar'
-              image={ScarPhoto}
-              showButton={true}
-              handleClick={this.handleClick}
-            />
-
-            <ServiceCard
               service='Skin Texture'
               image={SkinTexturePhoto}
               showButton={true}
@@ -198,13 +120,6 @@ class ServicesPage extends React.Component {
               showButton={true}
               handleClick={this.handleClick}
             />
-            <ServiceCard
-              service='Tattoo Removal'
-              image={TattooRemovalPhoto}
-              showButton={true}
-              handleClick={this.handleClick}
-            />
-
             <ServiceCard
               service='Under Eye Circles'
               image={UnderEyeCirclesPhoto}

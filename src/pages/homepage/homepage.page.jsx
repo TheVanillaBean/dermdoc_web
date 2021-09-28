@@ -1,7 +1,7 @@
 import React from 'react';
 import { withRouter } from 'react-router-dom';
 import HeroImg from '../../assets/img/hero.jpeg';
-import OmarHeadshot from '../../assets/img/omar-headshot.jpeg';
+import OmarHeadshot from '../../assets/img/omar_headshot-2.jpeg';
 import AcnePhoto from '../../assets/img/specialty-photos/Acne.jpeg';
 import HairlossPhoto from '../../assets/img/specialty-photos/Hairloss.jpeg';
 import SkinSpotsPhoto from '../../assets/img/specialty-photos/SkinSpots.jpeg';
@@ -98,7 +98,7 @@ class HomePage extends React.Component {
         <section className='section-services' id='services'>
           <div className='container center-text'>
             <span className='subheading'>Our Services</span>
-            <h2 className='heading-secondary'>Wide variety. Same flat-cost.</h2>
+            <h2 className='heading-secondary'>Wide variety. Same low-cost.</h2>
           </div>
           <div className='container grid grid--3-cols margin-bottom-md'>
             <ServiceCard service='Acne' image={AcnePhoto} />
