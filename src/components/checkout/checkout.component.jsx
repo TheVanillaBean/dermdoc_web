@@ -19,9 +19,11 @@ class Checkout extends React.Component {
       visit: { visit_id, status },
       fetchCheckoutURLStartAsync,
     } = this.props;
-    this.revertStatusIfNoUser();
-    if (currentUser && status !== 'paid') {
-      fetchCheckoutURLStartAsync(currentUser.idToken, visit_id);
+    if (status !== 'paid' || status !== 'ready_for_review') {
+      //false means there is a user
+      if (!this.revertStatusIfNoUser()) {
+        fetchCheckoutURLStartAsync(currentUser.idToken, visit_id);
+      }
     }
   }
 
@@ -37,13 +39,16 @@ class Checkout extends React.Component {
     const {
       updateVisitAsync,
       currentUser,
-      visit: { visit_id, status },
+      visit: { visit_id },
     } = this.props;
-    if (!currentUser && status === 'authenticated') {
+    if (!currentUser) {
       //if user is not authenticated but status is, revert status back to "filled_out"
       updateVisitAsync(visit_id, { status: 'filled_out' });
+      return true;
       //This can happen if a user comes back later or on a seperate browser and is no longer logged in
     }
+
+    return false;
   };
 
   render() {

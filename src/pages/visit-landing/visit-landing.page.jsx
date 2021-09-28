@@ -13,7 +13,7 @@ import {
 import AuthPage from '../auth/auth.page';
 import CheckoutPage from '../checkout/checkout.page';
 import QuestionsPage from '../questions/questions.page';
-
+import VisitReadyPage from '../visit-ready/visit-ready.page';
 class VisitLandingPage extends React.Component {
   unsubscribeFromVisitSnapshot = null;
 
@@ -34,8 +34,10 @@ class VisitLandingPage extends React.Component {
               history.push(`/visits/${visit.visit_id}/questions`);
             } else if (visit.status === 'filled_out') {
               history.push(`/visits/${visit.visit_id}/auth`);
-            } else if (visit.status === 'authenticated' || visit.status === 'paid') {
+            } else if (visit.status === 'authenticated') {
               history.push(`/visits/${visit.visit_id}/checkout`);
+            } else if (visit.status === 'paid' || visit.status === 'ready_for_review') {
+              history.push(`/visits/${visit.visit_id}/visit_ready`);
             }
           }
         },
@@ -58,6 +60,7 @@ class VisitLandingPage extends React.Component {
         <Route path={`${match.path}/questions`} component={QuestionsPage} />
         <Route path={`${match.path}/auth`} component={AuthPage} />
         <Route path={`${match.path}/checkout`} component={CheckoutPage} />
+        <Route path={`${match.path}/visit_ready`} component={VisitReadyPage} />
         <Route exact path='*'>
           <Redirect to={`/visits/${match.params.visit_id}/questions`} />
         </Route>
