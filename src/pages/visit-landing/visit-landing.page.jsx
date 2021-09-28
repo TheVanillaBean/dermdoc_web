@@ -12,6 +12,7 @@ import {
 } from '../../redux/visit/visit.actions';
 import AuthPage from '../auth/auth.page';
 import CheckoutPage from '../checkout/checkout.page';
+import PhotosPage from '../photos/photos.page';
 import QuestionsPage from '../questions/questions.page';
 import VisitReadyPage from '../visit-ready/visit-ready.page';
 class VisitLandingPage extends React.Component {
@@ -35,6 +36,8 @@ class VisitLandingPage extends React.Component {
             } else if (visit.status === 'filled_out') {
               history.push(`/visits/${visit.visit_id}/auth`);
             } else if (visit.status === 'authenticated') {
+              history.push(`/visits/${visit.visit_id}/photos`);
+            } else if (visit.status === 'photos_added') {
               history.push(`/visits/${visit.visit_id}/checkout`);
             } else if (visit.status === 'paid' || visit.status === 'ready_for_review') {
               history.push(`/visits/${visit.visit_id}/visit_ready`);
@@ -59,6 +62,7 @@ class VisitLandingPage extends React.Component {
       <Switch>
         <Route path={`${match.path}/questions`} component={QuestionsPage} />
         <Route path={`${match.path}/auth`} component={AuthPage} />
+        <Route path={`${match.path}/photos`} component={PhotosPage} />
         <Route path={`${match.path}/checkout`} component={CheckoutPage} />
         <Route path={`${match.path}/visit_ready`} component={VisitReadyPage} />
         <Route exact path='*'>

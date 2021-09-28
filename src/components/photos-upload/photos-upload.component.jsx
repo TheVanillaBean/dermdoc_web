@@ -1,3 +1,4 @@
+import imageCompression from 'browser-image-compression';
 import React from 'react';
 import Files from 'react-butterfiles';
 import { connect } from 'react-redux';
@@ -6,6 +7,8 @@ import { createStructuredSelector } from 'reselect';
 import 'survey-react/modern.css';
 import { fetchQuestionsStartAsync } from '../../redux/questionnaire/questionnaire.actions';
 import { selectVisitData } from '../../redux/visit/visit.selectors';
+import CustomButton from '../custom-button/custom-button.component';
+
 class PhotosUpload extends React.Component {
   state = {
     files: [],
@@ -25,6 +28,7 @@ class PhotosUpload extends React.Component {
       for (let i = 0; i < files.length; i++) {
         const image = files[i];
         convertedImages.push({
+          file: image.src.file,
           src: image.src.base64,
           name: image.name,
           size: image.size,
@@ -37,13 +41,34 @@ class PhotosUpload extends React.Component {
     });
   };
 
+  handleSubmit = async () => {
+    for (const photo of this.state.files) {
+      const options = {
+        maxSizeMB: 0.3,
+        maxWidthOrHeight: 1080,
+        useWebWorker: true,
+      };
+      try {
+        const compressedFile = await imageCompression(photo.file, options);
+        console.log('compressedFile instanceof Blob', compressedFile instanceof Blob); // true
+        console.log(`compressedFile size ${compressedFile.size / 1024 / 1024} MB`); // smaller than maxSizeMB
+        console.log(`original size ${photo.file.size / 1024 / 1024} MB`); // smaller than maxSizeMB
+
+        // await uploadToServer(compressedFile); // write your own logic
+      } catch (error) {
+        console.log(error);
+      }
+    }
+  };
+
   render() {
     return (
-      <div id='wrapper'>
+      <div className='container'>
         <Files
           id={'image-gallery'}
           multiple
           convertToBase64
+          maxSize='50mb'
           accept={['image/jpg', 'image/jpeg', 'image/png']}
           onError={this.handleErrors}
           onSuccess={(files) => {
@@ -51,11 +76,20 @@ class PhotosUpload extends React.Component {
             this.handleFiles(files, this.state.files.length);
           }}>
           {({ browseFiles, getDropZoneProps, getLabelProps }) => (
-            <div>
-              <label {...getLabelProps()}>Upload images</label>
+            <div className='photo-gallery-container'>
+              <label className='photo-gallery--title' {...getLabelProps()}>
+                Upload photo ID and images of your issue
+              </label>
+              <label className='photo-gallery--subtitle' {...getLabelProps()}>
+                *For convenience, you can paste this URL into a phone browser*
+              </label>
+              {this.state.errors.length > 0 && (
+                <div className='photo-gallery--error'>An error occurred.</div>
+              )}
               <div
                 {...getDropZoneProps({
                   id: 'my-image-gallery',
+                  className: 'photo-gallery' + (this.state.dragging ? ' dragging' : ''),
                   onDragEnter: () => this.setState({ dragging: true }),
                   onDragLeave: () => this.setState({ dragging: false }),
                   onDrop: () => this.setState({ dragging: false }),
@@ -73,7 +107,7 @@ class PhotosUpload extends React.Component {
                           },
                         });
                       }}>
-                      <img src={image.src} />
+                      <img src={image.src} alt='User selected' />
                     </li>
                   ))}
                   <li
@@ -91,11 +125,12 @@ class PhotosUpload extends React.Component {
                   </li>
                 </ul>
               </div>
+              <CustomButton className='btn btn--full' onClick={this.handleSubmit}>
+                Submit and Continue
+              </CustomButton>
             </div>
           )}
         </Files>
-
-        {this.state.errors.length > 0 && <div>An error occurred.</div>}
       </div>
     );
   }
