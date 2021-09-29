@@ -3,10 +3,12 @@ import React from 'react';
 import Files from 'react-butterfiles';
 import { connect } from 'react-redux';
 import { withRouter } from 'react-router-dom';
+import { toast, ToastContainer } from 'react-toastify';
+import 'react-toastify/dist/ReactToastify.css';
 import { createStructuredSelector } from 'reselect';
 import 'survey-react/modern.css';
 import { uploadToFirebaseStorage } from '../../firebase/firebase.utils';
-import { fetchQuestionsStartAsync } from '../../redux/questionnaire/questionnaire.actions';
+import { updateVisitAsync } from '../../redux/visit/visit.actions';
 import { selectVisitData } from '../../redux/visit/visit.selectors';
 import CustomButton from '../custom-button/custom-button.component';
 
@@ -15,6 +17,7 @@ class PhotosUpload extends React.Component {
     files: [],
     errors: [],
     dragging: false,
+    submitted: false,
   };
 
   handleErrors = (errors) => {
@@ -43,22 +46,38 @@ class PhotosUpload extends React.Component {
   };
 
   handleSubmit = async () => {
-    for (const photo of this.state.files) {
-      const options = {
-        maxSizeMB: 0.3,
-        maxWidthOrHeight: 1080,
-        useWebWorker: true,
-      };
-      try {
-        const compressedFile = await imageCompression(photo.file, options);
-        console.log('compressedFile instanceof Blob', compressedFile instanceof Blob); // true
-        console.log(`compressedFile size ${compressedFile.size / 1024 / 1024} MB`); // smaller than maxSizeMB
-        console.log(`original size ${photo.file.size / 1024 / 1024} MB`); // smaller than maxSizeMB
+    const { visit, updateVisitAsync } = this.props;
 
-        await uploadToFirebaseStorage(compressedFile, 'name');
-      } catch (error) {
-        console.log(error);
+    toast.info('Securely uploading photos...please wait');
+    this.setState({ submitted: true });
+
+    if (!this.state.submitted) {
+      for (const photo of this.state.files) {
+        const options = {
+          maxSizeMB: 0.3,
+          maxWidthOrHeight: 1080,
+          useWebWorker: true,
+        };
+        try {
+          const compressedFile = await imageCompression(photo.file, options);
+          await uploadToFirebaseStorage(compressedFile, visit.visit_id);
+        } catch (error) {
+          toast.error(error);
+          this.setState({ submitted: false });
+          return;
+        }
       }
+
+      try {
+        await updateVisitAsync(visit.visit_id, {
+          photos_added: true,
+        });
+      } catch (error) {
+        toast.error(error);
+        return;
+      }
+
+      this.setState({ submitted: false });
     }
   };
 
@@ -132,6 +151,22 @@ class PhotosUpload extends React.Component {
             </div>
           )}
         </Files>
+        {this.state.submitted && (
+          <div className='spinner-overlay'>
+            <div className='spinner-container' />
+          </div>
+        )}
+        <ToastContainer
+          position='top-right'
+          bodyClassName='toastBody'
+          autoClose={5000}
+          hideProgressBar={false}
+          newestOnTop={false}
+          closeOnClick
+          pauseOnFocusLoss
+          draggable
+          pauseOnHover
+        />
       </div>
     );
   }
@@ -142,7 +177,8 @@ const mapStateToProps = createStructuredSelector({
 });
 
 const mapDispatchToProps = (dispatch) => ({
-  fetchQuestionsStartAsync: (symptom) => dispatch(fetchQuestionsStartAsync(symptom)),
+  updateVisitAsync: (visitID, updatedVisitData) =>
+    dispatch(updateVisitAsync(visitID, updatedVisitData)),
 });
 
 export default withRouter(connect(mapStateToProps, mapDispatchToProps)(PhotosUpload));

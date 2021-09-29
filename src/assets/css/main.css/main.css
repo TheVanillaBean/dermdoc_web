@@ -545,7 +545,7 @@ strong {
     max-width: 80%; }
 
 .spinner-overlay {
-  height: 60vh;
+  height: 15vh;
   width: 100%;
   display: flex;
   justify-content: center;
@@ -1044,7 +1044,7 @@ strong {
   font-size: 1.8rem;
   padding: 10px 10px 10px 5px;
   display: inline;
-  width: 25%;
+  width: 30%;
   border: none;
   border-radius: 0;
   border-bottom: 1px solid #555;

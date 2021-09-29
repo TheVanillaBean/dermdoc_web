@@ -308,7 +308,7 @@ export const uploadToFirebaseStorage = async (file, visitId) => {
 firebase.initializeApp(config);
 firebase.analytics();
 
-export const NON_PERSITANCE = firebase.auth.Auth.Persistence.NONE;
+export const NON_PERSITANCE = firebase.auth.Auth.Persistence.SESSION;
 export const auth = firebase.auth();
 export const firestore = firebase.firestore();
 export const analytics = firebase.analytics();

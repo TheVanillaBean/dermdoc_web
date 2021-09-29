@@ -36,9 +36,11 @@ class VisitLandingPage extends React.Component {
             } else if (visit.status === 'filled_out') {
               history.push(`/visits/${visit.visit_id}/auth`);
             } else if (visit.status === 'authenticated') {
-              history.push(`/visits/${visit.visit_id}/photos`);
-            } else if (visit.status === 'photos_added') {
-              history.push(`/visits/${visit.visit_id}/checkout`);
+              if (visit.photos_added) {
+                history.push(`/visits/${visit.visit_id}/checkout`);
+              } else {
+                history.push(`/visits/${visit.visit_id}/photos`);
+              }
             } else if (visit.status === 'paid' || visit.status === 'ready_for_review') {
               history.push(`/visits/${visit.visit_id}/visit_ready`);
             }

@@ -17,7 +17,8 @@ const LegalCheckbox = ({ handleChange, ...otherProps }) => (
       <a href='/privacy' className='legal-checkbox__label--link'>
         Privacy Policy
       </a>
-      , and{' '}
+      , and
+      <br />
       <a href='/consent' className='legal-checkbox__label--link'>
         Telehealth Consent
       </a>
