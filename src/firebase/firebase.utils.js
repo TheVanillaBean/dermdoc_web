@@ -2,6 +2,7 @@ import 'firebase/analytics';
 import firebase from 'firebase/app';
 import 'firebase/auth';
 import 'firebase/firestore';
+import 'firebase/storage';
 import { reviewHtml } from '../components/questionnaire/questionnaire.component';
 
 const {
@@ -299,6 +300,11 @@ export const updateVisit = async (visitID, updatedVisitData) => {
   }
 };
 
+export const uploadToFirebaseStorage = async (file, visitId) => {
+  const storageRef = storage.ref();
+  return storageRef.child(`visits/${visitId}/${file.name}`).put(file);
+};
+
 firebase.initializeApp(config);
 firebase.analytics();
 
@@ -306,6 +312,7 @@ export const NON_PERSITANCE = firebase.auth.Auth.Persistence.NONE;
 export const auth = firebase.auth();
 export const firestore = firebase.firestore();
 export const analytics = firebase.analytics();
+export const storage = firebase.storage();
 
 const provider = new firebase.auth.GoogleAuthProvider();
 provider.setCustomParameters({ promp: 'select_account' });

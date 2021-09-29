@@ -5,6 +5,7 @@ import { connect } from 'react-redux';
 import { withRouter } from 'react-router-dom';
 import { createStructuredSelector } from 'reselect';
 import 'survey-react/modern.css';
+import { uploadToFirebaseStorage } from '../../firebase/firebase.utils';
 import { fetchQuestionsStartAsync } from '../../redux/questionnaire/questionnaire.actions';
 import { selectVisitData } from '../../redux/visit/visit.selectors';
 import CustomButton from '../custom-button/custom-button.component';
@@ -54,7 +55,7 @@ class PhotosUpload extends React.Component {
         console.log(`compressedFile size ${compressedFile.size / 1024 / 1024} MB`); // smaller than maxSizeMB
         console.log(`original size ${photo.file.size / 1024 / 1024} MB`); // smaller than maxSizeMB
 
-        // await uploadToServer(compressedFile); // write your own logic
+        await uploadToFirebaseStorage(compressedFile, 'name');
       } catch (error) {
         console.log(error);
       }
