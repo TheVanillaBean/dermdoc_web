@@ -27,12 +27,10 @@ class SignInSignUp extends React.Component {
 
   render() {
     return (
-      <div className='auth-page'>
-        <div className='container'>
-          <div className='flex'>
-            <SignIn />
-            <SignUp />
-          </div>
+      <div className='container'>
+        <div className='auth-page'>
+          <SignIn />
+          <SignUp />
         </div>
       </div>
     );

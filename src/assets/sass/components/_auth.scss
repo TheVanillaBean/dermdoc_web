@@ -1,7 +1,18 @@
 //////////////////////////
+// SIGN-IN SIGN-UP CONTAINER
+
+.auth-page {
+  width: 100%;
+  display: flex;
+  justify-content: space-between;
+  margin: 1.2rem auto;
+}
+
+//////////////////////////
 // SIGN-UP
 
 .sign-up {
+  width: 100%;
   font-size: 1.8rem;
   font-weight: 300;
   color: var(--color-primary);
@@ -12,18 +23,24 @@
   .title {
     margin: 10px 0;
   }
+
+  .buttons {
+    display: flex;
+  }
 }
 
 //////////////////////////
 // SIGN-IN
 
 .sign-in {
+  width: 100%;
   font-size: 1.8rem;
   font-weight: 300;
   color: var(--color-primary);
 
   display: flex;
   flex-direction: column;
+  margin-right: 6.4rem;
 
   .title {
     margin: 10px 0;

@@ -329,6 +329,34 @@
     grid-row: 2;
   }
 
+  .auth-page {
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    margin: 1.2rem auto;
+  }
+
+  .sign-in {
+    margin-right: 0;
+    margin-bottom: 2.4rem;
+
+    .buttons {
+      flex-direction: column;
+
+      :first-child {
+        margin-bottom: 1.2rem;
+      }
+    }
+  }
+
+  .sign-up {
+    .buttons {
+      flex-direction: column;
+      justify-content: stretch;
+    }
+  }
+
   .zipcode {
     flex-direction: column;
   }

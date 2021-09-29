@@ -96,9 +96,11 @@ class SignUp extends React.Component {
             label='Confirm Password'
             required
           />
-          <CustomButton className='custom-button' type='submit'>
-            SIGN UP
-          </CustomButton>
+          <div className='buttons'>
+            <CustomButton className='custom-button' type='submit'>
+              SIGN UP
+            </CustomButton>
+          </div>
         </form>
         <ToastContainer
           position='top-right'

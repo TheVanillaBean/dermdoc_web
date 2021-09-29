@@ -452,7 +452,14 @@ strong {
   height: 20rem;
   object-fit: cover; }
 
+.auth-page {
+  width: 100%;
+  display: flex;
+  justify-content: space-between;
+  margin: 1.2rem auto; }
+
 .sign-up {
+  width: 100%;
   font-size: 1.8rem;
   font-weight: 300;
   color: var(--color-primary);
@@ -460,13 +467,17 @@ strong {
   flex-direction: column; }
   .sign-up .title {
     margin: 10px 0; }
+  .sign-up .buttons {
+    display: flex; }
 
 .sign-in {
+  width: 100%;
   font-size: 1.8rem;
   font-weight: 300;
   color: var(--color-primary);
   display: flex;
-  flex-direction: column; }
+  flex-direction: column;
+  margin-right: 6.4rem; }
   .sign-in .title {
     margin: 10px 0; }
   .sign-in .buttons {
@@ -1274,6 +1285,22 @@ input[type='number'] {
     grid-row: 2; }
   .nav-col {
     grid-row: 2; }
+  .auth-page {
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    margin: 1.2rem auto; }
+  .sign-in {
+    margin-right: 0;
+    margin-bottom: 2.4rem; }
+    .sign-in .buttons {
+      flex-direction: column; }
+      .sign-in .buttons :first-child {
+        margin-bottom: 1.2rem; }
+  .sign-up .buttons {
+    flex-direction: column;
+    justify-content: stretch; }
   .zipcode {
     flex-direction: column; }
   .zipcode-input {
