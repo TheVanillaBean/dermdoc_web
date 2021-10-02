@@ -6,6 +6,7 @@ import '../src/assets/css/main.css/main.css';
 import { auth, createUserProfileDocument } from './firebase/firebase.utils';
 import HomePage from './pages/homepage/homepage.page';
 import LegalPage from './pages/legal/legal.pages';
+import GymPromotionPage from './pages/promotions/gym-promotion.page';
 import ServicesPages from './pages/services/services.pages';
 import VisitLandingPage from './pages/visit-landing/visit-landing.page';
 import WaitlistPage from './pages/waitlist/waitlist.page';
@@ -47,6 +48,26 @@ class App extends Component {
         <Route exact path='/waitlist' component={WaitlistPage} />
         <Route exact path='/services' component={ServicesPages} />
         <Route exact path='/get_started' component={ZipcodeCheckPage} />
+        <Route
+          exact
+          path='/cf-pittsfield'
+          render={() => <GymPromotionPage gym='Pittsfield' coupon_code='cfpittsfield' />}
+        />
+        <Route
+          exact
+          path='/cf-southie'
+          render={() => <GymPromotionPage gym='Southie' coupon_code='cfsouthie' />}
+        />
+        <Route
+          exact
+          path='/cf-new-england'
+          render={() => <GymPromotionPage gym='New England' coupon_code='cfnewengland' />}
+        />
+        <Route
+          exact
+          path='/cf-daybreak'
+          render={() => <GymPromotionPage gym='Daybreak' coupon_code='cfdaybreak' />}
+        />
         <Route path='/visits/:visit_id' component={VisitLandingPage} />
         <Route path='/privacy' render={() => <LegalPage page='privacy' />} />
         <Route path='/terms' render={() => <LegalPage page='terms' />} />

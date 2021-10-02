@@ -30,6 +30,14 @@ body {
   margin-bottom: 3.2rem;
 }
 
+.heading-description {
+  font-size: 2.4rem;
+  line-height: 1.05;
+  font-weight: 400;
+  color: var(--color-grey-dark-1);
+  letter-spacing: 0.75px;
+}
+
 .subheading {
   display: block;
   font-size: 1.6rem;
@@ -41,7 +49,6 @@ body {
 }
 
 .paragraph {
-  font-family: 'Rubik', sans-serif;
   font-weight: 400;
   font-size: 1.6rem;
   line-height: 1.2;

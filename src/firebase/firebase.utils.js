@@ -1,3 +1,4 @@
+import cuid from 'cuid';
 import 'firebase/analytics';
 import firebase from 'firebase/app';
 import 'firebase/auth';
@@ -302,7 +303,8 @@ export const updateVisit = async (visitID, updatedVisitData) => {
 
 export const uploadToFirebaseStorage = async (file, visitId) => {
   const storageRef = storage.ref();
-  return storageRef.child(`visits/${visitId}/${file.name}`).put(file);
+  const fileName = cuid();
+  return storageRef.child(`visits/${visitId}/${fileName}`).put(file);
 };
 
 firebase.initializeApp(config);

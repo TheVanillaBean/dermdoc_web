@@ -94,6 +94,14 @@ class HomePage extends React.Component {
               </p>
             </div>
           </div>
+
+          <div className='container center-text'>
+            <h2 className='heading-description'>
+              Many online health companies like Roman and Hims charge much less upfront for care,
+              but then upcharge you on prescriptions (often times by 2x the normal cost). With us
+              you are paying for higher quality care. Prescriptions can be filled at any pharmacy.
+            </h2>
+          </div>
         </section>
         <section className='section-services' id='services'>
           <div className='container center-text'>
