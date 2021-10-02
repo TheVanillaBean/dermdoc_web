@@ -1,4 +1,5 @@
 import React from 'react';
+import { withRouter } from 'react-router';
 import AcnePhoto from '../../assets/img/specialty-photos/Acne.jpeg';
 import HairlossPhoto from '../../assets/img/specialty-photos/Hairloss.jpeg';
 import SkinSpotsPhoto from '../../assets/img/specialty-photos/SkinSpots.jpeg';
@@ -22,15 +23,15 @@ class GymPromotionPage extends React.Component {
 
           <div className='container center-text'>
             <p className='heading-tertiary'>
-              Here's a 20% discount on your next dermatology visit. Coupon code:{' '}
+              Here's a 15% discount on your next dermatology visit. Coupon code:{' '}
               <strong>{coupon_code}</strong>
             </p>
           </div>
 
           <div className='container center-text margin-bottom-md'>
             <p className='heading-description'>
-              We are a new service that connects you with dermatologists and we just launched in
-              Massachusetts.
+              We are a new service founded by Crossfitters that wanted a simpler, faster way to get
+              quality skin/haircare from actual dermatologists.
             </p>
           </div>
 
@@ -42,9 +43,9 @@ class GymPromotionPage extends React.Component {
             </p>
           </div>
           <div className='container grid grid--3-cols margin-bottom-md'>
-            <ServiceCard service='Acne' image={AcnePhoto} />
-            <ServiceCard service='Hairloss' image={HairlossPhoto} />
-            <ServiceCard service='Skin Spots' image={SkinSpotsPhoto} />
+            <ServiceCard service='Acne' image={AcnePhoto} promo />
+            <ServiceCard service='Hairloss' image={HairlossPhoto} promo />
+            <ServiceCard service='Skin Spots' image={SkinSpotsPhoto} promo />
           </div>
           <div className='container center-text margin-bottom-md'>
             <CustomButton
@@ -64,4 +65,4 @@ class GymPromotionPage extends React.Component {
   }
 }
 
-export default GymPromotionPage;
+export default withRouter(GymPromotionPage);

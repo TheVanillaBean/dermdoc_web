@@ -28,7 +28,7 @@ class HomePage extends React.Component {
                 <h1 className='heading-primary'>Your personal dermatologist. Available anytime.</h1>
 
                 <p className='hero-description'>
-                  &mdash; $68 flat fee for a visit.
+                  &mdash; $80 flat fee for a visit.
                   <br />
                   &mdash; Prescriptions sent to your local pharmacy or, if you prefer, directly to
                   you with free 2 day shipping
