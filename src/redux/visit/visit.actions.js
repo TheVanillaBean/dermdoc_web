@@ -1,8 +1,4 @@
-import {
-  convertVisitSnapshotToMap,
-  firestore,
-  updateVisit,
-} from '../../firebase/firebase.utils';
+import { convertVisitSnapshotToMap, firestore, updateVisit } from '../../firebase/firebase.utils';
 import VisitActionTypes from './visit.types';
 
 export const visitErrorMessage =

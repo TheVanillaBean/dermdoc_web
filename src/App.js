@@ -51,22 +51,28 @@ class App extends Component {
         <Route
           exact
           path='/cf-pittsfield'
-          render={() => <GymPromotionPage gym='Pittsfield' coupon_code='cfpittsfield' />}
+          render={() => (
+            <GymPromotionPage gym='Pittsfield' coupon_code='cfpittsfield' zipcode='01201' />
+          )}
         />
         <Route
           exact
           path='/cf-southie'
-          render={() => <GymPromotionPage gym='Southie' coupon_code='cfsouthie' />}
+          render={() => <GymPromotionPage gym='Southie' coupon_code='cfsouthie' zipcode='02127' />}
         />
         <Route
           exact
           path='/cf-new-england'
-          render={() => <GymPromotionPage gym='New England' coupon_code='cfnewengland' />}
+          render={() => (
+            <GymPromotionPage gym='New England' coupon_code='cfnewengland' zipcode='01760' />
+          )}
         />
         <Route
           exact
           path='/cf-daybreak'
-          render={() => <GymPromotionPage gym='Daybreak' coupon_code='cfdaybreak' />}
+          render={() => (
+            <GymPromotionPage gym='Daybreak' coupon_code='cfdaybreak' zipcode='01778' />
+          )}
         />
         <Route path='/visits/:visit_id' component={VisitLandingPage} />
         <Route path='/privacy' render={() => <LegalPage page='privacy' />} />

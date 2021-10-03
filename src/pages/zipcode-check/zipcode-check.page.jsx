@@ -28,7 +28,7 @@ class ZipCodeCheck extends Component {
     this.setState({ termsChecked: checked });
   };
 
-  handleSubmit = async (event) => {
+  handleZipcodeSubmit = async (event) => {
     event.preventDefault();
 
     const { mailing_state } = this.props;
@@ -79,7 +79,7 @@ class ZipCodeCheck extends Component {
         <section className='section-services' id='services'>
           <div className='container center-text'>
             <span className='subheading'>First things first</span>
-            <h2 className='heading-secondary'>Check if Medicall has doctors in your state</h2>
+            <h2 className='heading-secondary'>Verify your zipcode</h2>
           </div>
           <div className='zipcode container center-text margin-bottom-md'>
             <input
@@ -91,7 +91,7 @@ class ZipCodeCheck extends Component {
               placeholder='What is your zipcode?'
               required
             />
-            <CustomButton className='btn btn--full' onClick={this.handleSubmit}>
+            <CustomButton className='btn btn--full' onClick={this.handleZipcodeSubmit}>
               Continue
             </CustomButton>
           </div>
@@ -104,7 +104,7 @@ class ZipCodeCheck extends Component {
           </div>
           {this.state.doctorsAvailable && (
             <div className='container center-text margin-bottom-md'>
-              <span className='subheading'>We are in your state!</span>
+              <span className='subheading'>We are in your area!</span>
 
               <CustomButton
                 className='btn btn--full'
