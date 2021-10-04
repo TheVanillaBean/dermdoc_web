@@ -30,23 +30,26 @@ class GymPromotionPage extends React.Component {
           </div>
 
           <div className='container center-text margin-bottom-md'>
-            <p className='heading-description'>
+            <p className='heading-tertiary'>
               We are a new service founded by Crossfitters that wanted a better way to get quality
-              skin/haircare from actual dermatologists.
+              skincare from actual dermatologists.
             </p>
           </div>
 
           <div className='container center-text margin-bottom-md'>
             <p className='heading-description'>
-              <strong>Our main difference?</strong> We don't make money from prescriptions. We make
-              money for offering care. Don't let ringworm, cold sores, eczema, or any other skin
-              issue slow down your PR's! &#127947;
+              <strong>Our main difference?</strong> Although our doctors will prescribe applicable
+              treatments, we don't make money from prescriptions. Don't let ringworm, cold sores,
+              eczema, or any other skin treatments slow down your PR's! &#127947;
             </p>
           </div>
           <div className='container grid grid--3-cols margin-bottom-md'>
             <ServiceCard service='Acne' image={AcnePhoto} promo />
             <ServiceCard service='Hairloss' image={HairlossPhoto} promo />
             <ServiceCard service='Skin Spots' image={SkinSpotsPhoto} promo />
+          </div>
+          <div className='container center-text margin-bottom-md'>
+            <p className='heading-description'>*Use code at checkout for discount to apply*</p>
           </div>
           <div className='container center-text margin-bottom-md'>
             <CustomButton

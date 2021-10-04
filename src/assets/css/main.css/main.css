@@ -182,7 +182,8 @@ body {
 .heading-tertiary {
   font-size: 3rem;
   line-height: 1.2;
-  margin-bottom: 3.2rem; }
+  margin-bottom: 3.2rem;
+  letter-spacing: 0.75px; }
 
 .heading-description {
   font-size: 2.4rem;

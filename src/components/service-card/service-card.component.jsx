@@ -6,7 +6,7 @@ const ServiceCard = ({ service, image, showButton = false, promo = false, handle
   const promoCostUI = (
     <span>
       <span className='strikethrough'>$80</span>
-      <strong>$68</strong> flat-fee (with code)
+      <strong>$68</strong> flat-fee
     </span>
   );
 
