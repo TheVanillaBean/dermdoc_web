@@ -29,7 +29,12 @@ const Header = () => {
             </HashLink>
           </li>
           <li>
-            <Link className='main-nav-link nav-cta' to='/services'>
+            <Link
+              className='main-nav-link nav-cta'
+              to='/services'
+              onClick={() => {
+                window.fathom.trackGoal('5WKASRQK', 0);
+              }}>
               Get Started
             </Link>
           </li>

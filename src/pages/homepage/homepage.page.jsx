@@ -39,6 +39,7 @@ class HomePage extends React.Component {
                 <CustomButton
                   className='btn btn--full margin-right-sm'
                   onClick={() => {
+                    window.fathom.trackGoal('5WKASRQK', 0);
                     const { history } = this.props;
                     history.push('/services');
                   }}>
@@ -117,6 +118,7 @@ class HomePage extends React.Component {
             <CustomButton
               className='btn btn--full'
               onClick={() => {
+                window.fathom.trackGoal('5WKASRQK', 0);
                 const { history } = this.props;
                 history.push('/services');
               }}>

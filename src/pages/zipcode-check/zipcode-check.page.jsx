@@ -7,7 +7,7 @@ import CustomButton from '../../components/custom-button/custom-button.component
 import Footer from '../../components/footer/footer.component';
 import Header from '../../components/header/header.component';
 import LegalCheckbox from '../../components/legal-checkbox/legal-checkbox.component';
-import { createVisit } from '../../firebase/firebase.utils';
+import { createVisit, logZipCode } from '../../firebase/firebase.utils';
 import { updateZipCode } from '../../redux/search/search.actions';
 import { selectState, selectVisitReason, selectZipCode } from '../../redux/search/search.selectors';
 
@@ -31,7 +31,9 @@ class ZipCodeCheck extends Component {
   handleZipcodeSubmit = async (event) => {
     event.preventDefault();
 
-    const { mailing_state } = this.props;
+    const { mailing_state, zipcode } = this.props;
+
+    await logZipCode(zipcode, mailing_state);
 
     if (mailing_state !== 'MA') {
       this.setState({ doctorsAvailable: false });

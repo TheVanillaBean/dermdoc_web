@@ -83,6 +83,32 @@ export const joinWaitlistWithEmail = async (email, state = 'N/A', service = 'N/A
   return { error: true, message: 'This email is already on the waitlist!' };
 };
 
+export const logZipCode = async (zipcode, mailing_state) => {
+  const zipcodesRef = firestore.collection('zipcodes').doc();
+
+  const snapshot = await zipcodesRef.get();
+
+  if (!snapshot.exists) {
+    const date = new Date();
+
+    try {
+      await zipcodesRef.set(
+        {
+          date,
+          zipcode: zipcode,
+          mailing_state: mailing_state,
+        },
+        { merge: true }
+      );
+      return true;
+    } catch (e) {
+      return false;
+    }
+  }
+
+  return false;
+};
+
 export const createVisit = async (service) => {
   const visitRef = firestore.collection('visits').doc();
 
