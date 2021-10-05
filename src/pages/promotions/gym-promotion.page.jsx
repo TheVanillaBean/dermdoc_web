@@ -39,8 +39,8 @@ class GymPromotionPage extends React.Component {
           <div className='container center-text margin-bottom-md'>
             <p className='heading-description'>
               <strong>Our main difference?</strong> Although our doctors will prescribe applicable
-              treatments, we don't make money from prescriptions. Don't let ringworm, cold sores,
-              eczema, or any other skin treatments slow down your PR's! &#127947;
+              treatments, we don't take a cut from prescriptions. Don't let ringworm, cold sores,
+              eczema, or other issues slow down your PR's! &#127947;
             </p>
           </div>
           <div className='container grid grid--3-cols margin-bottom-md'>

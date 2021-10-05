@@ -28,7 +28,7 @@ class HomePage extends React.Component {
                 <h1 className='heading-primary'>Your personal dermatologist. Available anytime.</h1>
 
                 <p className='hero-description'>
-                  &mdash; $80 flat fee for a visit.
+                  &mdash; $68 flat fee for a visit.
                   <br />
                   &mdash; Prescriptions sent to your local pharmacy or, if you prefer, directly to
                   you with free 2 day shipping
@@ -98,8 +98,8 @@ class HomePage extends React.Component {
           <div className='container center-text'>
             <h2 className='heading-description'>
               Many online health companies like Roman and Hims charge much less upfront for care,
-              but then upcharge you on prescriptions (often times by 2x the normal cost). With us
-              you are paying for higher quality care. Prescriptions can be filled at any pharmacy.
+              but then upcharge you on "in-house" prescriptions (often times by 2x the normal cost).
+              With us you are paying for higher quality care, not higher priced prescriptions.
             </h2>
           </div>
         </section>

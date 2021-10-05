@@ -74,6 +74,11 @@ class App extends Component {
             <GymPromotionPage gym='Daybreak' coupon_code='cfdaybreak' zipcode='01778' />
           )}
         />
+        <Route
+          exact
+          path='/cf-lowell'
+          render={() => <GymPromotionPage gym='Lowell' coupon_code='cflowell' zipcode='01852' />}
+        />
         <Route path='/visits/:visit_id' component={VisitLandingPage} />
         <Route path='/privacy' render={() => <LegalPage page='privacy' />} />
         <Route path='/terms' render={() => <LegalPage page='terms' />} />

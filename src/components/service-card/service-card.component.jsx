@@ -5,12 +5,12 @@ import CustomButton from '../custom-button/custom-button.component';
 const ServiceCard = ({ service, image, showButton = false, promo = false, handleClick }) => {
   const promoCostUI = (
     <span>
-      <span className='strikethrough'>$80</span>
-      <strong>$68</strong> flat-fee
+      <span className='strikethrough'>$68</span>
+      <strong>$58</strong> flat-fee
     </span>
   );
 
-  const normalCostUI = <span>$80 flat-fee</span>;
+  const normalCostUI = <span>$68 flat-fee</span>;
   return (
     <div className='service'>
       <img className='service--img' src={image} alt={`${service}`} />
