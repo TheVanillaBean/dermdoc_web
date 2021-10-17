@@ -12,7 +12,6 @@ import MelasmaPhoto from '../../assets/img/specialty-photos/Melasma.jpeg';
 import NailPhoto from '../../assets/img/specialty-photos/Nail.jpeg';
 import RednessPhoto from '../../assets/img/specialty-photos/Redness.jpeg';
 import RosaceaPhoto from '../../assets/img/specialty-photos/Rosacea.jpeg';
-import SkinSpotsPhoto from '../../assets/img/specialty-photos/SkinSpots.jpeg';
 import SkinTexturePhoto from '../../assets/img/specialty-photos/SkinTexture.jpeg';
 import UnderEyeCirclesPhoto from '../../assets/img/specialty-photos/UnderEyeCircles.jpeg';
 import WrinklesPhoto from '../../assets/img/specialty-photos/Wrinkles.jpeg';
@@ -49,12 +48,6 @@ class ServicesPage extends React.Component {
             <ServiceCard
               service='Hairloss'
               image={HairlossPhoto}
-              showButton={true}
-              handleClick={this.handleClick}
-            />
-            <ServiceCard
-              service='Skin Spots'
-              image={SkinSpotsPhoto}
               showButton={true}
               handleClick={this.handleClick}
             />

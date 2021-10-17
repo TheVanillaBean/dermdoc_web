@@ -53,10 +53,7 @@ export const fetchQuestionsStartAsync = (symptom) => {
           symptomQuestions.data(),
           true
         );
-        const survey = mergePagesIntoSurveySchema([
-          medicalHistoryPage,
-          symptomPage,
-        ]);
+        const survey = mergePagesIntoSurveySchema([medicalHistoryPage, symptomPage]);
         dispatch(fetchQuestionsSuccess(survey));
       } else {
         dispatch(fetchQuestionsFailure('Failed to load questions'));

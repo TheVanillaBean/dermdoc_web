@@ -239,7 +239,7 @@ export const convertQuestionnaireSnapshotToPageMap = (
 };
 
 export const convertQuestionToSurveySchema = (questionMap) => {
-  const { question, type, options, visibleIf } = questionMap;
+  const { question, type, options, required, visibleIf } = questionMap;
 
   let element = {};
   let subQuestions = [];
@@ -251,9 +251,21 @@ export const convertQuestionToSurveySchema = (questionMap) => {
     element.type = 'text';
   }
 
-  element.name = question;
+  /*
+  Append cuid because some sub questions have exactly the same text. 
+  elementName acts as a uniquye key which ensures that each sub question is unique even if the text is the same
+  Example: Brown Spots
+  Q: What did you think of the results with liquid nitrogen? 
+  Possible A's: Mild improvement, Significant improvement
+  Both have a sub question: Were you happy with the liquid nitrogen results? Possible Answers to that sub question are yes or no
+  If the user selects no: then a sub question Why were you unhappy with the liquid nitrogen results? shows up.
+  Because the above sub question is the exact same text for both Mild improvement and Significant improvement, two sub questions will pop up that are the exact same. (i.e. Why were you unhappy with the liquid nitrogen results? shows up twice. Refer two the comment in the below subQuestion code)
+  */
+  const elementName = question + cuid();
+
+  element.name = elementName;
   element.title = question;
-  element.isRequired = true;
+  element.isRequired = required ?? true;
   element.colCount = 4;
 
   if (type === 'SC' || type === 'MC') {
@@ -262,8 +274,9 @@ export const convertQuestionToSurveySchema = (questionMap) => {
         subQuestions = subQuestions.concat(option.sub_questions);
         option.sub_questions.map((subQuestion) => {
           const updatedSubQuestion = subQuestion;
-          updatedSubQuestion.visibleIf = `{${question}} contains ["${option.value}"]`;
+          updatedSubQuestion.visibleIf = `{${elementName}} contains ["${option.value}"]`;
           return updatedSubQuestion;
+          //if elementName was just question, than theoretically if two sub questions had the same text, both would have the same element.name, aand thus both would show up.
         });
       }
       return option.value;
