@@ -1,7 +1,7 @@
 import React from 'react';
 import { connect } from 'react-redux';
 import { withRouter } from 'react-router-dom';
-import { ToastContainer } from 'react-toastify';
+import { toast, ToastContainer } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
 import AcnePhoto from '../../assets/img/specialty-photos/Acne.jpeg';
 import BrownSpotsPhoto from '../../assets/img/specialty-photos/BrownSpots.jpeg';
@@ -15,17 +15,62 @@ import RosaceaPhoto from '../../assets/img/specialty-photos/Rosacea.jpeg';
 import SkinTexturePhoto from '../../assets/img/specialty-photos/SkinTexture.jpeg';
 import UnderEyeCirclesPhoto from '../../assets/img/specialty-photos/UnderEyeCircles.jpeg';
 import WrinklesPhoto from '../../assets/img/specialty-photos/Wrinkles.jpeg';
+import CustomButton from '../../components/custom-button/custom-button.component';
 import Footer from '../../components/footer/footer.component';
+import FormInput from '../../components/form-input/form-input.component';
 import Header from '../../components/header/header.component';
 import ServiceCard from '../../components/service-card/service-card.component';
+import { addCustomServiceRequest } from '../../firebase/firebase.utils';
 import { updateVisitReason } from '../../redux/search/search.actions';
 
 class ServicesPage extends React.Component {
+  constructor(props) {
+    super(props);
+
+    this.state = {
+      custom_service: '',
+      email: '',
+    };
+  }
+
   handleClick = (service) => {
     const { history, updateVisitReason } = this.props;
 
     updateVisitReason(service);
     history.push(`get_started`);
+  };
+
+  handleSubmit = async (event) => {
+    event.preventDefault();
+
+    const { custom_service, email } = this.state;
+
+    try {
+      const addServiceRequest = await addCustomServiceRequest(email, custom_service);
+
+      if (addServiceRequest.error) {
+        toast.error(addServiceRequest.message);
+      } else {
+        toast.success(
+          'Thank you for your request! We will email you shortly to see how we can best help solve your problem. '
+        );
+      }
+
+      this.setState({
+        email: '',
+        custom_service: '',
+      });
+    } catch (e) {
+      let errorText = e.message;
+
+      toast.error(errorText);
+    }
+  };
+
+  handleChange = (event) => {
+    const { name, value } = event.target;
+
+    this.setState({ [name]: value });
   };
 
   render() {
@@ -111,6 +156,33 @@ class ServicesPage extends React.Component {
               showButton={true}
               handleClick={this.handleClick}
             />
+          </div>
+          <div className='container center-text margin-bottom-md'>
+            <span className='subheading'>Don't see your issue?</span>
+            <h2 className='heading-secondary'>Enter your issue below</h2>
+            <form onSubmit={this.handleSubmit}>
+              <FormInput
+                type='email'
+                name='email'
+                size='md'
+                value={this.state.email}
+                onChange={this.handleChange}
+                label='Email'
+                required
+              />
+              <FormInput
+                type='text'
+                name='service'
+                size='md'
+                value={this.state.custom_service}
+                onChange={this.handleChange}
+                label="What's your issue?"
+                required
+              />
+              <CustomButton className='custom-button' type='submit'>
+                Submit Issue
+              </CustomButton>
+            </form>
           </div>
         </section>
         <ToastContainer

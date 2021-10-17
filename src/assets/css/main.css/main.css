@@ -510,6 +510,8 @@ strong {
     border-radius: 0;
     border-bottom: 1px solid #555;
     margin: 2.5rem 0; }
+    .form-input-container__input--md {
+      width: 50%; }
     .form-input-container__input:focus {
       outline: none; }
     .form-input-container__input:focus ~ .form-input-label {

@@ -24,6 +24,10 @@ $main-color: #333;
     border-bottom: 1px solid $sub-color;
     margin: 2.5rem 0;
 
+    &--md {
+      width: 50%;
+    }
+
     &:focus {
       outline: none;
     }
@@ -51,4 +55,7 @@ $main-color: #333;
       @include shrinkLabel();
     }
   }
+}
+
+.input-medium {
 }

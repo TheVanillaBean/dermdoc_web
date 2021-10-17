@@ -1,8 +1,12 @@
 import React from 'react';
 
-const FormInput = ({ handleChange, label, ...otherProps }) => (
+const FormInput = ({ handleChange, label, size = '', ...otherProps }) => (
   <div className='form-input-container'>
-    <input className='form-input-container__input' onChange={handleChange} {...otherProps} />
+    <input
+      className={`form-input-container__input form-input-container__input--${size}`}
+      onChange={handleChange}
+      {...otherProps}
+    />
     {label ? (
       <label
         className={`${
