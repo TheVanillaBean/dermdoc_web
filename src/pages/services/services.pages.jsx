@@ -159,12 +159,11 @@ class ServicesPage extends React.Component {
           </div>
           <div className='container center-text margin-bottom-md'>
             <span className='subheading'>Don't see your issue?</span>
-            <h2 className='heading-secondary'>Enter your issue below</h2>
-            <form onSubmit={this.handleSubmit}>
+            <h2 className='heading-tertiary'>Enter your issue below</h2>
+            <form className='service-request' onSubmit={this.handleSubmit}>
               <FormInput
                 type='email'
                 name='email'
-                size='md'
                 value={this.state.email}
                 onChange={this.handleChange}
                 label='Email'
@@ -172,8 +171,7 @@ class ServicesPage extends React.Component {
               />
               <FormInput
                 type='text'
-                name='service'
-                size='md'
+                name='custom_service'
                 value={this.state.custom_service}
                 onChange={this.handleChange}
                 label="What's your issue?"

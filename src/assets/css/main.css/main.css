@@ -510,8 +510,6 @@ strong {
     border-radius: 0;
     border-bottom: 1px solid #555;
     margin: 2.5rem 0; }
-    .form-input-container__input--md {
-      width: 50%; }
     .form-input-container__input:focus {
       outline: none; }
     .form-input-container__input:focus ~ .form-input-label {
@@ -1084,6 +1082,14 @@ input::-webkit-inner-spin-button {
 
 input[type='number'] {
   -moz-appearance: textfield; }
+
+.service-request {
+  display: flex;
+  flex-direction: row;
+  width: 100%;
+  align-items: center;
+  justify-content: center;
+  gap: 2.4rem; }
 
 /* rem and em do NOT depend on html font-size in media queries.
    Instead, 1rem = 1em = 16px;
