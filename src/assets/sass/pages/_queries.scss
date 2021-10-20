@@ -411,6 +411,10 @@
   margin-bottom: 2.4rem;
 }
 
+.no-flexbox-gap .service-request > *:not(:last-child) {
+  margin-right: 2.4rem;
+}
+
 @media (max-width: 75em) {
   .no-flexbox-gap .main-nav-list li:not(:last-child) {
     margin-right: 3.2rem;
