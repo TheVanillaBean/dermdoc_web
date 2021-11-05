@@ -35,8 +35,8 @@ const Footer = () => {
           <p className='footer-heading'>Company</p>
           <ul className='footer-nav'>
             <li>
-              <Link to='/' className='footer-link'>
-                About Medicall
+              <Link to='/services' className='footer-link'>
+                Services
               </Link>
             </li>
             <li>

@@ -10,7 +10,7 @@ const ServiceCard = ({ service, image, showButton = false, promo = false, handle
     </span>
   );
 
-  const normalCostUI = <span>$68 flat-fee</span>;
+  const normalCostUI = <span>$68 doctor fee (risk-free)</span>;
   return (
     <div className='service'>
       <img className='service--img' src={image} alt={`${service}`} />

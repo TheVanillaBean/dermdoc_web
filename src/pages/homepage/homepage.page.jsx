@@ -1,10 +1,20 @@
 import React from 'react';
+import {
+  IoBagAddOutline,
+  IoHappyOutline,
+  IoHeartDislikeOutline,
+  IoHeartOutline,
+  IoLeafOutline,
+  IoPersonOutline,
+  IoPricetagOutline,
+  IoSadOutline,
+} from 'react-icons/io5';
 import { withRouter } from 'react-router-dom';
 import HeroImg from '../../assets/img/hero.jpeg';
 import OmarHeadshot from '../../assets/img/omar_headshot-2.jpeg';
 import AcnePhoto from '../../assets/img/specialty-photos/Acne.jpeg';
-import HairlossPhoto from '../../assets/img/specialty-photos/Hairloss.jpeg';
-import SkinSpotsPhoto from '../../assets/img/specialty-photos/SkinSpots.jpeg';
+import MelasmaPhoto from '../../assets/img/specialty-photos/Melasma.jpeg';
+import RosaceaPhoto from '../../assets/img/specialty-photos/Rosacea.jpeg';
 import CustomButton from '../../components/custom-button/custom-button.component';
 import Footer from '../../components/footer/footer.component';
 import Header from '../../components/header/header.component';
@@ -25,15 +35,22 @@ class HomePage extends React.Component {
           <section className='section-hero'>
             <div className='hero'>
               <div className='hero-text-box'>
-                <h1 className='heading-primary'>Your personal dermatologist. Available anytime.</h1>
+                <h1 className='heading-primary'>
+                  Your personal dermatologist. <br />
+                  Get clear skin today.
+                </h1>
 
                 <p className='hero-description'>
-                  &mdash; $68 flat fee for a visit.
+                  &mdash; Flat fee of <strong>$68</strong>. No insurance needed.
+                  <br />
+                  &mdash; <strong>100%</strong> money-back guarantee
+                  <br />
+                  &mdash; Use your insurance for prescriptions. <strong>Save $200</strong> per year
+                  on prescriptions compared to online skin care competitors (see below).
                   <br />
                   &mdash; Prescriptions sent to your local pharmacy or, if you prefer, directly to
                   you with free 2 day shipping
                   <br />
-                  &mdash; No gimmicks, fancy packaging, or marked up prescription costs
                 </p>
 
                 <CustomButton
@@ -95,13 +112,145 @@ class HomePage extends React.Component {
               </p>
             </div>
           </div>
+        </section>
+        <section class='section-pricing' id='pricing'>
+          <div class='container center-text'>
+            <span class='subheading'>Pricing</span>
+            <h2 class='heading-secondary'>Don't be fooled by low up-front pricing</h2>
+          </div>
+
+          <div class='container grid grid--2-cols'>
+            <div class='pricing-plan pricing-plan--starter'>
+              <header class='plan-header'>
+                <p class='plan-name'>Competitors</p>
+                <p class='plan-price'>
+                  <span>$</span>300
+                </p>
+                <p class='plan-text'>per year. For visit and prescriptions.</p>
+              </header>
+              <ul class='list'>
+                <li class='list-item'>
+                  <IoPricetagOutline className='list-icon' />
+                  <span>
+                    Visit Cost: <strong>$0</strong>
+                  </span>
+                </li>
+                <li class='list-item'>
+                  <IoLeafOutline className='list-icon' />
+                  <span>
+                    Annual Medication Cost: <strong>$300-600</strong>
+                  </span>
+                </li>
+                <li class='list-item'>
+                  <IoBagAddOutline className='list-icon' />
+                  <span>
+                    <strong>Cannot use</strong> insurance prescription coverage
+                  </span>
+                </li>
+                <li class='list-item'>
+                  <IoSadOutline className='list-icon' />
+                  <span>Must use their pharamcy</span>
+                </li>
+                <li class='list-item'>
+                  <IoHeartDislikeOutline className='list-icon' />
+                  <span>Treatments limited to their medications</span>
+                </li>
+                <li class='list-item'>
+                  <IoPersonOutline className='list-icon' />
+                  <span>Mostly non-dermatologists</span>
+                </li>
+                {/* <li class='list-item'>
+                  <IoCloseOutline className='list-icon' />
+                </li>
+                <li class='list-item'>
+                  <IoCloseOutline className='list-icon' />
+                </li> */}
+              </ul>
+              <div class='plan-sign-up'>
+                <CustomButton
+                  className='btn btn--full'
+                  onClick={() => {
+                    window.fathom.trackGoal('5WKASRQK', 0);
+                    const { history } = this.props;
+                    history.push('/services');
+                  }}>
+                  Pay higher prices
+                </CustomButton>
+              </div>
+            </div>
+            <div class='pricing-plan pricing-plan--complete'>
+              <header class='plan-header'>
+                <p class='plan-name'>Medicall</p>
+                <p class='plan-price'>
+                  <span>$</span>180
+                </p>
+                <p class='plan-text'>per year. For visit and prescriptions.</p>
+              </header>
+              <ul class='list'>
+                <li class='list-item'>
+                  <IoPricetagOutline className='list-icon' />
+                  <span>
+                    Visit Cost: <strong>$68</strong>
+                  </span>
+                </li>
+                <li class='list-item'>
+                  <IoLeafOutline className='list-icon' />
+                  <span>
+                    Annual Medication Cost: <strong>$80-120</strong>
+                  </span>
+                </li>
+                <li class='list-item'>
+                  <IoBagAddOutline className='list-icon' />
+                  <span>
+                    <strong>Can use</strong> insurance prescription coverage
+                  </span>
+                </li>
+                <li class='list-item'>
+                  <IoHappyOutline className='list-icon' />
+                  <span>Can use any pharamcy</span>
+                </li>
+                <li class='list-item'>
+                  <IoHeartOutline className='list-icon' />
+                  <span>No treatment limitations</span>
+                </li>
+                <li class='list-item'>
+                  <IoPersonOutline className='list-icon' />
+                  <span>Only board-certified dermatologists</span>
+                </li>
+                {/* <li class='list-item'>
+                  <IoCashOutline className='list-icon' />
+                  <span>Pay w/ insurance (optional)</span>
+                </li>
+                <li class='list-item'>
+                  <IoCheckmarkCircleOutline className='list-icon' />
+                  <span>Monthly checkups included</span>
+                </li> */}
+              </ul>
+              <div class='plan-sign-up'>
+                <CustomButton
+                  className='btn btn--full'
+                  onClick={() => {
+                    window.fathom.trackGoal('5WKASRQK', 0);
+                    const { history } = this.props;
+                    history.push('/services');
+                  }}>
+                  Pay lower prices
+                </CustomButton>
+              </div>
+            </div>
+          </div>
 
           <div className='container center-text'>
-            <h2 className='heading-description'>
-              Many online health companies like Roman and Hims charge much less upfront for care,
-              but then upcharge you on "in-house" prescriptions (often times by 2x the normal cost).
-              With us you are paying for higher quality care, not higher priced prescriptions.
-            </h2>
+            <aside class='plan-details'>
+              <h2 className='heading-description'>
+                Many online health companies like Curology, Hims, and Apostrophe don’t charge a
+                visit fee, but charge you a big premium on “in-house formulated” prescriptions
+                (often times by 3x the normal cost). With Medicall you are paying for your
+                dermatologist’s time, and getting your prescriptions like you normally would. You
+                can use any pharmacy and can use your insurance coverage. If you don’t have
+                insurance, we will help you find the lowest prices.
+              </h2>
+            </aside>
           </div>
         </section>
         <section className='section-services' id='services'>
@@ -111,8 +260,8 @@ class HomePage extends React.Component {
           </div>
           <div className='container grid grid--3-cols margin-bottom-md'>
             <ServiceCard service='Acne' image={AcnePhoto} />
-            <ServiceCard service='Hairloss' image={HairlossPhoto} />
-            <ServiceCard service='Skin Spots' image={SkinSpotsPhoto} />
+            <ServiceCard service='Melasma' image={MelasmaPhoto} />
+            <ServiceCard service='Rosacea' image={RosaceaPhoto} />
           </div>
           <div className='container center-text'>
             <CustomButton
@@ -161,24 +310,26 @@ class HomePage extends React.Component {
 
             <div className='about-testimonials'>
               <h2 className='heading-tertiary center-text'>Stellar Reviews</h2>
-              <h2 className='subheading center-text'>Here's some kind words from a few patients</h2>
+              <h2 className='subheading center-text'>
+                Here's some kind words from a few customers
+              </h2>
               <div className='testimonials'>
                 <Testimonial
                   service='Acne'
                   text='Dr. Badri and his team were excellent!!'
-                  date='August 27, 2021'
+                  date='October 17, 2021'
                 />
                 <Testimonial
                   service='Under Eye Circles'
-                  text='Had seen several doctors for the same issue. He spent a lot of
-            time with me and was able to solve my issue. Excellent.'
-                  date='August 14, 2021'
+                  text='Had used several services for the same issue. He spent a lot of
+            time with me and was able to solve my issue.'
+                  date='October 14, 2021'
                 />
                 <Testimonial
                   service='Rosacea'
                   text='He [Dr. Badri] went above and beyond to make sure I got
             everything I needed.'
-                  date='August 18, 2021'
+                  date='October 8, 2021'
                 />
               </div>
             </div>
