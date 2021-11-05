@@ -41,15 +41,15 @@ class HomePage extends React.Component {
                 </h1>
 
                 <p className='hero-description'>
-                  &mdash; Flat fee of <strong>$68</strong>. No insurance needed.
+                  &mdash; Flat fee of <strong>$68</strong>.
                   <br />
                   &mdash; <strong>100%</strong> money-back guarantee
                   <br />
-                  &mdash; Use your insurance for prescriptions. <strong>Save $200</strong> per year
-                  on prescriptions compared to online skin care competitors (see below).
+                  &mdash; Use your insurance for prescriptions. <strong>Save $150</strong> on
+                  average per year (see below).
                   <br />
-                  &mdash; Prescriptions sent to your local pharmacy or, if you prefer, directly to
-                  you with free 2 day shipping
+                  &mdash; Prescriptions sent to your local pharmacy or shipped to your door with
+                  <strong> free 2 day shipping.</strong>
                   <br />
                 </p>
 
@@ -113,120 +113,54 @@ class HomePage extends React.Component {
             </div>
           </div>
         </section>
-        <section class='section-pricing' id='pricing'>
-          <div class='container center-text'>
-            <span class='subheading'>Pricing</span>
-            <h2 class='heading-secondary'>Don't be fooled by low up-front pricing</h2>
+        <section className='section-pricing' id='pricing'>
+          <div className='container center-text'>
+            <span className='subheading'>Pricing</span>
+            <h2 className='heading-secondary'>Don't be fooled by low up-front pricing</h2>
           </div>
 
-          <div class='container grid grid--2-cols'>
-            <div class='pricing-plan pricing-plan--starter'>
-              <header class='plan-header'>
-                <p class='plan-name'>Competitors</p>
-                <p class='plan-price'>
-                  <span>$</span>300
+          <div className='container grid grid--2-cols'>
+            <div className='pricing-plan pricing-plan--complete'>
+              <header className='plan-header'>
+                <p className='plan-name'>Medicall</p>
+                <p className='plan-price'>
+                  <span>$</span>148
                 </p>
-                <p class='plan-text'>per year. For visit and prescriptions.</p>
+                <p className='plan-text'>per year. For visit and prescriptions.</p>
               </header>
-              <ul class='list'>
-                <li class='list-item'>
+              <ul className='list'>
+                <li className='list-item'>
                   <IoPricetagOutline className='list-icon' />
                   <span>
-                    Visit Cost: <strong>$0</strong>
+                    Visit Cost: <strong>$68</strong> (risk-free)
                   </span>
                 </li>
-                <li class='list-item'>
-                  <IoLeafOutline className='list-icon' />
-                  <span>
-                    Annual Medication Cost: <strong>$300-600</strong>
-                  </span>
-                </li>
-                <li class='list-item'>
-                  <IoBagAddOutline className='list-icon' />
-                  <span>
-                    <strong>Cannot use</strong> insurance prescription coverage
-                  </span>
-                </li>
-                <li class='list-item'>
-                  <IoSadOutline className='list-icon' />
-                  <span>Must use their pharamcy</span>
-                </li>
-                <li class='list-item'>
-                  <IoHeartDislikeOutline className='list-icon' />
-                  <span>Treatments limited to their medications</span>
-                </li>
-                <li class='list-item'>
-                  <IoPersonOutline className='list-icon' />
-                  <span>Mostly non-dermatologists</span>
-                </li>
-                {/* <li class='list-item'>
-                  <IoCloseOutline className='list-icon' />
-                </li>
-                <li class='list-item'>
-                  <IoCloseOutline className='list-icon' />
-                </li> */}
-              </ul>
-              <div class='plan-sign-up'>
-                <CustomButton
-                  className='btn btn--full'
-                  onClick={() => {
-                    window.fathom.trackGoal('5WKASRQK', 0);
-                    const { history } = this.props;
-                    history.push('/services');
-                  }}>
-                  Pay higher prices
-                </CustomButton>
-              </div>
-            </div>
-            <div class='pricing-plan pricing-plan--complete'>
-              <header class='plan-header'>
-                <p class='plan-name'>Medicall</p>
-                <p class='plan-price'>
-                  <span>$</span>180
-                </p>
-                <p class='plan-text'>per year. For visit and prescriptions.</p>
-              </header>
-              <ul class='list'>
-                <li class='list-item'>
-                  <IoPricetagOutline className='list-icon' />
-                  <span>
-                    Visit Cost: <strong>$68</strong>
-                  </span>
-                </li>
-                <li class='list-item'>
+                <li className='list-item'>
                   <IoLeafOutline className='list-icon' />
                   <span>
                     Annual Medication Cost: <strong>$80-120</strong>
                   </span>
                 </li>
-                <li class='list-item'>
+                <li className='list-item'>
                   <IoBagAddOutline className='list-icon' />
                   <span>
                     <strong>Can use</strong> insurance prescription coverage
                   </span>
                 </li>
-                <li class='list-item'>
+                <li className='list-item'>
                   <IoHappyOutline className='list-icon' />
-                  <span>Can use any pharamcy</span>
+                  <span>Can use any pharmacy</span>
                 </li>
-                <li class='list-item'>
+                <li className='list-item'>
                   <IoHeartOutline className='list-icon' />
                   <span>No treatment limitations</span>
                 </li>
-                <li class='list-item'>
+                <li className='list-item'>
                   <IoPersonOutline className='list-icon' />
                   <span>Only board-certified dermatologists</span>
                 </li>
-                {/* <li class='list-item'>
-                  <IoCashOutline className='list-icon' />
-                  <span>Pay w/ insurance (optional)</span>
-                </li>
-                <li class='list-item'>
-                  <IoCheckmarkCircleOutline className='list-icon' />
-                  <span>Monthly checkups included</span>
-                </li> */}
               </ul>
-              <div class='plan-sign-up'>
+              <div className='plan-sign-up'>
                 <CustomButton
                   className='btn btn--full'
                   onClick={() => {
@@ -238,17 +172,58 @@ class HomePage extends React.Component {
                 </CustomButton>
               </div>
             </div>
+            <div className='pricing-plan pricing-plan--starter'>
+              <header className='plan-header'>
+                <p className='plan-name'>Competitors</p>
+                <p className='plan-price'>
+                  <span>$</span>300
+                </p>
+                <p className='plan-text'>per year. For visit and prescriptions.</p>
+              </header>
+              <ul className='list'>
+                <li className='list-item'>
+                  <IoPricetagOutline className='list-icon' />
+                  <span>
+                    Visit Cost: <strong>$0</strong>
+                  </span>
+                </li>
+                <li className='list-item'>
+                  <IoLeafOutline className='list-icon' />
+                  <span>
+                    Annual Medication Cost: <strong>$300-600</strong>
+                  </span>
+                </li>
+                <li className='list-item'>
+                  <IoBagAddOutline className='list-icon' />
+                  <span>
+                    <strong>Cannot use</strong> insurance prescription coverage
+                  </span>
+                </li>
+                <li className='list-item'>
+                  <IoSadOutline className='list-icon' />
+                  <span>Must use their pharmacy</span>
+                </li>
+                <li className='list-item'>
+                  <IoHeartDislikeOutline className='list-icon' />
+                  <span>Treatments limited to their medications</span>
+                </li>
+                <li className='list-item'>
+                  <IoPersonOutline className='list-icon' />
+                  <span>Mostly non-dermatologists (nurse practioners)</span>
+                </li>
+              </ul>
+            </div>
           </div>
 
           <div className='container center-text'>
-            <aside class='plan-details'>
+            <aside className='plan-details'>
               <h2 className='heading-description'>
                 Many online health companies like Curology, Hims, and Apostrophe don’t charge a
                 visit fee, but charge you a big premium on “in-house formulated” prescriptions
                 (often times by 3x the normal cost). With Medicall you are paying for your
                 dermatologist’s time, and getting your prescriptions like you normally would. You
-                can use any pharmacy and can use your insurance coverage. If you don’t have
-                insurance, we will help you find the lowest prices.
+                can use any pharmacy and can use your insurance coverage (not required though). If
+                you don’t have insurance, we will help you find the lowest prices.
               </h2>
             </aside>
           </div>

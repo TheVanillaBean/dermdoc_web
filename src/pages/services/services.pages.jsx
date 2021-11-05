@@ -4,16 +4,11 @@ import { withRouter } from 'react-router-dom';
 import { toast, ToastContainer } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
 import AcnePhoto from '../../assets/img/specialty-photos/Acne.jpeg';
-import BrownSpotsPhoto from '../../assets/img/specialty-photos/BrownSpots.jpeg';
-import ExcessHairPhoto from '../../assets/img/specialty-photos/ExcessHair.jpeg';
 import HairlossPhoto from '../../assets/img/specialty-photos/Hairloss.jpeg';
 import LatissePhoto from '../../assets/img/specialty-photos/Latisse.jpeg';
 import MelasmaPhoto from '../../assets/img/specialty-photos/Melasma.jpeg';
-import NailPhoto from '../../assets/img/specialty-photos/Nail.jpeg';
-import RednessPhoto from '../../assets/img/specialty-photos/Redness.jpeg';
 import RosaceaPhoto from '../../assets/img/specialty-photos/Rosacea.jpeg';
 import SkinTexturePhoto from '../../assets/img/specialty-photos/SkinTexture.jpeg';
-import UnderEyeCirclesPhoto from '../../assets/img/specialty-photos/UnderEyeCircles.jpeg';
 import WrinklesPhoto from '../../assets/img/specialty-photos/Wrinkles.jpeg';
 import CustomButton from '../../components/custom-button/custom-button.component';
 import Footer from '../../components/footer/footer.component';
@@ -97,20 +92,8 @@ class ServicesPage extends React.Component {
               handleClick={this.handleClick}
             />
             <ServiceCard
-              service='Brown Spots'
-              image={BrownSpotsPhoto}
-              showButton={true}
-              handleClick={this.handleClick}
-            />
-            <ServiceCard
               service='Rosacea'
               image={RosaceaPhoto}
-              showButton={true}
-              handleClick={this.handleClick}
-            />
-            <ServiceCard
-              service='Hair Removal'
-              image={ExcessHairPhoto}
               showButton={true}
               handleClick={this.handleClick}
             />
@@ -127,26 +110,8 @@ class ServicesPage extends React.Component {
               handleClick={this.handleClick}
             />
             <ServiceCard
-              service='Nail'
-              image={NailPhoto}
-              showButton={true}
-              handleClick={this.handleClick}
-            />
-            <ServiceCard
-              service='Redness'
-              image={RednessPhoto}
-              showButton={true}
-              handleClick={this.handleClick}
-            />
-            <ServiceCard
               service='Skin Texture'
               image={SkinTexturePhoto}
-              showButton={true}
-              handleClick={this.handleClick}
-            />
-            <ServiceCard
-              service='Under Eye Circles'
-              image={UnderEyeCirclesPhoto}
               showButton={true}
               handleClick={this.handleClick}
             />
