@@ -41,15 +41,15 @@ class HomePage extends React.Component {
                 </h1>
 
                 <p className='hero-description'>
-                  &mdash; Flat fee of <strong>$68</strong>.
+                  &mdash; <strong>Save $150</strong> on average per year (see below)
+                  <br />
+                  &mdash; Flat fee of <strong>$68</strong>. (<strong>$12/m</strong> with
+                  prescriptions)
                   <br />
                   &mdash; <strong>100%</strong> money-back guarantee
                   <br />
-                  &mdash; Use your insurance for prescriptions. <strong>Save $150</strong> on
-                  average per year (see below).
-                  <br />
                   &mdash; Prescriptions sent to your local pharmacy or shipped to your door with
-                  <strong> free 2 day shipping.</strong>
+                  <strong> free 2 day shipping</strong>
                   <br />
                 </p>
 
@@ -174,7 +174,7 @@ class HomePage extends React.Component {
             </div>
             <div className='pricing-plan pricing-plan--starter'>
               <header className='plan-header'>
-                <p className='plan-name'>Competitors</p>
+                <p className='plan-name'>Competitors*</p>
                 <p className='plan-price'>
                   <span>$</span>300
                 </p>
@@ -212,18 +212,25 @@ class HomePage extends React.Component {
                   <span>Mostly non-dermatologists (nurse practioners)</span>
                 </li>
               </ul>
+              <p className='competitors-footer'>(* e.g. Curology, Hims/Hers, Apostrophe)</p>
             </div>
           </div>
 
           <div className='container center-text'>
             <aside className='plan-details'>
+              <h2 className='heading-tertiary'>
+                Prescriptions at the lowest cost (insurance not required).
+              </h2>
+
               <h2 className='heading-description'>
                 Many online health companies like Curology, Hims, and Apostrophe don’t charge a
-                visit fee, but charge you a big premium on “in-house formulated” prescriptions
-                (often times by 3x the normal cost). With Medicall you are paying for your
-                dermatologist’s time, and getting your prescriptions like you normally would. You
-                can use any pharmacy and can use your insurance coverage (not required though). If
-                you don’t have insurance, we will help you find the lowest prices.
+                visit fee, but charge you a <strong>big premium</strong> on “in-house formulated”
+                medications (often times by <strong>3x</strong> the normal cost). <br /> <br /> With
+                Medicall, you are paying for your <strong>dermatologist’s time</strong>, and getting
+                the same quality medications at the <strong>cheapest price</strong> without the
+                premium label. You can use any pharmacy and can use your <strong>insurance</strong>{' '}
+                coverage. If you don’t have insurance, we will help you find the lowest price (which
+                will still be a <strong>50% savings</strong>).
               </h2>
             </aside>
           </div>
@@ -231,7 +238,7 @@ class HomePage extends React.Component {
         <section className='section-services' id='services'>
           <div className='container center-text'>
             <span className='subheading'>Our Services</span>
-            <h2 className='heading-secondary'>Wide variety. Same low-cost.</h2>
+            <h2 className='heading-secondary'>Wide variety. Same flat-fee.</h2>
           </div>
           <div className='container grid grid--3-cols margin-bottom-md'>
             <ServiceCard service='Acne' image={AcnePhoto} />
@@ -308,6 +315,13 @@ class HomePage extends React.Component {
                 />
               </div>
             </div>
+          </div>
+        </section>
+
+        <section className='section-question'>
+          <div className='container center-text'>
+            <span className='subheading'>Have A Question?</span>
+            <h2 className='heading-secondary'>Chat With Us By Pressing the Button On the Right</h2>
           </div>
         </section>
         <Footer />
