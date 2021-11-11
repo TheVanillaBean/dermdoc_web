@@ -19,16 +19,6 @@ const Header = () => {
             </HashLink>
           </li>
           <li>
-            <HashLink className='main-nav-link' to='/#pricing'>
-              Pricing
-            </HashLink>
-          </li>
-          <li>
-            <HashLink className='main-nav-link' to='/#services'>
-              Our Services
-            </HashLink>
-          </li>
-          <li>
             <HashLink className='main-nav-link' to='/#about'>
               Featured Derm
             </HashLink>

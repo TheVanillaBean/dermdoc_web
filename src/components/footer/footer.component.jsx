@@ -35,11 +35,6 @@ const Footer = () => {
           <p className='footer-heading'>Company</p>
           <ul className='footer-nav'>
             <li>
-              <Link to='/services' className='footer-link'>
-                Services
-              </Link>
-            </li>
-            <li>
               <Link to='/terms' className='footer-link'>
                 Terms of Service
               </Link>
