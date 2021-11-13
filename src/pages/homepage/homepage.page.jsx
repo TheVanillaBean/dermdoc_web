@@ -1,4 +1,5 @@
 import React from 'react';
+import { connect } from 'react-redux';
 import { withRouter } from 'react-router-dom';
 import HeroImg from '../../assets/img/hero.jpeg';
 import OmarHeadshot from '../../assets/img/omar_headshot-2.jpeg';
@@ -7,11 +8,19 @@ import Footer from '../../components/footer/footer.component';
 import Header from '../../components/header/header.component';
 import Testimonial from '../../components/testimonial/testimonial.component';
 import { analytics } from '../../firebase/firebase.utils';
+import { updateVisitReason } from '../../redux/search/search.actions';
 
 class HomePage extends React.Component {
   componentDidMount() {
     analytics.logEvent('Homepage Viewed');
   }
+
+  handleClick = () => {
+    const { history, updateVisitReason } = this.props;
+
+    updateVisitReason('Acne');
+    history.push(`get_started`);
+  };
 
   render() {
     return (
@@ -37,13 +46,7 @@ class HomePage extends React.Component {
                   <br />
                 </p>
 
-                <CustomButton
-                  className='btn btn--full margin-right-sm'
-                  onClick={() => {
-                    window.fathom.trackGoal('5WKASRQK', 0);
-                    const { history } = this.props;
-                    history.push('/services');
-                  }}>
+                <CustomButton className='btn btn--full margin-right-sm' onClick={this.handleClick}>
                   Start Free Visit
                 </CustomButton>
                 <a href='#how' className='btn btn--outline'>
@@ -164,4 +167,8 @@ class HomePage extends React.Component {
   }
 }
 
-export default withRouter(HomePage);
+const mapDispatchToProps = (dispatch) => ({
+  updateVisitReason: (reason) => dispatch(updateVisitReason(reason)),
+});
+
+export default withRouter(connect(null, mapDispatchToProps)(HomePage));

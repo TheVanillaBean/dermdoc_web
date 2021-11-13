@@ -1,47 +1,57 @@
 import React from 'react';
 import { IoCloseOutline, IoMenuOutline } from 'react-icons/io5';
-import { Link } from 'react-router-dom';
+import { connect } from 'react-redux';
+import { Link, withRouter } from 'react-router-dom';
 import { HashLink } from 'react-router-hash-link';
 import Logo from '../../assets/img/logo.png';
+import { updateVisitReason } from '../../redux/search/search.actions';
 
-const Header = () => {
-  return (
-    <header className='header'>
-      <Link to='/'>
-        <img src={Logo} alt='Medicall logo' className='logo' />
-      </Link>
+class Header extends React.Component {
+  handleClick = () => {
+    const { history, updateVisitReason } = this.props;
 
-      <nav className='main-nav'>
-        <ul className='main-nav-list'>
-          <li>
-            <HashLink className='main-nav-link' to='/#how'>
-              How it works
-            </HashLink>
-          </li>
-          <li>
-            <HashLink className='main-nav-link' to='/#about'>
-              Featured Derm
-            </HashLink>
-          </li>
-          <li>
-            <Link
-              className='main-nav-link nav-cta'
-              to='/services'
-              onClick={() => {
-                window.fathom.trackGoal('5WKASRQK', 0);
-              }}>
-              Get Started
-            </Link>
-          </li>
-        </ul>
-      </nav>
+    updateVisitReason('Acne');
+    history.push(`get_started`);
+  };
 
-      <button className='btn-mobile-nav'>
-        <IoMenuOutline className='icon-mobile-nav' name='menu-outline' />
-        <IoCloseOutline className='icon-mobile-nav' name='close-outline' />
-      </button>
-    </header>
-  );
-};
+  render() {
+    return (
+      <header className='header'>
+        <Link to='/'>
+          <img src={Logo} alt='Medicall logo' className='logo' />
+        </Link>
 
-export default Header;
+        <nav className='main-nav'>
+          <ul className='main-nav-list'>
+            <li>
+              <HashLink className='main-nav-link' to='/#how'>
+                How it works
+              </HashLink>
+            </li>
+            <li>
+              <HashLink className='main-nav-link' to='/#about'>
+                Featured Derm
+              </HashLink>
+            </li>
+            <li>
+              <Link className='main-nav-link nav-cta' onClick={this.handleClick}>
+                Get Started
+              </Link>
+            </li>
+          </ul>
+        </nav>
+
+        <button className='btn-mobile-nav'>
+          <IoMenuOutline className='icon-mobile-nav' name='menu-outline' />
+          <IoCloseOutline className='icon-mobile-nav' name='close-outline' />
+        </button>
+      </header>
+    );
+  }
+}
+
+const mapDispatchToProps = (dispatch) => ({
+  updateVisitReason: (reason) => dispatch(updateVisitReason(reason)),
+});
+
+export default withRouter(connect(null, mapDispatchToProps)(Header));
