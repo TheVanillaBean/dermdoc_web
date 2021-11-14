@@ -1,4 +1,11 @@
 import React from 'react';
+import {
+  IoBagAddOutline,
+  IoCheckmarkCircleOutline,
+  IoHappyOutline,
+  IoHeartOutline,
+  IoLeafOutline,
+} from 'react-icons/io5';
 import { connect } from 'react-redux';
 import { withRouter } from 'react-router-dom';
 import HeroImg from '../../assets/img/hero.jpeg';
@@ -31,27 +38,28 @@ class HomePage extends React.Component {
             <div className='hero'>
               <div className='hero-text-box'>
                 <h1 className='heading-primary'>
-                  Your personal dermatologist.
+                  Your personalized skin treatment.
                   <br />
-                  Get clear skin today.
+                  First month free.
                 </h1>
 
                 <p className='hero-description'>
-                  &mdash; Get a dermatologist to manage your acne for <strong>$7/month</strong>.
-                  <br />
-                  &mdash; <strong>First month free.</strong> No risk.
-                  <br />
-                  &mdash; Prescriptions can be sent anywhere (including via mail) and you can use
-                  your <strong>health insurance</strong>.
-                  <br />
+                  <p className='hero-description-item'>
+                    &mdash; Get a dermatologist to manage your acne for <strong>$7/month</strong>.
+                  </p>
+                  <p className='hero-description-item'>
+                    &mdash; Recieve <strong>creams and oral skincare products</strong> for your
+                    specific issue: <strong>blackheads, eczema, acne scars, cysts, etc.</strong>
+                  </p>
+                  <p className='hero-description-item'>
+                    &mdash; <strong>Save 60%</strong> on your prescriptions compared to most online
+                    skincare companies.
+                  </p>
                 </p>
 
-                <CustomButton className='btn btn--full margin-right-sm' onClick={this.handleClick}>
-                  Start Free Visit
+                <CustomButton className='btn btn--full' onClick={this.handleClick}>
+                  Say Hello To Healthier Skin
                 </CustomButton>
-                <a href='#how' className='btn btn--outline'>
-                  Learn more &darr;
-                </a>
               </div>
 
               <div className='hero-img-box'>
@@ -64,7 +72,7 @@ class HomePage extends React.Component {
           <div className='container center-text'>
             <span className='subheading'>How it works</span>
             <h2 className='heading-secondary'>
-              Get a dermatologist to help you every step of the way to clear skin.
+              Get a dermatologist to help you every step of the way to healthier skin.
             </h2>
           </div>
 
@@ -95,9 +103,65 @@ class HomePage extends React.Component {
               </div>
               <p className='feature-title'>Check-in as needed</p>
               <p className='feature-text'>
-                You’ll check in with your doctor throughout your treatment and make adjustments as
+                You’ll check-in with your doctor throughout your treatment and make adjustments as
                 needed.
               </p>
+            </div>
+          </div>
+        </section>
+        <section className='section-pricing' id='pricing'>
+          <div className='container center-text'>
+            <span className='subheading'>Pricing</span>
+            <h2 className='heading-secondary'>Personalized skincare without the premium price</h2>
+          </div>
+
+          <div className='container'>
+            <div className='pricing-plan pricing-plan--starter'>
+              <header className='plan-header'>
+                <p className='plan-name'>Medicall</p>
+                <p className='plan-price'>
+                  <span>$</span>7.00
+                </p>
+                <p className='plan-text'>per month. Insurance not required.</p>
+              </header>
+              <ul className='list'>
+                <li className='list-item'>
+                  <IoHeartOutline className='list-icon' />
+                  <span>
+                    Full skin evaluation and
+                    <strong> custom treatment plan</strong>
+                  </span>
+                </li>
+                <li className='list-item'>
+                  <IoLeafOutline className='list-icon' />
+                  <span>
+                    <strong>$7-10 per month</strong> on custom skin products
+                  </span>
+                </li>
+                <li className='list-item'>
+                  <IoBagAddOutline className='list-icon' />
+                  <span>
+                    <strong>Can use</strong> insurance prescription coverage (optional)
+                  </span>
+                </li>
+                <li className='list-item'>
+                  <IoHappyOutline className='list-icon' />
+                  <span>
+                    Prescriptions <strong>delivered</strong> at-home or to any pharmacy
+                  </span>
+                </li>
+                <li className='list-item'>
+                  <IoCheckmarkCircleOutline className='list-icon' />
+                  <span>
+                    Routine doctor <strong>checkups</strong> to monitor your skin
+                  </span>
+                </li>
+              </ul>
+              <div className='plan-sign-up'>
+                <CustomButton className='btn btn--full' onClick={this.handleClick}>
+                  Start your 30-day free trial
+                </CustomButton>
+              </div>
             </div>
           </div>
         </section>
