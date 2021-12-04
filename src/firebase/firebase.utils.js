@@ -135,7 +135,7 @@ export const logZipCode = async (zipcode, mailing_state) => {
   return false;
 };
 
-export const createVisit = async (service) => {
+export const createVisit = async (service, mailing_state) => {
   const visitRef = firestore.collection('visits').doc();
 
   const snapshot = await visitRef.get();
@@ -150,6 +150,7 @@ export const createVisit = async (service) => {
           visit_reason: service,
           status: 'initiated',
           visit_id: visitRef.id,
+          mailing_state: mailing_state,
         },
         { merge: true }
       );

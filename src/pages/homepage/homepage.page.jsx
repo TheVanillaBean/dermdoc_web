@@ -38,22 +38,21 @@ class HomePage extends React.Component {
             <div className='hero'>
               <div className='hero-text-box'>
                 <h1 className='heading-primary'>
-                  Your personalized skin treatment.
-                  <br />
-                  First month free.
+                  Your personalized skin products, prescribed online.
                 </h1>
 
                 <p className='hero-description'>
                   <p className='hero-description-item'>
-                    &mdash; Get a dermatologist to manage your acne for <strong>$7/month</strong>.
+                    &mdash; <strong>$19/month (first month free)</strong>
                   </p>
                   <p className='hero-description-item'>
                     &mdash; Recieve <strong>creams and oral skincare products</strong> for your
-                    specific issue: <strong>blackheads, eczema, acne scars, cysts, etc.</strong>
+                    specific issue:
+                    <strong> pimples, blackheads, eczema, acne scars, cysts, etc</strong>
                   </p>
                   <p className='hero-description-item'>
                     &mdash; <strong>Save 60%</strong> on your prescriptions compared to most online
-                    skincare companies.
+                    skincare companies (insurance not required)
                   </p>
                 </p>
 
@@ -118,11 +117,12 @@ class HomePage extends React.Component {
           <div className='container'>
             <div className='pricing-plan pricing-plan--starter'>
               <header className='plan-header'>
-                <p className='plan-name'>Medicall</p>
                 <p className='plan-price'>
-                  <span>$</span>7.00
+                  <span>$</span>19.00
                 </p>
-                <p className='plan-text'>per month. Insurance not required.</p>
+                <p className='plan-text'>
+                  per month. Includes skin products and an evaluation from a dermatologist.
+                </p>
               </header>
               <ul className='list'>
                 <li className='list-item'>
@@ -135,7 +135,7 @@ class HomePage extends React.Component {
                 <li className='list-item'>
                   <IoLeafOutline className='list-icon' />
                   <span>
-                    <strong>$7-10 per month</strong> on custom skin products
+                    Recieve <strong>derm-grade</strong> creams, lotions, and pills
                   </span>
                 </li>
                 <li className='list-item'>
@@ -153,7 +153,7 @@ class HomePage extends React.Component {
                 <li className='list-item'>
                   <IoCheckmarkCircleOutline className='list-icon' />
                   <span>
-                    Routine doctor <strong>checkups</strong> to monitor your skin
+                    Routine <strong>doctor checkups</strong> to monitor your skin
                   </span>
                 </li>
               </ul>

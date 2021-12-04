@@ -35,7 +35,7 @@ class ZipCodeCheck extends Component {
 
     await logZipCode(zipcode, mailing_state);
 
-    if (mailing_state !== 'MA') {
+    if (mailing_state !== 'MA' && mailing_state !== 'CA') {
       this.setState({ doctorsAvailable: false });
       const { history } = this.props;
       history.push('/waitlist');
@@ -53,10 +53,10 @@ class ZipCodeCheck extends Component {
       return;
     }
 
-    const { visitReason } = this.props;
+    const { visitReason, mailing_state } = this.props;
 
     try {
-      const newVisit = await createVisit(visitReason);
+      const newVisit = await createVisit(visitReason, mailing_state);
 
       if (newVisit.error) {
         toast.error(newVisit.message);
