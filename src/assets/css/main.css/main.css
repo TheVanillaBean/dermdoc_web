@@ -895,16 +895,11 @@ strong {
 /* HERO SECTION */
 /***************************/
 .hero-container {
-  background-image: -webkit-linear-gradient(rgba(0, 0, 0, 0.7), rgba(0, 0, 0, 0.7)), url(/src/assets/img/hero-az.jpeg);
-  background-image: linear-gradient(rgba(244, 230, 237, 0.4), rgba(244, 230, 237, 0.4)), url(/src/assets/img/hero-az.jpeg); }
+  background-color: #f4e6ed; }
 
 .section-hero {
-  background-image: -webkit-linear-gradient(rgba(0, 0, 0, 0.7), rgba(0, 0, 0, 0.7)), url(/src/assets/img/hero-az.jpeg);
-  background-image: linear-gradient(rgba(244, 230, 237, 0.4), rgba(244, 230, 237, 0.4)), url(/src/assets/img/hero-az.jpeg);
-  background-size: cover;
-  background-position: right;
-  height: 60vh;
-  background-attachment: fixed; }
+  background-color: #f4e6ed;
+  padding: 4.8rem 0 9.6rem 0; }
 
 .hero {
   max-width: 130rem;
@@ -1071,6 +1066,18 @@ strong {
   display: grid;
   grid-template-columns: repeat(1, 1fr);
   row-gap: 4.8rem; }
+
+.hero-container-az {
+  background-image: -webkit-linear-gradient(rgba(0, 0, 0, 0.7), rgba(0, 0, 0, 0.7)), url(/src/assets/img/hero-az.jpeg);
+  background-image: linear-gradient(rgba(244, 230, 237, 0.4), rgba(244, 230, 237, 0.4)), url(/src/assets/img/hero-az.jpeg); }
+
+.section-hero-az {
+  background-image: -webkit-linear-gradient(rgba(0, 0, 0, 0.7), rgba(0, 0, 0, 0.7)), url(/src/assets/img/hero-az.jpeg);
+  background-image: linear-gradient(rgba(244, 230, 237, 0.4), rgba(244, 230, 237, 0.4)), url(/src/assets/img/hero-az.jpeg);
+  background-size: cover;
+  background-position: right;
+  height: 60vh;
+  background-attachment: fixed; }
 
 .not-in-area {
   font-size: 2.5rem;
@@ -1290,6 +1297,8 @@ input[type='number'] {
 /***************************/
 @media (max-width: 44em) {
   .hero-container {
+    background-color: #f4e6ed;
+    background-image: none;
     height: inherit;
     padding-bottom: 8rem; }
   .heading-primary {
