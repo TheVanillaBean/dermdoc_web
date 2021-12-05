@@ -179,6 +179,14 @@
     margin-bottom: 4.8rem;
   }
 
+  .waitlist-form {
+    align-items: center;
+
+    &__button {
+      width: 60%;
+    }
+  }
+
   .insurances {
     grid-column: 1 / -1;
     justify-self: center;

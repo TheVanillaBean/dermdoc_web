@@ -8,14 +8,13 @@ import {
 } from 'react-icons/io5';
 import { connect } from 'react-redux';
 import { withRouter } from 'react-router-dom';
-import { toast } from 'react-toastify';
+import { toast, ToastContainer } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
 import CustomButton from '../../components/custom-button/custom-button.component';
 import Footer from '../../components/footer/footer.component';
 import Header from '../../components/header/header.component';
 import { analytics, joinWaitlistWithEmail } from '../../firebase/firebase.utils';
 import { updateVisitReason } from '../../redux/search/search.actions';
-
 class AZLandingPage extends React.Component {
   constructor(props) {
     super(props);
@@ -28,13 +27,6 @@ class AZLandingPage extends React.Component {
   componentDidMount() {
     analytics.logEvent('Homepage Viewed');
   }
-
-  // handleClick = () => {
-  //   const { history, updateVisitReason } = this.props;
-
-  //   updateVisitReason('Acne');
-  //   history.push(`get_started`);
-  // };
 
   handleSubmit = async (event) => {
     event.preventDefault();
@@ -81,7 +73,7 @@ class AZLandingPage extends React.Component {
                 <h1 className='heading-primary'>Get your own personal skincare formulas</h1>
                 <h1 className='heading-tertiary'>Launching in AZ February 2022</h1>
                 <h1 className='heading-tertiary'>
-                  Join the waitlist for a limited-time 50% discount
+                  Join the waitlist for a limited-time 50% discount ($180)
                 </h1>
 
                 <form className='waitlist-form' onSubmit={this.handleSubmit}>
@@ -96,7 +88,7 @@ class AZLandingPage extends React.Component {
                     required
                   />
 
-                  <CustomButton className='custom-button' type='submit'>
+                  <CustomButton className='custom-button waitlist-form__button' type='submit'>
                     JOIN WAITLIST
                   </CustomButton>
                 </form>
@@ -106,9 +98,9 @@ class AZLandingPage extends React.Component {
         </div>
         <section className='section-how' id='how'>
           <div className='container center-text'>
-            <span className='subheading'>How it works</span>
+            <span className='subheading'>How do I get my formulas?</span>
             <h2 className='heading-secondary'>
-              Get a dermatologist to help you every step of the way to healthier skin.
+              A dermatologist will help you every step of the way to healthier skin.
             </h2>
           </div>
 
@@ -155,10 +147,10 @@ class AZLandingPage extends React.Component {
             <div className='pricing-plan pricing-plan--starter'>
               <header className='plan-header'>
                 <p className='plan-price'>
-                  <span>$</span>19.00
+                  <span>$</span>29.00
                 </p>
                 <p className='plan-text'>
-                  per month. Includes skin products and an evaluation from a dermatologist.
+                  per month. Includes personal formula and an evaluation from a dermatologist.
                 </p>
               </header>
               <ul className='list'>
@@ -178,13 +170,13 @@ class AZLandingPage extends React.Component {
                 <li className='list-item'>
                   <IoBagAddOutline className='list-icon' />
                   <span>
-                    <strong>Can use</strong> insurance prescription coverage (optional)
+                    <strong>Can use</strong> insurance coverage (optional)
                   </span>
                 </li>
                 <li className='list-item'>
                   <IoHappyOutline className='list-icon' />
                   <span>
-                    Prescriptions <strong>delivered</strong> at-home or to any pharmacy
+                    Formulas <strong>delivered</strong> at-home or to any pharmacy
                   </span>
                 </li>
                 <li className='list-item'>
@@ -195,14 +187,40 @@ class AZLandingPage extends React.Component {
                 </li>
               </ul>
               <div className='plan-sign-up'>
-                <CustomButton className='btn btn--full' onClick={this.handleClick}>
-                  Start your 30-day free trial
-                </CustomButton>
+                <p className='plan-text'>Join our waitlist for 50% off</p>
+                <form className='waitlist-form' onSubmit={this.handleSubmit}>
+                  <input
+                    className={`waitlist-form__input`}
+                    type='email'
+                    name='email'
+                    value={email}
+                    onChange={this.handleChange}
+                    label='Email'
+                    placeholder='Enter Email'
+                    required
+                  />
+
+                  <CustomButton className='custom-button waitlist-form__button' type='submit'>
+                    JOIN WAITLIST
+                  </CustomButton>
+                </form>
               </div>
             </div>
           </div>
         </section>
+
         <Footer />
+        <ToastContainer
+          position='top-right'
+          bodyClassName='toastBody'
+          autoClose={5000}
+          hideProgressBar={false}
+          newestOnTop={false}
+          closeOnClick
+          pauseOnFocusLoss
+          draggable
+          pauseOnHover
+        />
       </main>
     );
   }
