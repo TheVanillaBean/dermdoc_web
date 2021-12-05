@@ -12,7 +12,6 @@ import { toast } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
 import CustomButton from '../../components/custom-button/custom-button.component';
 import Footer from '../../components/footer/footer.component';
-import FormInput from '../../components/form-input/form-input.component';
 import Header from '../../components/header/header.component';
 import { analytics, joinWaitlistWithEmail } from '../../firebase/firebase.utils';
 import { updateVisitReason } from '../../redux/search/search.actions';
@@ -85,15 +84,18 @@ class AZLandingPage extends React.Component {
                   Join the waitlist for a limited-time 50% discount
                 </h1>
 
-                <form className='sign-up-form' onSubmit={this.handleSubmit}>
-                  <FormInput
+                <form className='waitlist-form' onSubmit={this.handleSubmit}>
+                  <input
+                    className={`waitlist-form__input`}
                     type='email'
                     name='email'
                     value={email}
                     onChange={this.handleChange}
                     label='Email'
+                    placeholder='Enter Email'
                     required
                   />
+
                   <CustomButton className='custom-button' type='submit'>
                     JOIN WAITLIST
                   </CustomButton>

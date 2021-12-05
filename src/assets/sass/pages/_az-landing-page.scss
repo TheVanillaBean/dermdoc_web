@@ -15,6 +15,29 @@
     url(/src/assets/img/hero-az.jpeg);
   background-size: cover;
   background-position: right;
-  height: 60vh;
+  height: 70vh;
   background-attachment: fixed;
+}
+
+.waitlist-form {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  width: 100%;
+
+  &__input {
+    background: none;
+    background-color: transparent;
+    color: var(--color-primary);
+    font-size: 1.8rem;
+    padding: 1.8rem;
+    width: 75%;
+    border: 1px solid var(--color-primary);
+    border-radius: 2rem;
+    margin: 2.5rem 0;
+
+    &:focus {
+      outline: none;
+    }
+  }
 }
