@@ -5,6 +5,9 @@ import {
   IoHappyOutline,
   IoHeartOutline,
   IoLeafOutline,
+  IoMoonOutline,
+  IoReloadOutline,
+  IoSunnyOutline,
 } from 'react-icons/io5';
 import { connect } from 'react-redux';
 import { withRouter } from 'react-router-dom';
@@ -96,6 +99,58 @@ class AZLandingPage extends React.Component {
             </div>
           </section>
         </div>
+        <section className='section-personas' id='personas'>
+          <div className='container center-text'>
+            <span className='subheading'>A formula tailored to your skin</span>
+            <h2 className='heading-secondary'>Skincare adjusted to your lifestyle</h2>
+          </div>
+
+          <div className='container'>
+            <div className='persona'>
+              <h1 className='persona__name'>Audrey's formula</h1>
+              <p className='persona__occupation'>Fitness instructor</p>
+              <p className='persona__description'>
+                Audrey has a busy schedule and is often short on sleep. We came up with a customized
+                formula to address her circumstances.
+              </p>
+              <ul className='list'>
+                <li className='list-item'>
+                  <IoSunnyOutline className='list-icon' />
+                  <p className='persona__item-header'>
+                    <span>
+                      <strong>In the Morning</strong>
+                    </span>
+                    <span className='persona__item-header__light'>
+                      Tretinoin, Aloe Vera, Jojoba Oil
+                    </span>
+                  </p>
+                </li>
+                <li className='list-item'>
+                  <IoMoonOutline className='list-icon' />
+                  <p className='persona__item-header'>
+                    <span>
+                      <strong>Before Bed</strong>
+                    </span>
+                    <span className='persona__item-header__light'>
+                      Tretinoin, Doxycycline, Kukui Nut Oil
+                    </span>
+                  </p>
+                </li>
+                <li className='list-item'>
+                  <IoReloadOutline className='list-icon' />
+                  <p className='persona__item-header'>
+                    <span>
+                      <strong>2x per Week</strong>
+                    </span>
+                    <span className='persona__item-header__light'>
+                      Clindamycin, Aloe Vera, Coconut Oil
+                    </span>
+                  </p>
+                </li>
+              </ul>
+            </div>
+          </div>
+        </section>
         <section className='section-how' id='how'>
           <div className='container center-text'>
             <span className='subheading'>How do I get my formulas?</span>
@@ -208,7 +263,6 @@ class AZLandingPage extends React.Component {
             </div>
           </div>
         </section>
-
         <Footer />
         <ToastContainer
           position='top-right'

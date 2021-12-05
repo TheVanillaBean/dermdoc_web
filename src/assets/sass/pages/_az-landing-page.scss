@@ -53,3 +53,53 @@
     width: 75%;
   }
 }
+
+/***************************/
+/* PERSONAS SECTION */
+/***************************/
+
+.section-personas {
+  padding-top: 4.8rem;
+}
+
+.persona {
+  line-height: 1.05;
+  letter-spacing: 0.75px;
+  color: var(--color-grey-dark-1);
+
+  &__name {
+    font-size: 3.2rem;
+    font-weight: 500;
+    margin-bottom: 1.2rem;
+  }
+
+  &__occupation {
+    font-size: 2.4rem;
+    font-weight: 400;
+    margin-bottom: 1.8rem;
+    color: var(--color-grey-dark-3);
+  }
+
+  &__description {
+    font-size: 1.8rem;
+    font-weight: 400;
+    color: var(--color-grey-dark-2);
+    margin-bottom: 2.4rem;
+    line-height: 1.4;
+  }
+
+  & > .list {
+    margin: 2rem 0;
+  }
+
+  &__item-header span {
+    font-size: 2.2rem;
+    line-height: 1.2;
+    display: block;
+    margin-bottom: 0.75rem;
+  }
+
+  &__item-header__light {
+    color: var(--color-grey-dark-3);
+  }
+}
