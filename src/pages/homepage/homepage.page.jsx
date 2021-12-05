@@ -8,28 +8,70 @@ import {
 } from 'react-icons/io5';
 import { connect } from 'react-redux';
 import { withRouter } from 'react-router-dom';
-import HeroImg from '../../assets/img/hero.jpeg';
 import OmarHeadshot from '../../assets/img/omar_headshot-2.jpeg';
 import CustomButton from '../../components/custom-button/custom-button.component';
 import Footer from '../../components/footer/footer.component';
+import FormInput from '../../components/form-input/form-input.component';
 import Header from '../../components/header/header.component';
 import Testimonial from '../../components/testimonial/testimonial.component';
 import { analytics } from '../../firebase/firebase.utils';
 import { updateVisitReason } from '../../redux/search/search.actions';
 
 class HomePage extends React.Component {
+  constructor(props) {
+    super(props);
+
+    this.state = {
+      email: '',
+    };
+  }
+
   componentDidMount() {
     analytics.logEvent('Homepage Viewed');
   }
 
-  handleClick = () => {
-    const { history, updateVisitReason } = this.props;
+  // handleClick = () => {
+  //   const { history, updateVisitReason } = this.props;
 
-    updateVisitReason('Acne');
-    history.push(`get_started`);
+  //   updateVisitReason('Acne');
+  //   history.push(`get_started`);
+  // };
+
+  handleSubmit = async (event) => {
+    event.preventDefault();
+
+    const { email } = this.state;
+
+    const { visitReason } = this.props;
+
+    try {
+      const joinWaitlist = await joinWaitlistWithEmail(email, 'AZ', visitReason);
+
+      if (joinWaitlist.error) {
+        toast.error(joinWaitlist.message);
+      } else {
+        toast.success('You have joined the waitlist!');
+      }
+
+      this.setState({
+        email: '',
+      });
+    } catch (e) {
+      let errorText = e.message;
+
+      toast.error(errorText);
+    }
+  };
+
+  handleChange = (event) => {
+    const { name, value } = event.target;
+
+    this.setState({ [name]: value });
   };
 
   render() {
+    const { email } = this.state;
+
     return (
       <main>
         <div className='hero-container'>
@@ -37,32 +79,23 @@ class HomePage extends React.Component {
           <section className='section-hero'>
             <div className='hero'>
               <div className='hero-text-box'>
-                <h1 className='heading-primary'>
-                  Your personalized skin products, prescribed online.
-                </h1>
+                <h1 className='heading-primary'>Get your own personal skincare formulas</h1>
+                <h1 className='heading-tertiary'>Launching in AZ February 2022</h1>
+                <h1 className='subheading'>Join the waitlist for a limited-time 50% discount</h1>
 
-                <p className='hero-description'>
-                  <p className='hero-description-item'>
-                    &mdash; <strong>$19/month (first month free)</strong>
-                  </p>
-                  <p className='hero-description-item'>
-                    &mdash; Recieve <strong>creams and oral skincare products</strong> for your
-                    specific issue:
-                    <strong> pimples, blackheads, eczema, acne scars, cysts, etc</strong>
-                  </p>
-                  <p className='hero-description-item'>
-                    &mdash; <strong>Save 60%</strong> on your prescriptions compared to most online
-                    skincare companies (insurance not required)
-                  </p>
-                </p>
-
-                <CustomButton className='btn btn--full' onClick={this.handleClick}>
-                  Say Hello To Healthier Skin
-                </CustomButton>
-              </div>
-
-              <div className='hero-img-box'>
-                <img src={HeroImg} alt='Woman with acne' className='hero-img' />
+                <form className='sign-up-form' onSubmit={this.handleSubmit}>
+                  <FormInput
+                    type='email'
+                    name='email'
+                    value={email}
+                    onChange={this.handleChange}
+                    label='Email'
+                    required
+                  />
+                  <CustomButton className='custom-button' type='submit'>
+                    JOIN WAITLIST
+                  </CustomButton>
+                </form>
               </div>
             </div>
           </section>

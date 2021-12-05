@@ -895,11 +895,16 @@ strong {
 /* HERO SECTION */
 /***************************/
 .hero-container {
-  background-color: #f4e6ed; }
+  background-image: -webkit-linear-gradient(rgba(0, 0, 0, 0.7), rgba(0, 0, 0, 0.7)), url(/src/assets/img/hero-az.jpeg);
+  background-image: linear-gradient(rgba(244, 230, 237, 0.4), rgba(244, 230, 237, 0.4)), url(/src/assets/img/hero-az.jpeg); }
 
 .section-hero {
-  background-color: #f4e6ed;
-  padding: 4.8rem 0 9.6rem 0; }
+  background-image: -webkit-linear-gradient(rgba(0, 0, 0, 0.7), rgba(0, 0, 0, 0.7)), url(/src/assets/img/hero-az.jpeg);
+  background-image: linear-gradient(rgba(244, 230, 237, 0.4), rgba(244, 230, 237, 0.4)), url(/src/assets/img/hero-az.jpeg);
+  background-size: cover;
+  background-position: right;
+  height: 60vh;
+  background-attachment: fixed; }
 
 .hero {
   max-width: 130rem;
@@ -1285,8 +1290,6 @@ input[type='number'] {
 /***************************/
 @media (max-width: 44em) {
   .hero-container {
-    background-color: #f4e6ed;
-    background-image: none;
     height: inherit;
     padding-bottom: 8rem; }
   .heading-primary {
