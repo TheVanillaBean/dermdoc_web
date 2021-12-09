@@ -73,17 +73,17 @@
 }
 
 .custom-button {
+  font-family: 'Rubik', sans-serif;
+
   border-radius: 1rem;
   width: auto;
   height: 50px;
-  letter-spacing: 0.5px;
+  letter-spacing: 0.75px;
   line-height: 50px;
-  padding: 0 35px 0 35px;
-  font-size: 1.6rem;
+  padding: 0 3rem;
+  font-size: 2rem;
   background-color: var(--color-primary);
   color: white;
-  text-transform: uppercase;
-  font-family: 'Inter' sans-serif;
   font-weight: 400;
   border: none;
   cursor: pointer;

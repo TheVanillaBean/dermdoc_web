@@ -1,10 +1,6 @@
 import React from 'react';
 import {
-  IoBagAddOutline,
-  IoCheckmarkCircleOutline,
-  IoHappyOutline,
-  IoHeartOutline,
-  IoLeafOutline,
+  IoCheckmarkOutline,
   IoMoonOutline,
   IoReloadOutline,
   IoSunnyOutline,
@@ -13,11 +9,15 @@ import { connect } from 'react-redux';
 import { withRouter } from 'react-router-dom';
 import { toast, ToastContainer } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
+import Cream1 from '../../assets/img/cream-1.jpeg';
+import Cream2 from '../../assets/img/cream-2.jpeg';
+import AudreyPersona from '../../assets/img/medicall_persona.jpg'; // Tell Webpack this JS file uses this image
 import CustomButton from '../../components/custom-button/custom-button.component';
 import Footer from '../../components/footer/footer.component';
 import Header from '../../components/header/header.component';
 import { analytics, joinWaitlistWithEmail } from '../../firebase/firebase.utils';
 import { updateVisitReason } from '../../redux/search/search.actions';
+
 class AZLandingPage extends React.Component {
   constructor(props) {
     super(props);
@@ -80,33 +80,83 @@ class AZLandingPage extends React.Component {
                 </h1>
 
                 <form className='waitlist-form' onSubmit={this.handleSubmit}>
-                  <input
-                    className={`waitlist-form__input`}
-                    type='email'
-                    name='email'
-                    value={email}
-                    onChange={this.handleChange}
-                    label='Email'
-                    placeholder='Enter Email'
-                    required
-                  />
+                  <div className='waitlist-form__input-container'>
+                    <input
+                      className={`waitlist-form__input-container__input`}
+                      type='email'
+                      name='email'
+                      value={email}
+                      onChange={this.handleChange}
+                      label='Email'
+                      placeholder='Enter email...'
+                      required
+                    />
+                    <label className={`waitlist-form__input-container__label`} htmlFor='email'>
+                      Enter email...
+                    </label>
+                  </div>
 
                   <CustomButton className='custom-button waitlist-form__button' type='submit'>
-                    JOIN WAITLIST
+                    Join Waitlist
                   </CustomButton>
                 </form>
               </div>
             </div>
           </section>
         </div>
-        <section className='section-personas' id='personas'>
+        <section className='section-how' id='how'>
+          <div className='container center-text'>
+            <span className='subheading'>How do I get my formulas?</span>
+            <h2 className='heading-secondary'>
+              A dermatologist will help you every step of the way to healthier skin.
+            </h2>
+          </div>
+
+          <div className='steps container grid grid--3-cols'>
+            <div className='feature'>
+              <div className='feature-icon'>
+                <p className='feature-icon-text'>01</p>
+              </div>
+              <p className='feature-title'>Upload selfies</p>
+              <p className='feature-text'>
+                Answer some questions and share photos of your specific issue so your doctor can
+                give an accurate diagnosis. This should only take 5-10 minutes.
+              </p>
+            </div>
+            <div className='feature'>
+              <div className='feature-icon'>
+                <p className='feature-icon-text'>02</p>
+              </div>
+              <p className='feature-title'>Recieve a personalized plan</p>
+              <p className='feature-text'>
+                You will get a personalized treatment plan within 24 hours with prescriptions sent
+                anywhere you’d like.
+              </p>
+            </div>
+            <div className='feature'>
+              <div className='feature-icon'>
+                <p className='feature-icon-text'>03</p>
+              </div>
+              <p className='feature-title'>Check-in as needed</p>
+              <p className='feature-text'>
+                You’ll check-in with your doctor throughout your treatment and make adjustments as
+                needed.
+              </p>
+            </div>
+          </div>
+        </section>
+
+        <div className='border' />
+
+        <section className='section-personas margin-bottom-md' id='personas'>
           <div className='container center-text'>
             <span className='subheading'>A formula tailored to your skin</span>
-            <h2 className='heading-secondary'>Skincare adjusted to your lifestyle</h2>
+            <h2 className='heading-secondary'>Skincare finally made simple</h2>
           </div>
 
           <div className='container'>
             <div className='persona'>
+              <img className='persona__image' src={AudreyPersona} alt='Persona' />
               <h1 className='persona__name'>Audrey's formula</h1>
               <p className='persona__occupation'>Fitness instructor</p>
               <p className='persona__description'>
@@ -151,118 +201,110 @@ class AZLandingPage extends React.Component {
             </div>
           </div>
         </section>
-        <section className='section-how' id='how'>
-          <div className='container center-text'>
-            <span className='subheading'>How do I get my formulas?</span>
-            <h2 className='heading-secondary'>
-              A dermatologist will help you every step of the way to healthier skin.
-            </h2>
+        <section class='section-ingredients' id='meals'>
+          <div class='container center-text'>
+            <span class='subheading'>Better Ingredients</span>
+            <h2 class='heading-secondary'>Efficacy you won't find at a store</h2>
           </div>
-
-          <div className='steps container grid grid--3-cols'>
-            <div className='feature'>
-              <div className='feature-icon'>
-                <p className='feature-icon-text'>01</p>
+          <div class='container grid grid--3-cols margin-bottom-md'>
+            <div class='ingredient'>
+              <img class='ingredient-img' src={Cream1} alt='Cream 1' />
+              <div class='ingredient-content'>
+                <div class='ingredient-tags'>
+                  <span class='tag tag--vegetarian'>Lorem</span>
+                </div>
+                <p class='ingredient-title'>Trentinoin</p>
+                <ul class='ingredient-attributes'>
+                  <p className='paragraph ingredient-description'>
+                    Lorem ipsum dolor sit amet consectetur adipisicing elit. Esse itaque ut fugit
+                    autem et reiciendis id inventore.
+                  </p>
+                </ul>
               </div>
-              <p className='feature-title'>Upload selfies</p>
-              <p className='feature-text'>
-                Answer some questions and share photos of your specific issue so your doctor can
-                give an accurate diagnosis. This should only take 5-10 minutes.
-              </p>
             </div>
-            <div className='feature'>
-              <div className='feature-icon'>
-                <p className='feature-icon-text'>02</p>
+            <div class='ingredient'>
+              <img class='ingredient-img' src={Cream2} alt='Meal 2' />
+              <div class='ingredient-content'>
+                <div class='ingredient-tags'>
+                  <span class='tag tag--vegan'>Lorem</span>
+                  <span class='tag tag--paleo'>Ipsum</span>
+                </div>
+                <p class='ingredient-title'>Clindamycin</p>
+                <ul class='ingredient-attributes'>
+                  <p className='paragraph ingredient-description'>
+                    Lorem ipsum dolor sit amet consectetur adipisicing elit. Esse itaque ut fugit
+                    autem et reiciendis id inventore.
+                  </p>
+                </ul>
               </div>
-              <p className='feature-title'>Recieve a personalized plan</p>
-              <p className='feature-text'>
-                You will get a personalized treatment plan within 24 hours with prescriptions sent
-                anywhere you’d like.
-              </p>
             </div>
-            <div className='feature'>
-              <div className='feature-icon'>
-                <p className='feature-icon-text'>03</p>
-              </div>
-              <p className='feature-title'>Check-in as needed</p>
-              <p className='feature-text'>
-                You’ll check-in with your doctor throughout your treatment and make adjustments as
-                needed.
-              </p>
-            </div>
-          </div>
-        </section>
-        <section className='section-pricing' id='pricing'>
-          <div className='container center-text'>
-            <span className='subheading'>Pricing</span>
-            <h2 className='heading-secondary'>Personalized skincare without the premium price</h2>
-          </div>
-
-          <div className='container'>
-            <div className='pricing-plan pricing-plan--starter'>
-              <header className='plan-header'>
-                <p className='plan-price'>
-                  <span>$</span>29.00
-                </p>
-                <p className='plan-text'>
-                  per month. Includes personal formula and an evaluation from a dermatologist.
-                </p>
-              </header>
-              <ul className='list'>
-                <li className='list-item'>
-                  <IoHeartOutline className='list-icon' />
-                  <span>
-                    Full skin evaluation and
-                    <strong> custom treatment plan</strong>
-                  </span>
+            <div class='additional-ingredients'>
+              <h3 class='paragraph'>Additional ingredients:</h3>
+              <ul class='list'>
+                <li class='list-item'>
+                  <IoCheckmarkOutline className='list-icon' />
+                  <span>Lorem ipsum</span>
                 </li>
-                <li className='list-item'>
-                  <IoLeafOutline className='list-icon' />
-                  <span>
-                    Recieve <strong>derm-grade</strong> creams, lotions, and pills
-                  </span>
+                <li class='list-item'>
+                  <IoCheckmarkOutline className='list-icon' />
+                  <span>Amet consectetur</span>
                 </li>
-                <li className='list-item'>
-                  <IoBagAddOutline className='list-icon' />
-                  <span>
-                    <strong>Can use</strong> insurance coverage (optional)
-                  </span>
+                <li class='list-item'>
+                  <IoCheckmarkOutline className='list-icon' />
+                  <span>Reiciendis</span>
                 </li>
-                <li className='list-item'>
-                  <IoHappyOutline className='list-icon' />
-                  <span>
-                    Formulas <strong>delivered</strong> at-home or to any pharmacy
-                  </span>
+                <li class='list-item'>
+                  <IoCheckmarkOutline className='list-icon' />
+                  <span>Adipisicing</span>
                 </li>
-                <li className='list-item'>
-                  <IoCheckmarkCircleOutline className='list-icon' />
-                  <span>
-                    Routine <strong>doctor checkups</strong> to monitor your skin
-                  </span>
+                <li class='list-item'>
+                  <IoCheckmarkOutline className='list-icon' />
+                  <span>Itaque</span>
                 </li>
               </ul>
-              <div className='plan-sign-up'>
-                <p className='plan-text'>Join our waitlist for 50% off</p>
-                <form className='waitlist-form' onSubmit={this.handleSubmit}>
-                  <input
-                    className={`waitlist-form__input`}
-                    type='email'
-                    name='email'
-                    value={email}
-                    onChange={this.handleChange}
-                    label='Email'
-                    placeholder='Enter Email'
-                    required
-                  />
-
-                  <CustomButton className='custom-button waitlist-form__button' type='submit'>
-                    JOIN WAITLIST
-                  </CustomButton>
-                </form>
-              </div>
             </div>
           </div>
         </section>
+        <div className='border' />
+        <section className='section-additional'>
+          <div className='container center-text margin-bottom-md'>
+            <h2 className='subheading'>Your skin’s new best friend</h2>
+          </div>
+
+          <div className='blob-container'>
+            <div className='blob-container__overlay'>
+              <p className='paragraph'>
+                Once you have your personal formulas, we’ll continue to help along your journey
+                (like a personal assistant for your skin). Ask us any questions (seriously anything)
+                and we will try our best to help &#128522;
+              </p>
+            </div>
+          </div>
+          <div className='container additional-waitlist'>
+            <form className='waitlist-form margin-center' onSubmit={this.handleSubmit}>
+              <div className='waitlist-form__input-container'>
+                <input
+                  className={`waitlist-form__input-container__input`}
+                  type='email'
+                  name='email'
+                  value={email}
+                  onChange={this.handleChange}
+                  label='Email'
+                  placeholder='Enter email...'
+                  required
+                />
+                <label className={`waitlist-form__input-container__label`} htmlFor='email'>
+                  Enter email...
+                </label>
+              </div>
+
+              <CustomButton className='custom-button waitlist-form__button' type='submit'>
+                Join Waitlist
+              </CustomButton>
+            </form>
+          </div>
+        </section>
+
         <Footer />
         <ToastContainer
           position='top-right'

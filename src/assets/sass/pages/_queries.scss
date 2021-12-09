@@ -166,6 +166,46 @@
     padding-bottom: 8rem;
   }
 
+  .section-hero-az {
+    padding: 1.2rem 1.8rem 0 1.8rem;
+  }
+
+  .hero-container-az {
+    background-image: -webkit-linear-gradient(rgba(233, 204, 219, 0.7), rgba(233, 204, 219, 0)),
+      url(/src/assets/img/hero-az-lg.jpg);
+    background-image: linear-gradient(rgba(233, 204, 219, 0.7), rgba(233, 204, 219, 0)),
+      url(/src/assets/img/hero-az-lg.jpg);
+  }
+
+  .waitlist-form {
+    margin: auto;
+  }
+
+  .section-additional {
+    max-width: 100%;
+  }
+
+  .blob-container {
+    height: 50vh;
+    margin: auto 5px;
+    margin-bottom: 3.2rem;
+
+    &__overlay {
+      max-width: 80%;
+      padding: 1.2rem;
+    }
+  }
+
+  .additional-waitlist {
+    max-width: 100%;
+    margin: auto;
+  }
+
+  .additional-ingredients {
+    grid-column: 1 / -1;
+    justify-self: center;
+  }
+
   .heading-primary {
     font-size: 3.2rem;
   }
@@ -233,7 +273,7 @@
 }
 
 /***************************/
-/* 544/16 = 32 */
+/* 544/16 = 34 */
 /* BELOW 544px (Phones) */
 /***************************/
 @media (max-width: 34em) {
@@ -268,6 +308,27 @@
 
   .hero-text-box {
     padding: 0 1.2rem;
+  }
+
+  .waitlist-form {
+    flex-direction: column;
+    align-items: flex-start;
+    width: 100%;
+
+    &__input-container {
+      text-align: start;
+      min-width: 100%;
+
+      &__input {
+        margin-right: 0;
+        margin-bottom: 3.2rem;
+        font-size: 1.8rem;
+      }
+    }
+
+    &__button {
+      min-width: 100%;
+    }
   }
 
   .feature-icon::before,
@@ -380,6 +441,27 @@
 
   .photo-gallery {
     width: 95%;
+  }
+}
+
+/***************************/
+/* 416/16 = 26 */
+/* BELOW 416 (Small Phones) */
+/***************************/
+@media (max-width: 26em) {
+  .hero-container-az {
+    background-image: -webkit-linear-gradient(rgba(233, 204, 219, 0.7), rgba(233, 204, 219, 0)),
+      url(/src/assets/img/hero-az-sm.jpg);
+    background-image: linear-gradient(rgba(233, 204, 219, 0.7), rgba(233, 204, 219, 0)),
+      url(/src/assets/img/hero-az-sm.jpg);
+  }
+
+  .blob-container {
+    height: 55vh;
+
+    &__overlay > p {
+      font-size: 2rem;
+    }
   }
 }
 

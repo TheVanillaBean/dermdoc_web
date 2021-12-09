@@ -1,56 +1,70 @@
 .hero-container-az {
-  background-image: -webkit-linear-gradient(rgba(0, 0, 0, 0.7), rgba(0, 0, 0, 0.7)),
-    url(/src/assets/img/hero-az.jpeg);
-  background-image: linear-gradient(rgba(244, 230, 237, 0.4), rgba(244, 230, 237, 0.4)),
-    url(/src/assets/img/hero-az.jpeg);
-
-  background-image: -webkit-linear-gradient(rgba(0, 0, 0, 0.7), rgba(0, 0, 0, 0.7)),
-    url(/src/assets/img/hero-az.jpeg);
-  background-image: linear-gradient(rgba(244, 230, 237, 0.4), rgba(244, 230, 237, 0.4)),
-    url(/src/assets/img/hero-az.jpeg);
+  background-image: -webkit-linear-gradient(rgba(233, 204, 219, 0.7), rgba(233, 204, 219, 0)),
+    url(/src/assets/img/hero-az.jpg);
+  background-image: linear-gradient(rgba(233, 204, 219, 0.7), rgba(233, 204, 219, 0)),
+    url(/src/assets/img/hero-az.jpg);
   background-size: cover;
-  background-position: right;
-  height: 80vh;
+  background-repeat: no-repeat;
+  background-position: center;
+  height: 90vh;
   background-attachment: scroll;
 }
 
 .section-hero-az {
   // background-color: #f4e6ed;
-  padding: 2.4rem 1.8rem 0 1.8rem;
-
-  // background-image: -webkit-linear-gradient(rgba(0, 0, 0, 0.7), rgba(0, 0, 0, 0.7)),
-  //   url(/src/assets/img/hero-az.jpeg);
-  // background-image: linear-gradient(rgba(244, 230, 237, 0.4), rgba(244, 230, 237, 0.4)),
-  //   url(/src/assets/img/hero-az.jpeg);
-  // background-size: cover;
-  // background-position: right;
-  // height: 70vh;
-  // background-attachment: scroll;
+  padding: 4.8rem 1.8rem 0 1.8rem;
 }
 
 .waitlist-form {
   display: flex;
-  flex-direction: column;
-  width: 100%;
+  flex-direction: row;
+  justify-content: space-between;
+  background-color: rgba(255, 255, 255, 0.6);
+  border: 1.5px solid var(--color-primary);
+  border-radius: 2rem;
+  padding: 1.8rem;
+  width: 85%;
+  border-color: var(--color-primary);
+  box-shadow: 0 0 1px var(--color-primary);
 
-  &__input {
-    background: none;
-    background-color: transparent;
-    color: var(--color-grey-dark-1);
-    font-size: 1.8rem;
-    padding: 1.8rem;
-    width: 75%;
-    border: 1px solid var(--color-primary);
-    border-radius: 2rem;
-    margin: 2.5rem 0;
+  &__input-container {
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    flex: 1 0 auto;
 
-    &:focus {
-      outline: none;
+    //order: -1 is a trick where you can use the adjacent selector (+) like below
+    &__label {
+      visibility: hidden;
+      opacity: 0;
+      height: 0;
+      overflow: hidden;
+      transition: all 0.3s;
+      order: -1;
+      margin-bottom: 1.2rem;
+      font-size: 1.2rem;
+      color: var(--color-grey-dark-3);
     }
-  }
 
-  &__button {
-    width: 75%;
+    &__input:focus + &__label {
+      opacity: 1;
+      height: auto;
+      visibility: visible;
+    }
+
+    &__input {
+      font-family: 'Rubik', sans-serif;
+      background: none;
+      background-color: transparent;
+      color: var(--color-grey-dark-1);
+      border: none;
+      font-size: 1.8rem;
+      margin-right: 1rem;
+
+      &:focus {
+        outline: none;
+      }
+    }
   }
 }
 
@@ -66,6 +80,12 @@
   line-height: 1.05;
   letter-spacing: 0.75px;
   color: var(--color-grey-dark-1);
+
+  &__image {
+    width: 100%;
+    height: auto;
+    margin-bottom: 3.2rem;
+  }
 
   &__name {
     font-size: 3.2rem;
@@ -102,4 +122,105 @@
   &__item-header__light {
     color: var(--color-grey-dark-3);
   }
+}
+
+.section-additional {
+  padding: 4.8rem 0 9.6rem 0;
+}
+
+.blob-container {
+  background-image: url('../../svg/SVG/text-blob-square.svg');
+  background-size: contain;
+  background-repeat: no-repeat;
+  background-position: center;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  margin: auto;
+  margin-bottom: 3.2rem;
+
+  &__overlay {
+    max-width: 30%;
+    text-align: center;
+    padding: 9.6rem;
+    margin: 2.4rem;
+  }
+}
+
+.additional-waitlist {
+  max-width: 40%;
+  margin: auto;
+}
+
+/***************************/
+/* INGREDIENTS SECTION */
+/***************************/
+
+.section-ingredients {
+  padding-top: 9.6rem;
+}
+
+.ingredient {
+  box-shadow: 0 2.4rem 4.8rem rgba(0, 0, 0, 0.075);
+  border-radius: 11px;
+  overflow: hidden;
+  transition: all 0.4s;
+}
+
+.ingredient:hover {
+  transform: translateY(-1.2rem);
+  box-shadow: 0 3.2rem 6.4rem rgba(0, 0, 0, 0.06);
+}
+
+.ingredient-content {
+  padding: 3.2rem 4.8rem;
+}
+
+.ingredient-tags {
+  margin-bottom: 1.2rem;
+  display: flex;
+  gap: 1rem;
+}
+
+.tag {
+  display: inline-block;
+  padding: 0.4rem 0.8rem;
+  font-size: 1.2rem;
+  text-transform: uppercase;
+  color: #333;
+  border-radius: 150px;
+  font-weight: 500;
+}
+
+.tag--vegetarian {
+  background-color: #51cf66;
+}
+
+.tag--vegan {
+  background-color: #94d82d;
+}
+
+.tag--paleo {
+  background-color: #fcc419;
+}
+
+.ingredient-title {
+  font-size: 2.4rem;
+  color: #333;
+  font-weight: 600;
+  margin-bottom: 1.8rem;
+}
+
+.ingredient-img {
+  width: 100%;
+}
+
+.ingredient-description {
+  font-size: 1.6rem;
+}
+
+.all-ingredients {
+  text-align: center;
+  font-size: 1.8rem;
 }
