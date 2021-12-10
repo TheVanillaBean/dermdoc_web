@@ -975,32 +975,30 @@ strong {
   text-align: center; }
 
 /***************************/
-/* MEALS SECTION */
+/* PRICING SECTION */
 /***************************/
 .section-pricing {
-  padding-top: 6.4rem;
-  display: flex;
-  flex-direction: column;
-  align-items: center; }
+  padding: 6.4rem 0; }
 
 .pricing-plan {
-  border-radius: 11px; }
+  border-radius: 11px;
+  width: 75%; }
 
 .pricing-plan--starter {
-  border: 4px solid #fdf2e9;
+  justify-self: end;
+  border: 2px solid #fdf2e9;
   padding: 4.6rem; }
 
 .pricing-plan--complete {
   background-color: #fdf2e9;
   padding: 4.8rem;
   position: relative;
-  overflow: hidden;
-  justify-self: end; }
+  overflow: hidden; }
 
 .pricing-plan--complete::after {
-  content: 'Best value';
+  content: 'Add-on';
   position: absolute;
-  top: 6%;
+  top: 7%;
   right: -18%;
   text-transform: uppercase;
   font-size: 1.4rem;
@@ -1077,7 +1075,7 @@ strong {
   background-size: cover;
   background-repeat: no-repeat;
   background-position: center;
-  height: 90vh;
+  height: 95vh;
   background-attachment: scroll; }
 
 .section-hero-az {
@@ -1106,13 +1104,14 @@ strong {
       overflow: hidden;
       transition: all 0.3s;
       order: -1;
-      margin-bottom: 1.2rem;
       font-size: 1.2rem;
       color: var(--color-grey-dark-3); }
     .waitlist-form__input-container__input:focus + .waitlist-form__input-container__label {
       opacity: 1;
       height: auto;
-      visibility: visible; }
+      visibility: visible;
+      text-align: start;
+      margin-bottom: 1.2rem; }
     .waitlist-form__input-container__input {
       font-family: 'Rubik', sans-serif;
       background: none;
@@ -1133,11 +1132,15 @@ strong {
 .persona {
   line-height: 1.05;
   letter-spacing: 0.75px;
-  color: var(--color-grey-dark-1); }
+  color: var(--color-grey-dark-1);
+  display: flex;
+  flex-direction: row; }
   .persona__image {
-    width: 100%;
-    height: auto;
-    margin-bottom: 3.2rem; }
+    display: block;
+    width: 40%;
+    margin: auto;
+    margin-bottom: 4.4rem;
+    margin-right: 4.4rem; }
   .persona__name {
     font-size: 3.2rem;
     font-weight: 500;
@@ -1176,22 +1179,24 @@ strong {
   justify-content: center;
   align-items: center;
   margin: auto;
-  margin-bottom: 3.2rem; }
+  margin-bottom: 3.2rem;
+  width: 100vw;
+  height: 60vh; }
   .blob-container__overlay {
-    max-width: 30%;
+    max-width: 25%;
     text-align: center;
-    padding: 9.6rem;
-    margin: 2.4rem; }
+    padding: 3.2rem;
+    margin: 4.8rem; }
 
 .additional-waitlist {
-  max-width: 40%;
+  max-width: 50%;
   margin: auto; }
 
 /***************************/
 /* INGREDIENTS SECTION */
 /***************************/
 .section-ingredients {
-  padding-top: 9.6rem; }
+  padding-top: 4.8rem; }
 
 .ingredient {
   box-shadow: 0 2.4rem 4.8rem rgba(0, 0, 0, 0.075);
@@ -1213,27 +1218,38 @@ strong {
 
 .tag {
   display: inline-block;
-  padding: 0.4rem 0.8rem;
-  font-size: 1.2rem;
+  padding: 0.8rem 1.2rem;
+  font-size: 1.6rem;
   text-transform: uppercase;
-  color: #333;
+  color: var(--color-grey-dark-2);
   border-radius: 150px;
   font-weight: 500; }
 
-.tag--vegetarian {
-  background-color: #51cf66; }
-
-.tag--vegan {
-  background-color: #94d82d; }
-
-.tag--paleo {
-  background-color: #fcc419; }
+.tag--percentage {
+  background-color: var(--color-tint-1); }
 
 .ingredient-title {
   font-size: 2.4rem;
   color: #333;
   font-weight: 600;
   margin-bottom: 1.8rem; }
+
+.ingredient-attributes {
+  list-style: none;
+  display: flex;
+  flex-direction: column;
+  gap: 2rem; }
+
+.ingredient-attribute {
+  font-size: 1.8rem;
+  display: flex;
+  align-items: center;
+  gap: 2rem; }
+
+.ingredient-icon {
+  height: 2.4rem;
+  width: 2.4rem;
+  color: var(--color-primary); }
 
 .ingredient-img {
   width: 100%; }
@@ -1367,7 +1383,15 @@ input[type='number'] {
   .hero {
     max-width: 120rem; }
   .heading-primary {
-    font-size: 4.4rem; } }
+    font-size: 4.4rem; }
+  .section-additional {
+    max-width: 100%; }
+  .blob-container__overlay {
+    max-width: 35%;
+    padding: 0 1.2rem; }
+  .additional-waitlist {
+    max-width: 60%;
+    margin: auto; } }
 
 /***************************/
 /* 1200/16 = 75 */
@@ -1404,8 +1428,12 @@ input[type='number'] {
     gap: 6.4rem; }
   .hero-text-box {
     text-align: center; }
-  .doctor-content {
-    padding: 2.4rem 3.2rem; }
+  .blob-container__overlay {
+    max-width: 45%;
+    padding: 0;
+    margin: 0; }
+  .additional-waitlist {
+    max-width: 80%; }
   .service-content {
     padding: 2.4rem 3.2rem; }
   .pricing-plan {
@@ -1474,18 +1502,14 @@ input[type='number'] {
     background-image: linear-gradient(rgba(233, 204, 219, 0.7), rgba(233, 204, 219, 0)), url(/src/assets/img/hero-az-lg.jpg); }
   .waitlist-form {
     margin: auto; }
+  .persona {
+    flex-direction: column; }
+    .persona__image {
+      width: 75%;
+      margin: auto;
+      margin-bottom: 4.4rem; }
   .section-additional {
     max-width: 100%; }
-  .blob-container {
-    height: 50vh;
-    margin: auto 5px;
-    margin-bottom: 3.2rem; }
-    .blob-container__overlay {
-      max-width: 80%;
-      padding: 1.2rem; }
-  .additional-waitlist {
-    max-width: 100%;
-    margin: auto; }
   .additional-ingredients {
     grid-column: 1 / -1;
     justify-self: center; }
@@ -1588,6 +1612,10 @@ input[type='number'] {
     z-index: -1; }
   .testimonials {
     grid-template-columns: 1fr; }
+  .blob-container__overlay {
+    max-width: 75%; }
+  .additional-waitlist {
+    max-width: 100%; }
   .doctor {
     flex-direction: column; }
   .doctor--img {
@@ -1635,10 +1663,10 @@ input[type='number'] {
     width: 95%; } }
 
 /***************************/
-/* 416/16 = 26 */
-/* BELOW 416 (Small Phones) */
+/* 384/16 = 24 */
+/* BELOW 384 (Small Phones) */
 /***************************/
-@media (max-width: 26em) {
+@media (max-width: 24em) {
   .hero-container-az {
     background-image: -webkit-linear-gradient(rgba(233, 204, 219, 0.7), rgba(233, 204, 219, 0)), url(/src/assets/img/hero-az-sm.jpg);
     background-image: linear-gradient(rgba(233, 204, 219, 0.7), rgba(233, 204, 219, 0)), url(/src/assets/img/hero-az-sm.jpg); }

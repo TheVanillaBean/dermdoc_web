@@ -1,9 +1,16 @@
 import React from 'react';
 import {
+  IoBanOutline,
+  IoCheckmarkCircleOutline,
   IoCheckmarkOutline,
+  IoHappyOutline,
+  IoHeartOutline,
   IoMoonOutline,
-  IoReloadOutline,
+  IoReorderFourOutline,
+  IoSnowOutline,
   IoSunnyOutline,
+  IoThermometerOutline,
+  IoWaterOutline,
 } from 'react-icons/io5';
 import { connect } from 'react-redux';
 import { withRouter } from 'react-router-dom';
@@ -76,7 +83,7 @@ class AZLandingPage extends React.Component {
                 <h1 className='heading-primary'>Get your own personal skincare formulas</h1>
                 <h1 className='heading-tertiary'>Launching in AZ February 2022</h1>
                 <h1 className='heading-tertiary'>
-                  Join the waitlist for a limited-time 50% discount ($180)
+                  Join the waitlist for a limited-time 50% discount
                 </h1>
 
                 <form className='waitlist-form' onSubmit={this.handleSubmit}>
@@ -108,7 +115,7 @@ class AZLandingPage extends React.Component {
           <div className='container center-text'>
             <span className='subheading'>How do I get my formulas?</span>
             <h2 className='heading-secondary'>
-              A dermatologist will help you every step of the way to healthier skin.
+              Your dermatologist will figure out a custom formula just for you
             </h2>
           </div>
 
@@ -119,8 +126,8 @@ class AZLandingPage extends React.Component {
               </div>
               <p className='feature-title'>Upload selfies</p>
               <p className='feature-text'>
-                Answer some questions and share photos of your specific issue so your doctor can
-                give an accurate diagnosis. This should only take 5-10 minutes.
+                Answer some questions and share photos of your skin. This takes 5 minutes and helps
+                your doctor figure out your custom treatment formula.
               </p>
             </div>
             <div className='feature'>
@@ -129,8 +136,8 @@ class AZLandingPage extends React.Component {
               </div>
               <p className='feature-title'>Recieve a personalized plan</p>
               <p className='feature-text'>
-                You will get a personalized treatment plan within 24 hours with prescriptions sent
-                anywhere you’d like.
+                You will get a personalized treatment plan within 24 hours. We’ll send your
+                prescription to your door with free 2-day shipping.
               </p>
             </div>
             <div className='feature'>
@@ -157,50 +164,121 @@ class AZLandingPage extends React.Component {
           <div className='container'>
             <div className='persona'>
               <img className='persona__image' src={AudreyPersona} alt='Persona' />
-              <h1 className='persona__name'>Audrey's formula</h1>
-              <p className='persona__occupation'>Fitness instructor</p>
-              <p className='persona__description'>
-                Audrey has a busy schedule and is often short on sleep. We came up with a customized
-                formula to address her circumstances.
-              </p>
+
+              <div className='container'>
+                <h1 className='persona__name'>Audrey's formula</h1>
+                <p className='persona__occupation'>
+                  <strong>Formula: </strong>Tretinoin, clindamycin, niacinimide
+                </p>
+                <p className='persona__description'>
+                  Audrey has a busy schedule as a fitness instructor. Our custom formulation
+                  simplifies her skin care to a once daily application. <br />
+                </p>
+                <ul className='list'>
+                  <li className='list-item'>
+                    <IoSunnyOutline className='list-icon' />
+                    <p className='persona__item-header'>
+                      <span>
+                        <strong>In the Morning</strong>
+                      </span>
+                      <span className='persona__item-header__light'>Facial Moisturizer</span>
+                    </p>
+                  </li>
+                  <li className='list-item'>
+                    <IoMoonOutline className='list-icon' />
+                    <p className='persona__item-header'>
+                      <span>
+                        <strong>Before Bed</strong>
+                      </span>
+                      <span className='persona__item-header__light'>Medicall Custom Formula</span>
+                    </p>
+                  </li>
+                </ul>
+              </div>
+            </div>
+          </div>
+        </section>
+
+        <div className='border' />
+
+        <section className='section-pricing' id='pricing'>
+          <div className='container center-text'>
+            <span className='subheading'>Pricing</span>
+            <h2 className='heading-secondary'>Personalized skincare without the premium price</h2>
+          </div>
+
+          <div className='container grid grid--2-cols margin-bottom-md'>
+            <div className='pricing-plan pricing-plan--starter'>
+              <header className='plan-header'>
+                <p className='plan-name'>
+                  <span>Topical Medications</span>
+                </p>
+                <p className='plan-price'>
+                  <span>$</span>24.90
+                </p>
+                <p className='plan-text'>
+                  per month. Includes skin products and an evaluation from a dermatologist.
+                </p>
+              </header>
               <ul className='list'>
                 <li className='list-item'>
-                  <IoSunnyOutline className='list-icon' />
-                  <p className='persona__item-header'>
-                    <span>
-                      <strong>In the Morning</strong>
-                    </span>
-                    <span className='persona__item-header__light'>
-                      Tretinoin, Aloe Vera, Jojoba Oil
-                    </span>
-                  </p>
+                  <IoHeartOutline className='list-icon' />
+                  <span>
+                    <strong>Custom formula</strong> designed by a dermatoligist
+                  </span>
                 </li>
                 <li className='list-item'>
-                  <IoMoonOutline className='list-icon' />
-                  <p className='persona__item-header'>
-                    <span>
-                      <strong>Before Bed</strong>
-                    </span>
-                    <span className='persona__item-header__light'>
-                      Tretinoin, Doxycycline, Kukui Nut Oil
-                    </span>
-                  </p>
+                  <IoHappyOutline className='list-icon' />
+                  <span>
+                    Prescriptions <strong>delivered</strong> to your door (free shipping)
+                  </span>
                 </li>
                 <li className='list-item'>
-                  <IoReloadOutline className='list-icon' />
-                  <p className='persona__item-header'>
-                    <span>
-                      <strong>2x per Week</strong>
-                    </span>
-                    <span className='persona__item-header__light'>
-                      Clindamycin, Aloe Vera, Coconut Oil
-                    </span>
-                  </p>
+                  <IoCheckmarkCircleOutline className='list-icon' />
+                  <span>
+                    Routine <strong>online check-ins</strong> to monitor your skin
+                  </span>
+                </li>
+              </ul>
+            </div>
+
+            <div className='pricing-plan pricing-plan--complete'>
+              <header className='plan-header'>
+                <p className='plan-name'>
+                  <span>Oral Medications</span>
+                </p>
+
+                <p className='plan-price'>
+                  <span>$</span>14.90
+                </p>
+                <p className='plan-text'>per month. In-case you need it &#128522;</p>
+              </header>
+              <ul className='list'>
+                <li className='list-item'>
+                  <IoHeartOutline className='list-icon' />
+                  <span>
+                    Oral medications include<strong> spironolactone and various antibiotics</strong>
+                  </span>
+                </li>
+                <li className='list-item'>
+                  <IoHappyOutline className='list-icon' />
+                  <span>
+                    Prescriptions <strong>delivered</strong> to your door (free shipping)
+                  </span>
+                </li>
+                <li className='list-item'>
+                  <IoCheckmarkCircleOutline className='list-icon' />
+                  <span>
+                    Routine <strong>online check-ins</strong> to monitor your skin
+                  </span>
                 </li>
               </ul>
             </div>
           </div>
         </section>
+
+        <div className='border' />
+
         <section class='section-ingredients' id='meals'>
           <div class='container center-text'>
             <span class='subheading'>Better Ingredients</span>
@@ -211,14 +289,34 @@ class AZLandingPage extends React.Component {
               <img class='ingredient-img' src={Cream1} alt='Cream 1' />
               <div class='ingredient-content'>
                 <div class='ingredient-tags'>
-                  <span class='tag tag--vegetarian'>Lorem</span>
+                  <span class='tag tag--percentage'>0.018% - 0.1%</span>
                 </div>
-                <p class='ingredient-title'>Trentinoin</p>
+                <p class='ingredient-title'>Tretinoin</p>
                 <ul class='ingredient-attributes'>
-                  <p className='paragraph ingredient-description'>
-                    Lorem ipsum dolor sit amet consectetur adipisicing elit. Esse itaque ut fugit
-                    autem et reiciendis id inventore.
-                  </p>
+                  <li class='ingredient-attribute'>
+                    <IoSunnyOutline className='list-icon' />
+                    <span>
+                      <strong>Sun-damaged</strong> skin
+                    </span>
+                  </li>
+                  <li class='ingredient-attribute'>
+                    <IoReorderFourOutline className='list-icon' />
+                    <span>
+                      Wrinkles and <strong>fine lines</strong>
+                    </span>
+                  </li>
+                  <li class='ingredient-attribute'>
+                    <IoBanOutline className='list-icon' />
+                    <span>
+                      <strong>Clogged</strong> pores
+                    </span>
+                  </li>
+                  <li class='ingredient-attribute'>
+                    <IoWaterOutline className='list-icon' />
+                    <span>
+                      <strong>Hyperpigmentation</strong>
+                    </span>
+                  </li>
                 </ul>
               </div>
             </div>
@@ -226,15 +324,28 @@ class AZLandingPage extends React.Component {
               <img class='ingredient-img' src={Cream2} alt='Meal 2' />
               <div class='ingredient-content'>
                 <div class='ingredient-tags'>
-                  <span class='tag tag--vegan'>Lorem</span>
-                  <span class='tag tag--paleo'>Ipsum</span>
+                  <span class='tag tag--percentage'>1%</span>
                 </div>
                 <p class='ingredient-title'>Clindamycin</p>
                 <ul class='ingredient-attributes'>
-                  <p className='paragraph ingredient-description'>
-                    Lorem ipsum dolor sit amet consectetur adipisicing elit. Esse itaque ut fugit
-                    autem et reiciendis id inventore.
-                  </p>
+                  <li class='ingredient-attribute'>
+                    <IoThermometerOutline className='list-icon' />
+                    <span>
+                      <strong>Inflammation</strong>
+                    </span>
+                  </li>
+                  <li class='ingredient-attribute'>
+                    <IoSnowOutline className='list-icon' />
+                    <span>
+                      <strong>Acne-causing</strong> bacteria
+                    </span>
+                  </li>
+                  <li class='ingredient-attribute'>
+                    <IoBanOutline className='list-icon' />
+                    <span>
+                      <strong>Clogged</strong> pores
+                    </span>
+                  </li>
                 </ul>
               </div>
             </div>
@@ -243,29 +354,43 @@ class AZLandingPage extends React.Component {
               <ul class='list'>
                 <li class='list-item'>
                   <IoCheckmarkOutline className='list-icon' />
-                  <span>Lorem ipsum</span>
+                  <span> Metronidazole 1%</span>
                 </li>
                 <li class='list-item'>
                   <IoCheckmarkOutline className='list-icon' />
-                  <span>Amet consectetur</span>
+                  <span>Azelaic Acid 15%</span>
                 </li>
                 <li class='list-item'>
                   <IoCheckmarkOutline className='list-icon' />
-                  <span>Reiciendis</span>
+                  <span>Hydroquinone 6%</span>
                 </li>
                 <li class='list-item'>
                   <IoCheckmarkOutline className='list-icon' />
-                  <span>Adipisicing</span>
+                  <span>Tranexamic Acid 1%</span>
                 </li>
                 <li class='list-item'>
                   <IoCheckmarkOutline className='list-icon' />
-                  <span>Itaque</span>
+                  <span>Doxycycline</span>
+                </li>
+                <li class='list-item'>
+                  <IoCheckmarkOutline className='list-icon' />
+                  <span>Minocycline</span>
+                </li>
+                <li class='list-item'>
+                  <IoCheckmarkOutline className='list-icon' />
+                  <span>Sulfamethoxazole Trimethoprim</span>
+                </li>
+                <li class='list-item'>
+                  <IoCheckmarkOutline className='list-icon' />
+                  <span>Spironolactone</span>
                 </li>
               </ul>
             </div>
           </div>
         </section>
+
         <div className='border' />
+
         <section className='section-additional'>
           <div className='container center-text margin-bottom-md'>
             <h2 className='subheading'>Your skin’s new best friend</h2>
@@ -280,6 +405,11 @@ class AZLandingPage extends React.Component {
               </p>
             </div>
           </div>
+
+          <div className='container center-text'>
+            <h1 className='heading-tertiary'>Join the waitlist for a limited-time 50% discount</h1>
+          </div>
+
           <div className='container additional-waitlist'>
             <form className='waitlist-form margin-center' onSubmit={this.handleSubmit}>
               <div className='waitlist-form__input-container'>

@@ -14,6 +14,22 @@
   .heading-primary {
     font-size: 4.4rem;
   }
+
+  .section-additional {
+    max-width: 100%;
+  }
+
+  .blob-container {
+    &__overlay {
+      max-width: 35%;
+      padding: 0 1.2rem;
+    }
+  }
+
+  .additional-waitlist {
+    max-width: 60%;
+    margin: auto;
+  }
 }
 
 /***************************/
@@ -71,8 +87,16 @@
     text-align: center;
   }
 
-  .doctor-content {
-    padding: 2.4rem 3.2rem;
+  .blob-container {
+    &__overlay {
+      max-width: 45%;
+      padding: 0;
+      margin: 0;
+    }
+  }
+
+  .additional-waitlist {
+    max-width: 80%;
   }
 
   .service-content {
@@ -181,24 +205,18 @@
     margin: auto;
   }
 
-  .section-additional {
-    max-width: 100%;
-  }
+  .persona {
+    flex-direction: column;
 
-  .blob-container {
-    height: 50vh;
-    margin: auto 5px;
-    margin-bottom: 3.2rem;
-
-    &__overlay {
-      max-width: 80%;
-      padding: 1.2rem;
+    &__image {
+      width: 75%;
+      margin: auto;
+      margin-bottom: 4.4rem;
     }
   }
 
-  .additional-waitlist {
+  .section-additional {
     max-width: 100%;
-    margin: auto;
   }
 
   .additional-ingredients {
@@ -360,6 +378,16 @@
     grid-template-columns: 1fr;
   }
 
+  .blob-container {
+    &__overlay {
+      max-width: 75%;
+    }
+  }
+
+  .additional-waitlist {
+    max-width: 100%;
+  }
+
   .doctor {
     flex-direction: column;
   }
@@ -445,10 +473,10 @@
 }
 
 /***************************/
-/* 416/16 = 26 */
-/* BELOW 416 (Small Phones) */
+/* 384/16 = 24 */
+/* BELOW 384 (Small Phones) */
 /***************************/
-@media (max-width: 26em) {
+@media (max-width: 24em) {
   .hero-container-az {
     background-image: -webkit-linear-gradient(rgba(233, 204, 219, 0.7), rgba(233, 204, 219, 0)),
       url(/src/assets/img/hero-az-sm.jpg);
