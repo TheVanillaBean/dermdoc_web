@@ -24,19 +24,29 @@ class Header extends React.Component {
         <nav className='main-nav'>
           <ul className='main-nav-list'>
             <li>
-              <HashLink className='main-nav-link' to='/#how'>
+              <HashLink className='main-nav-link' to='/az#how'>
                 How it works
               </HashLink>
             </li>
             <li>
-              <HashLink className='main-nav-link' to='/#about'>
-                Featured Derm
+              <HashLink className='main-nav-link' to='/az#pricing'>
+                Pricing
               </HashLink>
             </li>
             <li>
-              <Link className='main-nav-link nav-cta' onClick={this.handleClick}>
-                Get Started
-              </Link>
+              <HashLink className='main-nav-link' to='/az#ingredients'>
+                Ingredients
+              </HashLink>
+            </li>
+            <li>
+              <HashLink className='main-nav-link' to='/az#faq'>
+                FAQ
+              </HashLink>
+            </li>
+            <li>
+              <HashLink className='main-nav-link nav-cta' to='/az#ingredients'>
+                Join Waitlist
+              </HashLink>
             </li>
           </ul>
         </nav>

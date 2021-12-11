@@ -87,6 +87,13 @@
     text-align: center;
   }
 
+  .hero-container-az {
+    background-image: -webkit-linear-gradient(rgba(233, 204, 219, 0.7), rgba(233, 204, 219, 0)),
+      url(/src/assets/img/hero-az-lg.jpg);
+    background-image: linear-gradient(rgba(233, 204, 219, 0.7), rgba(233, 204, 219, 0)),
+      url(/src/assets/img/hero-az-lg.jpg);
+  }
+
   .blob-container {
     &__overlay {
       max-width: 45%;
@@ -194,29 +201,8 @@
     padding: 1.2rem 1.8rem 0 1.8rem;
   }
 
-  .hero-container-az {
-    background-image: -webkit-linear-gradient(rgba(233, 204, 219, 0.7), rgba(233, 204, 219, 0)),
-      url(/src/assets/img/hero-az-lg.jpg);
-    background-image: linear-gradient(rgba(233, 204, 219, 0.7), rgba(233, 204, 219, 0)),
-      url(/src/assets/img/hero-az-lg.jpg);
-  }
-
   .waitlist-form {
     margin: auto;
-  }
-
-  .persona {
-    flex-direction: column;
-
-    &__image {
-      width: 75%;
-      margin: auto;
-      margin-bottom: 4.4rem;
-    }
-  }
-
-  .section-additional {
-    max-width: 100%;
   }
 
   .additional-ingredients {
@@ -331,7 +317,6 @@
   .waitlist-form {
     flex-direction: column;
     align-items: flex-start;
-    width: 100%;
 
     &__input-container {
       text-align: start;
@@ -347,6 +332,20 @@
     &__button {
       min-width: 100%;
     }
+  }
+
+  .persona {
+    flex-direction: column;
+
+    &__image {
+      width: 75%;
+      margin: auto;
+      margin-bottom: 4.4rem;
+    }
+  }
+
+  .section-additional {
+    max-width: 100%;
   }
 
   .feature-icon::before,

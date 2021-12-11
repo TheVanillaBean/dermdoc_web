@@ -125,20 +125,14 @@ class AZLandingPage extends React.Component {
                 <p className='feature-icon-text'>01</p>
               </div>
               <p className='feature-title'>Upload selfies</p>
-              <p className='feature-text'>
-                Answer some questions and share photos of your skin. This takes 5 minutes and helps
-                your doctor figure out your custom treatment formula.
-              </p>
+              <p className='feature-text'>Answer some questions and share photos of your skin.</p>
             </div>
             <div className='feature'>
               <div className='feature-icon'>
                 <p className='feature-icon-text'>02</p>
               </div>
-              <p className='feature-title'>Recieve a personalized plan</p>
-              <p className='feature-text'>
-                You will get a personalized treatment plan within 24 hours. We’ll send your
-                prescription to your door with free 2-day shipping.
-              </p>
+              <p className='feature-title'>Recieve custom formula</p>
+              <p className='feature-text'>You will get a personalized formula within 24 hours.</p>
             </div>
             <div className='feature'>
               <div className='feature-icon'>
@@ -146,8 +140,7 @@ class AZLandingPage extends React.Component {
               </div>
               <p className='feature-title'>Check-in as needed</p>
               <p className='feature-text'>
-                You’ll check-in with your doctor throughout your treatment and make adjustments as
-                needed.
+                You'll check-in with your dermatologist anytime throughout your journey.
               </p>
             </div>
           </div>
@@ -172,7 +165,7 @@ class AZLandingPage extends React.Component {
                 </p>
                 <p className='persona__description'>
                   Audrey has a busy schedule as a fitness instructor. Our custom formulation
-                  simplifies her skin care to a once daily application. <br />
+                  simplifies her skincare to a once daily application. <br />
                 </p>
                 <ul className='list'>
                   <li className='list-item'>
@@ -245,7 +238,7 @@ class AZLandingPage extends React.Component {
                   <span>$</span>24.95
                 </p>
                 <p className='plan-text'>
-                  per month. Includes 12g of formula and <strong>unlimited check-ins</strong> with a
+                  per month. Includes formula and <strong>unlimited check-ins</strong> with a
                   dermatologist.
                 </p>
               </header>
@@ -301,8 +294,8 @@ class AZLandingPage extends React.Component {
                   <span>$</span>24.95
                 </p>
                 <p className='plan-text'>
-                  per month. Includes formula and <strong>1 check-in</strong> with a nurse
-                  practioner (not a dermatoligist).
+                  per month. Includes formula and <strong>only 1 check-in</strong> with a nurse
+                  practioner (not a dermatologist).
                 </p>
               </header>
               <ul className='list'>
@@ -321,7 +314,7 @@ class AZLandingPage extends React.Component {
                 <li className='list-item'>
                   <IoCheckmarkCircleOutline className='list-icon' />
                   <span>
-                    <strong>1</strong> online check-in to monitor your skin
+                    <strong>Limited (only 1)</strong> online check-in to monitor your skin
                   </span>
                 </li>
                 <div className='border' />
@@ -354,7 +347,7 @@ class AZLandingPage extends React.Component {
 
         <div className='border' />
 
-        <section class='section-ingredients' id='meals'>
+        <section class='section-ingredients' id='ingredients'>
           <div class='container center-text'>
             <span class='subheading'>Better Ingredients</span>
             <h2 class='heading-secondary'>Efficacy you won't find at a store</h2>
@@ -493,7 +486,7 @@ class AZLandingPage extends React.Component {
 
         <div className='border' />
 
-        <section className='section-additional'>
+        <section className='section-additional' id='faq'>
           <div className='container center-text'>
             <h2 className='subheading'>Your skin’s new best friend</h2>
             <h2 class='heading-secondary'>

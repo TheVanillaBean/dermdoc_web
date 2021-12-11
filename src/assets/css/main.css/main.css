@@ -1089,7 +1089,7 @@ strong {
   border: 1.5px solid var(--color-primary);
   border-radius: 2rem;
   padding: 1.8rem;
-  width: 85%;
+  width: 100%;
   border-color: var(--color-primary);
   box-shadow: 0 0 1px var(--color-primary); }
   .waitlist-form__input-container {
@@ -1137,9 +1137,9 @@ strong {
   display: flex;
   flex-direction: row; }
   .persona__image {
-    display: block;
-    width: 40%;
-    margin: auto;
+    width: 35%;
+    height: auto;
+    align-self: flex-start;
     margin-bottom: 4.4rem;
     margin-right: 4.4rem; }
   .persona__name {
@@ -1429,6 +1429,9 @@ input[type='number'] {
     gap: 6.4rem; }
   .hero-text-box {
     text-align: center; }
+  .hero-container-az {
+    background-image: -webkit-linear-gradient(rgba(233, 204, 219, 0.7), rgba(233, 204, 219, 0)), url(/src/assets/img/hero-az-lg.jpg);
+    background-image: linear-gradient(rgba(233, 204, 219, 0.7), rgba(233, 204, 219, 0)), url(/src/assets/img/hero-az-lg.jpg); }
   .blob-container__overlay {
     max-width: 45%;
     padding: 0;
@@ -1498,19 +1501,8 @@ input[type='number'] {
     padding-bottom: 8rem; }
   .section-hero-az {
     padding: 1.2rem 1.8rem 0 1.8rem; }
-  .hero-container-az {
-    background-image: -webkit-linear-gradient(rgba(233, 204, 219, 0.7), rgba(233, 204, 219, 0)), url(/src/assets/img/hero-az-lg.jpg);
-    background-image: linear-gradient(rgba(233, 204, 219, 0.7), rgba(233, 204, 219, 0)), url(/src/assets/img/hero-az-lg.jpg); }
   .waitlist-form {
     margin: auto; }
-  .persona {
-    flex-direction: column; }
-    .persona__image {
-      width: 75%;
-      margin: auto;
-      margin-bottom: 4.4rem; }
-  .section-additional {
-    max-width: 100%; }
   .additional-ingredients {
     grid-column: 1 / -1;
     justify-self: center; }
@@ -1581,8 +1573,7 @@ input[type='number'] {
     padding: 0 1.2rem; }
   .waitlist-form {
     flex-direction: column;
-    align-items: flex-start;
-    width: 100%; }
+    align-items: flex-start; }
     .waitlist-form__input-container {
       text-align: start;
       min-width: 100%; }
@@ -1592,6 +1583,14 @@ input[type='number'] {
         font-size: 1.8rem; }
     .waitlist-form__button {
       min-width: 100%; }
+  .persona {
+    flex-direction: column; }
+    .persona__image {
+      width: 75%;
+      margin: auto;
+      margin-bottom: 4.4rem; }
+  .section-additional {
+    max-width: 100%; }
   .feature-icon::before,
   .feature-icon::after {
     content: '';
