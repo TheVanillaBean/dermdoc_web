@@ -161,7 +161,7 @@ class AZLandingPage extends React.Component {
             <h2 className='heading-secondary'>Skincare finally made simple</h2>
           </div>
 
-          <div className='container'>
+          <div className='container margin-bottom-md'>
             <div className='persona'>
               <img className='persona__image' src={AudreyPersona} alt='Persona' />
 
@@ -197,6 +197,34 @@ class AZLandingPage extends React.Component {
               </div>
             </div>
           </div>
+
+          <div className='container center-text'>
+            <h1 className='heading-tertiary'>Join the waitlist for a limited-time 50% discount</h1>
+          </div>
+
+          <div className='container additional-waitlist'>
+            <form className='waitlist-form margin-center' onSubmit={this.handleSubmit}>
+              <div className='waitlist-form__input-container'>
+                <input
+                  className={`waitlist-form__input-container__input`}
+                  type='email'
+                  name='email'
+                  value={email}
+                  onChange={this.handleChange}
+                  label='Email'
+                  placeholder='Enter email...'
+                  required
+                />
+                <label className={`waitlist-form__input-container__label`} htmlFor='email'>
+                  Enter email...
+                </label>
+              </div>
+
+              <CustomButton className='custom-button waitlist-form__button' type='submit'>
+                Join Waitlist
+              </CustomButton>
+            </form>
+          </div>
         </section>
 
         <div className='border' />
@@ -208,23 +236,24 @@ class AZLandingPage extends React.Component {
           </div>
 
           <div className='container grid grid--2-cols margin-bottom-md'>
-            <div className='pricing-plan pricing-plan--starter'>
+            <div className='pricing-plan pricing-plan--complete'>
               <header className='plan-header'>
                 <p className='plan-name'>
                   <span>Topical Medications</span>
                 </p>
                 <p className='plan-price'>
-                  <span>$</span>24.90
+                  <span>$</span>24.95
                 </p>
                 <p className='plan-text'>
-                  per month. Includes skin products and an evaluation from a dermatologist.
+                  per month. Includes 12g of formula and <strong>unlimited check-ins</strong> with a
+                  dermatologist.
                 </p>
               </header>
               <ul className='list'>
                 <li className='list-item'>
                   <IoHeartOutline className='list-icon' />
                   <span>
-                    <strong>Custom formula</strong> designed by a dermatoligist
+                    <strong>High concentration</strong> custom formula designed by a dermatoligist
                   </span>
                 </li>
                 <li className='list-item'>
@@ -236,28 +265,51 @@ class AZLandingPage extends React.Component {
                 <li className='list-item'>
                   <IoCheckmarkCircleOutline className='list-icon' />
                   <span>
-                    Routine <strong>online check-ins</strong> to monitor your skin
+                    <strong>Unlimited</strong> online check-ins to monitor your skin
                   </span>
                 </li>
+                <div className='border' />
+                <div>
+                  <header className='plan-header'>
+                    <p className='plan-name'>
+                      <span>Oral Medications</span>
+                    </p>
+
+                    <p className='plan-price'>
+                      <span>$</span>14.95
+                    </p>
+                    <p className='plan-text'>extra per month. In-case you need it &#128522;</p>
+                  </header>
+                  <li className='list-item'>
+                    <IoHeartOutline className='list-icon' />
+                    <span>
+                      Oral medications include
+                      <strong> spironolactone and various antibiotics</strong>
+                    </span>
+                  </li>
+                </div>
               </ul>
             </div>
 
-            <div className='pricing-plan pricing-plan--complete'>
+            <div className='pricing-plan pricing-plan--starter'>
               <header className='plan-header'>
                 <p className='plan-name'>
-                  <span>Oral Medications</span>
+                  <span>Top Competitors*</span>
                 </p>
 
                 <p className='plan-price'>
-                  <span>$</span>14.90
+                  <span>$</span>24.95
                 </p>
-                <p className='plan-text'>per month. In-case you need it &#128522;</p>
+                <p className='plan-text'>
+                  per month. Includes formula and <strong>1 check-in</strong> with a nurse
+                  practioner (not a dermatoligist).
+                </p>
               </header>
               <ul className='list'>
                 <li className='list-item'>
                   <IoHeartOutline className='list-icon' />
                   <span>
-                    Oral medications include<strong> spironolactone and various antibiotics</strong>
+                    <strong>Low concentration</strong> formula designed by a nurse practioner
                   </span>
                 </li>
                 <li className='list-item'>
@@ -269,11 +321,34 @@ class AZLandingPage extends React.Component {
                 <li className='list-item'>
                   <IoCheckmarkCircleOutline className='list-icon' />
                   <span>
-                    Routine <strong>online check-ins</strong> to monitor your skin
+                    <strong>1</strong> online check-in to monitor your skin
                   </span>
                 </li>
+                <div className='border' />
+                <div>
+                  <header className='plan-header'>
+                    <p className='plan-name'>
+                      <span>Oral Medications</span>
+                    </p>
+
+                    <p className='plan-price'>
+                      <span>$</span>14.95
+                    </p>
+                    <p className='plan-text'>extra per month. In-case you need it &#128522;</p>
+                  </header>
+                  <li className='list-item'>
+                    <IoHeartOutline className='list-icon' />
+                    <span>
+                      Oral medications include
+                      <strong> spironolactone and various antibiotics</strong>
+                    </span>
+                  </li>
+                </div>
               </ul>
             </div>
+          </div>
+          <div className='container center-text'>
+            <p className='paragraph'>*Curology and Apostrophe</p>
           </div>
         </section>
 
@@ -366,7 +441,7 @@ class AZLandingPage extends React.Component {
                 </li>
                 <li class='list-item'>
                   <IoCheckmarkOutline className='list-icon' />
-                  <span>Tranexamic Acid 1%</span>
+                  <span>Tranexamic Acid 5%</span>
                 </li>
                 <li class='list-item'>
                   <IoCheckmarkOutline className='list-icon' />
@@ -387,30 +462,11 @@ class AZLandingPage extends React.Component {
               </ul>
             </div>
           </div>
-        </section>
-
-        <div className='border' />
-
-        <section className='section-additional'>
-          <div className='container center-text margin-bottom-md'>
-            <h2 className='subheading'>Your skin’s new best friend</h2>
-          </div>
-
-          <div className='blob-container'>
-            <div className='blob-container__overlay'>
-              <p className='paragraph'>
-                Once you have your personal formulas, we’ll continue to help along your journey
-                (like a personal assistant for your skin). Ask us any questions (seriously anything)
-                and we will try our best to help &#128522;
-              </p>
-            </div>
-          </div>
-
           <div className='container center-text'>
             <h1 className='heading-tertiary'>Join the waitlist for a limited-time 50% discount</h1>
           </div>
 
-          <div className='container additional-waitlist'>
+          <div className='container additional-waitlist margin-bottom-md'>
             <form className='waitlist-form margin-center' onSubmit={this.handleSubmit}>
               <div className='waitlist-form__input-container'>
                 <input
@@ -432,6 +488,27 @@ class AZLandingPage extends React.Component {
                 Join Waitlist
               </CustomButton>
             </form>
+          </div>
+        </section>
+
+        <div className='border' />
+
+        <section className='section-additional'>
+          <div className='container center-text'>
+            <h2 className='subheading'>Your skin’s new best friend</h2>
+            <h2 class='heading-secondary'>
+              You'll receive expert care in addition to your formulas
+            </h2>
+          </div>
+
+          <div className='blob-container'>
+            <div className='blob-container__overlay'>
+              <p className='paragraph'>
+                Once you have your personal formulas, we’ll continue to help along your journey
+                (like a personal assistant for your skin). Ask us any questions (seriously anything)
+                and we will try our best to help &#128522;
+              </p>
+            </div>
           </div>
         </section>
 

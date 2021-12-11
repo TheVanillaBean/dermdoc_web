@@ -107,7 +107,6 @@
 }
 
 .pricing-plan--starter {
-  justify-self: end;
   border: 2px solid #fdf2e9;
   padding: 4.6rem;
 }
@@ -117,13 +116,14 @@
   padding: 4.8rem;
   position: relative;
   overflow: hidden;
+  justify-self: end;
 }
 
 .pricing-plan--complete::after {
-  content: 'Add-on';
+  content: 'Best Value';
   position: absolute;
-  top: 7%;
-  right: -18%;
+  top: 5%;
+  right: -20%;
 
   text-transform: uppercase;
   font-size: 1.4rem;
