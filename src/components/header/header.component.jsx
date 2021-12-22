@@ -53,7 +53,7 @@ class Header extends React.Component {
               </li>
             ) : (
               <li>
-                <Link className='main-nav-link nav-cta' onClick={this.handleClick}>
+                <Link className='main-nav-link nav-cta' onClick={this.handleClick} to='#'>
                   Get Started
                 </Link>
               </li>

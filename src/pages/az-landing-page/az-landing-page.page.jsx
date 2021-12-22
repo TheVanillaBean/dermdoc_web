@@ -23,6 +23,7 @@ import AudreyPersona from '../../assets/img/medicall_persona.jpg'; // Tell Webpa
 import CustomButton from '../../components/custom-button/custom-button.component';
 import Footer from '../../components/footer/footer.component';
 import Header from '../../components/header/header.component';
+import HeroSection from '../../components/hero-section/hero-section.component';
 import { analytics, joinWaitlistWithEmail } from '../../firebase/firebase.utils';
 import { updateVisitReason } from '../../redux/search/search.actions';
 
@@ -92,41 +93,12 @@ class AZLandingPage extends React.Component {
       <main>
         <div className='hero-container'>
           <Header isWaitlistLandingPage />
-          <section className='section-hero'>
-            <div className='hero'>
-              <div className='hero-text-box'>
-                <h1 className='heading-primary'>
-                  Get clear skin with your own custom prescription formula
-                </h1>
-                <h1 className='heading-tertiary'>Launching in AZ February 2022</h1>
-                <h1 className='heading-tertiary'>
-                  Join the waitlist for a limited-time 50% discount
-                </h1>
-
-                <form className='waitlist-form' onSubmit={this.handleSubmit}>
-                  <div className='waitlist-form__input-container'>
-                    <input
-                      className={`waitlist-form__input-container__input`}
-                      type='email'
-                      name='email'
-                      value={email}
-                      onChange={this.handleChange}
-                      label='Email'
-                      placeholder='Enter email...'
-                      required
-                    />
-                    <label className={`waitlist-form__input-container__label`} htmlFor='email'>
-                      Enter email...
-                    </label>
-                  </div>
-
-                  <CustomButton className='custom-button waitlist-form__button' type='submit'>
-                    Join Waitlist
-                  </CustomButton>
-                </form>
-              </div>
-            </div>
-          </section>
+          <HeroSection
+            homepage={false}
+            handleSubmit={this.handleSubmit}
+            handleChange={this.handleChange}
+            email={this.state.email}
+          />
         </div>
         <section className='section-how' id='how'>
           <div className='container center-text'>
@@ -307,39 +279,39 @@ class AZLandingPage extends React.Component {
 
         <div className='border' />
 
-        <section class='section-ingredients' id='ingredients'>
-          <div class='container center-text'>
-            <span class='subheading'>Better Ingredients</span>
-            <h2 class='heading-secondary'>Efficacy you won't find at a store</h2>
+        <section className='section-ingredients' id='ingredients'>
+          <div className='container center-text'>
+            <span className='subheading'>Better Ingredients</span>
+            <h2 className='heading-secondary'>Efficacy you won't find at a store</h2>
           </div>
-          <div class='container grid grid--3-cols margin-bottom-md'>
-            <div class='ingredient'>
-              <img class='ingredient-img' src={Cream1} alt='Cream 1' />
-              <div class='ingredient-content'>
-                <div class='ingredient-tags'>
-                  <span class='tag tag--percentage'>0.018% - 0.1%</span>
+          <div className='container grid grid--3-cols margin-bottom-md'>
+            <div className='ingredient'>
+              <img className='ingredient-img' src={Cream1} alt='Cream 1' />
+              <div className='ingredient-content'>
+                <div className='ingredient-tags'>
+                  <span className='tag tag--percentage'>0.018% - 0.1%</span>
                 </div>
-                <p class='ingredient-title'>Tretinoin</p>
-                <ul class='ingredient-attributes'>
-                  <li class='ingredient-attribute'>
+                <p className='ingredient-title'>Tretinoin</p>
+                <ul className='ingredient-attributes'>
+                  <li className='ingredient-attribute'>
                     <IoSunnyOutline className='list-icon' />
                     <span>
                       <strong>Sun-damaged</strong> skin
                     </span>
                   </li>
-                  <li class='ingredient-attribute'>
+                  <li className='ingredient-attribute'>
                     <IoReorderFourOutline className='list-icon' />
                     <span>
                       Wrinkles and <strong>fine lines</strong>
                     </span>
                   </li>
-                  <li class='ingredient-attribute'>
+                  <li className='ingredient-attribute'>
                     <IoBanOutline className='list-icon' />
                     <span>
                       <strong>Clogged</strong> pores
                     </span>
                   </li>
-                  <li class='ingredient-attribute'>
+                  <li className='ingredient-attribute'>
                     <IoWaterOutline className='list-icon' />
                     <span>
                       <strong>Hyperpigmentation</strong>
@@ -348,27 +320,27 @@ class AZLandingPage extends React.Component {
                 </ul>
               </div>
             </div>
-            <div class='ingredient'>
-              <img class='ingredient-img' src={Cream2} alt='Meal 2' />
-              <div class='ingredient-content'>
-                <div class='ingredient-tags'>
-                  <span class='tag tag--percentage'>1%</span>
+            <div className='ingredient'>
+              <img className='ingredient-img' src={Cream2} alt='Meal 2' />
+              <div className='ingredient-content'>
+                <div className='ingredient-tags'>
+                  <span className='tag tag--percentage'>1%</span>
                 </div>
-                <p class='ingredient-title'>Clindamycin</p>
-                <ul class='ingredient-attributes'>
-                  <li class='ingredient-attribute'>
+                <p className='ingredient-title'>Clindamycin</p>
+                <ul className='ingredient-attributes'>
+                  <li className='ingredient-attribute'>
                     <IoThermometerOutline className='list-icon' />
                     <span>
                       <strong>Inflammation</strong>
                     </span>
                   </li>
-                  <li class='ingredient-attribute'>
+                  <li className='ingredient-attribute'>
                     <IoSnowOutline className='list-icon' />
                     <span>
                       <strong>Acne-causing</strong> bacteria
                     </span>
                   </li>
-                  <li class='ingredient-attribute'>
+                  <li className='ingredient-attribute'>
                     <IoBanOutline className='list-icon' />
                     <span>
                       <strong>Clogged</strong> pores
@@ -377,38 +349,38 @@ class AZLandingPage extends React.Component {
                 </ul>
               </div>
             </div>
-            <div class='additional-ingredients'>
-              <h3 class='paragraph'>Additional ingredients:</h3>
-              <ul class='list'>
-                <li class='list-item'>
+            <div className='additional-ingredients'>
+              <h3 className='paragraph'>Additional ingredients:</h3>
+              <ul className='list'>
+                <li className='list-item'>
                   <IoCheckmarkOutline className='list-icon' />
                   <span>Metronidazole 1%</span>
                 </li>
-                <li class='list-item'>
+                <li className='list-item'>
                   <IoCheckmarkOutline className='list-icon' />
                   <span>Azelaic Acid 15%</span>
                 </li>
-                <li class='list-item'>
+                <li className='list-item'>
                   <IoCheckmarkOutline className='list-icon' />
                   <span>Hydroquinone 6%</span>
                 </li>
-                <li class='list-item'>
+                <li className='list-item'>
                   <IoCheckmarkOutline className='list-icon' />
                   <span>Tranexamic Acid 5%</span>
                 </li>
-                <li class='list-item'>
+                <li className='list-item'>
                   <IoCheckmarkOutline className='list-icon' />
                   <span>Doxycycline</span>
                 </li>
-                <li class='list-item'>
+                <li className='list-item'>
                   <IoCheckmarkOutline className='list-icon' />
                   <span>Minocycline</span>
                 </li>
-                <li class='list-item'>
+                <li className='list-item'>
                   <IoCheckmarkOutline className='list-icon' />
                   <span>Sulfamethoxazole Trimethoprim</span>
                 </li>
-                <li class='list-item'>
+                <li className='list-item'>
                   <IoCheckmarkOutline className='list-icon' />
                   <span>Spironolactone</span>
                 </li>
@@ -449,7 +421,7 @@ class AZLandingPage extends React.Component {
         <section className='section-additional'>
           <div className='container center-text'>
             <h2 className='subheading'>Your skin’s new best friend</h2>
-            <h2 class='heading-secondary'>
+            <h2 className='heading-secondary'>
               You'll receive expert care in addition to your formulas
             </h2>
           </div>
@@ -467,7 +439,7 @@ class AZLandingPage extends React.Component {
         <section className='section-faq'>
           <div className='container center-text'>
             <h2 className='subheading'>FAQ</h2>
-            <h2 class='heading-secondary'>Learn why Medicall is unique</h2>
+            <h2 className='heading-secondary'>Learn why Medicall is unique</h2>
           </div>
 
           <div className='container faq-style-wrapper'>
