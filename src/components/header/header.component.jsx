@@ -15,6 +15,7 @@ class Header extends React.Component {
   };
 
   render() {
+    const { isWaitlistLandingPage = false } = this.props;
     return (
       <header className='header'>
         <Link to='/'>
@@ -24,30 +25,39 @@ class Header extends React.Component {
         <nav className='main-nav'>
           <ul className='main-nav-list'>
             <li>
-              <HashLink className='main-nav-link' to='/az#how'>
+              <HashLink className='main-nav-link' to='#how'>
                 How it works
               </HashLink>
             </li>
             <li>
-              <HashLink className='main-nav-link' to='/az#pricing'>
+              <HashLink className='main-nav-link' to='#pricing'>
                 Pricing
               </HashLink>
             </li>
             <li>
-              <HashLink className='main-nav-link' to='/az#ingredients'>
+              <HashLink className='main-nav-link' to='#ingredients'>
                 Ingredients
               </HashLink>
             </li>
             <li>
-              <HashLink className='main-nav-link' to='/az#faq'>
+              <HashLink className='main-nav-link' to='#faq'>
                 FAQ
               </HashLink>
             </li>
-            <li>
-              <HashLink className='main-nav-link nav-cta' to='/az'>
-                Join Waitlist
-              </HashLink>
-            </li>
+
+            {isWaitlistLandingPage ? (
+              <li>
+                <HashLink className='main-nav-link nav-cta' to='#bottom-waitlist'>
+                  Join Waitlist
+                </HashLink>
+              </li>
+            ) : (
+              <li>
+                <Link className='main-nav-link nav-cta' onClick={this.handleClick}>
+                  Get Started
+                </Link>
+              </li>
+            )}
           </ul>
         </nav>
 

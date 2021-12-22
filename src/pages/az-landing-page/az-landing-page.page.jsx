@@ -90,9 +90,9 @@ class AZLandingPage extends React.Component {
 
     return (
       <main>
-        <div className='hero-container-az'>
-          <Header />
-          <section className='section-hero-az'>
+        <div className='hero-container'>
+          <Header isWaitlistLandingPage />
+          <section className='section-hero'>
             <div className='hero'>
               <div className='hero-text-box'>
                 <h1 className='heading-primary'>
@@ -488,6 +488,36 @@ class AZLandingPage extends React.Component {
                 tabFocus: true,
               }}
             />
+          </div>
+        </section>
+
+        <section className='bottom-waitlist' id='bottom-waitlist'>
+          <div className='container center-text'>
+            <h1 className='heading-tertiary'>Join the waitlist for a limited-time 50% discount</h1>
+          </div>
+
+          <div className='container additional-waitlist margin-bottom-md'>
+            <form className='waitlist-form margin-center' onSubmit={this.handleSubmit}>
+              <div className='waitlist-form__input-container'>
+                <input
+                  className={`waitlist-form__input-container__input`}
+                  type='email'
+                  name='email'
+                  value={email}
+                  onChange={this.handleChange}
+                  label='Email'
+                  placeholder='Enter email...'
+                  required
+                />
+                <label className={`waitlist-form__input-container__label`} htmlFor='email'>
+                  Enter email...
+                </label>
+              </div>
+
+              <CustomButton className='custom-button waitlist-form__button' type='submit'>
+                Join Waitlist
+              </CustomButton>
+            </form>
           </div>
         </section>
 
