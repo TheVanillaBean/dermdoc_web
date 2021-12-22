@@ -1,4 +1,5 @@
 import React from 'react';
+import Faq from 'react-faq-component';
 import {
   IoBanOutline,
   IoCheckmarkCircleOutline,
@@ -70,6 +71,20 @@ class AZLandingPage extends React.Component {
     this.setState({ [name]: value });
   };
 
+  data = {
+    title: 'Common Questions',
+    rows: [
+      {
+        title: 'How is Medicall different?',
+        content: `The most popular custom skincare companies (e.g. curology, apostrophe, hims/hers) either don't offer oral medications for people who need more than a topical cream and/or they use smaller prescription concentrations which causes lesser efficacy. In addition, our customers recieve unlimited check-ins, while most other brands limit check-ins to once a month.`,
+      },
+      {
+        title: 'Is there a refund policy?',
+        content: `If your skin does not improve after using your custom formula, we'll issue a full-refund for every month used. `,
+      },
+    ],
+  };
+
   render() {
     const { email } = this.state;
 
@@ -80,7 +95,9 @@ class AZLandingPage extends React.Component {
           <section className='section-hero-az'>
             <div className='hero'>
               <div className='hero-text-box'>
-                <h1 className='heading-primary'>Get your own personal skincare formulas</h1>
+                <h1 className='heading-primary'>
+                  Get clear skin with your own custom prescription formula
+                </h1>
                 <h1 className='heading-tertiary'>Launching in AZ February 2022</h1>
                 <h1 className='heading-tertiary'>
                   Join the waitlist for a limited-time 50% discount
@@ -140,7 +157,7 @@ class AZLandingPage extends React.Component {
               </div>
               <p className='feature-title'>Check-in as needed</p>
               <p className='feature-text'>
-                You'll check-in with your dermatologist anytime throughout your journey.
+                You'll check-in with your dermatologist throughout your journey.
               </p>
             </div>
           </div>
@@ -229,7 +246,7 @@ class AZLandingPage extends React.Component {
           </div>
 
           <div className='container grid grid--2-cols margin-bottom-md'>
-            <div className='pricing-plan pricing-plan--complete'>
+            <div className='pricing-plan pricing-plan--starter'>
               <header className='plan-header'>
                 <p className='plan-name'>
                   <span>Topical Medications</span>
@@ -261,87 +278,30 @@ class AZLandingPage extends React.Component {
                     <strong>Unlimited</strong> online check-ins to monitor your skin
                   </span>
                 </li>
-                <div className='border' />
-                <div>
-                  <header className='plan-header'>
-                    <p className='plan-name'>
-                      <span>Oral Medications</span>
-                    </p>
-
-                    <p className='plan-price'>
-                      <span>$</span>14.95
-                    </p>
-                    <p className='plan-text'>extra per month. In-case you need it &#128522;</p>
-                  </header>
-                  <li className='list-item'>
-                    <IoHeartOutline className='list-icon' />
-                    <span>
-                      Oral medications include
-                      <strong> spironolactone and various antibiotics</strong>
-                    </span>
-                  </li>
-                </div>
               </ul>
             </div>
 
-            <div className='pricing-plan pricing-plan--starter'>
+            <div className='pricing-plan pricing-plan--complete'>
               <header className='plan-header'>
                 <p className='plan-name'>
-                  <span>Top Competitors*</span>
+                  <span>Oral Medications</span>
                 </p>
 
                 <p className='plan-price'>
-                  <span>$</span>24.95
+                  <span>$</span>14.95
                 </p>
-                <p className='plan-text'>
-                  per month. Includes formula and <strong>only 1 check-in</strong> with a nurse
-                  practioner (not a dermatologist).
-                </p>
+                <p className='plan-text'>extra per month. In-case you need it &#128522;</p>
               </header>
               <ul className='list'>
                 <li className='list-item'>
                   <IoHeartOutline className='list-icon' />
                   <span>
-                    <strong>Low concentration</strong> formula designed by a nurse practioner
+                    Oral medications include
+                    <strong> spironolactone and various antibiotics</strong>
                   </span>
                 </li>
-                <li className='list-item'>
-                  <IoHappyOutline className='list-icon' />
-                  <span>
-                    Prescriptions <strong>delivered</strong> to your door (free shipping)
-                  </span>
-                </li>
-                <li className='list-item'>
-                  <IoCheckmarkCircleOutline className='list-icon' />
-                  <span>
-                    <strong>Limited (only 1)</strong> online check-in to monitor your skin
-                  </span>
-                </li>
-                <div className='border' />
-                <div>
-                  <header className='plan-header'>
-                    <p className='plan-name'>
-                      <span>Oral Medications</span>
-                    </p>
-
-                    <p className='plan-price'>
-                      <span>$</span>14.95
-                    </p>
-                    <p className='plan-text'>extra per month. In-case you need it &#128522;</p>
-                  </header>
-                  <li className='list-item'>
-                    <IoHeartOutline className='list-icon' />
-                    <span>
-                      Oral medications include
-                      <strong> spironolactone and various antibiotics</strong>
-                    </span>
-                  </li>
-                </div>
               </ul>
             </div>
-          </div>
-          <div className='container center-text'>
-            <p className='paragraph'>*Curology and Apostrophe</p>
           </div>
         </section>
 
@@ -422,7 +382,7 @@ class AZLandingPage extends React.Component {
               <ul class='list'>
                 <li class='list-item'>
                   <IoCheckmarkOutline className='list-icon' />
-                  <span> Metronidazole 1%</span>
+                  <span>Metronidazole 1%</span>
                 </li>
                 <li class='list-item'>
                   <IoCheckmarkOutline className='list-icon' />
@@ -486,7 +446,7 @@ class AZLandingPage extends React.Component {
 
         <div className='border' />
 
-        <section className='section-additional' id='faq'>
+        <section className='section-additional'>
           <div className='container center-text'>
             <h2 className='subheading'>Your skin’s new best friend</h2>
             <h2 class='heading-secondary'>
@@ -502,6 +462,32 @@ class AZLandingPage extends React.Component {
                 and we will try our best to help &#128522;
               </p>
             </div>
+          </div>
+        </section>
+        <section className='section-faq'>
+          <div className='container center-text'>
+            <h2 className='subheading'>FAQ</h2>
+            <h2 class='heading-secondary'>Learn why Medicall is unique</h2>
+          </div>
+
+          <div className='container faq-style-wrapper'>
+            <Faq
+              data={this.data}
+              styles={{
+                titleTextColor: 'var(--color-primary)',
+                rowTitleColor: 'var(--color-grey-dark-1)',
+                transitionDuration: '.2s',
+                timingFunc: 'linear',
+                titleTextSize: '3.2rem',
+                rowTitleTextSize: '2.4rem',
+                rowContentTextSize: '2rem',
+                rowContentPaddingTop: '1.2rem',
+                rowContentPaddingBottom: '1.2rem',
+              }}
+              config={{
+                tabFocus: true,
+              }}
+            />
           </div>
         </section>
 

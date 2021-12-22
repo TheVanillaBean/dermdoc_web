@@ -3,11 +3,18 @@
 /***************************/
 
 .hero-container {
-  background-color: #f4e6ed;
+  background-image: -webkit-linear-gradient(rgba(233, 204, 219, 0.7), rgba(233, 204, 219, 0)),
+    url(/src/assets/img/hero-az.jpg);
+  background-image: linear-gradient(rgba(233, 204, 219, 0.7), rgba(233, 204, 219, 0)),
+    url(/src/assets/img/hero-az.jpg);
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-position: center;
+  height: 75vh;
+  background-attachment: scroll;
 }
 
 .section-hero {
-  background-color: #f4e6ed;
   padding: 4.8rem 0 9.6rem 0;
 }
 
@@ -22,17 +29,13 @@
 }
 
 .hero-description {
-  font-size: 2rem;
+  font-size: 2.4rem;
   line-height: 1.6;
   margin-bottom: 4.8rem;
 }
 
 .hero-description-item:not(:last-child) {
   margin-bottom: 2rem;
-}
-
-.hero-img {
-  width: 100%;
 }
 
 /***************************/
@@ -109,6 +112,7 @@
 .pricing-plan--starter {
   border: 2px solid #fdf2e9;
   padding: 4.6rem;
+  justify-self: end;
 }
 
 .pricing-plan--complete {
@@ -116,11 +120,10 @@
   padding: 4.8rem;
   position: relative;
   overflow: hidden;
-  justify-self: end;
 }
 
 .pricing-plan--complete::after {
-  content: 'Best Value';
+  content: 'Add-on';
   position: absolute;
   top: 5%;
   right: -20%;

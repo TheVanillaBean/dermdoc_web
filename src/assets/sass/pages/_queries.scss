@@ -7,6 +7,10 @@
 /* BELOW 1344px (Smaller desktops) */
 /***************************/
 @media (max-width: 84em) {
+  .hero-container {
+    height: 85vh;
+  }
+
   .hero {
     max-width: 120rem;
   }
@@ -77,6 +81,14 @@
     font-size: 50%;
   }
 
+  .hero-container {
+    background-image: -webkit-linear-gradient(rgba(233, 204, 219, 0.7), rgba(233, 204, 219, 0)),
+      url(/src/assets/img/hero-az-lg.jpg);
+    background-image: linear-gradient(rgba(233, 204, 219, 0.7), rgba(233, 204, 219, 0)),
+      url(/src/assets/img/hero-az-lg.jpg);
+    height: 95vh;
+  }
+
   .hero {
     grid-template-columns: 1fr;
     padding: 0 8rem;
@@ -85,13 +97,6 @@
 
   .hero-text-box {
     text-align: center;
-  }
-
-  .hero-container-az {
-    background-image: -webkit-linear-gradient(rgba(233, 204, 219, 0.7), rgba(233, 204, 219, 0)),
-      url(/src/assets/img/hero-az-lg.jpg);
-    background-image: linear-gradient(rgba(233, 204, 219, 0.7), rgba(233, 204, 219, 0)),
-      url(/src/assets/img/hero-az-lg.jpg);
   }
 
   .blob-container {
@@ -190,14 +195,7 @@
 /* BELOW 704px (Tablets) */
 /***************************/
 @media (max-width: 44em) {
-  .hero-container {
-    background-color: #f4e6ed;
-    background-image: none;
-    height: inherit;
-    padding-bottom: 8rem;
-  }
-
-  .section-hero-az {
+  .section-hero {
     padding: 1.2rem 1.8rem 0 1.8rem;
   }
 
@@ -306,7 +304,7 @@
   }
 
   .hero-description {
-    text-align: start;
+    text-align: center;
     padding-left: 1.2rem;
   }
 
@@ -476,7 +474,7 @@
 /* BELOW 384 (Small Phones) */
 /***************************/
 @media (max-width: 24em) {
-  .hero-container-az {
+  .hero-container {
     background-image: -webkit-linear-gradient(rgba(233, 204, 219, 0.7), rgba(233, 204, 219, 0)),
       url(/src/assets/img/hero-az-sm.jpg);
     background-image: linear-gradient(rgba(233, 204, 219, 0.7), rgba(233, 204, 219, 0)),

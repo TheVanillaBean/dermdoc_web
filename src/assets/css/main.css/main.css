@@ -899,10 +899,15 @@ strong {
 /* HERO SECTION */
 /***************************/
 .hero-container {
-  background-color: #f4e6ed; }
+  background-image: -webkit-linear-gradient(rgba(233, 204, 219, 0.7), rgba(233, 204, 219, 0)), url(/src/assets/img/hero-az.jpg);
+  background-image: linear-gradient(rgba(233, 204, 219, 0.7), rgba(233, 204, 219, 0)), url(/src/assets/img/hero-az.jpg);
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-position: center;
+  height: 75vh;
+  background-attachment: scroll; }
 
 .section-hero {
-  background-color: #f4e6ed;
   padding: 4.8rem 0 9.6rem 0; }
 
 .hero {
@@ -915,15 +920,12 @@ strong {
   align-items: center; }
 
 .hero-description {
-  font-size: 2rem;
+  font-size: 2.4rem;
   line-height: 1.6;
   margin-bottom: 4.8rem; }
 
 .hero-description-item:not(:last-child) {
   margin-bottom: 2rem; }
-
-.hero-img {
-  width: 100%; }
 
 /***************************/
 /* HOW IT WORKS SECTION */
@@ -986,17 +988,17 @@ strong {
 
 .pricing-plan--starter {
   border: 2px solid #fdf2e9;
-  padding: 4.6rem; }
+  padding: 4.6rem;
+  justify-self: end; }
 
 .pricing-plan--complete {
   background-color: #fdf2e9;
   padding: 4.8rem;
   position: relative;
-  overflow: hidden;
-  justify-self: end; }
+  overflow: hidden; }
 
 .pricing-plan--complete::after {
-  content: 'Best Value';
+  content: 'Add-on';
   position: absolute;
   top: 5%;
   right: -20%;
@@ -1068,18 +1070,6 @@ strong {
   display: grid;
   grid-template-columns: repeat(1, 1fr);
   row-gap: 4.8rem; }
-
-.hero-container-az {
-  background-image: -webkit-linear-gradient(rgba(233, 204, 219, 0.7), rgba(233, 204, 219, 0)), url(/src/assets/img/hero-az.jpg);
-  background-image: linear-gradient(rgba(233, 204, 219, 0.7), rgba(233, 204, 219, 0)), url(/src/assets/img/hero-az.jpg);
-  background-size: cover;
-  background-repeat: no-repeat;
-  background-position: center;
-  height: 95vh;
-  background-attachment: scroll; }
-
-.section-hero-az {
-  padding: 4.8rem 1.8rem 0 1.8rem; }
 
 .waitlist-form {
   display: flex;
@@ -1262,6 +1252,12 @@ strong {
   text-align: center;
   font-size: 1.8rem; }
 
+.section-faq {
+  padding: 4.8rem 0 9.6rem 0; }
+
+.faq-style-wrapper .faq-body .faq-row .row-content-text {
+  line-height: 2.4rem; }
+
 .not-in-area {
   font-size: 2.5rem;
   font-weight: 400;
@@ -1381,6 +1377,8 @@ input[type='number'] {
 /* BELOW 1344px (Smaller desktops) */
 /***************************/
 @media (max-width: 84em) {
+  .hero-container {
+    height: 85vh; }
   .hero {
     max-width: 120rem; }
   .heading-primary {
@@ -1423,15 +1421,16 @@ input[type='number'] {
   html {
     /* 8px = 50% of 16px */
     font-size: 50%; }
+  .hero-container {
+    background-image: -webkit-linear-gradient(rgba(233, 204, 219, 0.7), rgba(233, 204, 219, 0)), url(/src/assets/img/hero-az-lg.jpg);
+    background-image: linear-gradient(rgba(233, 204, 219, 0.7), rgba(233, 204, 219, 0)), url(/src/assets/img/hero-az-lg.jpg);
+    height: 95vh; }
   .hero {
     grid-template-columns: 1fr;
     padding: 0 8rem;
     gap: 6.4rem; }
   .hero-text-box {
     text-align: center; }
-  .hero-container-az {
-    background-image: -webkit-linear-gradient(rgba(233, 204, 219, 0.7), rgba(233, 204, 219, 0)), url(/src/assets/img/hero-az-lg.jpg);
-    background-image: linear-gradient(rgba(233, 204, 219, 0.7), rgba(233, 204, 219, 0)), url(/src/assets/img/hero-az-lg.jpg); }
   .blob-container__overlay {
     max-width: 45%;
     padding: 0;
@@ -1494,12 +1493,7 @@ input[type='number'] {
 /* BELOW 704px (Tablets) */
 /***************************/
 @media (max-width: 44em) {
-  .hero-container {
-    background-color: #f4e6ed;
-    background-image: none;
-    height: inherit;
-    padding-bottom: 8rem; }
-  .section-hero-az {
+  .section-hero {
     padding: 1.2rem 1.8rem 0 1.8rem; }
   .waitlist-form {
     margin: auto; }
@@ -1567,7 +1561,7 @@ input[type='number'] {
   .hero {
     padding: 0 0; }
   .hero-description {
-    text-align: start;
+    text-align: center;
     padding-left: 1.2rem; }
   .hero-text-box {
     padding: 0 1.2rem; }
@@ -1667,7 +1661,7 @@ input[type='number'] {
 /* BELOW 384 (Small Phones) */
 /***************************/
 @media (max-width: 24em) {
-  .hero-container-az {
+  .hero-container {
     background-image: -webkit-linear-gradient(rgba(233, 204, 219, 0.7), rgba(233, 204, 219, 0)), url(/src/assets/img/hero-az-sm.jpg);
     background-image: linear-gradient(rgba(233, 204, 219, 0.7), rgba(233, 204, 219, 0)), url(/src/assets/img/hero-az-sm.jpg); }
   .blob-container {

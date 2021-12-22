@@ -44,7 +44,7 @@ class Header extends React.Component {
               </HashLink>
             </li>
             <li>
-              <HashLink className='main-nav-link nav-cta' to='/az#ingredients'>
+              <HashLink className='main-nav-link nav-cta' to='/az'>
                 Join Waitlist
               </HashLink>
             </li>
