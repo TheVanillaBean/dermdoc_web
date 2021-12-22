@@ -78,7 +78,13 @@ class Header extends React.Component {
 
             {isWaitlistLandingPage ? (
               <li>
-                <HashLink className='main-nav-link nav-cta' smooth to='#bottom-waitlist'>
+                <HashLink
+                  className='main-nav-link nav-cta'
+                  scroll={(el) => {
+                    el.scrollIntoView({ behavior: 'smooth', block: 'end' });
+                    this.setState({ nav_open: '' });
+                  }}
+                  to='#bottom-waitlist'>
                   Join Waitlist
                 </HashLink>
               </li>

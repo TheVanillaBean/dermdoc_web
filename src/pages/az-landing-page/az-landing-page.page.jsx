@@ -456,9 +456,6 @@ class AZLandingPage extends React.Component {
                 rowContentPaddingTop: '1.2rem',
                 rowContentPaddingBottom: '1.2rem',
               }}
-              config={{
-                tabFocus: true,
-              }}
             />
           </div>
         </section>
