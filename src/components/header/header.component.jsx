@@ -7,6 +7,10 @@ import Logo from '../../assets/img/logo.png';
 import { updateVisitReason } from '../../redux/search/search.actions';
 
 class Header extends React.Component {
+  state = {
+    nav_open: '',
+  };
+
   handleClick = () => {
     const { history, updateVisitReason } = this.props;
 
@@ -18,8 +22,9 @@ class Header extends React.Component {
 
   render() {
     const { isWaitlistLandingPage = false } = this.props;
+    const { nav_open } = this.state;
     return (
-      <header className='header'>
+      <header className={`header ${nav_open}`}>
         <Link to='/'>
           <img src={Logo} alt='Medicall logo' className='logo' />
         </Link>
@@ -27,22 +32,46 @@ class Header extends React.Component {
         <nav className='main-nav'>
           <ul className='main-nav-list'>
             <li>
-              <HashLink className='main-nav-link' smooth to='#how'>
+              <HashLink
+                className='main-nav-link'
+                scroll={(el) => {
+                  el.scrollIntoView({ behavior: 'smooth', block: 'end' });
+                  this.setState({ nav_open: '' });
+                }}
+                to='#how'>
                 How it works
               </HashLink>
             </li>
             <li>
-              <HashLink className='main-nav-link' smooth to='#pricing'>
+              <HashLink
+                className='main-nav-link'
+                scroll={(el) => {
+                  el.scrollIntoView({ behavior: 'smooth', block: 'end' });
+                  this.setState({ nav_open: '' });
+                }}
+                to='#pricing'>
                 Pricing
               </HashLink>
             </li>
             <li>
-              <HashLink className='main-nav-link' smooth to='#ingredients'>
+              <HashLink
+                className='main-nav-link'
+                scroll={(el) => {
+                  el.scrollIntoView({ behavior: 'smooth', block: 'end' });
+                  this.setState({ nav_open: '' });
+                }}
+                to='#ingredients'>
                 Ingredients
               </HashLink>
             </li>
             <li>
-              <HashLink className='main-nav-link' smooth to='#faq'>
+              <HashLink
+                className='main-nav-link'
+                scroll={(el) => {
+                  el.scrollIntoView({ behavior: 'smooth', block: 'end' });
+                  this.setState({ nav_open: '' });
+                }}
+                to='#faq'>
                 FAQ
               </HashLink>
             </li>
@@ -63,7 +92,11 @@ class Header extends React.Component {
           </ul>
         </nav>
 
-        <button className='btn-mobile-nav'>
+        <button
+          className='btn-mobile-nav'
+          onClick={() => {
+            this.setState({ nav_open: 'nav-open' });
+          }}>
           <IoMenuOutline className='icon-mobile-nav' name='menu-outline' />
           <IoCloseOutline className='icon-mobile-nav' name='close-outline' />
         </button>
