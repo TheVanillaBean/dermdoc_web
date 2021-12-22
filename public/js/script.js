@@ -36,8 +36,7 @@ btnNavEl.addEventListener('click', function () {
 //     }
 
 //     // Close mobile naviagtion
-//     if (link.classList.contains('main-nav-link'))
-//       headerEl.classList.toggle('nav-open');
+//     if (link.classList.contains('main-nav-link')) headerEl.classList.toggle('nav-open');
 //   });
 // });
 

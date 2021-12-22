@@ -62,12 +62,9 @@ class WaitlistPage extends React.Component {
 
         <div className='container margin-bottom-md'>
           <div className='not-in-area'>
-            <p>We don't have any doctors licensed in your state ({mailing_state}).</p>
+            <p>We haven't launched yet in your state ({mailing_state}).</p>
             <br />
-            <p>
-              If you join our waitlist, we will send you a 50% discount when we onboard a doctor in{' '}
-              {mailing_state}.
-            </p>
+            <p>If you join our waitlist, we will send you a 50% discount when we do launch.</p>
           </div>
 
           <form className='sign-up-form' onSubmit={this.handleSubmit}>

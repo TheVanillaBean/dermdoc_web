@@ -436,7 +436,7 @@ class AZLandingPage extends React.Component {
             </div>
           </div>
         </section>
-        <section className='section-faq'>
+        <section className='section-faq' id='faq'>
           <div className='container center-text'>
             <h2 className='subheading'>FAQ</h2>
             <h2 className='heading-secondary'>Learn why Medicall is unique</h2>

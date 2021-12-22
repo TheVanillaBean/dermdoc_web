@@ -10,6 +10,8 @@ class Header extends React.Component {
   handleClick = () => {
     const { history, updateVisitReason } = this.props;
 
+    document.body.classList.remove('sticky');
+
     updateVisitReason('Acne');
     history.push(`get_started`);
   };
@@ -25,29 +27,29 @@ class Header extends React.Component {
         <nav className='main-nav'>
           <ul className='main-nav-list'>
             <li>
-              <HashLink className='main-nav-link' to='#how'>
+              <HashLink className='main-nav-link' smooth to='#how'>
                 How it works
               </HashLink>
             </li>
             <li>
-              <HashLink className='main-nav-link' to='#pricing'>
+              <HashLink className='main-nav-link' smooth to='#pricing'>
                 Pricing
               </HashLink>
             </li>
             <li>
-              <HashLink className='main-nav-link' to='#ingredients'>
+              <HashLink className='main-nav-link' smooth to='#ingredients'>
                 Ingredients
               </HashLink>
             </li>
             <li>
-              <HashLink className='main-nav-link' to='#faq'>
+              <HashLink className='main-nav-link' smooth to='#faq'>
                 FAQ
               </HashLink>
             </li>
 
             {isWaitlistLandingPage ? (
               <li>
-                <HashLink className='main-nav-link nav-cta' to='#bottom-waitlist'>
+                <HashLink className='main-nav-link nav-cta' smooth to='#bottom-waitlist'>
                   Join Waitlist
                 </HashLink>
               </li>
