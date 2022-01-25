@@ -35,7 +35,7 @@ class Header extends React.Component {
               <HashLink
                 className='main-nav-link'
                 scroll={(el) => {
-                  el.scrollIntoView({ behavior: 'smooth', block: 'end' });
+                  el.scrollIntoView({ behavior: 'smooth', block: 'start' });
                   this.setState({ nav_open: '' });
                 }}
                 to='#how'>
@@ -46,7 +46,7 @@ class Header extends React.Component {
               <HashLink
                 className='main-nav-link'
                 scroll={(el) => {
-                  el.scrollIntoView({ behavior: 'smooth', block: 'end' });
+                  el.scrollIntoView({ behavior: 'smooth', block: 'start' });
                   this.setState({ nav_open: '' });
                 }}
                 to='#pricing'>
@@ -57,7 +57,7 @@ class Header extends React.Component {
               <HashLink
                 className='main-nav-link'
                 scroll={(el) => {
-                  el.scrollIntoView({ behavior: 'smooth', block: 'end' });
+                  el.scrollIntoView({ behavior: 'smooth', block: 'start' });
                   this.setState({ nav_open: '' });
                 }}
                 to='#ingredients'>
@@ -68,7 +68,7 @@ class Header extends React.Component {
               <HashLink
                 className='main-nav-link'
                 scroll={(el) => {
-                  el.scrollIntoView({ behavior: 'smooth', block: 'end' });
+                  el.scrollIntoView({ behavior: 'smooth', block: 'start' });
                   this.setState({ nav_open: '' });
                 }}
                 to='#faq'>
@@ -81,7 +81,7 @@ class Header extends React.Component {
                 <HashLink
                   className='main-nav-link nav-cta'
                   scroll={(el) => {
-                    el.scrollIntoView({ behavior: 'smooth', block: 'end' });
+                    el.scrollIntoView({ behavior: 'smooth', block: 'start' });
                     this.setState({ nav_open: '' });
                   }}
                   to='#bottom-waitlist'>

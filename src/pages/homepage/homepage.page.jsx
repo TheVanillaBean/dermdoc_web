@@ -41,11 +41,11 @@ class HomePage extends React.Component {
     rows: [
       {
         title: 'How is Medicall different?',
-        content: `The most popular custom skincare companies (e.g. curology, apostrophe, hims/hers) either don't offer oral medications for people who need more than a topical cream and/or they use smaller prescription concentrations which causes lesser efficacy. In addition, our customers recieve unlimited check-ins, while most other brands limit check-ins to once a month.`,
+        content: `Short version: Same price as other custom skincare companies, but better product. <br /> <br /> When you get a custom topical cream from the most popular custom skincare companies (e.g. curology, apostrophe, hims/hers), your cream will have a lower concentration of active ingredients than what you would get by going to a dermatologist in-person. With Medicall, you get the same convenience of the big companies, but with the quality of an in-person dermatology visit.`,
       },
       {
         title: 'Is there a refund policy?',
-        content: `If your skin does not improve after using your custom formula, we'll issue a full-refund for every month used. `,
+        content: `If your skin does not improve after using your custom formula, we'll issue a full-refund for every month used.`,
       },
     ],
   };
@@ -78,7 +78,9 @@ class HomePage extends React.Component {
                 <p className='feature-icon-text'>02</p>
               </div>
               <p className='feature-title'>Recieve custom formula</p>
-              <p className='feature-text'>You will get a personalized formula within 24 hours.</p>
+              <p className='feature-text'>
+                You will get a personalized topical cream within 24 hours.
+              </p>
             </div>
             <div className='feature'>
               <div className='feature-icon'>
@@ -111,7 +113,7 @@ class HomePage extends React.Component {
                 </p>
                 <p className='persona__description'>
                   Audrey has a busy schedule as a fitness instructor. Our custom formulation
-                  simplifies her skincare to a once daily application. <br />
+                  simplifies her skincare to a once nightly application. <br />
                 </p>
                 <ul className='list'>
                   <li className='list-item'>
@@ -129,7 +131,7 @@ class HomePage extends React.Component {
                       <span>
                         <strong>Before Bed</strong>
                       </span>
-                      <span className='persona__item-header__light'>Medicall Custom Formula</span>
+                      <span className='persona__item-header__light'>Medicall Topical Cream</span>
                     </p>
                   </li>
                 </ul>
@@ -164,13 +166,14 @@ class HomePage extends React.Component {
                 <li className='list-item'>
                   <IoHeartOutline className='list-icon' />
                   <span>
-                    <strong>High concentration</strong> custom formula designed by a dermatoligist
+                    <strong>High concentration</strong> custom topical cream designed by a
+                    dermatoligist
                   </span>
                 </li>
                 <li className='list-item'>
                   <IoHappyOutline className='list-icon' />
                   <span>
-                    Prescriptions <strong>delivered</strong> to your door (free shipping)
+                    Topical cream <strong>delivered</strong> to your door (free shipping)
                   </span>
                 </li>
                 <li className='list-item'>

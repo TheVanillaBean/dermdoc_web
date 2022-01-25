@@ -6,7 +6,7 @@ const HeroSection = ({ homepage = true, handleClick, handleSubmit, handleChange,
   const { ref, entry } = useInView({
     root: null, //browser viewport
     threshold: 0,
-    rootMargin: '-20px',
+    rootMargin: '0px',
   });
 
   useEffect(() => {
