@@ -7,10 +7,6 @@
 /* BELOW 1344px (Smaller desktops) */
 /***************************/
 @media (max-width: 84em) {
-  .hero-container {
-    height: 85vh;
-  }
-
   .hero {
     max-width: 120rem;
   }
@@ -79,14 +75,6 @@
   html {
     /* 8px = 50% of 16px */
     font-size: 50%;
-  }
-
-  .hero-container {
-    background-image: -webkit-linear-gradient(rgba(233, 204, 219, 0.7), rgba(233, 204, 219, 0)),
-      url(/src/assets/img/hero-az-lg.jpg);
-    background-image: linear-gradient(rgba(233, 204, 219, 0.7), rgba(233, 204, 219, 0)),
-      url(/src/assets/img/hero-az-lg.jpg);
-    height: 95vh;
   }
 
   .hero {
@@ -310,6 +298,16 @@
 
   .hero-text-box {
     padding: 0 1.2rem;
+  }
+
+  .hero-video {
+    &__content-mobile {
+      display: inline;
+    }
+
+    &__content-desktop {
+      display: none;
+    }
   }
 
   .waitlist-form {

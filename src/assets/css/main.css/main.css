@@ -264,7 +264,7 @@ strong {
 .btn:visited {
   display: inline-block;
   text-decoration: none;
-  font-size: 2rem;
+  font-size: 2.4rem;
   padding: 1.6rem 3.2rem;
   border-radius: 9px;
   /* For button tag only */
@@ -780,7 +780,7 @@ strong {
   position: relative; }
 
 .logo {
-  height: 3.2rem; }
+  height: 4.2rem; }
 
 .main-nav-list {
   list-style: none;
@@ -902,28 +902,34 @@ strong {
   background-color: var(--color-tint-1);
   background-repeat: no-repeat;
   background-position: center;
-  height: 75vh;
+  height: 100vh;
   background-attachment: scroll; }
 
 .section-hero {
   padding: 4.8rem 0 9.6rem 0; }
 
 .hero {
-  max-width: 130rem;
   margin: 0 auto;
-  padding: 0 3.2rem;
   display: grid;
   grid-template-columns: 1fr 1fr;
   gap: 9.6rem;
-  align-items: center; }
+  align-items: center;
+  margin-left: 25%; }
 
 .hero-description {
-  font-size: 2.4rem;
+  font-size: 2.8rem;
   line-height: 1.6;
   margin-bottom: 4.8rem; }
 
 .hero-description-item:not(:last-child) {
   margin-bottom: 2rem; }
+
+.hero-video {
+  display: flex;
+  justify-content: flex-end;
+  margin: auto; }
+  .hero-video__content-mobile {
+    display: none; }
 
 /***************************/
 /* HOW IT WORKS SECTION */
@@ -1379,8 +1385,6 @@ input[type='number'] {
 /* BELOW 1344px (Smaller desktops) */
 /***************************/
 @media (max-width: 84em) {
-  .hero-container {
-    height: 85vh; }
   .hero {
     max-width: 120rem; }
   .heading-primary {
@@ -1423,10 +1427,6 @@ input[type='number'] {
   html {
     /* 8px = 50% of 16px */
     font-size: 50%; }
-  .hero-container {
-    background-image: -webkit-linear-gradient(rgba(233, 204, 219, 0.7), rgba(233, 204, 219, 0)), url(/src/assets/img/hero-az-lg.jpg);
-    background-image: linear-gradient(rgba(233, 204, 219, 0.7), rgba(233, 204, 219, 0)), url(/src/assets/img/hero-az-lg.jpg);
-    height: 95vh; }
   .hero {
     grid-template-columns: 1fr;
     padding: 0 8rem;
@@ -1567,6 +1567,10 @@ input[type='number'] {
     padding-left: 1.2rem; }
   .hero-text-box {
     padding: 0 1.2rem; }
+  .hero-video__content-mobile {
+    display: inline; }
+  .hero-video__content-desktop {
+    display: none; }
   .waitlist-form {
     flex-direction: column;
     align-items: flex-start; }
