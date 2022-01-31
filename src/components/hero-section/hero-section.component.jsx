@@ -1,6 +1,9 @@
 import React, { useEffect } from 'react';
 import { useInView } from 'react-intersection-observer';
-import HeaderVideo from '../../assets/video/header-bg-desktop.mp4';
+import {
+  default as HeaderDesktopVideo,
+  default as HeaderMobileVideo,
+} from '../../assets/video/header-bg-desktop.mp4';
 import CustomButton from '../../components/custom-button/custom-button.component';
 
 const HeroSection = ({ homepage = true, handleClick, handleSubmit, handleChange, email }) => {
@@ -38,18 +41,18 @@ const HeroSection = ({ homepage = true, handleClick, handleSubmit, handleChange,
             Get 3 months supply for $9
           </CustomButton>
         </div>
-        <div className='hero-video'>
-          <video className='hero-video__content-desktop' autoPlay loop muted>
-            <source src={HeaderVideo} type='video/mp4' />
-            Your browser is not supported!
-          </video>
-        </div>
-        <div className='hero-video'>
-          <video className='hero-video__content-mobile' autoPlay loop muted>
-            <source src={HeaderVideo} type='video/mp4' />
-            Your browser is not supported!
-          </video>
-        </div>
+      </div>
+      <div className='hero-video'>
+        <video className='hero-video__content-desktop' playsInline autoPlay loop muted>
+          <source src={HeaderDesktopVideo} type='video/mp4' />
+          Your browser is not supported!
+        </video>
+      </div>
+      <div className='hero-video'>
+        <video className='hero-video__content-mobile' playsInline autoPlay loop muted>
+          <source src={HeaderMobileVideo} type='video/mp4' />
+          Your browser is not supported!
+        </video>
       </div>
     </section>
   ) : (

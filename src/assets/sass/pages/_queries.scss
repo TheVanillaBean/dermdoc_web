@@ -11,12 +11,14 @@
     max-width: 120rem;
   }
 
-  .heading-primary {
-    font-size: 4.4rem;
-  }
-
   .section-additional {
     max-width: 100%;
+  }
+
+  .hero-video {
+    &__content-desktop {
+      width: 125%;
+    }
   }
 
   .blob-container {
@@ -78,13 +80,32 @@
   }
 
   .hero {
+    margin-top: 40%;
+    padding: 0 6.4rem;
     grid-template-columns: 1fr;
-    padding: 0 8rem;
-    gap: 6.4rem;
   }
 
   .hero-text-box {
     text-align: center;
+  }
+
+  .hero-video {
+    position: absolute;
+    top: 0;
+    right: 0;
+    min-width: 80vw;
+    margin: auto;
+    z-index: -1;
+
+    &__content-desktop {
+      display: none;
+    }
+
+    &__content-mobile {
+      width: 100%;
+      display: inline;
+      object-fit: contain;
+    }
   }
 
   .blob-container {
@@ -300,16 +321,6 @@
     padding: 0 1.2rem;
   }
 
-  .hero-video {
-    &__content-mobile {
-      display: inline;
-    }
-
-    &__content-desktop {
-      display: none;
-    }
-  }
-
   .waitlist-form {
     flex-direction: column;
     align-items: flex-start;
@@ -472,20 +483,6 @@
 /* BELOW 384 (Small Phones) */
 /***************************/
 @media (max-width: 24em) {
-  .hero-container {
-    background-image: -webkit-linear-gradient(rgba(233, 204, 219, 0.7), rgba(233, 204, 219, 0)),
-      url(/src/assets/img/hero-az-sm.jpg);
-    background-image: linear-gradient(rgba(233, 204, 219, 0.7), rgba(233, 204, 219, 0)),
-      url(/src/assets/img/hero-az-sm.jpg);
-  }
-
-  .blob-container {
-    height: 55vh;
-
-    &__overlay > p {
-      font-size: 2rem;
-    }
-  }
 }
 
 /**************************/

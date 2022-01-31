@@ -6,25 +6,28 @@
   background-color: var(--color-tint-1);
   background-repeat: no-repeat;
   background-position: center;
-  height: 100vh;
   background-attachment: scroll;
 }
 
 .section-hero {
   padding: 4.8rem 0 9.6rem 0;
+  position: relative;
+  overflow: hidden;
+  z-index: 999;
 }
 
 .hero {
+  max-width: 130rem;
   margin: 0 auto;
+  padding: 0 3.2rem;
   display: grid;
   grid-template-columns: 1fr 1fr;
   gap: 9.6rem;
   align-items: center;
-  margin-left: 25%;
 }
 
 .hero-description {
-  font-size: 2.8rem;
+  font-size: 3.2rem;
   line-height: 1.6;
   margin-bottom: 4.8rem;
 }
@@ -34,9 +37,16 @@
 }
 
 .hero-video {
-  display: flex;
-  justify-content: flex-end;
+  position: absolute;
+  top: 0;
+  right: 0;
+  max-width: 50%;
   margin: auto;
+  z-index: -1;
+
+  &__content-desktop {
+    width: 100%;
+  }
 
   &__content-mobile {
     display: none;
