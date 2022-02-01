@@ -25,34 +25,29 @@ const HeroSection = ({ homepage = true, handleClick, handleSubmit, handleChange,
     <section ref={ref} className='section-hero'>
       <div className='hero'>
         <div className='hero-text-box'>
-          <h1 className='heading-primary'>Skincare brands are greedy</h1>
+          <h1 className='heading-primary'>Get clear skin with your own custom face cream</h1>
 
           <p className='hero-description'>
-            With Dermdoc, you'll get the same EXACT product as leading competitors...but 40%
-            cheaper.
-          </p>
-
-          <p className='hero-description'>
-            Your dermatologist will design a topical cream that combines powerful active
-            ingredients, tailored just for you.
+            You'll get a custom topical cream that combines powerful prescription ingredients,
+            tailored just for you.
           </p>
 
           <CustomButton className='btn btn--full' onClick={handleClick}>
             Get 3 months supply for $9
           </CustomButton>
         </div>
-      </div>
-      <div className='hero-video'>
-        <video className='hero-video__content-desktop' playsInline autoPlay loop muted>
-          <source src={HeaderDesktopVideo} type='video/mp4' />
-          Your browser is not supported!
-        </video>
-      </div>
-      <div className='hero-video'>
-        <video className='hero-video__content-mobile' playsInline autoPlay loop muted>
-          <source src={HeaderMobileVideo} type='video/mp4' />
-          Your browser is not supported!
-        </video>
+        <div className='hero-video'>
+          <video className='hero-video__content-desktop' playsInline autoPlay loop muted>
+            <source src={HeaderDesktopVideo} type='video/mp4' />
+            Your browser is not supported!
+          </video>
+        </div>
+        <div className='hero-video'>
+          <video className='hero-video__content-mobile' playsInline autoPlay loop muted>
+            <source src={HeaderMobileVideo} type='video/mp4' />
+            Your browser is not supported!
+          </video>
+        </div>
       </div>
     </section>
   ) : (

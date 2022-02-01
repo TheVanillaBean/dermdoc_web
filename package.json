@@ -45,7 +45,7 @@
     "deploy:prod": "npm-run-all build:prod use-firebase:prod firebase-deploy:prod",
     "use-firebase:dev": "firebase use dev",
     "use-firebase:prod": "firebase use prod",
-    "firebase-deploy:dev": "firebase deploy --only hosting:landing",
+    "firebase-deploy:dev": "firebase deploy --only hosting:dev",
     "firebase-deploy:prod": "firebase deploy --only hosting",
     "start": "react-scripts start",
     "build": "react-scripts build",

@@ -6,9 +6,7 @@
   "targets": {
     "medicall-dev-58c31": {
       "hosting": {
-        "landing": [
-          "medicall-landing"
-        ]
+        "dev": ["dermdoc-dev"]
       }
     }
   }
