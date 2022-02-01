@@ -18,12 +18,14 @@ import { withRouter } from 'react-router-dom';
 import Cream1 from '../../assets/img/cream-1.jpeg';
 import Cream2 from '../../assets/img/cream-2.jpeg';
 import AudreyPersona from '../../assets/img/medicall_persona.jpg'; // Tell Webpack this JS file uses this image
+import ProcessInfographic from '../../assets/img/pricing-infographic-lg.png';
 import CustomButton from '../../components/custom-button/custom-button.component';
 import Footer from '../../components/footer/footer.component';
 import Header from '../../components/header/header.component';
 import HeroSection from '../../components/hero-section/hero-section.component';
 import { analytics } from '../../firebase/firebase.utils';
 import { updateVisitReason } from '../../redux/search/search.actions';
+
 class HomePage extends React.Component {
   componentDidMount() {
     analytics.logEvent('Homepage Viewed');
@@ -56,6 +58,13 @@ class HomePage extends React.Component {
         <div className='hero-container'>
           <Header />
           <HeroSection handleClick={this.handleClick} />
+        </div>
+        <div className='hero-infographic'>
+          <h1 className='heading-primary'>Skincare brands are greedy</h1>
+          <p className='heading-tertiary'>
+            See how you'll save 40% on the same EXACT creams as leading competitors
+          </p>
+          <img src={ProcessInfographic} alt='Pricing Infographic' />
         </div>
         <section className='section-how' id='how'>
           <div className='container center-text'>

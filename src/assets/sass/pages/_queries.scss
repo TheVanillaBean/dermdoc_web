@@ -7,6 +7,10 @@
 /* BELOW 1344px (Smaller desktops) */
 /***************************/
 @media (max-width: 84em) {
+  .section-hero {
+    height: 100vh;
+  }
+
   .hero {
     max-width: 120rem;
   }
@@ -205,6 +209,10 @@
 @media (max-width: 44em) {
   .section-hero {
     padding: 1.2rem 1.8rem 0 1.8rem;
+  }
+
+  .hero-infographic {
+    padding: 0 2.4rem;
   }
 
   .waitlist-form {
