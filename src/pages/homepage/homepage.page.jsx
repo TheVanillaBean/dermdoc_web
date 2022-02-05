@@ -6,7 +6,6 @@ import {
   IoCheckmarkOutline,
   IoHappyOutline,
   IoHeartOutline,
-  IoMoonOutline,
   IoReorderFourOutline,
   IoSnowOutline,
   IoSunnyOutline,
@@ -17,7 +16,6 @@ import { connect } from 'react-redux';
 import { withRouter } from 'react-router-dom';
 import Cream1 from '../../assets/img/cream-1.jpeg';
 import Cream2 from '../../assets/img/cream-2.jpeg';
-import AudreyPersona from '../../assets/img/medicall_persona.jpg'; // Tell Webpack this JS file uses this image
 import ProcessInfographic from '../../assets/img/pricing-infographic-lg.png';
 import CustomButton from '../../components/custom-button/custom-button.component';
 import Footer from '../../components/footer/footer.component';
@@ -66,12 +64,11 @@ class HomePage extends React.Component {
           </p>
           <img src={ProcessInfographic} alt='Pricing Infographic' />
         </div>
+
         <section className='section-how' id='how'>
-          <div className='container center-text'>
-            <span className='subheading'>How do I get my formulas?</span>
-            <h2 className='heading-secondary'>
-              Your dermatologist will figure out a custom formula just for you
-            </h2>
+          <div className='container center-text margin-bottom-lg'>
+            <h1 className='heading-primary'>How does it work</h1>
+            <p className='heading-tertiary'>You're only 3 steps away from clearer skin</p>
           </div>
 
           <div className='steps container grid grid--3-cols'>
@@ -103,58 +100,10 @@ class HomePage extends React.Component {
           </div>
         </section>
 
-        <div className='border' />
-
-        <section className='section-personas margin-bottom-md' id='personas'>
-          <div className='container center-text'>
-            <span className='subheading'>A formula tailored to your skin</span>
-            <h2 className='heading-secondary'>Skincare finally made simple</h2>
-          </div>
-
-          <div className='container margin-bottom-md'>
-            <div className='persona'>
-              <img className='persona__image' src={AudreyPersona} alt='Persona' />
-
-              <div className='container'>
-                <h1 className='persona__name'>Audrey's formula</h1>
-                <p className='persona__occupation'>
-                  <strong>Formula: </strong>Tretinoin, clindamycin, niacinimide
-                </p>
-                <p className='persona__description'>
-                  Audrey has a busy schedule as a fitness instructor. Our custom formulation
-                  simplifies her skincare to a once nightly application. <br />
-                </p>
-                <ul className='list'>
-                  <li className='list-item'>
-                    <IoSunnyOutline className='list-icon' />
-                    <p className='persona__item-header'>
-                      <span>
-                        <strong>In the Morning</strong>
-                      </span>
-                      <span className='persona__item-header__light'>Facial Moisturizer</span>
-                    </p>
-                  </li>
-                  <li className='list-item'>
-                    <IoMoonOutline className='list-icon' />
-                    <p className='persona__item-header'>
-                      <span>
-                        <strong>Before Bed</strong>
-                      </span>
-                      <span className='persona__item-header__light'>Medicall Topical Cream</span>
-                    </p>
-                  </li>
-                </ul>
-              </div>
-            </div>
-          </div>
-        </section>
-
-        <div className='border' />
-
         <section className='section-pricing' id='pricing'>
-          <div className='container center-text'>
-            <span className='subheading'>Pricing</span>
-            <h2 className='heading-secondary'>Personalized skincare without the premium price</h2>
+          <div className='container center-text margin-bottom-lg'>
+            <h1 className='heading-primary'>Pricing</h1>
+            <p className='heading-tertiary'>Custom skincare without the premium price</p>
           </div>
 
           <div className='container grid grid--2-cols margin-bottom-md'>
@@ -164,10 +113,10 @@ class HomePage extends React.Component {
                   <span>Topical Medications</span>
                 </p>
                 <p className='plan-price'>
-                  <span>$</span>24.95
+                  <span>$</span>14.95
                 </p>
                 <p className='plan-text'>
-                  per month. Includes formula and <strong>unlimited check-ins</strong> with a
+                  per month. Includes topical cream and <strong>check-ins</strong> with a
                   dermatologist.
                 </p>
               </header>
@@ -175,20 +124,19 @@ class HomePage extends React.Component {
                 <li className='list-item'>
                   <IoHeartOutline className='list-icon' />
                   <span>
-                    <strong>High concentration</strong> custom topical cream designed by a
-                    dermatoligist
+                    <strong>Custom</strong> topical cream designed just for you
                   </span>
                 </li>
                 <li className='list-item'>
                   <IoHappyOutline className='list-icon' />
                   <span>
-                    Topical cream <strong>delivered</strong> to your door (free shipping)
+                    <strong>Delivered</strong> to your door (free shipping)
                   </span>
                 </li>
                 <li className='list-item'>
                   <IoCheckmarkCircleOutline className='list-icon' />
                   <span>
-                    <strong>Unlimited</strong> online check-ins to monitor your skin
+                    <strong>Check-ins</strong> check-ins to monitor your skin
                   </span>
                 </li>
               </ul>
@@ -203,7 +151,9 @@ class HomePage extends React.Component {
                 <p className='plan-price'>
                   <span>$</span>14.95
                 </p>
-                <p className='plan-text'>extra per month. In-case you need it &#128522;</p>
+                <p className='plan-text'>
+                  extra per month. In-case you need it &#128522; Check-ins still included. <br />
+                </p>
               </header>
               <ul className='list'>
                 <li className='list-item'>
@@ -218,7 +168,7 @@ class HomePage extends React.Component {
           </div>
           <div className='container center-text'>
             <CustomButton className='btn btn--full' onClick={this.handleClick}>
-              Get your custom formula
+              Get 3 months supply for $9
             </CustomButton>
           </div>
         </section>
@@ -335,31 +285,6 @@ class HomePage extends React.Component {
           </div>
         </section>
 
-        <div className='border' />
-
-        <section className='section-additional'>
-          <div className='container center-text'>
-            <h2 className='subheading'>Your skin’s new best friend</h2>
-            <h2 className='heading-secondary'>
-              You'll receive expert care in addition to your formulas
-            </h2>
-          </div>
-
-          <div className='blob-container margin-bottom-md'>
-            <div className='blob-container__overlay'>
-              <p className='paragraph'>
-                Once you have your personal formulas, we’ll continue to help along your journey
-                (like a personal assistant for your skin). Ask us any questions (seriously anything)
-                and we will try our best to help &#128522;
-              </p>
-            </div>
-          </div>
-          <div className='container center-text'>
-            <CustomButton className='btn btn--full' onClick={this.handleClick}>
-              Get clearer skin now
-            </CustomButton>
-          </div>
-        </section>
         <section className='section-faq' id='faq'>
           <div className='container center-text'>
             <h2 className='subheading'>FAQ</h2>

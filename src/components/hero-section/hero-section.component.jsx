@@ -1,9 +1,5 @@
 import React, { useEffect } from 'react';
 import { useInView } from 'react-intersection-observer';
-import {
-  default as HeaderDesktopVideo,
-  default as HeaderMobileVideo,
-} from '../../assets/video/header-bg-desktop.mp4';
 import CustomButton from '../../components/custom-button/custom-button.component';
 
 const HeroSection = ({ homepage = true, handleClick, handleSubmit, handleChange, email }) => {
@@ -25,7 +21,7 @@ const HeroSection = ({ homepage = true, handleClick, handleSubmit, handleChange,
     <section ref={ref} className='section-hero'>
       <div className='hero'>
         <div className='hero-text-box'>
-          <h1 className='heading-primary'>Get clear skin with your own custom face cream</h1>
+          <h1 className='heading-primary'>Your custom topical cream, now 40% cheaper</h1>
 
           <p className='hero-description'>
             You'll get a custom topical cream that combines powerful prescription ingredients,
@@ -35,18 +31,6 @@ const HeroSection = ({ homepage = true, handleClick, handleSubmit, handleChange,
           <CustomButton className='btn btn--full' onClick={handleClick}>
             Get 3 months supply for $9
           </CustomButton>
-        </div>
-        <div className='hero-video'>
-          <video className='hero-video__content-desktop' playsInline autoPlay loop muted>
-            <source src={HeaderDesktopVideo} type='video/mp4' />
-            Your browser is not supported!
-          </video>
-        </div>
-        <div className='hero-video'>
-          <video className='hero-video__content-mobile' playsInline autoPlay loop muted>
-            <source src={HeaderMobileVideo} type='video/mp4' />
-            Your browser is not supported!
-          </video>
         </div>
       </div>
     </section>
