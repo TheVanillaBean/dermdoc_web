@@ -224,6 +224,9 @@ body {
   margin-bottom: 1rem;
   letter-spacing: 0.75px; }
 
+.text-primary-color {
+  color: var(--color-primary-dark); }
+
 /* HELPER/SETTINGS CLASSES */
 .margin-right-sm {
   margin-right: 4.8rem !important; }
@@ -1019,11 +1022,14 @@ strong {
 
 .pricing-plan {
   border-radius: 11px;
-  width: 75%; }
+  width: 75%;
+  overflow: hidden; }
+
+.plan-content {
+  padding: 4.6rem; }
 
 .pricing-plan--starter {
   border: 2px solid #fdf2e9;
-  padding: 4.6rem;
   justify-self: end; }
 
 .pricing-plan--complete {
@@ -1044,6 +1050,10 @@ strong {
   background-color: #ffd43b;
   padding: 0.8rem 8rem;
   transform: rotate(45deg); }
+
+.plan-img {
+  width: 125%;
+  object-fit: cover; }
 
 .plan-header {
   text-align: center;

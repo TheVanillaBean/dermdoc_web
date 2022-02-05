@@ -22,7 +22,8 @@ const HeroSection = ({ homepage = true, handleClick, handleSubmit, handleChange,
       <div className='hero'>
         <div className='hero-text-box'>
           <h1 className='heading-primary'>
-            Your custom topical cream, now <span class='frame frame-cheaper'>40% cheaper</span>
+            Your skincare routine just got <br />
+            <span class='frame frame-cheaper'>40% cheaper</span>
           </h1>
 
           <p className='hero-description'>
@@ -31,7 +32,7 @@ const HeroSection = ({ homepage = true, handleClick, handleSubmit, handleChange,
           </p>
 
           <CustomButton className='btn btn--full' onClick={handleClick}>
-            Get 3 months supply for $9
+            Try for three months - $20
           </CustomButton>
         </div>
       </div>

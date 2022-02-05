@@ -17,13 +17,13 @@ import { withRouter } from 'react-router-dom';
 import Cream1 from '../../assets/img/cream-1.jpeg';
 import Cream2 from '../../assets/img/cream-2.jpeg';
 import ProcessInfographic from '../../assets/img/pricing-infographic-lg.png';
+import PricingHeader from '../../assets/img/product-1.JPG';
 import CustomButton from '../../components/custom-button/custom-button.component';
 import Footer from '../../components/footer/footer.component';
 import Header from '../../components/header/header.component';
 import HeroSection from '../../components/hero-section/hero-section.component';
 import { analytics } from '../../firebase/firebase.utils';
 import { updateVisitReason } from '../../redux/search/search.actions';
-
 class HomePage extends React.Component {
   componentDidMount() {
     analytics.logEvent('Homepage Viewed');
@@ -60,7 +60,8 @@ class HomePage extends React.Component {
         <div className='hero-infographic'>
           <h1 className='heading-primary'>Skincare brands are greedy</h1>
           <p className='heading-tertiary'>
-            See how you'll save 40% on the same EXACT creams as leading competitors
+            See how you'll save 40% on the same <span class='text-primary-color'>EXACT</span> creams
+            as leading competitors
           </p>
           <img src={ProcessInfographic} alt='Pricing Infographic' />
         </div>
@@ -101,45 +102,50 @@ class HomePage extends React.Component {
         </section>
 
         <section className='section-pricing' id='pricing'>
-          <div className='container center-text margin-bottom-lg'>
+          <div className='container center-text '>
             <h1 className='heading-primary'>Pricing</h1>
             <p className='heading-tertiary'>Custom skincare without the premium price</p>
           </div>
 
           <div className='container grid grid--2-cols margin-bottom-md'>
             <div className='pricing-plan pricing-plan--starter'>
-              <header className='plan-header'>
-                <p className='plan-name'>
-                  <span>Topical Medications</span>
-                </p>
-                <p className='plan-price'>
-                  <span>$</span>14.95
-                </p>
-                <p className='plan-text'>
-                  per month. Includes topical cream and <strong>check-ins</strong> with a
-                  dermatologist.
-                </p>
-              </header>
-              <ul className='list'>
-                <li className='list-item'>
-                  <IoHeartOutline className='list-icon' />
-                  <span>
-                    <strong>Custom</strong> topical cream designed just for you
-                  </span>
-                </li>
-                <li className='list-item'>
-                  <IoHappyOutline className='list-icon' />
-                  <span>
-                    <strong>Delivered</strong> to your door (free shipping)
-                  </span>
-                </li>
-                <li className='list-item'>
-                  <IoCheckmarkCircleOutline className='list-icon' />
-                  <span>
-                    <strong>Check-ins</strong> check-ins to monitor your skin
-                  </span>
-                </li>
-              </ul>
+              <img className='plan-img' src={PricingHeader} alt='Headshot' />
+
+              <div className='plan-content'>
+                {' '}
+                <header className='plan-header'>
+                  <p className='plan-name'>
+                    <span>Topical Medications</span>
+                  </p>
+                  <p className='plan-price'>
+                    <span>$</span>14.95
+                  </p>
+                  <p className='plan-text'>
+                    per month. Includes topical cream and <strong>check-ins</strong> with a
+                    dermatologist.
+                  </p>
+                </header>
+                <ul className='list'>
+                  <li className='list-item'>
+                    <IoHeartOutline className='list-icon' />
+                    <span>
+                      <strong>Custom</strong> topical cream designed just for you
+                    </span>
+                  </li>
+                  <li className='list-item'>
+                    <IoHappyOutline className='list-icon' />
+                    <span>
+                      <strong>Delivered</strong> to your door (free shipping)
+                    </span>
+                  </li>
+                  <li className='list-item'>
+                    <IoCheckmarkCircleOutline className='list-icon' />
+                    <span>
+                      <strong>Check-ins</strong> check-ins to monitor your skin
+                    </span>
+                  </li>
+                </ul>
+              </div>
             </div>
 
             <div className='pricing-plan pricing-plan--complete'>
@@ -168,7 +174,7 @@ class HomePage extends React.Component {
           </div>
           <div className='container center-text'>
             <CustomButton className='btn btn--full' onClick={this.handleClick}>
-              Get 3 months supply for $9
+              Try for three months - $20
             </CustomButton>
           </div>
         </section>
