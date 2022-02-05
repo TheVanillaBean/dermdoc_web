@@ -21,7 +21,9 @@ const HeroSection = ({ homepage = true, handleClick, handleSubmit, handleChange,
     <section ref={ref} className='section-hero'>
       <div className='hero'>
         <div className='hero-text-box'>
-          <h1 className='heading-primary'>Your custom topical cream, now 40% cheaper</h1>
+          <h1 className='heading-primary'>
+            Your custom topical cream, now <span class='frame frame-cheaper'>40% cheaper</span>
+          </h1>
 
           <p className='hero-description'>
             You'll get a custom topical cream that combines powerful prescription ingredients,

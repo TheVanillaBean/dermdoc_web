@@ -97,6 +97,13 @@
     text-align: center;
   }
 
+  .frame-cheaper::after {
+    background-image: url(../../img/frame-blue-dark-m.png);
+    left: -1rem;
+    width: 125%;
+    bottom: -2rem;
+  }
+
   .blob-container {
     &__overlay {
       max-width: 45%;

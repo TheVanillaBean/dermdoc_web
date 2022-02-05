@@ -26,6 +26,28 @@
   align-items: center;
 }
 
+.frame {
+  position: relative;
+}
+
+.frame::after {
+  background-repeat: no-repeat;
+  background-position: left bottom;
+  content: '';
+  position: absolute;
+  display: block;
+  bottom: 0;
+  height: 23px;
+  z-index: 1;
+}
+
+.frame-cheaper::after {
+  background-image: url(../../img/frame-blue-dark.png);
+  left: -29px;
+  width: 489px;
+  bottom: -8px;
+}
+
 .hero-description {
   font-size: 2.4rem;
   line-height: 1.6;
