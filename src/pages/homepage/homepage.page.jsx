@@ -112,7 +112,6 @@ class HomePage extends React.Component {
               <img className='plan-img' src={PricingHeader} alt='Headshot' />
 
               <div className='plan-content'>
-                {' '}
                 <header className='plan-header'>
                   <p className='plan-name'>
                     <span>Topical Medications</span>
@@ -141,7 +140,7 @@ class HomePage extends React.Component {
                   <li className='list-item'>
                     <IoCheckmarkCircleOutline className='list-icon' />
                     <span>
-                      <strong>Check-ins</strong> check-ins to monitor your skin
+                      <strong>Check-ins</strong> to monitor your skin
                     </span>
                   </li>
                 </ul>
@@ -178,8 +177,6 @@ class HomePage extends React.Component {
             </CustomButton>
           </div>
         </section>
-
-        <div className='border' />
 
         <section className='section-ingredients' id='ingredients'>
           <div className='container center-text'>

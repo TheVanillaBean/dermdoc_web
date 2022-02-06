@@ -789,7 +789,8 @@ strong {
   list-style: none;
   display: flex;
   gap: 4.8rem;
-  align-items: center; }
+  align-items: center;
+  z-index: 999; }
 
 .main-nav-link:link,
 .main-nav-link:visited {
@@ -845,6 +846,10 @@ strong {
   background-color: rgba(255, 255, 255, 0.97);
   z-index: 999;
   box-shadow: 0 1.2rem 3.2rem rgba(0, 0, 0, 0.03); }
+
+.header {
+  position: relative;
+  z-index: 999; }
 
 .sticky .section-hero {
   margin-top: 9.6rem; }
@@ -920,9 +925,13 @@ strong {
   display: grid;
   grid-template-columns: 1fr 1fr;
   gap: 9.6rem;
-  align-items: center; }
+  align-items: center;
+  z-index: 1; }
 
-.frame {
+.hero-text-box {
+  z-index: 1; }
+
+.frame-cheaper {
   position: relative; }
 
 .frame::after {
@@ -933,7 +942,7 @@ strong {
   display: block;
   bottom: 0;
   height: 23px;
-  z-index: 1; }
+  z-index: -1; }
 
 .frame-cheaper::after {
   background-image: url(../../img/frame-blue-dark.png);
@@ -955,7 +964,7 @@ strong {
   align-items: center;
   justify-content: flex-start;
   padding-bottom: 12.8rem;
-  margin-top: 9.6rem;
+  margin-top: 12.8rem;
   text-align: center; }
   .hero-infographic > img {
     margin-top: 4.8rem;
@@ -968,7 +977,7 @@ strong {
 /***************************/
 .section-how {
   scroll-margin: 3.2rem;
-  padding: 4.8rem 0 4.8rem 0; }
+  padding: 9.6rem 0 9.6rem 0; }
 
 .feature-icon {
   position: relative;
@@ -1235,7 +1244,7 @@ strong {
 /***************************/
 .section-ingredients {
   scroll-margin: 3.2rem;
-  padding-top: 4.8rem; }
+  padding-top: 9.6rem; }
 
 .ingredient {
   box-shadow: 0 2.4rem 4.8rem rgba(0, 0, 0, 0.075);
@@ -1301,7 +1310,7 @@ strong {
   font-size: 1.8rem; }
 
 .section-faq {
-  padding: 4.8rem 0 9.6rem 0; }
+  padding: 9.6rem 0 9.6rem 0; }
 
 .faq-style-wrapper .faq-body .faq-row .row-content-text {
   line-height: 2.4rem; }
