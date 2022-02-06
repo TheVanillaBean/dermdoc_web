@@ -82,8 +82,9 @@
   }
 
   .hero-container {
-    background-image: url(/src/assets/img/hero-img-mobile.jpg);
-    background-position: top right;
+    background-image: linear-gradient(rgba(208, 235, 255, 0), rgba(208, 235, 255, 0.15)),
+      url(/src/assets/img/hero-img-mobile.jpg);
+    background-position: bottom right;
     height: 100vh;
   }
 
