@@ -3,7 +3,6 @@ import Faq from 'react-faq-component';
 import {
   IoBanOutline,
   IoCheckmarkCircleOutline,
-  IoCheckmarkOutline,
   IoHappyOutline,
   IoHeartOutline,
   IoReorderFourOutline,
@@ -14,6 +13,12 @@ import {
 } from 'react-icons/io5';
 import { connect } from 'react-redux';
 import { withRouter } from 'react-router-dom';
+import { Navigation, Pagination } from 'swiper';
+import 'swiper/modules/free-mode/free-mode.min.css';
+import 'swiper/modules/navigation/navigation.min.css';
+import 'swiper/modules/pagination/pagination.min.css';
+import { Swiper, SwiperSlide } from 'swiper/react/swiper-react';
+import 'swiper/swiper.min.css';
 import Cream1 from '../../assets/img/cream-1.jpeg';
 import Cream2 from '../../assets/img/cream-2.jpeg';
 import PricingHeader from '../../assets/img/pricing-img.jpg';
@@ -24,6 +29,7 @@ import Header from '../../components/header/header.component';
 import HeroSection from '../../components/hero-section/hero-section.component';
 import { analytics } from '../../firebase/firebase.utils';
 import { updateVisitReason } from '../../redux/search/search.actions';
+
 class HomePage extends React.Component {
   componentDidMount() {
     analytics.logEvent('Homepage Viewed');
@@ -183,115 +189,294 @@ class HomePage extends React.Component {
             <span className='subheading'>Better Ingredients</span>
             <h2 className='heading-secondary'>Efficacy you won't find at a store</h2>
           </div>
-          <div className='container grid grid--3-cols margin-bottom-md'>
-            <div className='ingredient'>
-              <img className='ingredient-img' src={Cream1} alt='Cream 1' />
-              <div className='ingredient-content'>
-                <div className='ingredient-tags'>
-                  <span className='tag tag--percentage'>0.018% - 0.1%</span>
+          <div className='container margin-bottom-mg'>
+            <Swiper
+              breakpoints={{
+                // when window width is >= 640px
+                944: {
+                  width: 944,
+                  slidesPerView: 2,
+                },
+                // when window width is >= 768px
+                384: {
+                  width: 384,
+                  slidesPerView: 1,
+                },
+              }}
+              centeredSlides={true}
+              freeMode={false}
+              loop={false}
+              pagination={true}
+              navigation={true}
+              modules={[Pagination, Navigation]}
+              cssMode={true}>
+              <SwiperSlide>
+                <div className='ingredient'>
+                  <img className='ingredient-img' src={Cream1} alt='Cream 1' />
+                  <div className='ingredient-content'>
+                    <div className='ingredient-tags'>
+                      <span className='tag tag--percentage'>0.018% - 0.1%</span>
+                    </div>
+                    <p className='ingredient-title'>Tretinoin</p>
+                    <ul className='ingredient-attributes'>
+                      <li className='ingredient-attribute'>
+                        <IoSunnyOutline className='list-icon' />
+                        <span>
+                          <strong>Sun-damaged</strong> skin
+                        </span>
+                      </li>
+                      <li className='ingredient-attribute'>
+                        <IoReorderFourOutline className='list-icon' />
+                        <span>
+                          Wrinkles and <strong>fine lines</strong>
+                        </span>
+                      </li>
+                      <li className='ingredient-attribute'>
+                        <IoBanOutline className='list-icon' />
+                        <span>
+                          <strong>Clogged</strong> pores
+                        </span>
+                      </li>
+                      <li className='ingredient-attribute'>
+                        <IoWaterOutline className='list-icon' />
+                        <span>
+                          <strong>Hyperpigmentation</strong>
+                        </span>
+                      </li>
+                    </ul>
+                  </div>
                 </div>
-                <p className='ingredient-title'>Tretinoin</p>
-                <ul className='ingredient-attributes'>
-                  <li className='ingredient-attribute'>
-                    <IoSunnyOutline className='list-icon' />
-                    <span>
-                      <strong>Sun-damaged</strong> skin
-                    </span>
-                  </li>
-                  <li className='ingredient-attribute'>
-                    <IoReorderFourOutline className='list-icon' />
-                    <span>
-                      Wrinkles and <strong>fine lines</strong>
-                    </span>
-                  </li>
-                  <li className='ingredient-attribute'>
-                    <IoBanOutline className='list-icon' />
-                    <span>
-                      <strong>Clogged</strong> pores
-                    </span>
-                  </li>
-                  <li className='ingredient-attribute'>
-                    <IoWaterOutline className='list-icon' />
-                    <span>
-                      <strong>Hyperpigmentation</strong>
-                    </span>
-                  </li>
-                </ul>
-              </div>
-            </div>
-            <div className='ingredient'>
-              <img className='ingredient-img' src={Cream2} alt='Meal 2' />
-              <div className='ingredient-content'>
-                <div className='ingredient-tags'>
-                  <span className='tag tag--percentage'>1%</span>
+              </SwiperSlide>
+              <SwiperSlide>
+                <div className='ingredient'>
+                  <img className='ingredient-img' src={Cream2} alt='Meal 2' />
+                  <div className='ingredient-content'>
+                    <div className='ingredient-tags'>
+                      <span className='tag tag--percentage'>1%</span>
+                    </div>
+                    <p className='ingredient-title'>Clindamycin</p>
+                    <ul className='ingredient-attributes'>
+                      <li className='ingredient-attribute'>
+                        <IoThermometerOutline className='list-icon' />
+                        <span>
+                          <strong>Inflammation</strong>
+                        </span>
+                      </li>
+                      <li className='ingredient-attribute'>
+                        <IoSnowOutline className='list-icon' />
+                        <span>
+                          <strong>Acne-causing</strong> bacteria
+                        </span>
+                      </li>
+                      <li className='ingredient-attribute'>
+                        <IoBanOutline className='list-icon' />
+                        <span>
+                          <strong>Clogged</strong> pores
+                        </span>
+                      </li>
+                      <li className='ingredient-attribute'>
+                        <IoBanOutline className='list-icon' />
+                        <span>
+                          <strong>Clogged</strong> pores
+                        </span>
+                      </li>
+                    </ul>
+                  </div>
                 </div>
-                <p className='ingredient-title'>Clindamycin</p>
-                <ul className='ingredient-attributes'>
-                  <li className='ingredient-attribute'>
-                    <IoThermometerOutline className='list-icon' />
-                    <span>
-                      <strong>Inflammation</strong>
-                    </span>
-                  </li>
-                  <li className='ingredient-attribute'>
-                    <IoSnowOutline className='list-icon' />
-                    <span>
-                      <strong>Acne-causing</strong> bacteria
-                    </span>
-                  </li>
-                  <li className='ingredient-attribute'>
-                    <IoBanOutline className='list-icon' />
-                    <span>
-                      <strong>Clogged</strong> pores
-                    </span>
-                  </li>
-                </ul>
-              </div>
-            </div>
-            <div className='additional-ingredients'>
-              <h3 className='paragraph'>Additional ingredients:</h3>
-              <ul className='list'>
-                <li className='list-item'>
-                  <IoCheckmarkOutline className='list-icon' />
-                  <span>Metronidazole 1%</span>
-                </li>
-                <li className='list-item'>
-                  <IoCheckmarkOutline className='list-icon' />
-                  <span>Azelaic Acid 15%</span>
-                </li>
-                <li className='list-item'>
-                  <IoCheckmarkOutline className='list-icon' />
-                  <span>Hydroquinone 6%</span>
-                </li>
-                <li className='list-item'>
-                  <IoCheckmarkOutline className='list-icon' />
-                  <span>Tranexamic Acid 5%</span>
-                </li>
-                <li className='list-item'>
-                  <IoCheckmarkOutline className='list-icon' />
-                  <span>Doxycycline</span>
-                </li>
-                <li className='list-item'>
-                  <IoCheckmarkOutline className='list-icon' />
-                  <span>Minocycline</span>
-                </li>
-                <li className='list-item'>
-                  <IoCheckmarkOutline className='list-icon' />
-                  <span>Sulfamethoxazole Trimethoprim</span>
-                </li>
-                <li className='list-item'>
-                  <IoCheckmarkOutline className='list-icon' />
-                  <span>Spironolactone</span>
-                </li>
-              </ul>
-            </div>
+              </SwiperSlide>
+              <SwiperSlide>
+                <div className='ingredient'>
+                  <img className='ingredient-img' src={Cream1} alt='Cream 1' />
+                  <div className='ingredient-content'>
+                    <div className='ingredient-tags'>
+                      <span className='tag tag--percentage'>0.018% - 0.1%</span>
+                    </div>
+                    <p className='ingredient-title'>Tretinoin</p>
+                    <ul className='ingredient-attributes'>
+                      <li className='ingredient-attribute'>
+                        <IoSunnyOutline className='list-icon' />
+                        <span>
+                          <strong>Sun-damaged</strong> skin
+                        </span>
+                      </li>
+                      <li className='ingredient-attribute'>
+                        <IoReorderFourOutline className='list-icon' />
+                        <span>
+                          Wrinkles and <strong>fine lines</strong>
+                        </span>
+                      </li>
+                      <li className='ingredient-attribute'>
+                        <IoBanOutline className='list-icon' />
+                        <span>
+                          <strong>Clogged</strong> pores
+                        </span>
+                      </li>
+                      <li className='ingredient-attribute'>
+                        <IoWaterOutline className='list-icon' />
+                        <span>
+                          <strong>Hyperpigmentation</strong>
+                        </span>
+                      </li>
+                    </ul>
+                  </div>
+                </div>
+              </SwiperSlide>
+              <SwiperSlide>
+                <div className='ingredient'>
+                  <img className='ingredient-img' src={Cream2} alt='Meal 2' />
+                  <div className='ingredient-content'>
+                    <div className='ingredient-tags'>
+                      <span className='tag tag--percentage'>1%</span>
+                    </div>
+                    <p className='ingredient-title'>Clindamycin</p>
+                    <ul className='ingredient-attributes'>
+                      <li className='ingredient-attribute'>
+                        <IoThermometerOutline className='list-icon' />
+                        <span>
+                          <strong>Inflammation</strong>
+                        </span>
+                      </li>
+                      <li className='ingredient-attribute'>
+                        <IoSnowOutline className='list-icon' />
+                        <span>
+                          <strong>Acne-causing</strong> bacteria
+                        </span>
+                      </li>
+                      <li className='ingredient-attribute'>
+                        <IoBanOutline className='list-icon' />
+                        <span>
+                          <strong>Clogged</strong> pores
+                        </span>
+                      </li>
+                      <li className='ingredient-attribute'>
+                        <IoBanOutline className='list-icon' />
+                        <span>
+                          <strong>Clogged</strong> pores
+                        </span>
+                      </li>
+                    </ul>
+                  </div>
+                </div>
+              </SwiperSlide>
+              <SwiperSlide>
+                <div className='ingredient'>
+                  <img className='ingredient-img' src={Cream1} alt='Cream 1' />
+                  <div className='ingredient-content'>
+                    <div className='ingredient-tags'>
+                      <span className='tag tag--percentage'>0.018% - 0.1%</span>
+                    </div>
+                    <p className='ingredient-title'>Tretinoin</p>
+                    <ul className='ingredient-attributes'>
+                      <li className='ingredient-attribute'>
+                        <IoSunnyOutline className='list-icon' />
+                        <span>
+                          <strong>Sun-damaged</strong> skin
+                        </span>
+                      </li>
+                      <li className='ingredient-attribute'>
+                        <IoReorderFourOutline className='list-icon' />
+                        <span>
+                          Wrinkles and <strong>fine lines</strong>
+                        </span>
+                      </li>
+                      <li className='ingredient-attribute'>
+                        <IoBanOutline className='list-icon' />
+                        <span>
+                          <strong>Clogged</strong> pores
+                        </span>
+                      </li>
+                      <li className='ingredient-attribute'>
+                        <IoWaterOutline className='list-icon' />
+                        <span>
+                          <strong>Hyperpigmentation</strong>
+                        </span>
+                      </li>
+                    </ul>
+                  </div>
+                </div>
+              </SwiperSlide>
+              <SwiperSlide>
+                <div className='ingredient'>
+                  <img className='ingredient-img' src={Cream2} alt='Meal 2' />
+                  <div className='ingredient-content'>
+                    <div className='ingredient-tags'>
+                      <span className='tag tag--percentage'>1%</span>
+                    </div>
+                    <p className='ingredient-title'>Clindamycin</p>
+                    <ul className='ingredient-attributes'>
+                      <li className='ingredient-attribute'>
+                        <IoThermometerOutline className='list-icon' />
+                        <span>
+                          <strong>Inflammation</strong>
+                        </span>
+                      </li>
+                      <li className='ingredient-attribute'>
+                        <IoSnowOutline className='list-icon' />
+                        <span>
+                          <strong>Acne-causing</strong> bacteria
+                        </span>
+                      </li>
+                      <li className='ingredient-attribute'>
+                        <IoBanOutline className='list-icon' />
+                        <span>
+                          <strong>Clogged</strong> pores
+                        </span>
+                      </li>
+                      <li className='ingredient-attribute'>
+                        <IoBanOutline className='list-icon' />
+                        <span>
+                          <strong>Clogged</strong> pores
+                        </span>
+                      </li>
+                    </ul>
+                  </div>
+                </div>
+              </SwiperSlide>
+            </Swiper>
           </div>
+          {/* <div className='additional-ingredients'>
+            <h3 className='paragraph'>Additional ingredients:</h3>
+            <ul className='list'>
+              <li className='list-item'>
+                <IoCheckmarkOutline className='list-icon' />
+                <span>Metronidazole 1%</span>
+              </li>
+              <li className='list-item'>
+                <IoCheckmarkOutline className='list-icon' />
+                <span>Azelaic Acid 15%</span>
+              </li>
+              <li className='list-item'>
+                <IoCheckmarkOutline className='list-icon' />
+                <span>Hydroquinone 6%</span>
+              </li>
+              <li className='list-item'>
+                <IoCheckmarkOutline className='list-icon' />
+                <span>Tranexamic Acid 5%</span>
+              </li>
+              <li className='list-item'>
+                <IoCheckmarkOutline className='list-icon' />
+                <span>Doxycycline</span>
+              </li>
+              <li className='list-item'>
+                <IoCheckmarkOutline className='list-icon' />
+                <span>Minocycline</span>
+              </li>
+              <li className='list-item'>
+                <IoCheckmarkOutline className='list-icon' />
+                <span>Sulfamethoxazole Trimethoprim</span>
+              </li>
+              <li className='list-item'>
+                <IoCheckmarkOutline className='list-icon' />
+                <span>Spironolactone</span>
+              </li>
+            </ul>
+          </div> */}
         </section>
 
         <section className='section-faq' id='faq'>
           <div className='container center-text'>
             <h2 className='subheading'>FAQ</h2>
-            <h2 className='heading-secondary'>Learn why Medicall is unique</h2>
+            <h2 className='heading-secondary'>Learn why DermDoc is unique</h2>
           </div>
 
           <div className='container faq-style-wrapper'>

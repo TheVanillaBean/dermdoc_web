@@ -1250,7 +1250,10 @@ strong {
   box-shadow: 0 2.4rem 4.8rem rgba(0, 0, 0, 0.075);
   border-radius: 11px;
   overflow: hidden;
-  transition: all 0.4s; }
+  transition: all 0.4s;
+  width: 85%;
+  margin: 0 auto;
+  margin-bottom: 6.4rem; }
 
 .ingredient:hover {
   transform: translateY(-1.2rem);
