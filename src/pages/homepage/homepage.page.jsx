@@ -65,8 +65,8 @@ class HomePage extends React.Component {
         <div className='hero-infographic'>
           <h1 className='heading-primary'>Skincare brands are greedy</h1>
           <p className='heading-tertiary'>
-            See how you'll save 40% on the same <span class='text-primary-color'>EXACT</span> creams
-            as leading competitors
+            See how you'll save <span class='text-primary-color'>40%</span> on the same{' '}
+            <span class='text-primary-color'>EXACT</span> creams as leading competitors
           </p>
           <img src={ProcessInfographic} alt='Pricing Infographic' />
         </div>
