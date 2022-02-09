@@ -14,7 +14,6 @@ import {
 import { connect } from 'react-redux';
 import { withRouter } from 'react-router-dom';
 import { Navigation, Pagination } from 'swiper';
-import 'swiper/modules/free-mode/free-mode.min.css';
 import 'swiper/modules/navigation/navigation.min.css';
 import 'swiper/modules/pagination/pagination.min.css';
 import { Swiper, SwiperSlide } from 'swiper/react/swiper-react';
@@ -204,8 +203,7 @@ class HomePage extends React.Component {
                 },
               }}
               centeredSlides={true}
-              freeMode={false}
-              loop={false}
+              loop={true}
               pagination={true}
               navigation={true}
               modules={[Pagination, Navigation]}
