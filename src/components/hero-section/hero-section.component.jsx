@@ -27,8 +27,8 @@ const HeroSection = ({ homepage = true, handleClick, handleSubmit, handleChange,
           </h1>
 
           <p className='hero-description'>
-            You'll get a custom topical cream that combines powerful prescription ingredients,
-            tailored just for you.
+            You'll get a custom cream that combines powerful prescription ingredients, tailored just
+            for you by a board-certified dermatologist.
           </p>
 
           <CustomButton className='btn btn--full' onClick={handleClick}>

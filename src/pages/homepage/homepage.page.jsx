@@ -63,53 +63,66 @@ class HomePage extends React.Component {
           <HeroSection handleClick={this.handleClick} />
         </div>
         <div className='hero-infographic'>
-          <h1 className='heading-primary'>Skincare brands are greedy</h1>
+          <h1 className='heading-primary'>
+            See how you'll save <span class='text-primary-color'>40%</span>
+          </h1>
           <p className='heading-tertiary'>
-            See how you'll save <span class='text-primary-color'>40%</span> on the same{' '}
-            <span class='text-primary-color'>EXACT</span> creams as leading competitors
+            Short story: you're paying for a quality product, not fancy marketing.
           </p>
           <img src={ProcessInfographic} alt='Pricing Infographic' />
         </div>
 
         <section className='section-how' id='how'>
-          <div className='container center-text margin-bottom-lg'>
-            <h1 className='heading-primary'>How does it work</h1>
-            <p className='heading-tertiary'>You're only 3 steps away from clearer skin</p>
+          <div className='container center-text'>
+            <h1 className='heading-primary text-color-white'>How does it work</h1>
+            <p className='heading-tertiary text-color-white'>
+              You're only 3 steps away from clearer skin
+            </p>
           </div>
+          <div className='feature-list-container'>
+            <ul className='feature-list'>
+              <li className='feature'>
+                <div className='feature-circle'>
+                  <p className='feature-circle-text'>01</p>
+                </div>
 
-          <div className='steps container grid grid--3-cols'>
-            <div className='feature'>
-              <div className='feature-icon'>
-                <p className='feature-icon-text'>01</p>
-              </div>
-              <p className='feature-title'>Upload selfies</p>
-              <p className='feature-text'>Answer some questions and share photos of your skin.</p>
-            </div>
-            <div className='feature'>
-              <div className='feature-icon'>
-                <p className='feature-icon-text'>02</p>
-              </div>
-              <p className='feature-title'>Recieve custom formula</p>
-              <p className='feature-text'>
-                You will get a personalized topical cream within 24 hours.
-              </p>
-            </div>
-            <div className='feature'>
-              <div className='feature-icon'>
-                <p className='feature-icon-text'>03</p>
-              </div>
-              <p className='feature-title'>Check-in as needed</p>
-              <p className='feature-text'>
-                You'll check-in with your dermatologist throughout your journey.
-              </p>
-            </div>
+                <div className='feature-description'>
+                  <p className='feature-title'>Upload selfies</p>
+                  <p className='feature-text'>
+                    Answer some questions and share photos of your skin.
+                  </p>
+                </div>
+              </li>
+              <li className='feature'>
+                <div className='feature-circle'>
+                  <p className='feature-circle-text'>02</p>
+                </div>
+                <div className='feature-description'>
+                  <p className='feature-title'>Recieve custom formula</p>
+                  <p className='feature-text'>
+                    You will get a personalized topical cream within 24 hours.
+                  </p>
+                </div>
+              </li>
+              <li className='feature'>
+                <div className='feature-circle'>
+                  <p className='feature-circle-text'>03</p>
+                </div>
+                <div className='feature-description'>
+                  <p className='feature-title'>Check-in as needed</p>
+                  <p className='feature-text'>
+                    You'll check-in with your dermatologist throughout your journey.
+                  </p>
+                </div>
+              </li>
+            </ul>
           </div>
         </section>
 
         <section className='section-pricing' id='pricing'>
           <div className='container center-text '>
             <h1 className='heading-primary'>Pricing</h1>
-            <p className='heading-tertiary'>Custom skincare without the premium price</p>
+            <p className='heading-tertiary'>Get started with our risk free 90-day trial</p>
           </div>
 
           <div className='container grid grid--2-cols margin-bottom-md'>
@@ -178,7 +191,7 @@ class HomePage extends React.Component {
           </div>
           <div className='container center-text'>
             <CustomButton className='btn btn--full' onClick={this.handleClick}>
-              Try for three months - $20
+              Try 90 day risk-free trial - $20
             </CustomButton>
           </div>
         </section>
