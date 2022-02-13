@@ -470,6 +470,10 @@
   margin-right: 1.6rem;
 }
 
+.no-flexbox-gap .ingredient-attribute:not(:last-child) {
+  margin-bottom: 2rem;
+}
+
 .no-flexbox-gap .doctor__content--attribute:not(:last-child) {
   margin-bottom: 2rem;
 }

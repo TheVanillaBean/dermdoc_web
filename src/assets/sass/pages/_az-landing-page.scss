@@ -210,28 +210,26 @@
 
 .ingredient-attribute {
   font-size: 1.8rem;
-  display: flex;
-  align-items: center;
-  gap: 2rem;
-}
-
-.ingredient-icon {
-  height: 2.4rem;
-  width: 2.4rem;
-  color: var(--color-primary);
 }
 
 .ingredient-img {
   width: 100%;
+  height: 20vh;
+  object-fit: cover;
 }
 
-.ingredient-description {
-  font-size: 1.6rem;
-}
-
-.all-ingredients {
-  text-align: center;
-  font-size: 1.8rem;
+.other-ingredients {
+  &__title {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 20vh;
+    background-color: var(--color-primary);
+    color: #fff;
+    font-size: 4.4rem;
+    line-height: 1.4;
+    text-align: center;
+  }
 }
 
 .section-faq {

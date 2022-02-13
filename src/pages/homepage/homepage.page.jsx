@@ -1,16 +1,6 @@
 import React from 'react';
 import Faq from 'react-faq-component';
-import {
-  IoBanOutline,
-  IoCheckmarkCircleOutline,
-  IoHappyOutline,
-  IoHeartOutline,
-  IoReorderFourOutline,
-  IoSnowOutline,
-  IoSunnyOutline,
-  IoThermometerOutline,
-  IoWaterOutline,
-} from 'react-icons/io5';
+import { IoCheckmarkCircleOutline, IoHappyOutline, IoHeartOutline } from 'react-icons/io5';
 import { connect } from 'react-redux';
 import { withRouter } from 'react-router-dom';
 import { Navigation, Pagination } from 'swiper';
@@ -18,8 +8,13 @@ import 'swiper/modules/navigation/navigation.min.css';
 import 'swiper/modules/pagination/pagination.min.css';
 import { Swiper, SwiperSlide } from 'swiper/react/swiper-react';
 import 'swiper/swiper.min.css';
-import Cream1 from '../../assets/img/cream-1.jpeg';
-import Cream2 from '../../assets/img/cream-2.jpeg';
+import AzelaicAcid from '../../assets/img/ingredients/azelaic_acid.jpg';
+import Clindamycin from '../../assets/img/ingredients/clindamycin.jpeg';
+import Hydroquinone from '../../assets/img/ingredients/hydroquinone.jpg';
+import Metronidazole from '../../assets/img/ingredients/metronidazole.jpg';
+import Niacinamide from '../../assets/img/ingredients/niacinamide.jpg';
+import TranexamicAcid from '../../assets/img/ingredients/tranexamic_acid.jpeg';
+import Trentinoin from '../../assets/img/ingredients/trentinoin.jpeg';
 import PricingHeader from '../../assets/img/pricing-img.jpg';
 import ProcessInfographic from '../../assets/img/pricing-infographic-lg.png';
 import CustomButton from '../../components/custom-button/custom-button.component';
@@ -199,7 +194,7 @@ class HomePage extends React.Component {
         <section className='section-ingredients' id='ingredients'>
           <div className='container center-text'>
             <span className='subheading'>Better Ingredients</span>
-            <h2 className='heading-secondary'>Efficacy you won't find at a store</h2>
+            <h2 className='heading-secondary'>Quality you won't find at a store</h2>
           </div>
           <div className='container margin-bottom-mg'>
             <Swiper
@@ -219,40 +214,24 @@ class HomePage extends React.Component {
               loop={true}
               pagination={true}
               navigation={true}
-              modules={[Pagination, Navigation]}
-              cssMode={true}>
+              modules={[Pagination, Navigation]}>
               <SwiperSlide>
                 <div className='ingredient'>
-                  <img className='ingredient-img' src={Cream1} alt='Cream 1' />
+                  <img className='ingredient-img' src={Trentinoin} alt='Trentinoin' />
                   <div className='ingredient-content'>
                     <div className='ingredient-tags'>
-                      <span className='tag tag--percentage'>0.018% - 0.1%</span>
+                      <span className='tag tag--percentage'>0.01 - 0.1%</span>
                     </div>
                     <p className='ingredient-title'>Tretinoin</p>
                     <ul className='ingredient-attributes'>
                       <li className='ingredient-attribute'>
-                        <IoSunnyOutline className='list-icon' />
-                        <span>
-                          <strong>Sun-damaged</strong> skin
-                        </span>
+                        <span>Reduces fine lines and wrinkles</span>
                       </li>
                       <li className='ingredient-attribute'>
-                        <IoReorderFourOutline className='list-icon' />
-                        <span>
-                          Wrinkles and <strong>fine lines</strong>
-                        </span>
+                        <span>Improves skin tone and texture</span>
                       </li>
                       <li className='ingredient-attribute'>
-                        <IoBanOutline className='list-icon' />
-                        <span>
-                          <strong>Clogged</strong> pores
-                        </span>
-                      </li>
-                      <li className='ingredient-attribute'>
-                        <IoWaterOutline className='list-icon' />
-                        <span>
-                          <strong>Hyperpigmentation</strong>
-                        </span>
+                        <span>Reduces hyperpigmentation</span>
                       </li>
                     </ul>
                   </div>
@@ -260,36 +239,21 @@ class HomePage extends React.Component {
               </SwiperSlide>
               <SwiperSlide>
                 <div className='ingredient'>
-                  <img className='ingredient-img' src={Cream2} alt='Meal 2' />
+                  <img className='ingredient-img' src={Clindamycin} alt='Trentinoin' />
                   <div className='ingredient-content'>
                     <div className='ingredient-tags'>
-                      <span className='tag tag--percentage'>1%</span>
+                      <span className='tag tag--percentage'>2%</span>
                     </div>
                     <p className='ingredient-title'>Clindamycin</p>
                     <ul className='ingredient-attributes'>
                       <li className='ingredient-attribute'>
-                        <IoThermometerOutline className='list-icon' />
-                        <span>
-                          <strong>Inflammation</strong>
-                        </span>
+                        <span>Reduces inflamed acne lesions</span>
                       </li>
                       <li className='ingredient-attribute'>
-                        <IoSnowOutline className='list-icon' />
-                        <span>
-                          <strong>Acne-causing</strong> bacteria
-                        </span>
+                        <span>Improves non-inflamed acne lesions</span>
                       </li>
                       <li className='ingredient-attribute'>
-                        <IoBanOutline className='list-icon' />
-                        <span>
-                          <strong>Clogged</strong> pores
-                        </span>
-                      </li>
-                      <li className='ingredient-attribute'>
-                        <IoBanOutline className='list-icon' />
-                        <span>
-                          <strong>Clogged</strong> pores
-                        </span>
+                        <span>Treats clogged pores</span>
                       </li>
                     </ul>
                   </div>
@@ -297,36 +261,21 @@ class HomePage extends React.Component {
               </SwiperSlide>
               <SwiperSlide>
                 <div className='ingredient'>
-                  <img className='ingredient-img' src={Cream1} alt='Cream 1' />
+                  <img className='ingredient-img' src={Niacinamide} alt='Niacinamide' />
                   <div className='ingredient-content'>
                     <div className='ingredient-tags'>
-                      <span className='tag tag--percentage'>0.018% - 0.1%</span>
+                      <span className='tag tag--percentage'>2 - 4%</span>
                     </div>
-                    <p className='ingredient-title'>Tretinoin</p>
+                    <p className='ingredient-title'>Niacinamide</p>
                     <ul className='ingredient-attributes'>
                       <li className='ingredient-attribute'>
-                        <IoSunnyOutline className='list-icon' />
-                        <span>
-                          <strong>Sun-damaged</strong> skin
-                        </span>
+                        <span>Has powerful antioxidant actives</span>
                       </li>
                       <li className='ingredient-attribute'>
-                        <IoReorderFourOutline className='list-icon' />
-                        <span>
-                          Wrinkles and <strong>fine lines</strong>
-                        </span>
+                        <span>Improves acne lesions</span>
                       </li>
                       <li className='ingredient-attribute'>
-                        <IoBanOutline className='list-icon' />
-                        <span>
-                          <strong>Clogged</strong> pores
-                        </span>
-                      </li>
-                      <li className='ingredient-attribute'>
-                        <IoWaterOutline className='list-icon' />
-                        <span>
-                          <strong>Hyperpigmentation</strong>
-                        </span>
+                        <span>Treats clogged pores</span>
                       </li>
                     </ul>
                   </div>
@@ -334,36 +283,21 @@ class HomePage extends React.Component {
               </SwiperSlide>
               <SwiperSlide>
                 <div className='ingredient'>
-                  <img className='ingredient-img' src={Cream2} alt='Meal 2' />
+                  <img className='ingredient-img' src={AzelaicAcid} alt='Azelaic acid' />
                   <div className='ingredient-content'>
                     <div className='ingredient-tags'>
-                      <span className='tag tag--percentage'>1%</span>
+                      <span className='tag tag--percentage'>15%</span>
                     </div>
-                    <p className='ingredient-title'>Clindamycin</p>
+                    <p className='ingredient-title'>Azelaic acid</p>
                     <ul className='ingredient-attributes'>
                       <li className='ingredient-attribute'>
-                        <IoThermometerOutline className='list-icon' />
-                        <span>
-                          <strong>Inflammation</strong>
-                        </span>
+                        <span>Improves moderate-to-severe rosacea</span>
                       </li>
                       <li className='ingredient-attribute'>
-                        <IoSnowOutline className='list-icon' />
-                        <span>
-                          <strong>Acne-causing</strong> bacteria
-                        </span>
+                        <span>Lightens melasma</span>
                       </li>
                       <li className='ingredient-attribute'>
-                        <IoBanOutline className='list-icon' />
-                        <span>
-                          <strong>Clogged</strong> pores
-                        </span>
-                      </li>
-                      <li className='ingredient-attribute'>
-                        <IoBanOutline className='list-icon' />
-                        <span>
-                          <strong>Clogged</strong> pores
-                        </span>
+                        <span>Reduces pimples and blackheads</span>
                       </li>
                     </ul>
                   </div>
@@ -371,36 +305,21 @@ class HomePage extends React.Component {
               </SwiperSlide>
               <SwiperSlide>
                 <div className='ingredient'>
-                  <img className='ingredient-img' src={Cream1} alt='Cream 1' />
+                  <img className='ingredient-img' src={TranexamicAcid} alt='Tranexamic acid' />
                   <div className='ingredient-content'>
                     <div className='ingredient-tags'>
-                      <span className='tag tag--percentage'>0.018% - 0.1%</span>
+                      <span className='tag tag--percentage'>3%</span>
                     </div>
-                    <p className='ingredient-title'>Tretinoin</p>
+                    <p className='ingredient-title'>Tranexamic acid</p>
                     <ul className='ingredient-attributes'>
                       <li className='ingredient-attribute'>
-                        <IoSunnyOutline className='list-icon' />
-                        <span>
-                          <strong>Sun-damaged</strong> skin
-                        </span>
+                        <span>Lightens dark spots</span>
                       </li>
                       <li className='ingredient-attribute'>
-                        <IoReorderFourOutline className='list-icon' />
-                        <span>
-                          Wrinkles and <strong>fine lines</strong>
-                        </span>
+                        <span>Soothes redness</span>
                       </li>
                       <li className='ingredient-attribute'>
-                        <IoBanOutline className='list-icon' />
-                        <span>
-                          <strong>Clogged</strong> pores
-                        </span>
-                      </li>
-                      <li className='ingredient-attribute'>
-                        <IoWaterOutline className='list-icon' />
-                        <span>
-                          <strong>Hyperpigmentation</strong>
-                        </span>
+                        <span>Treats hyperpigmentation and melasma</span>
                       </li>
                     </ul>
                   </div>
@@ -408,36 +327,66 @@ class HomePage extends React.Component {
               </SwiperSlide>
               <SwiperSlide>
                 <div className='ingredient'>
-                  <img className='ingredient-img' src={Cream2} alt='Meal 2' />
+                  <img className='ingredient-img' src={Hydroquinone} alt='Hydroquinoine' />
                   <div className='ingredient-content'>
                     <div className='ingredient-tags'>
-                      <span className='tag tag--percentage'>1%</span>
+                      <span className='tag tag--percentage'>3-6%</span>
                     </div>
-                    <p className='ingredient-title'>Clindamycin</p>
+                    <p className='ingredient-title'>Hydroquinoine</p>
                     <ul className='ingredient-attributes'>
                       <li className='ingredient-attribute'>
-                        <IoThermometerOutline className='list-icon' />
-                        <span>
-                          <strong>Inflammation</strong>
-                        </span>
+                        <span>Lightens Melasma</span>
                       </li>
                       <li className='ingredient-attribute'>
-                        <IoSnowOutline className='list-icon' />
-                        <span>
-                          <strong>Acne-causing</strong> bacteria
-                        </span>
+                        <span>Treats sun spots, freckles, and age spots</span>
                       </li>
                       <li className='ingredient-attribute'>
-                        <IoBanOutline className='list-icon' />
-                        <span>
-                          <strong>Clogged</strong> pores
-                        </span>
+                        <span>Treats dark spots left by acne</span>
+                      </li>
+                    </ul>
+                  </div>
+                </div>
+              </SwiperSlide>
+              <SwiperSlide>
+                <div className='ingredient'>
+                  <img className='ingredient-img' src={Metronidazole} alt='Metronidazole' />
+                  <div className='ingredient-content'>
+                    <div className='ingredient-tags'>
+                      <span className='tag tag--percentage'>0.75%</span>
+                    </div>
+                    <p className='ingredient-title'>Metrodinazole</p>
+                    <ul className='ingredient-attributes'>
+                      <li className='ingredient-attribute'>
+                        <span>Reduces inflamed lesions of rosacea</span>
                       </li>
                       <li className='ingredient-attribute'>
-                        <IoBanOutline className='list-icon' />
-                        <span>
-                          <strong>Clogged</strong> pores
-                        </span>
+                        <span>Decreases facial redness</span>
+                      </li>
+                      <li className='ingredient-attribute'>
+                        <span>Treats acne rosacea</span>
+                      </li>
+                    </ul>
+                  </div>
+                </div>
+              </SwiperSlide>
+              <SwiperSlide>
+                <div className='other-ingredients'>
+                  <div className='other-ingredients__title'>
+                    <p>Additional Ingredients</p>
+                  </div>
+                  <div className='ingredient-content'>
+                    <ul className='ingredient-attributes'>
+                      <li className='ingredient-attribute'>
+                        <span>Hydrocoritsone 1-2.5%</span>
+                      </li>
+                      <li className='ingredient-attribute'>
+                        <span>Zinc pyrithione 1%</span>
+                      </li>
+                      <li className='ingredient-attribute'>
+                        <span>Sodium sulfacetamide 5-10%</span>
+                      </li>
+                      <li className='ingredient-attribute'>
+                        <span>Kojic acid 1%</span>
                       </li>
                     </ul>
                   </div>

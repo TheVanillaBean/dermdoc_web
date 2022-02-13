@@ -4,7 +4,6 @@ import { Redirect, Route, Switch } from 'react-router-dom';
 import { createStructuredSelector } from 'reselect';
 import '../src/assets/css/main.css/main.css';
 import { auth, createUserProfileDocument } from './firebase/firebase.utils';
-import AZLandingPage from './pages/az-landing-page/az-landing-page.page';
 import HomePage from './pages/homepage/homepage.page';
 import LegalPage from './pages/legal/legal.pages';
 import VisitLandingPage from './pages/visit-landing/visit-landing.page';
@@ -44,7 +43,6 @@ class App extends Component {
     return (
       <Switch>
         <Route exact path='/' component={HomePage} />
-        <Route exact path='/az' component={AZLandingPage} />
 
         <Route exact path='/waitlist' component={WaitlistPage} />
         {/* <Route exact path='/services' component={ServicesPages} /> */}
