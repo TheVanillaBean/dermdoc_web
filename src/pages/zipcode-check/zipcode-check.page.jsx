@@ -86,7 +86,7 @@ class ZipCodeCheck extends Component {
             </p>
           </div>
 
-          <div className='zipcode container center-text margin-bottom-md'>
+          <div className='zipcode container center-text margin-bottom-sm'>
             <input
               className='zipcode-input'
               type='number'
@@ -100,13 +100,7 @@ class ZipCodeCheck extends Component {
               Continue
             </CustomButton>
           </div>
-          <div className='container center-text margin-bottom-md'>
-            <LegalCheckbox
-              value={this.state.termsChecked}
-              handleChange={this.handleTermsCheckboxChange}
-              required
-            />
-          </div>
+
           {this.state.doctorsAvailable && (
             <div className='container center-text margin-bottom-md'>
               <h1 className='heading-secondary margin-bottom-sm'>
@@ -125,6 +119,14 @@ class ZipCodeCheck extends Component {
               </CustomButton>
             </div>
           )}
+
+          <div className='container center-text margin-bottom-md'>
+            <LegalCheckbox
+              value={this.state.termsChecked}
+              handleChange={this.handleTermsCheckboxChange}
+              required
+            />
+          </div>
         </section>
 
         <ToastContainer

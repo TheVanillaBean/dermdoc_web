@@ -24,7 +24,7 @@ Survey.StylesManager.ThemeColors['modern']['$progress-buttons-color'] = 'var(--c
 Survey.StylesManager.applyTheme('modern');
 
 export const reviewHtml = `
-<section className="questionnaire__thank-you">
+<section class="questionnaire__thank-you">
   <h2>Almost There!</h2>
   <p>
     The only steps left are to create a password for your account and then upload selfies.
