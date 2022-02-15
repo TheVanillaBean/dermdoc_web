@@ -73,7 +73,7 @@ class HomePage extends React.Component {
         </div>
         <div className='hero-infographic'>
           <h1 className='heading-primary'>
-            See how you'll save <span class='text-primary-color'>40%</span>
+            See how you'll save <span className='text-primary-color'>40%</span>
           </h1>
           <p className='heading-tertiary'>
             Short story: you're paying for a quality product, not fancy marketing.

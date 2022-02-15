@@ -338,22 +338,32 @@ strong {
   font-family: 'Quicksand', sans-serif;
   border-radius: 1rem;
   width: auto;
-  height: 50px;
+  height: 6rem;
   letter-spacing: 0.75px;
-  line-height: 50px;
+  line-height: 1.4;
   padding: 0 3rem;
   font-size: 2rem;
-  background-color: var(--color-primary);
-  color: white;
+  background-color: #fff;
+  color: var(--color-shade-1);
+  border: 1px solid var(--color-primary);
   font-weight: 400;
-  border: none;
   cursor: pointer;
   display: flex;
-  justify-content: center; }
+  justify-content: center;
+  align-items: center; }
+  .custom-button:not(:last-child) {
+    margin-right: 1.2rem;
+    margin-bottom: 1.2rem; }
   .custom-button:hover {
-    background-color: white;
-    color: var(--color-grey-dark-1);
-    border: 1px solid var(--color-primary); }
+    background-color: var(--color-primary);
+    color: #fff;
+    border: 1px solid var(--color-primary-dark); }
+  .custom-button__google-sign-in {
+    background-color: var(--color-primary);
+    color: white; }
+    .custom-button__google-sign-in:hover {
+      background-color: var(--color-primary-light);
+      border: none; }
 
 .list {
   list-style: none;
