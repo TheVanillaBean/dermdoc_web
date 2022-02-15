@@ -13,12 +13,14 @@ import {
 } from '../../redux/questionnaire/questionnaire.selectors';
 import { selectVisitData } from '../../redux/visit/visit.selectors';
 
-Survey.StylesManager.ThemeColors['modern']['$main-color'] = '#90024c';
-Survey.StylesManager.ThemeColors['modern']['$header-color'] = '#8e201d';
-Survey.StylesManager.ThemeColors['modern']['$header-background-color'] = '#8e201d';
-Survey.StylesManager.ThemeColors['modern']['$body-container-background-color'] = '#90024c';
-Survey.StylesManager.ThemeColors['modern']['$answer-background-color'] = '#ebb9ae';
-Survey.StylesManager.ThemeColors['modern']['$progress-buttons-color'] = '#8e201d';
+Survey.StylesManager.ThemeColors['modern']['$main-color'] = 'var(--color-primary)';
+Survey.StylesManager.ThemeColors['modern']['$header-color'] = 'var(--color-primary-dark)';
+Survey.StylesManager.ThemeColors['modern']['$header-background-color'] =
+  'var(--color-primary-dark)';
+Survey.StylesManager.ThemeColors['modern']['$body-container-background-color'] =
+  'var(--color-primary)';
+Survey.StylesManager.ThemeColors['modern']['$answer-background-color'] = 'var(--color-tint-1)';
+Survey.StylesManager.ThemeColors['modern']['$progress-buttons-color'] = 'var(--color-tint-3)';
 Survey.StylesManager.applyTheme('modern');
 
 export const reviewHtml = `
@@ -27,7 +29,6 @@ export const reviewHtml = `
   <p>
     Your almost done setting up your visit! The only steps left are to create a password for your account and then upload photos of your issue.
   </p>
-
 </section>
 `;
 class Questionnaire extends React.Component {
@@ -74,12 +75,11 @@ class Questionnaire extends React.Component {
         return (
           <section className='questionnaire'>
             <div className='container'>
-              <div className='questionnaire__header'>
-                <h1>
-                  Please fill out the following questions. This will help your doctor provider
-                  better care during your upcoming video visit. You can return to the questions at
-                  anytime.
-                </h1>
+              <div className='center-text'>
+                <p className='heading-tertiary'>
+                  The following questions will help your dermatologist design your custom cream.
+                  Answer to the best of your ability.
+                </p>
               </div>
 
               <Survey.Survey model={model} onComplete={this.onComplete} />

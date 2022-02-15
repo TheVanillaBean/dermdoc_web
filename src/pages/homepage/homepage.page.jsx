@@ -129,7 +129,7 @@ class HomePage extends React.Component {
         </section>
 
         <section className='section-pricing' id='pricing'>
-          <div className='container center-text '>
+          <div className='container center-text margin-bottom-md'>
             <h1 className='heading-primary'>Pricing</h1>
             <p className='heading-tertiary'>Get started with our risk free 90-day trial</p>
           </div>
@@ -218,9 +218,9 @@ class HomePage extends React.Component {
         </section>
 
         <section className='section-ingredients' id='ingredients'>
-          <div className='container center-text'>
-            <span className='subheading'>Better Ingredients</span>
-            <h2 className='heading-secondary'>Quality you won't find at a store</h2>
+          <div className='container center-text margin-bottom-md'>
+            <h1 className='heading-primary'>Better Ingredients</h1>
+            <p className='heading-tertiary'>Quality you won't find at a store</p>
           </div>
           <div className='container margin-bottom-mg'>
             <Swiper

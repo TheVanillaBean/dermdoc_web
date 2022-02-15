@@ -79,10 +79,13 @@ class ZipCodeCheck extends Component {
         <Header />
 
         <section className='section-services' id='services'>
-          <div className='container center-text'>
-            <span className='subheading'>First things first</span>
-            <h2 className='heading-secondary'>Verify your zipcode</h2>
+          <div className='container center-text margin-bottom-md'>
+            <h1 className='heading-primary'>Verify your zip-code</h1>
+            <p className='heading-tertiary'>
+              So we can pair you with a dermatologist licensed in your state
+            </p>
           </div>
+
           <div className='zipcode container center-text margin-bottom-md'>
             <input
               className='zipcode-input'
@@ -106,7 +109,14 @@ class ZipCodeCheck extends Component {
           </div>
           {this.state.doctorsAvailable && (
             <div className='container center-text margin-bottom-md'>
-              <span className='subheading'>We are in your area!</span>
+              <h1 className='heading-secondary margin-bottom-sm'>
+                Get ready for healthier skin :)
+              </h1>
+              <p className='heading-tertiary margin-bottom-md'>
+                Next, you'll answer some questions and upload some selfies. <br /> <br />
+                You are <span className='text-primary-color'>not required</span> to pay for an
+                evaluation. You only pay if you want the cream that is designed for you.
+              </p>
 
               <CustomButton
                 className='btn btn--full'

@@ -324,8 +324,8 @@ export const mergePagesIntoSurveySchema = (pages) => {
         html: reviewHtml,
       },
     ],
-    name: 'Finish',
-    navigationTitle: 'Finish',
+    name: 'Review',
+    navigationTitle: 'Review',
     questionTitleLocation: 'top',
   };
   pages.push(reviewPage);
