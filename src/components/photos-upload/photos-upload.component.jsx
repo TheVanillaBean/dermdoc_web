@@ -98,10 +98,14 @@ class PhotosUpload extends React.Component {
           {({ browseFiles, getDropZoneProps, getLabelProps }) => (
             <div className='photo-gallery-container'>
               <label className='photo-gallery--title' {...getLabelProps()}>
-                Upload photo ID and images of your issue
+                Upload photo ID and 1-3 selfies
               </label>
               <label className='photo-gallery--subtitle' {...getLabelProps()}>
-                *For convenience, you can paste this URL into a phone browser*
+                We need your <span className='text-primary-color'>photo ID</span> for legal reasons
+                because your board-certified dermatologist will be giving a{' '}
+                <span className='text-primary-color'>medical evaluation</span>. All images will be
+                saved to our secure HIPAA compliant backend and will{' '}
+                <span className='text-primary-color'>never</span> be shared.
               </label>
               {this.state.errors.length > 0 && (
                 <div className='photo-gallery--error'>An error occurred.</div>
@@ -141,7 +145,7 @@ class PhotosUpload extends React.Component {
                         },
                       });
                     }}>
-                    <div>+</div>
+                    <div>+ Tap me to open camera</div>
                   </li>
                 </ul>
               </div>

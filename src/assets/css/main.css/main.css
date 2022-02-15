@@ -653,9 +653,10 @@ strong {
     font-size: 3.2rem;
     text-align: center; }
   .photo-gallery--subtitle {
-    margin-top: 2.4rem;
-    font-size: 2.2rem;
-    text-align: center; }
+    margin-top: 3.2rem;
+    font-size: 2.4rem;
+    text-align: center;
+    line-height: 1.4; }
   .photo-gallery--error {
     font-size: 2.2rem;
     text-align: center;

@@ -27,7 +27,7 @@ export const reviewHtml = `
 <section class="questionnaire__thank-you">
   <h2>Almost There!</h2>
   <p>
-    Your almost done setting up your visit! The only steps left are to create a password for your account and then upload photos of your issue.
+    The only steps left are to create a password for your account and then upload selfies.
   </p>
 </section>
 `;
@@ -78,7 +78,6 @@ class Questionnaire extends React.Component {
               <div className='center-text'>
                 <p className='heading-tertiary'>
                   The following questions will help your dermatologist design your custom cream.
-                  Answer to the best of your ability.
                 </p>
               </div>
 
