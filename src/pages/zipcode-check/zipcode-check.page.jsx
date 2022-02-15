@@ -111,7 +111,7 @@ class ZipCodeCheck extends Component {
               <CustomButton
                 className='btn btn--full'
                 onClick={() => this.createNewVisit(visitReason)}>
-                Continue with your {visitReason} visit
+                Begin your journey
               </CustomButton>
             </div>
           )}

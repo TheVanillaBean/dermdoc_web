@@ -639,12 +639,12 @@ strong {
   .legal-checkbox__label--link:link, .legal-checkbox__label--link:visited {
     display: inline-block;
     text-decoration: none;
-    color: #820244;
+    color: var(--color-primary-dark);
     font-weight: 500;
     font-size: 1.8rem;
     transition: all 0.3s; }
   .legal-checkbox__label--link:hover, .legal-checkbox__label--link:active {
-    color: #a63570; }
+    color: var(--color-primary); }
 
 .photo-gallery-container {
   display: flex;

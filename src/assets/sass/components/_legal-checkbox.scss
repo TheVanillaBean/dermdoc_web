@@ -16,7 +16,7 @@
       display: inline-block;
 
       text-decoration: none;
-      color: #820244;
+      color: var(--color-primary-dark);
       font-weight: 500;
       font-size: 1.8rem;
       transition: all 0.3s;
@@ -24,7 +24,7 @@
 
     &--link:hover,
     &--link:active {
-      color: #a63570;
+      color: var(--color-primary);
     }
   }
 }
