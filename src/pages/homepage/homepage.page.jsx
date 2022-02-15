@@ -32,6 +32,8 @@ class HomePage extends React.Component {
   handleClick = () => {
     const { history, updateVisitReason } = this.props;
 
+    document.body.classList.remove('sticky');
+
     updateVisitReason('Acne');
     history.push(`get_started`);
   };

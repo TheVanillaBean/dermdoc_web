@@ -26,7 +26,7 @@ class Header extends React.Component {
     return (
       <header className={`header ${nav_open}`}>
         <Link to='/'>
-          <img src={Logo} alt='Medicall logo' className='logo' />
+          <img src={Logo} alt='Dermdoc logo' className='logo' />
         </Link>
 
         <nav className='main-nav'>
@@ -38,7 +38,7 @@ class Header extends React.Component {
                   el.scrollIntoView({ behavior: 'smooth', block: 'start' });
                   this.setState({ nav_open: '' });
                 }}
-                to='#how'>
+                to='/#how'>
                 How it works
               </HashLink>
             </li>
@@ -49,7 +49,7 @@ class Header extends React.Component {
                   el.scrollIntoView({ behavior: 'smooth', block: 'start' });
                   this.setState({ nav_open: '' });
                 }}
-                to='#pricing'>
+                to='/#pricing'>
                 Pricing
               </HashLink>
             </li>
@@ -60,7 +60,7 @@ class Header extends React.Component {
                   el.scrollIntoView({ behavior: 'smooth', block: 'start' });
                   this.setState({ nav_open: '' });
                 }}
-                to='#ingredients'>
+                to='/#ingredients'>
                 Ingredients
               </HashLink>
             </li>
@@ -71,7 +71,7 @@ class Header extends React.Component {
                   el.scrollIntoView({ behavior: 'smooth', block: 'start' });
                   this.setState({ nav_open: '' });
                 }}
-                to='#faq'>
+                to='/#faq'>
                 FAQ
               </HashLink>
             </li>
@@ -101,7 +101,11 @@ class Header extends React.Component {
         <button
           className='btn-mobile-nav'
           onClick={() => {
-            this.setState({ nav_open: 'nav-open' });
+            if (nav_open) {
+              this.setState({ nav_open: '' });
+            } else {
+              this.setState({ nav_open: 'nav-open' });
+            }
           }}>
           <IoMenuOutline className='icon-mobile-nav' name='menu-outline' />
           <IoCloseOutline className='icon-mobile-nav' name='close-outline' />
