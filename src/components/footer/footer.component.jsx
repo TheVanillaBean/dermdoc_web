@@ -9,7 +9,7 @@ const Footer = () => {
       <div className='container grid grid--footer'>
         <div className='logo-col'>
           <Link to='/' className='footer-logo'>
-            <img src={Logo} alt='Omnifood logo' className='logo' />
+            <img src={Logo} alt='Dermdoc logo' className='logo' />
           </Link>
 
           <img className='hipaa-icon' src={HIPAABadge} alt='HIPAA Bage' />
@@ -17,7 +17,7 @@ const Footer = () => {
           <p className='copyright'>
             Copyright &copy; <span className='year'>2022</span>
             <br />
-            by Medicall, Inc. All Rights Reserved.
+            by Dermdoc, Inc. All Rights Reserved.
           </p>
         </div>
         <div className='address-col'>
@@ -26,7 +26,7 @@ const Footer = () => {
             <p className='address'>401 Park Drive, Suite 1009 Boston, MA 02115</p>
             <p>
               <a className='footer-link' href='mailto:contact@medicall.com'>
-                contact@medicall.com
+                contact@dermdoc.com
               </a>
             </p>
           </address>
