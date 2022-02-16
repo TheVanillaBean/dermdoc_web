@@ -1,12 +1,14 @@
 {
   "projects": {
-    "dev": "medicall-dev-58c31",
+    "dev": "dermdoc-dev-3835c",
     "prod": "telmed-216305"
   },
   "targets": {
-    "medicall-dev-58c31": {
+    "dermdoc-dev-3835c": {
       "hosting": {
-        "dev": ["dermdoc-dev"]
+        "dev": [
+          "dermdoc-test"
+        ]
       }
     }
   }
