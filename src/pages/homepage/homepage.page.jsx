@@ -177,27 +177,31 @@ class HomePage extends React.Component {
             </div>
 
             <div className='pricing-plan pricing-plan--complete'>
-              <header className='plan-header'>
-                <p className='plan-name'>
-                  <span>Oral Medications</span>
-                </p>
+              <img className='plan-img' src={PricingHeader} alt='Headshot' />
 
-                <p className='plan-price'>
-                  <span>$</span>14.95
-                </p>
-                <p className='plan-text'>
-                  extra per month. In-case you need it &#128522; Check-ins still included. <br />
-                </p>
-              </header>
-              <ul className='list'>
-                <li className='list-item'>
-                  <IoHeartOutline className='list-icon' />
-                  <span>
-                    Oral medications include
-                    <strong> spironolactone and various antibiotics</strong>
-                  </span>
-                </li>
-              </ul>
+              <div className='plan-content'>
+                <header className='plan-header'>
+                  <p className='plan-name'>
+                    <span>Oral Medications</span>
+                  </p>
+
+                  <p className='plan-price'>
+                    <span>$</span>14.95
+                  </p>
+                  <p className='plan-text'>
+                    extra per month. In-case you need it &#128522; Check-ins still included. <br />
+                  </p>
+                </header>
+                <ul className='list'>
+                  <li className='list-item'>
+                    <IoHeartOutline className='list-icon' />
+                    <span>
+                      Oral medications include
+                      <strong> spironolactone and various antibiotics</strong>
+                    </span>
+                  </li>
+                </ul>
+              </div>
             </div>
           </div>
 

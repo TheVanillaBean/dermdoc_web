@@ -59,12 +59,10 @@ class Checkout extends React.Component {
         <div className='checkout-page'>
           <div className='container'>
             <div className='visit-paid-container'>
-              <h1>Hooray! You have successfully paid for this visit.</h1>
+              <h1>Hooray! Your payment was successful.</h1>
+              <p>You will receive an email with more details on your custom cream shortly.</p>
               <p>
-                You will recieve a diagnosis and any prescriptions (if applicable) within 24 hours.
-              </p>
-              <p>
-                If you have any questions, please email omar@medicall.com for same-day responses.
+                If you have any questions, please email contact@dermdoc.com for same-day responses.
               </p>
             </div>
           </div>

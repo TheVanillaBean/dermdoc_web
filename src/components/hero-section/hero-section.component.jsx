@@ -34,6 +34,9 @@ const HeroSection = ({ homepage = true, handleClick, handleSubmit, handleChange,
           <CustomButton className='btn btn--full' onClick={handleClick}>
             Try for $6.99/month
           </CustomButton>
+          <p className='hero-btn-subtext'>
+            *Includes free evaluation by a board-certified dermatologist
+          </p>
         </div>
       </div>
     </section>

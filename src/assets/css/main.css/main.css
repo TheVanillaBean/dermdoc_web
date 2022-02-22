@@ -950,6 +950,12 @@ strong {
   line-height: 1.6;
   margin-bottom: 4.8rem; }
 
+.hero-btn-subtext {
+  margin-top: 1.2rem;
+  font-size: 1.8rem;
+  line-height: 1.2;
+  width: 60%; }
+
 .hero-description-item:not(:last-child) {
   margin-bottom: 2rem; }
 
@@ -1055,7 +1061,6 @@ strong {
 
 .pricing-plan--complete {
   background-color: #fdf2e9;
-  padding: 4.8rem;
   position: relative;
   overflow: hidden; }
 
@@ -1063,7 +1068,7 @@ strong {
   content: 'Add-on';
   position: absolute;
   top: 5%;
-  right: -20%;
+  right: -18%;
   text-transform: uppercase;
   font-size: 1.4rem;
   font-weight: 700;
@@ -1482,6 +1487,8 @@ input[type='number'] {
     gap: 6.4rem; }
   .hero-text-box {
     text-align: center; }
+  .hero-btn-subtext {
+    width: 100%; }
   .frame-cheaper::after {
     background-image: url(../../img/frame-blue-dark-m.png);
     left: -1rem;
