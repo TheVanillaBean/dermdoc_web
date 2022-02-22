@@ -260,31 +260,10 @@
 }
 
 /***************************/
-/* SERVICES SECTION */
+/* DOCTORS SECTION */
 /***************************/
 
-.section-services {
-  padding: 4.8rem 0 0 0;
-}
-
-/***************************/
-/* ABOUT DOCTOR SECTION */
-/***************************/
-
-.section-about {
-  padding: 4.8rem 0 0 0;
-}
-
-/***************************/
-/* TESTIMONIALS SECTION */
-/***************************/
-
-.section-testimonials {
-  padding: 4.8rem 0 3.2rem 0;
-}
-
-.testimonials {
-  display: grid;
-  grid-template-columns: repeat(1, 1fr);
-  row-gap: 4.8rem;
+.section-doctor {
+  scroll-margin: 3.2rem;
+  padding-top: 9.6rem;
 }

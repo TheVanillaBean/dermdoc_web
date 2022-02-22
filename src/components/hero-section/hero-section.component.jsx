@@ -32,7 +32,7 @@ const HeroSection = ({ homepage = true, handleClick, handleSubmit, handleChange,
           </p>
 
           <CustomButton className='btn btn--full' onClick={handleClick}>
-            Try for $7/month
+            Try for $6.99/month
           </CustomButton>
         </div>
       </div>

@@ -406,59 +406,47 @@ strong {
   margin-top: auto; }
 
 .doctor {
+  box-shadow: 0 2.4rem 4.8rem rgba(0, 0, 0, 0.075);
   border-radius: 11px;
   overflow: hidden;
   transition: all 0.4s;
-  display: flex;
-  flex-direction: row;
-  align-items: center;
-  padding-bottom: 3.2rem; }
-  .doctor--vertical {
-    box-shadow: 0 2.4rem 4.8rem rgba(0, 0, 0, 0.075);
-    flex-direction: column; }
+  width: 85%;
+  margin: 0 auto;
+  margin-bottom: 6.4rem; }
 
-.doctor:hover .doctor--vertical {
+.doctor:hover {
   transform: translateY(-1.2rem);
   box-shadow: 0 3.2rem 6.4rem rgba(0, 0, 0, 0.06); }
 
-.doctor__content {
+.doctor-content {
   padding: 3.2rem 4.8rem; }
 
-.doctor__content--tags {
+.doctor-tags {
   margin-bottom: 1.2rem;
   display: flex;
   gap: 1rem; }
 
-.doctor__content--title {
+.doctor-title {
   font-size: 2.4rem;
   color: #333;
   font-weight: 600;
-  margin-bottom: 3.2rem; }
+  margin-bottom: 1.8rem; }
 
-.doctor__content--attributes {
+.doctor-attributes {
   list-style: none;
   display: flex;
   flex-direction: column;
   gap: 2rem; }
 
-.doctor__content--attribute {
-  font-size: 1.8rem;
-  display: flex;
-  align-items: center;
-  gap: 2rem;
-  white-space: nowrap; }
+.doctor-attribute {
+  font-size: 2rem;
+  line-height: 1.4; }
 
-.doctor--img {
-  width: 30%; }
-  .doctor--img--vertical {
-    display: block;
-    margin-left: auto;
-    margin-right: auto;
-    width: 50%; }
-
-.doctor--search-btn {
-  margin-left: auto;
-  align-self: flex-end; }
+.doctor-img {
+  width: 100%;
+  height: 30vh;
+  object-fit: cover;
+  object-position: top; }
 
 .service {
   border-radius: 11px;
@@ -1128,27 +1116,11 @@ strong {
   margin-bottom: 9.6rem; }
 
 /***************************/
-/* SERVICES SECTION */
+/* DOCTORS SECTION */
 /***************************/
-.section-services {
-  padding: 4.8rem 0 0 0; }
-
-/***************************/
-/* ABOUT DOCTOR SECTION */
-/***************************/
-.section-about {
-  padding: 4.8rem 0 0 0; }
-
-/***************************/
-/* TESTIMONIALS SECTION */
-/***************************/
-.section-testimonials {
-  padding: 4.8rem 0 3.2rem 0; }
-
-.testimonials {
-  display: grid;
-  grid-template-columns: repeat(1, 1fr);
-  row-gap: 4.8rem; }
+.section-doctor {
+  scroll-margin: 3.2rem;
+  padding-top: 9.6rem; }
 
 .waitlist-form {
   display: flex;
@@ -1332,7 +1304,8 @@ strong {
   color: #fff;
   font-size: 4.4rem;
   line-height: 1.4;
-  text-align: center; }
+  text-align: center;
+  padding: 0 2.4rem; }
 
 .section-faq {
   padding: 9.6rem 0 9.6rem 0; }
