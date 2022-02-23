@@ -439,8 +439,8 @@ strong {
   gap: 2rem; }
 
 .doctor-attribute {
-  font-size: 2rem;
-  line-height: 1.4; }
+  font-size: 1.8rem;
+  line-height: 1.5; }
 
 .doctor-img {
   width: 100%;
@@ -1123,7 +1123,7 @@ strong {
 /***************************/
 /* DOCTORS SECTION */
 /***************************/
-.section-doctor {
+.section-doctors {
   scroll-margin: 3.2rem;
   padding-top: 9.6rem; }
 

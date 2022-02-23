@@ -19,6 +19,7 @@ import Trentinoin from '../../assets/img/ingredients/trentinoin.jpeg';
 import OmarHeadshot from '../../assets/img/omar-headshot.jpeg';
 import PricingHeader from '../../assets/img/pricing-img.jpg';
 import ProcessInfographic from '../../assets/img/pricing-infographic-lg.png';
+import SaamiHeadshot from '../../assets/img/saami_headshot.jpeg';
 import CustomButton from '../../components/custom-button/custom-button.component';
 import Footer from '../../components/footer/footer.component';
 import Header from '../../components/header/header.component';
@@ -428,7 +429,7 @@ class HomePage extends React.Component {
           </div>
         </section>
 
-        <section className='section-ingredients' id='ingredients'>
+        <section className='section-doctors' id='doctors'>
           <div className='container center-text margin-bottom-md'>
             <h1 className='heading-primary'>Featured Dermatologists</h1>
             <p className='heading-tertiary'>Expert care at your fingertips</p>
@@ -492,6 +493,30 @@ class HomePage extends React.Component {
                           awards for her academic achievements. She completed her internship in
                           Internal Medicine at Brigham and Women’s Hospital (Harvard Medical School)
                           and her dermatology residency at Brown University.
+                        </span>
+                      </li>
+                    </ul>
+                  </div>
+                </div>
+              </SwiperSlide>
+              <SwiperSlide>
+                <div className='doctor'>
+                  <img className='doctor-img' src={SaamiHeadshot} alt='Saami Headshot' />
+                  <div className='doctor-content'>
+                    <div className='doctor-tags'>
+                      <span className='tag tag--percentage'>Johns Hopkins University</span>
+                    </div>
+                    <p className='doctor-title'>Dr. Saami Khalifian M.D.</p>
+                    <ul className='doctor-attributes'>
+                      <li className='doctor-attribute'>
+                        <span>
+                          Dr. Khalifian completed his undergraduate studies at University of
+                          California, Berkeley, majoring in molecular & cellular biology. He
+                          received his medical degree from The Johns Hopkins School of Medicine. He
+                          completed his dermatology residency at Harvard University School of
+                          Medicine, with affiliations at Massachusetts General Hospital, Brigham &
+                          Women's Hospital, Dana Farber Cancer Institute, and Boston Children's
+                          Hospital.
                         </span>
                       </li>
                     </ul>
