@@ -62,7 +62,7 @@ class HomePage extends React.Component {
       },
       {
         title: '5. How does the 90-day money-back guarantee work?',
-        content: `Love your DermDoc custom cream in 90 days, or get your money back. You must contact support@dermdoc.com to cancel your subscription and request a refund at any time on or before the 90th day after you received your treatment plan.`,
+        content: `Love your DermDoc custom cream in 90 days, or get your money back. You must contact contact@dermdoc.com to cancel your subscription and request a refund at any time on or before the 90th day after you received your treatment plan.`,
       },
     ],
   };
