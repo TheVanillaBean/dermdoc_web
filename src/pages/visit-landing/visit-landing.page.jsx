@@ -48,7 +48,7 @@ class VisitLandingPage extends React.Component {
         },
         (error) => {
           fetchVisitFailure(
-            'We could not find information for this visit. Please contact support@dermdoc.com for fast assistance.'
+            'We could not find information for this visit. Please email contact@dermdoc.com for fast assistance.'
           );
         }
       );

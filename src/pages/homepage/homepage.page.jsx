@@ -8,6 +8,7 @@ import 'swiper/modules/navigation/navigation.min.css';
 import 'swiper/modules/pagination/pagination.min.css';
 import { Swiper, SwiperSlide } from 'swiper/react/swiper-react';
 import 'swiper/swiper.min.css';
+import CreamPricing from '../../assets/img/cream_pricing.jpg';
 import FarahHeadshot from '../../assets/img/farah-headshot.jpg';
 import AzelaicAcid from '../../assets/img/ingredients/azelaic_acid.jpg';
 import Clindamycin from '../../assets/img/ingredients/clindamycin.jpeg';
@@ -17,7 +18,7 @@ import Niacinamide from '../../assets/img/ingredients/niacinamide.jpg';
 import TranexamicAcid from '../../assets/img/ingredients/tranexamic_acid.jpeg';
 import Trentinoin from '../../assets/img/ingredients/trentinoin.jpeg';
 import OmarHeadshot from '../../assets/img/omar-headshot.jpeg';
-import PricingHeader from '../../assets/img/pricing-img.jpg';
+import OralPricing from '../../assets/img/oral_pricing.jpg';
 import ProcessInfographic from '../../assets/img/pricing-infographic-lg.png';
 import SaamiHeadshot from '../../assets/img/saami_headshot.jpeg';
 import CustomButton from '../../components/custom-button/custom-button.component';
@@ -139,7 +140,7 @@ class HomePage extends React.Component {
 
           <div className='container grid grid--2-cols margin-bottom-md'>
             <div className='pricing-plan pricing-plan--starter'>
-              <img className='plan-img' src={PricingHeader} alt='Headshot' />
+              <img className='plan-img' src={CreamPricing} alt='Headshot' />
 
               <div className='plan-content'>
                 <header className='plan-header'>
@@ -178,7 +179,7 @@ class HomePage extends React.Component {
             </div>
 
             <div className='pricing-plan pricing-plan--complete'>
-              <img className='plan-img' src={PricingHeader} alt='Headshot' />
+              <img className='plan-img' src={OralPricing} alt='Headshot' />
 
               <div className='plan-content'>
                 <header className='plan-header'>

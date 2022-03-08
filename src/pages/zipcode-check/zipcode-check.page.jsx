@@ -104,12 +104,11 @@ class ZipCodeCheck extends Component {
           {this.state.doctorsAvailable && (
             <div className='container center-text margin-bottom-md'>
               <h1 className='heading-secondary margin-bottom-sm'>
-                Get ready for healthier skin :)
+                Next, you'll answer some questions and upload some selfies.
               </h1>
               <p className='heading-tertiary margin-bottom-md'>
-                Next, you'll answer some questions and upload some selfies. <br /> <br />
-                You are <span className='text-primary-color'>not required</span> to pay for an
-                evaluation. You only pay if you want the cream that is designed for you.
+                Payment <span className='text-primary-color'>not required</span> for an evaluation.
+                You only pay if you want the cream that is designed for you.
               </p>
 
               <CustomButton
