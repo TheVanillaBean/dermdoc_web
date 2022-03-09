@@ -113,7 +113,7 @@ class HomePage extends React.Component {
                 <div className='feature-description'>
                   <p className='feature-title'>Receive custom formula</p>
                   <p className='feature-text'>
-                    Your dermatologist with design a personalized cream for you within 24 hours.
+                    Your dermatologist will design a personalized cream for you within 24 hours.
                   </p>
                 </div>
               </li>
@@ -135,7 +135,7 @@ class HomePage extends React.Component {
         <section className='section-pricing' id='pricing'>
           <div className='container center-text margin-bottom-md'>
             <h1 className='heading-primary'>Pricing</h1>
-            <p className='heading-tertiary'>Get started with our risk free 90-day trial</p>
+            <p className='heading-tertiary'>Get started with our risk-free 90-day trial</p>
           </div>
 
           <div className='container grid grid--2-cols margin-bottom-md'>
@@ -208,19 +208,19 @@ class HomePage extends React.Component {
           </div>
 
           <div className='container center-text margin-bottom-md'>
-            <p className='heading-tertiary'>90-day Stress-free Guarantee</p>
-            <p className='heading-description'>
-              Your first three months will cost <span className='text-primary-color'>$20.97</span>.
-              If you don't like it after three months, you will get a{' '}
-              <span className='text-primary-color'>100%</span> refund. After your first three
-              months, plans renew at <span className='text-primary-color'>$45 every 3 months</span>{' '}
-              ($14.95/month).
+            <p className='heading-primary'>90-day risk-free trial</p>
+            <p className='heading-tertiary'>
+              Your first three months will cost $20.97{' '}
+              <span className='text-primary-color'>($6.99/month)</span>. If you don't like it after
+              three months, you will get a <span className='text-primary-color'>100%</span> refund.
+              After your trial, plans renew at{' '}
+              <span className='text-primary-color'>($14.95/month)</span>.
             </p>
           </div>
 
           <div className='container center-text'>
             <CustomButton className='btn btn--full' onClick={this.handleClick}>
-              Try 90 day risk-free trial - $20.97
+              Try 90 day risk-free trial - $6.99/month
             </CustomButton>
           </div>
         </section>

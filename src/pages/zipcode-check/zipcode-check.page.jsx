@@ -79,53 +79,56 @@ class ZipCodeCheck extends Component {
         <Header />
 
         <section className='section-services' id='services'>
-          <div className='container center-text margin-bottom-md'>
-            <h1 className='heading-primary'>Verify your zip-code</h1>
-            <p className='heading-tertiary'>
-              So we can pair you with a dermatologist licensed in your state
-            </p>
-          </div>
+          {!this.state.doctorsAvailable ? (
+            <div>
+              <div className='container center-text margin-bottom-md'>
+                <h1 className='heading-primary'>Verify your zip-code</h1>
+                <p className='heading-tertiary'>
+                  So we can pair you with a dermatologist licensed in your state
+                </p>
+              </div>
 
-          <div className='zipcode container center-text margin-bottom-sm'>
-            <input
-              className='zipcode-input'
-              type='number'
-              name='zipcode'
-              value={zipcode}
-              onChange={this.handleZipcodeChange}
-              placeholder='What is your zipcode?'
-              required
-            />
-            <CustomButton className='btn btn--full' onClick={this.handleZipcodeSubmit}>
-              Continue
-            </CustomButton>
-          </div>
-
-          {this.state.doctorsAvailable && (
+              <div className='zipcode container center-text margin-bottom-sm'>
+                <input
+                  className='zipcode-input'
+                  type='number'
+                  name='zipcode'
+                  value={zipcode}
+                  onChange={this.handleZipcodeChange}
+                  placeholder='What is your zipcode?'
+                  required
+                />
+                <CustomButton className='btn btn--full' onClick={this.handleZipcodeSubmit}>
+                  Continue
+                </CustomButton>
+              </div>
+            </div>
+          ) : (
             <div className='container center-text margin-bottom-md'>
-              <h1 className='heading-secondary margin-bottom-sm'>
-                Next, you'll answer some questions and upload some selfies.
+              <h1 className='heading-primary margin-bottom-sm'>
+                &#127881; Hooray! We are in your area!
               </h1>
               <p className='heading-tertiary margin-bottom-md'>
-                Payment <span className='text-primary-color'>not required</span> for an evaluation.
-                You only pay if you want the cream that is designed for you.
+                Next, you'll answer some questions and upload some selfies. <br />
+                <br /> Payment is <span className='text-primary-color'>not required</span> for an
+                evaluation. You only pay if you want the cream that is designed for you.
               </p>
 
               <CustomButton
-                className='btn btn--full'
+                className='btn btn--full margin-bottom-sm'
                 onClick={() => this.createNewVisit(visitReason)}>
                 Begin your journey
               </CustomButton>
+
+              <div className='container center-text margin-bottom-md'>
+                <LegalCheckbox
+                  value={this.state.termsChecked}
+                  handleChange={this.handleTermsCheckboxChange}
+                  required
+                />
+              </div>
             </div>
           )}
-
-          <div className='container center-text margin-bottom-md'>
-            <LegalCheckbox
-              value={this.state.termsChecked}
-              handleChange={this.handleTermsCheckboxChange}
-              required
-            />
-          </div>
         </section>
 
         <ToastContainer
