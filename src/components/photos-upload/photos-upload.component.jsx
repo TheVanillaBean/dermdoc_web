@@ -1,6 +1,7 @@
 import imageCompression from 'browser-image-compression';
 import React from 'react';
 import Files from 'react-butterfiles';
+import { IoCard, IoPerson } from 'react-icons/io5';
 import { connect } from 'react-redux';
 import { withRouter } from 'react-router-dom';
 import { toast, ToastContainer } from 'react-toastify';
@@ -170,7 +171,10 @@ class PhotosUpload extends React.Component {
                           },
                         });
                       }}>
-                      <div>+ Tap to upload photo ID</div>
+                      <div>
+                        <IoCard className='list-icon margin-bottom-sm' />
+                        <p>+ Tap to upload photo ID</p>
+                      </div>
                     </li>
                   </ul>
                 </div>
@@ -228,7 +232,10 @@ class PhotosUpload extends React.Component {
                           },
                         });
                       }}>
-                      <div>+ Tap to upload selfies</div>
+                      <div>
+                        <IoPerson className='list-icon margin-bottom-sm' />
+                        <p>+ Tap to upload selfies</p>
+                      </div>
                     </li>
                   </ul>
                 </div>
