@@ -48,7 +48,7 @@ export const fetchCheckoutURLStartAsync = (idToken, visitID) => {
     } catch (e) {
       dispatch(
         fetchCheckoutURLFailure(
-          'There was an error with your checkout. Please contact omar@medicall.com'
+          'There was an error with your checkout. Please email contact@dermdoc.com.'
         )
       );
     }

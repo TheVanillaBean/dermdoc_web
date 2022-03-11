@@ -150,6 +150,9 @@ class HomePage extends React.Component {
                   <p className='plan-price'>
                     <span>$</span>14.95
                   </p>
+                  <p className='plan-price-subtext'>
+                    <span>$</span>6.99 (first three months)
+                  </p>
                   <p className='plan-text'>
                     per month. Includes topical cream and <strong>check-ins</strong> with a
                     dermatologist.
@@ -190,6 +193,10 @@ class HomePage extends React.Component {
                   <p className='plan-price'>
                     <span>$</span>14.95
                   </p>
+                  <p className='plan-price-subtext'>
+                    <span>$</span>6.99 (first three months)
+                  </p>
+
                   <p className='plan-text'>
                     extra per month. In-case you need it &#128522; Check-ins still included. <br />
                   </p>

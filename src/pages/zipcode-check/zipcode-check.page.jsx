@@ -84,7 +84,7 @@ class ZipCodeCheck extends Component {
               <div className='container center-text margin-bottom-md'>
                 <h1 className='heading-primary'>Verify your zip-code</h1>
                 <p className='heading-tertiary'>
-                  So we can pair you with a dermatologist licensed in your state
+                  So we can choose a dermatologist licensed in your state
                 </p>
               </div>
 
@@ -109,9 +109,10 @@ class ZipCodeCheck extends Component {
                 &#127881; Hooray! We are in your area!
               </h1>
               <p className='heading-tertiary margin-bottom-md'>
-                Next, you'll answer some questions and upload some selfies. <br />
-                <br /> Payment is <span className='text-primary-color'>not required</span> for an
-                evaluation. You only pay if you want the cream that is designed for you.
+                Next, you’ll complete a <span className='text-primary-color'>free</span> online
+                visit. This involves answering questions about your health and sharing photos so
+                your doctor can <span className='text-primary-color'>customize</span> your skin
+                cream (or oral medication).
               </p>
 
               <CustomButton

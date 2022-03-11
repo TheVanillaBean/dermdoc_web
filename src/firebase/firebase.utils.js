@@ -141,12 +141,10 @@ export const createVisit = async (service, mailing_state) => {
   const snapshot = await visitRef.get();
 
   if (!snapshot.exists) {
-    const date = new Date();
-
     try {
       await visitRef.set(
         {
-          date,
+          date: firebase.firestore.Timestamp.fromDate(new Date()),
           visit_reason: service,
           status: 'initiated',
           visit_id: visitRef.id,

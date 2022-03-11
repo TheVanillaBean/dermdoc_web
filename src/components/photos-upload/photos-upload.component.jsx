@@ -14,7 +14,8 @@ import CustomButton from '../custom-button/custom-button.component';
 
 class PhotosUpload extends React.Component {
   state = {
-    files: [],
+    photoId: [],
+    selfies: [],
     errors: [],
     dragging: false,
     submitted: false,
@@ -24,9 +25,9 @@ class PhotosUpload extends React.Component {
     this.setState({ errors });
   };
 
-  handleFiles = async (files, selectedIndex) => {
+  handlePhotoId = async (files, selectedIndex) => {
     this.setState({ errors: [] }, async () => {
-      const newValue = [...this.state.files];
+      const newValue = [...this.state.photoId];
 
       const convertedImages = [];
       for (let i = 0; i < files.length; i++) {
@@ -41,7 +42,28 @@ class PhotosUpload extends React.Component {
       }
 
       newValue.splice(selectedIndex, 0, ...convertedImages);
-      this.setState({ files: newValue });
+      this.setState({ photoId: newValue });
+    });
+  };
+
+  handleSelfies = async (files, selectedIndex) => {
+    this.setState({ errors: [] }, async () => {
+      const newValue = [...this.state.selfies];
+
+      const convertedImages = [];
+      for (let i = 0; i < files.length; i++) {
+        const image = files[i];
+        convertedImages.push({
+          file: image.src.file,
+          src: image.src.base64,
+          name: image.name,
+          size: image.size,
+          type: image.type,
+        });
+      }
+
+      newValue.splice(selectedIndex, 0, ...convertedImages);
+      this.setState({ selfies: newValue });
     });
   };
 
@@ -52,15 +74,18 @@ class PhotosUpload extends React.Component {
     this.setState({ submitted: true });
 
     if (!this.state.submitted) {
-      for (const photo of this.state.files) {
+      const files = this.state.selfies.concat(this.state.photoId);
+      for (const photo of files) {
         const options = {
           maxSizeMB: 0.3,
           maxWidthOrHeight: 1080,
           useWebWorker: true,
         };
         try {
+          console.log('Compress Start');
           const compressedFile = await imageCompression(photo.file, options);
           await uploadToFirebaseStorage(compressedFile, visit.visit_id);
+          console.log('Upload');
         } catch (error) {
           toast.error(error);
           this.setState({ submitted: false });
@@ -69,6 +94,7 @@ class PhotosUpload extends React.Component {
       }
 
       try {
+        console.log('Update Visit Async');
         await updateVisitAsync(visit.visit_id, {
           photos_added: true,
         });
@@ -84,77 +110,135 @@ class PhotosUpload extends React.Component {
   render() {
     return (
       <div className='container'>
-        <Files
-          id={'image-gallery'}
-          multiple
-          convertToBase64
-          maxSize='50mb'
-          accept={['image/jpg', 'image/jpeg', 'image/png']}
-          onError={this.handleErrors}
-          onSuccess={(files) => {
-            // Will append images at the end of the list.
-            this.handleFiles(files, this.state.files.length);
-          }}>
-          {({ browseFiles, getDropZoneProps, getLabelProps }) => (
-            <div className='photo-gallery-container'>
-              <label className='photo-gallery--title' {...getLabelProps()}>
-                Upload photo ID and 1-3 selfies
-              </label>
-              <label className='photo-gallery--subtitle' {...getLabelProps()}>
-                We need your <span className='text-primary-color'>photo ID</span> for legal reasons
-                because your board-certified dermatologist will be giving a{' '}
-                <span className='text-primary-color'>medical evaluation</span>. All images will be
-                saved to our secure HIPAA compliant backend and will{' '}
-                <span className='text-primary-color'>never</span> be shared.
-              </label>
-              {this.state.errors.length > 0 && (
-                <div className='photo-gallery--error'>An error occurred.</div>
-              )}
-              <div
-                {...getDropZoneProps({
-                  id: 'my-image-gallery',
-                  className: 'photo-gallery' + (this.state.dragging ? ' dragging' : ''),
-                  onDragEnter: () => this.setState({ dragging: true }),
-                  onDragLeave: () => this.setState({ dragging: false }),
-                  onDrop: () => this.setState({ dragging: false }),
-                })}>
-                <ul>
-                  {this.state.files.map((image, index) => (
+        <div className='photo-gallery-container'>
+          <label className='photo-gallery--title'>Upload photo ID and 1-3 selfies</label>
+          <label className='photo-gallery--subtitle'>
+            We need your <span className='text-primary-color'>photo ID</span> for legal reasons
+            because your board-certified dermatologist will be giving a{' '}
+            <span className='text-primary-color'>medical evaluation</span>. All images will be saved
+            to our secure HIPAA compliant backend and will{' '}
+            <span className='text-primary-color'>never</span> be shared.
+          </label>
+          <Files
+            id={'image-gallery'}
+            multiple
+            convertToBase64
+            maxSize='50mb'
+            accept={['image/jpg', 'image/jpeg', 'image/png']}
+            onError={this.handleErrors}
+            onSuccess={(files) => {
+              // Will append images at the end of the list.
+              this.handlePhotoId(files, this.state.photoId.length);
+            }}>
+            {({ browseFiles, getDropZoneProps, getLabelProps }) => (
+              <>
+                {this.state.errors.length > 0 && (
+                  <div className='photo-gallery--error'>An error occurred.</div>
+                )}
+                <div
+                  {...getDropZoneProps({
+                    id: 'my-image-gallery',
+                    className: 'photo-gallery' + (this.state.dragging ? ' dragging' : ''),
+                    onDragEnter: () => this.setState({ dragging: true }),
+                    onDragLeave: () => this.setState({ dragging: false }),
+                    onDrop: () => this.setState({ dragging: false }),
+                  })}>
+                  <ul>
+                    {this.state.photoId.map((image, index) => (
+                      <li
+                        key={index}
+                        onClick={() => {
+                          browseFiles({
+                            onErrors: this.handleErrors,
+                            onSuccess: (files) => {
+                              // Will insert images after the clicked image.
+                              this.handlePhotoId(files, index + 1);
+                            },
+                          });
+                        }}>
+                        <img src={image.src} alt='User selected' />
+                      </li>
+                    ))}
                     <li
-                      key={index}
+                      className='new-image'
                       onClick={() => {
                         browseFiles({
                           onErrors: this.handleErrors,
                           onSuccess: (files) => {
-                            // Will insert images after the clicked image.
-                            this.handleFiles(files, index + 1);
+                            // Will append images at the end of the list.
+                            this.handlePhotoId(files, this.state.photoId.length);
                           },
                         });
                       }}>
-                      <img src={image.src} alt='User selected' />
+                      <div>+ Tap to upload photo ID</div>
                     </li>
-                  ))}
-                  <li
-                    className='new-image'
-                    onClick={() => {
-                      browseFiles({
-                        onErrors: this.handleErrors,
-                        onSuccess: (files) => {
-                          // Will append images at the end of the list.
-                          this.handleFiles(files, this.state.files.length);
-                        },
-                      });
-                    }}>
-                    <div>+ Tap me to open camera</div>
-                  </li>
-                </ul>
-              </div>
-              <CustomButton className='btn btn--full' onClick={this.handleSubmit}>
-                Submit and Continue
-              </CustomButton>
-            </div>
-          )}
-        </Files>
+                  </ul>
+                </div>
+              </>
+            )}
+          </Files>
+          <Files
+            id={'image-gallery'}
+            multiple
+            convertToBase64
+            maxSize='50mb'
+            accept={['image/jpg', 'image/jpeg', 'image/png']}
+            onError={this.handleErrors}
+            onSuccess={(files) => {
+              // Will append images at the end of the list.
+              this.handleSelfies(files, this.state.selfies.length);
+            }}>
+            {({ browseFiles, getDropZoneProps, getLabelProps }) => (
+              <>
+                {this.state.errors.length > 0 && (
+                  <div className='photo-gallery--error'>An error occurred.</div>
+                )}
+                <div
+                  {...getDropZoneProps({
+                    id: 'my-image-gallery',
+                    className: 'photo-gallery' + (this.state.dragging ? ' dragging' : ''),
+                    onDragEnter: () => this.setState({ dragging: true }),
+                    onDragLeave: () => this.setState({ dragging: false }),
+                    onDrop: () => this.setState({ dragging: false }),
+                  })}>
+                  <ul>
+                    {this.state.selfies.map((image, index) => (
+                      <li
+                        key={index}
+                        onClick={() => {
+                          browseFiles({
+                            onErrors: this.handleErrors,
+                            onSuccess: (files) => {
+                              // Will insert images after the clicked image.
+                              this.handleSelfies(files, index + 1);
+                            },
+                          });
+                        }}>
+                        <img src={image.src} alt='User selected' />
+                      </li>
+                    ))}
+                    <li
+                      className='new-image'
+                      onClick={() => {
+                        browseFiles({
+                          onErrors: this.handleErrors,
+                          onSuccess: (files) => {
+                            // Will append images at the end of the list.
+                            this.handleSelfies(files, this.state.selfies.length);
+                          },
+                        });
+                      }}>
+                      <div>+ Tap to upload selfies</div>
+                    </li>
+                  </ul>
+                </div>
+              </>
+            )}
+          </Files>
+          <CustomButton className='btn btn--full' onClick={this.handleSubmit}>
+            Submit and Continue
+          </CustomButton>
+        </div>
         {this.state.submitted && (
           <div className='spinner-overlay'>
             <div className='spinner-container' />
