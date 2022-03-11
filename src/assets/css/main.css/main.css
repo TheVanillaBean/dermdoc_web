@@ -492,7 +492,8 @@ strong {
 .auth-page {
   width: 100%;
   display: flex;
-  justify-content: space-between;
+  flex-direction: column;
+  justify-content: space-around;
   margin: 1.2rem auto; }
 
 .sign-up {
@@ -500,12 +501,14 @@ strong {
   font-size: 1.8rem;
   font-weight: 300;
   color: var(--color-primary);
+  margin-bottom: 7.2rem;
   display: flex;
   flex-direction: column; }
   .sign-up .title {
     margin: 10px 0; }
   .sign-up .buttons {
-    display: flex; }
+    display: flex;
+    justify-content: flex-start; }
 
 .sign-in {
   width: 100%;
@@ -519,7 +522,7 @@ strong {
     margin: 10px 0; }
   .sign-in .buttons {
     display: flex;
-    justify-content: space-between; }
+    justify-content: flex-start; }
 
 .form-input-container {
   position: relative;

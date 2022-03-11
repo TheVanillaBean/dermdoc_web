@@ -29,8 +29,8 @@ class SignInSignUp extends React.Component {
     return (
       <div className='container'>
         <div className='auth-page'>
-          <SignIn />
           <SignUp />
+          <SignIn />
         </div>
       </div>
     );

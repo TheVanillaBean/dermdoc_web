@@ -4,7 +4,12 @@ import { withRouter } from 'react-router-dom';
 import { toast, ToastContainer } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
 import { createStructuredSelector } from 'reselect';
-import { auth, createUserProfileDocument, NON_PERSITANCE } from '../../firebase/firebase.utils';
+import {
+  auth,
+  createUserProfileDocument,
+  NON_PERSITANCE,
+  signInWithGoogle,
+} from '../../firebase/firebase.utils';
 import { selectVisitData } from '../../redux/visit/visit.selectors';
 import CustomButton from '../custom-button/custom-button.component';
 import FormInput from '../form-input/form-input.component';
@@ -98,7 +103,12 @@ class SignUp extends React.Component {
           />
           <div className='buttons'>
             <CustomButton className='custom-button' type='submit'>
-              Sign Up
+              Sign up
+            </CustomButton>
+            <CustomButton
+              className='custom-button custom-button__google-sign-in'
+              onClick={signInWithGoogle}>
+              Sign up with Google
             </CustomButton>
           </div>
         </form>
