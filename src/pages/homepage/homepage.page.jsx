@@ -8,7 +8,6 @@ import 'swiper/modules/navigation/navigation.min.css';
 import 'swiper/modules/pagination/pagination.min.css';
 import { Swiper, SwiperSlide } from 'swiper/react/swiper-react';
 import 'swiper/swiper.min.css';
-import CreamPricing from '../../assets/img/cream_pricing.jpg';
 import FarahHeadshot from '../../assets/img/farah-headshot.jpg';
 import AzelaicAcid from '../../assets/img/ingredients/azelaic_acid.jpg';
 import Clindamycin from '../../assets/img/ingredients/clindamycin.jpeg';
@@ -18,8 +17,9 @@ import Niacinamide from '../../assets/img/ingredients/niacinamide.jpg';
 import TranexamicAcid from '../../assets/img/ingredients/tranexamic_acid.jpeg';
 import Trentinoin from '../../assets/img/ingredients/trentinoin.jpeg';
 import OmarHeadshot from '../../assets/img/omar-headshot.jpeg';
-import OralPricing from '../../assets/img/oral_pricing.jpg';
+import CreamPricing from '../../assets/img/pricing-cream-single.jpg';
 import ProcessInfographic from '../../assets/img/pricing-infographic-lg.png';
+import OralPricing from '../../assets/img/pricing-oral-single.jpg';
 import SaamiHeadshot from '../../assets/img/saami_headshot.jpeg';
 import CustomButton from '../../components/custom-button/custom-button.component';
 import Footer from '../../components/footer/footer.component';
@@ -87,7 +87,7 @@ class HomePage extends React.Component {
 
         <section className='section-how' id='how'>
           <div className='container center-text'>
-            <h1 className='heading-primary text-color-white'>How does it work</h1>
+            <h1 className='heading-primary text-color-white'>How does it work?</h1>
             <p className='heading-tertiary text-color-white'>
               You're only 3 steps away from clearer skin
             </p>
@@ -151,7 +151,7 @@ class HomePage extends React.Component {
                     <span>$</span>14.95
                   </p>
                   <p className='plan-price-subtext'>
-                    <span>$</span>6.99 (first three months)
+                    <span>$</span>6.99 (first 3 months)
                   </p>
                   <p className='plan-text'>
                     per month. Includes topical cream and <strong>check-ins</strong> with a
@@ -194,7 +194,7 @@ class HomePage extends React.Component {
                     <span>$</span>14.95
                   </p>
                   <p className='plan-price-subtext'>
-                    <span>$</span>6.99 (first three months)
+                    <span>$</span>6.99 (first 3 months)
                   </p>
 
                   <p className='plan-text'>
