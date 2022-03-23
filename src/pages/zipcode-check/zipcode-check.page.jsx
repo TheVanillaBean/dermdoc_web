@@ -1,4 +1,5 @@
 import React, { Component } from 'react';
+import ReactPixel from 'react-facebook-pixel';
 import { connect } from 'react-redux';
 import { withRouter } from 'react-router';
 import { toast, ToastContainer } from 'react-toastify';
@@ -10,6 +11,7 @@ import LegalCheckbox from '../../components/legal-checkbox/legal-checkbox.compon
 import { createVisit, logZipCode } from '../../firebase/firebase.utils';
 import { updateZipCode } from '../../redux/search/search.actions';
 import { selectState, selectVisitReason, selectZipCode } from '../../redux/search/search.selectors';
+ReactPixel.pageView();
 
 class ZipCodeCheck extends Component {
   state = {
@@ -57,6 +59,13 @@ class ZipCodeCheck extends Component {
 
     try {
       const newVisit = await createVisit(visitReason, mailing_state);
+
+      ReactPixel.track('ViewContent', {
+        content_name: 'New Visit Initiated',
+        content_ids: [newVisit.visitId],
+        value: 0.5,
+        currency: 'USD',
+      });
 
       if (newVisit.error) {
         toast.error(newVisit.message);

@@ -59,11 +59,11 @@ class HomePage extends React.Component {
       },
       {
         title: '4. How much does a DermDoc Subscription cost?',
-        content: `We send prescriptions as 3-month supplies. After the introductory offer ($6.99/month for the first 3 months), each 3-month supply costs $45 (shipping included). We'll send you a notice for a refill every 3 months. That breaks down to just $15 per month. Cancel anytime.`,
+        content: `We send prescriptions as 3-month supplies. After the introductory offer ($6.99/month for the first 3 months), each 3-month supply costs $44.85 (shipping included). We'll send you a notice for a refill every 3 months. That breaks down to just $14.95 per month. Cancel anytime.`,
       },
       {
-        title: '5. How does the 90-day money-back guarantee work?',
-        content: `Love your DermDoc custom cream in 90 days, or get your money back. You must contact contact@dermdoc.com to cancel your subscription and request a refund at any time on or before the 90th day after you received your treatment plan.`,
+        title: '5. How does the 3-month trial work?',
+        content: `Love your DermDoc custom cream in 3 months, or get your money back. You must contact contact@dermdoc.com to cancel your subscription and request a refund at any time on or before the 90th day after you received your treatment plan.`,
       },
     ],
   };
@@ -148,10 +148,10 @@ class HomePage extends React.Component {
                     <span>Topical Medications</span>
                   </p>
                   <p className='plan-price'>
-                    <span>$</span>14.95
+                    <span>$</span>6.99
                   </p>
                   <p className='plan-price-subtext'>
-                    <span>$</span>6.99 (first 3 months)
+                    <span>$</span>14.95 (after 3 month trial)
                   </p>
                   <p className='plan-text'>
                     per month. Includes topical cream and <strong>check-ins</strong> with a
@@ -191,10 +191,10 @@ class HomePage extends React.Component {
                   </p>
 
                   <p className='plan-price'>
-                    <span>$</span>14.95
+                    <span>$</span>6.99
                   </p>
                   <p className='plan-price-subtext'>
-                    <span>$</span>6.99 (first 3 months)
+                    <span>$</span>14.95 (after 3 month trial)
                   </p>
 
                   <p className='plan-text'>
@@ -217,17 +217,15 @@ class HomePage extends React.Component {
           <div className='container center-text margin-bottom-md'>
             <p className='heading-primary'>90-day risk-free trial</p>
             <p className='heading-tertiary'>
-              Your first three months will cost $20.97{' '}
-              <span className='text-primary-color'>($6.99/month)</span>. If you don't like it after
-              three months, you will get a <span className='text-primary-color'>100%</span> refund.
-              After your trial, plans renew at{' '}
-              <span className='text-primary-color'>($14.95/month)</span>.
+              If you don't like your cream after your 3 month trial, you will get a{' '}
+              <span className='text-primary-color'>100%</span> refund. After your trial, plans renew
+              at <span className='text-primary-color'>($14.95/month)</span>.
             </p>
           </div>
 
           <div className='container center-text'>
             <CustomButton className='btn btn--full' onClick={this.handleClick}>
-              Try 90 day risk-free trial - $6.99/month
+              Try 3 month risk-free trial - $6.99/month
             </CustomButton>
           </div>
         </section>

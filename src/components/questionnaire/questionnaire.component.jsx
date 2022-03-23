@@ -1,4 +1,5 @@
 import React from 'react';
+import ReactPixel from 'react-facebook-pixel';
 import { connect } from 'react-redux';
 import { withRouter } from 'react-router-dom';
 import { createStructuredSelector } from 'reselect';
@@ -46,6 +47,14 @@ class Questionnaire extends React.Component {
       visit: { visit_id },
     } = this.props;
     const saveQuestionnaire = await saveQuestionnaireResponse(visit_id, survey.data);
+
+    ReactPixel.track('Lead', {
+      content_name: 'Questionnaire Submitted',
+      content_ids: [visit_id],
+      value: 2,
+      currency: 'USD',
+    });
+
     if (saveQuestionnaire.error) {
       console.log(saveQuestionnaire.message);
     } else {

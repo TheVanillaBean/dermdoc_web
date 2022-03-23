@@ -1,4 +1,5 @@
 import React, { Component } from 'react';
+import ReactPixel from 'react-facebook-pixel';
 import { connect } from 'react-redux';
 import { Redirect, Route, Switch } from 'react-router-dom';
 import { createStructuredSelector } from 'reselect';
@@ -11,6 +12,8 @@ import WaitlistPage from './pages/waitlist/waitlist.page';
 import ZipcodeCheckPage from './pages/zipcode-check/zipcode-check.page';
 import { setCurrentUser } from './redux/user/user.actions';
 import { selectVisitData } from './redux/visit/visit.selectors';
+
+ReactPixel.init('702584800918603', {}, { debug: true, autoConfig: true });
 
 class App extends Component {
   unsubscribeFromAuth = null;

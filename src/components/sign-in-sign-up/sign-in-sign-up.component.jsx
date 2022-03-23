@@ -1,4 +1,5 @@
 import React from 'react';
+import ReactPixel from 'react-facebook-pixel';
 import { connect } from 'react-redux';
 import { withRouter } from 'react-router-dom';
 import { createStructuredSelector } from 'reselect';
@@ -17,6 +18,13 @@ class SignInSignUp extends React.Component {
     } = this.props;
 
     if (currentUser != null && prevProps.visit.status === 'filled_out') {
+      ReactPixel.track('CompleteRegistration', {
+        content_name: 'User authenticated',
+        content_ids: [visit_id],
+        value: 2.5,
+        currency: 'USD',
+      });
+
       updateVisitAsync(visit_id, {
         status: 'authenticated',
         patient_id: currentUser.id,

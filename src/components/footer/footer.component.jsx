@@ -17,7 +17,7 @@ const Footer = () => {
           <p className='copyright'>
             Copyright &copy; <span className='year'>2022</span>
             <br />
-            by Dermdoc, Inc. All Rights Reserved.
+            DermDoc is a subsidiary of Medicall, Inc. All Rights Reserved.
           </p>
         </div>
         <div className='address-col'>
