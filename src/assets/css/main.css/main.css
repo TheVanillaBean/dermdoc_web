@@ -981,7 +981,7 @@ strong {
 /***************************/
 .section-how {
   scroll-margin: 3.2rem;
-  margin: 9.6rem 0 0 0;
+  margin: 0;
   padding: 4.8rem 0;
   background-color: var(--color-primary); }
   .section-how > .container {
@@ -1455,8 +1455,6 @@ input[type='number'] {
     height: 100vh; }
   .hero {
     max-width: 120rem; }
-  .heading-primary {
-    font-size: 4.4rem; }
   .section-additional {
     max-width: 100%; }
   .blob-container__overlay {
@@ -1498,8 +1496,14 @@ input[type='number'] {
   .hero {
     grid-template-columns: 1fr;
     padding: 0 8rem;
-    gap: 6.4rem; }
+    gap: 6.4rem;
+    align-content: center;
+    justify-content: center;
+    justify-items: center;
+    align-items: center; }
   .hero-text-box {
+    text-align: center; }
+  .text-primary-color {
     text-align: center; }
   .hero-btn-subtext {
     width: 100%; }
@@ -1581,12 +1585,12 @@ input[type='number'] {
     grid-column: 1 / -1;
     justify-self: center; }
   .heading-primary {
-    font-size: 3.2rem; }
+    font-size: 3.8rem; }
   .grid--3-cols,
   .grid--4-cols {
     grid-template-columns: repeat(2, 1fr); }
   .heading-secondary {
-    margin-bottom: 4.8rem; }
+    margin-bottom: 4.4rem; }
   .waitlist-form {
     align-items: center; }
     .waitlist-form__button {

@@ -1,13 +1,26 @@
 import React, { useEffect } from 'react';
 import { useInView } from 'react-intersection-observer';
+import TextTransition, { presets } from 'react-text-transition';
 import CustomButton from '../../components/custom-button/custom-button.component';
 
 const HeroSection = ({ homepage = true, handleClick, handleSubmit, handleChange, email }) => {
+  const TEXTS = ['breakouts', 'wrinkles', 'pimples', 'dark spots', 'blackheads', 'whiteheads'];
+
   const { ref, entry } = useInView({
     root: null, //browser viewport
     threshold: 0,
     rootMargin: '0px',
   });
+
+  const [index, setIndex] = React.useState(0);
+
+  React.useEffect(() => {
+    const intervalId = setInterval(
+      () => setIndex((index) => index + 1),
+      1500 // every 1 seconds
+    );
+    return () => clearTimeout(intervalId);
+  }, []);
 
   useEffect(() => {
     if (entry?.isIntersecting === false) {
@@ -22,20 +35,29 @@ const HeroSection = ({ homepage = true, handleClick, handleSubmit, handleChange,
       <div className='hero'>
         <div className='hero-text-box'>
           <h1 className='heading-primary'>
-            Your skincare routine just got <br />
-            <span class='frame frame-cheaper'>40% cheaper</span>
+            Personalized prescription cream to treat
+            <br />
+            <TextTransition
+              text={TEXTS[index % TEXTS.length]}
+              springConfig={presets.wobbly}
+              className='text-primary-color'
+              inline
+            />
           </h1>
 
           <p className='hero-description'>
-            You'll get a custom cream that combines powerful prescription ingredients, tailored just
-            for you by a board-certified dermatologist.
+            You'll get a custom cream that combines powerful{' '}
+            <span className='text-primary-color'>
+              <b>prescription ingredients</b>
+            </span>
+            , tailored just for you by a board-certified dermatologist.
           </p>
 
           <CustomButton className='btn btn--full' onClick={handleClick}>
-            Try for $6.99/month
+            Try risk-free for $6.99/month
           </CustomButton>
           <p className='hero-btn-subtext'>
-            *Includes free evaluation by a board-certified dermatologist
+            *If you don't like it after 3 months, you'll get a 100% refund
           </p>
         </div>
       </div>

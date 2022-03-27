@@ -18,7 +18,6 @@ import TranexamicAcid from '../../assets/img/ingredients/tranexamic_acid.jpeg';
 import Trentinoin from '../../assets/img/ingredients/trentinoin.jpeg';
 import OmarHeadshot from '../../assets/img/omar-headshot.jpeg';
 import CreamPricing from '../../assets/img/pricing-cream-single.jpg';
-import ProcessInfographic from '../../assets/img/pricing-infographic-lg.png';
 import OralPricing from '../../assets/img/pricing-oral-single.jpg';
 import SaamiHeadshot from '../../assets/img/saami_headshot.jpeg';
 import CustomButton from '../../components/custom-button/custom-button.component';
@@ -75,164 +74,10 @@ class HomePage extends React.Component {
           <Header />
           <HeroSection handleClick={this.handleClick} />
         </div>
-        <div className='hero-infographic'>
-          <h1 className='heading-primary'>
-            See how you'll save <span className='text-primary-color'>40%</span>
-          </h1>
-          <p className='heading-tertiary'>
-            Short story: you're paying for a quality product, not fancy marketing.
-          </p>
-          <img src={ProcessInfographic} alt='Pricing Infographic' />
-        </div>
-
-        <section className='section-how' id='how'>
-          <div className='container center-text'>
-            <h1 className='heading-primary text-color-white'>How does it work?</h1>
-            <p className='heading-tertiary text-color-white'>
-              You're only 3 steps away from clearer skin
-            </p>
-          </div>
-          <div className='feature-list-container'>
-            <ul className='feature-list'>
-              <li className='feature'>
-                <div className='feature-circle'>
-                  <p className='feature-circle-text'>01</p>
-                </div>
-
-                <div className='feature-description'>
-                  <p className='feature-title'>Upload selfies</p>
-                  <p className='feature-text'>
-                    Answer some questions and share photos of your skin.
-                  </p>
-                </div>
-              </li>
-              <li className='feature'>
-                <div className='feature-circle'>
-                  <p className='feature-circle-text'>02</p>
-                </div>
-                <div className='feature-description'>
-                  <p className='feature-title'>Receive custom formula</p>
-                  <p className='feature-text'>
-                    Your dermatologist will design a personalized cream for you within 24 hours.
-                  </p>
-                </div>
-              </li>
-              <li className='feature'>
-                <div className='feature-circle'>
-                  <p className='feature-circle-text'>03</p>
-                </div>
-                <div className='feature-description'>
-                  <p className='feature-title'>Check-in as needed</p>
-                  <p className='feature-text'>
-                    You'll check-in with your dermatologist throughout your journey.
-                  </p>
-                </div>
-              </li>
-            </ul>
-          </div>
-        </section>
-
-        <section className='section-pricing' id='pricing'>
-          <div className='container center-text margin-bottom-md'>
-            <h1 className='heading-primary'>Pricing</h1>
-            <p className='heading-tertiary'>Get started with our risk-free 90-day trial</p>
-          </div>
-
-          <div className='container grid grid--2-cols margin-bottom-md'>
-            <div className='pricing-plan pricing-plan--starter'>
-              <img className='plan-img' src={CreamPricing} alt='Headshot' />
-
-              <div className='plan-content'>
-                <header className='plan-header'>
-                  <p className='plan-name'>
-                    <span>Topical Medications</span>
-                  </p>
-                  <p className='plan-price'>
-                    <span>$</span>6.99
-                  </p>
-                  <p className='plan-price-subtext'>
-                    <span>$</span>14.95 (after 3 month trial)
-                  </p>
-                  <p className='plan-text'>
-                    per month. Includes topical cream and <strong>check-ins</strong> with a
-                    dermatologist.
-                  </p>
-                </header>
-                <ul className='list'>
-                  <li className='list-item'>
-                    <IoHeartOutline className='list-icon' />
-                    <span>
-                      <strong>Custom</strong> topical cream designed just for you
-                    </span>
-                  </li>
-                  <li className='list-item'>
-                    <IoHappyOutline className='list-icon' />
-                    <span>
-                      <strong>Delivered</strong> to your door (free shipping)
-                    </span>
-                  </li>
-                  <li className='list-item'>
-                    <IoCheckmarkCircleOutline className='list-icon' />
-                    <span>
-                      <strong>Check-ins</strong> to monitor your skin
-                    </span>
-                  </li>
-                </ul>
-              </div>
-            </div>
-
-            <div className='pricing-plan pricing-plan--complete'>
-              <img className='plan-img' src={OralPricing} alt='Headshot' />
-
-              <div className='plan-content'>
-                <header className='plan-header'>
-                  <p className='plan-name'>
-                    <span>Oral Medications</span>
-                  </p>
-
-                  <p className='plan-price'>
-                    <span>$</span>6.99
-                  </p>
-                  <p className='plan-price-subtext'>
-                    <span>$</span>14.95 (after 3 month trial)
-                  </p>
-
-                  <p className='plan-text'>
-                    extra per month. In-case you need it &#128522; Check-ins still included. <br />
-                  </p>
-                </header>
-                <ul className='list'>
-                  <li className='list-item'>
-                    <IoHeartOutline className='list-icon' />
-                    <span>
-                      Oral medications include
-                      <strong> spironolactone and various antibiotics</strong>
-                    </span>
-                  </li>
-                </ul>
-              </div>
-            </div>
-          </div>
-
-          <div className='container center-text margin-bottom-md'>
-            <p className='heading-primary'>90-day risk-free trial</p>
-            <p className='heading-tertiary'>
-              If you don't like your cream after your 3 month trial, you will get a{' '}
-              <span className='text-primary-color'>100%</span> refund. After your trial, plans renew
-              at <span className='text-primary-color'>($14.95/month)</span>.
-            </p>
-          </div>
-
-          <div className='container center-text'>
-            <CustomButton className='btn btn--full' onClick={this.handleClick}>
-              Try 3 month risk-free trial - $6.99/month
-            </CustomButton>
-          </div>
-        </section>
 
         <section className='section-ingredients' id='ingredients'>
           <div className='container center-text margin-bottom-md'>
-            <h1 className='heading-primary'>Better Ingredients</h1>
+            <h1 className='heading-primary'>Prescription Ingredients</h1>
             <p className='heading-tertiary'>Quality you won't find at a store</p>
           </div>
           <div className='container margin-bottom-mg'>
@@ -437,8 +282,10 @@ class HomePage extends React.Component {
 
         <section className='section-doctors' id='doctors'>
           <div className='container center-text margin-bottom-md'>
-            <h1 className='heading-primary'>Featured Dermatologists</h1>
-            <p className='heading-tertiary'>Expert care at your fingertips</p>
+            <h1 className='heading-primary'>You're in good hands</h1>
+            <p className='heading-tertiary'>
+              Every cream is designed by a board-certified dermatologist
+            </p>
           </div>
           <div className='container margin-bottom-mg'>
             <Swiper
@@ -530,6 +377,151 @@ class HomePage extends React.Component {
                 </div>
               </SwiperSlide>
             </Swiper>
+          </div>
+        </section>
+
+        <section className='section-pricing' id='pricing'>
+          <div className='container center-text margin-bottom-md'>
+            <h1 className='heading-primary'>Pricing</h1>
+            <p className='heading-tertiary'>Get started with our risk-free 3-month trial</p>
+          </div>
+
+          <div className='container grid grid--2-cols margin-bottom-md'>
+            <div className='pricing-plan pricing-plan--starter'>
+              <img className='plan-img' src={CreamPricing} alt='Headshot' />
+
+              <div className='plan-content'>
+                <header className='plan-header'>
+                  <p className='plan-name'>
+                    <span>Personalized Cream</span>
+                  </p>
+                  <p className='plan-price'>
+                    <span>$</span>6.99
+                  </p>
+                  <p className='plan-price-subtext'>
+                    <span>$</span>14.95 (after 3-month trial)
+                  </p>
+                  <p className='plan-text'>
+                    per month. Includes topical cream and <strong>check-ins</strong> with a
+                    dermatologist.
+                  </p>
+                </header>
+                <ul className='list'>
+                  <li className='list-item'>
+                    <IoHeartOutline className='list-icon' />
+                    <span>
+                      <strong>Custom</strong> topical cream designed just for you
+                    </span>
+                  </li>
+                  <li className='list-item'>
+                    <IoHappyOutline className='list-icon' />
+                    <span>
+                      <strong>Delivered</strong> to your door (free shipping)
+                    </span>
+                  </li>
+                  <li className='list-item'>
+                    <IoCheckmarkCircleOutline className='list-icon' />
+                    <span>
+                      <strong>Check-ins</strong> to monitor your skin
+                    </span>
+                  </li>
+                </ul>
+              </div>
+            </div>
+
+            <div className='pricing-plan pricing-plan--complete'>
+              <img className='plan-img' src={OralPricing} alt='Headshot' />
+
+              <div className='plan-content'>
+                <header className='plan-header'>
+                  <p className='plan-name'>
+                    <span>Oral Medications</span>
+                  </p>
+
+                  <p className='plan-price'>
+                    <span>$</span>6.99
+                  </p>
+                  <p className='plan-price-subtext'>
+                    <span>$</span>14.95 (after 3-month trial)
+                  </p>
+
+                  <p className='plan-text'>
+                    extra per month. In-case you need it &#128522; Check-ins still included. <br />
+                  </p>
+                </header>
+                <ul className='list'>
+                  <li className='list-item'>
+                    <IoHeartOutline className='list-icon' />
+                    <span>
+                      Oral medications include
+                      <strong> spironolactone and various antibiotics</strong>
+                    </span>
+                  </li>
+                </ul>
+              </div>
+            </div>
+          </div>
+
+          <div className='container center-text margin-bottom-md'>
+            <p className='heading-primary'>3-month free trial</p>
+            <p className='heading-tertiary'>
+              *If you don't like your cream after your 3 month trial, you will get a{' '}
+              <span className='text-primary-color'>100%</span> refund. After your trial, plans renew
+              at <span className='text-primary-color'>($14.95/month)</span>.
+            </p>
+          </div>
+
+          <div className='container center-text'>
+            <CustomButton className='btn btn--full' onClick={this.handleClick}>
+              Try 3-month risk-free trial - $6.99/month
+            </CustomButton>
+          </div>
+        </section>
+
+        <section className='section-how' id='how'>
+          <div className='container center-text'>
+            <h1 className='heading-primary text-color-white'>How does it work?</h1>
+            <p className='heading-tertiary text-color-white'>
+              You're only 3 steps away from clearer skin
+            </p>
+          </div>
+          <div className='feature-list-container'>
+            <ul className='feature-list'>
+              <li className='feature'>
+                <div className='feature-circle'>
+                  <p className='feature-circle-text'>01</p>
+                </div>
+
+                <div className='feature-description'>
+                  <p className='feature-title'>Upload selfies</p>
+                  <p className='feature-text'>
+                    Answer some questions and share photos of your skin.
+                  </p>
+                </div>
+              </li>
+              <li className='feature'>
+                <div className='feature-circle'>
+                  <p className='feature-circle-text'>02</p>
+                </div>
+                <div className='feature-description'>
+                  <p className='feature-title'>Receive custom formula</p>
+                  <p className='feature-text'>
+                    Your dermatologist will design a personalized cream for you within 24 hours.
+                  </p>
+                </div>
+              </li>
+              <li className='feature'>
+                <div className='feature-circle'>
+                  <p className='feature-circle-text'>03</p>
+                </div>
+                <div className='feature-description'>
+                  <p className='feature-title'>Check-in as needed</p>
+                  <p className='feature-text'>
+                    You'll check-in with your dermatologist throughout your journey.
+                  </p>
+                </div>
+              </li>
+            </ul>
           </div>
         </section>
 

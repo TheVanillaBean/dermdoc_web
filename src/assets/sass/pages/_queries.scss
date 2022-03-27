@@ -15,10 +15,6 @@
     max-width: 120rem;
   }
 
-  .heading-primary {
-    font-size: 4.4rem;
-  }
-
   .section-additional {
     max-width: 100%;
   }
@@ -84,9 +80,17 @@
     grid-template-columns: 1fr;
     padding: 0 8rem;
     gap: 6.4rem;
+    align-content: center;
+    justify-content: center;
+    justify-items: center;
+    align-items: center;
   }
 
   .hero-text-box {
+    text-align: center;
+  }
+
+  .text-primary-color {
     text-align: center;
   }
 
@@ -216,7 +220,7 @@
   }
 
   .heading-primary {
-    font-size: 3.2rem;
+    font-size: 3.8rem;
   }
 
   .grid--3-cols,
@@ -225,7 +229,7 @@
   }
 
   .heading-secondary {
-    margin-bottom: 4.8rem;
+    margin-bottom: 4.4rem;
   }
 
   .waitlist-form {
