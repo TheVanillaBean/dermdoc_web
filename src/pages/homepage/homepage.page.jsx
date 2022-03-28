@@ -10,14 +10,18 @@ import { Swiper, SwiperSlide } from 'swiper/react/swiper-react';
 import 'swiper/swiper.min.css';
 import FarahHeadshot from '../../assets/img/farah-headshot.jpg';
 import AzelaicAcid from '../../assets/img/ingredients/azelaic_acid.jpg';
+import Clindamycin from '../../assets/img/ingredients/clindamycin.jpeg';
 import Hydroquinone from '../../assets/img/ingredients/hydroquinone.jpg';
 import Metronidazole from '../../assets/img/ingredients/metronidazole.jpg';
 import Niacinamide from '../../assets/img/ingredients/niacinamide.jpg';
 import TranexamicAcid from '../../assets/img/ingredients/tranexamic_acid.jpeg';
+import Trentinoin from '../../assets/img/ingredients/trentinoin.jpeg';
 import OmarHeadshot from '../../assets/img/omar-headshot.jpeg';
 import PersonaJennifer from '../../assets/img/personas/persona_jennifer.png';
 import PersonaNicole from '../../assets/img/personas/persona_nicole.png';
-import PersonaSandra from '../../assets/img/personas/persona_sandra.png';
+import PersonaOne from '../../assets/img/personas/persona_one.png';
+import PersonaThree from '../../assets/img/personas/persona_three.png';
+import PersonaTwo from '../../assets/img/personas/persona_two.png';
 import CreamPricing from '../../assets/img/pricing-cream-single.jpg';
 import OralPricing from '../../assets/img/pricing-oral-single.jpg';
 import SaamiHeadshot from '../../assets/img/saami_headshot.jpeg';
@@ -101,42 +105,30 @@ class HomePage extends React.Component {
               navigation={true}
               modules={[Pagination, Navigation]}>
               <SwiperSlide>
-                <div className='persona'>
-                  <img className='persona-img' src={PersonaJennifer} alt='Trentinoin' />
-                  <div className='persona-content'>
-                    <p className='persona-name'>Sarah</p>
-                    <ul className='persona-attributes'>
-                      <p className='persona-attributes__title'>Issue</p>
-                      <li className='persona-attributes__item'>
-                        <span>Hormonal Acne</span>
+                <div className='ingredient'>
+                  <img className='ingredient-img' src={Trentinoin} alt='Trentinoin' />
+                  <div className='ingredient-content'>
+                    <div className='ingredient-tags'>
+                      <span className='tag tag--percentage'>0.01 - 0.1%</span>
+                    </div>
+                    <p className='ingredient-title'>Tretinoin</p>
+                    <ul className='ingredient-attributes'>
+                      <li className='ingredient-attribute'>
+                        <span>Reduces fine lines and wrinkles</span>
                       </li>
-                      <li className='persona-attributes__item'>
-                        <span>Melasma</span>
+                      <li className='ingredient-attribute'>
+                        <span>Improves skin tone and texture</span>
                       </li>
-                    </ul>
-                    <ul className='persona-attributes'>
-                      <p className='persona-attributes__title'>Custom Formula</p>
-                      <li className='persona-attributes__item'>
-                        <span>Hormonal Acne</span>
-                      </li>
-                      <li className='persona-attributes__item'>
-                        <span>Melasma</span>
+                      <li className='ingredient-attribute'>
+                        <span>Reduces hyperpigmentation</span>
                       </li>
                     </ul>
-                    <p className='persona-review'>
-                      “Before I started using Apostrophe, my skin was at the worst that it’s ever
-                      been. After a month of using the treatments recommended to me, my skin had
-                      dramatically changed! I have been using Apostrophe for about 2 years and it
-                      was the best decision I have ever made. Now I wear little to no make-up and I
-                      have never felt better; trust the process. If anyone is thinking about using
-                      Apostrophe I definitely recommend it!"
-                    </p>
                   </div>
                 </div>
               </SwiperSlide>
               <SwiperSlide>
                 <div className='ingredient'>
-                  <img className='ingredient-img' src={PersonaJennifer} alt='Trentinoin' />
+                  <img className='ingredient-img' src={Clindamycin} alt='Trentinoin' />
                   <div className='ingredient-content'>
                     <div className='ingredient-tags'>
                       <span className='tag tag--percentage'>2%</span>
@@ -298,15 +290,13 @@ class HomePage extends React.Component {
             <h1 className='heading-primary'>Don't take our word for it</h1>
             <p className='heading-tertiary'>Proven ingredients. Real results.</p>
           </div>
-          <div className='container margin-bottom-mg'>
+          <div className='container'>
             <Swiper
               breakpoints={{
-                // when window width is >= 640px
                 944: {
                   width: 944,
                   slidesPerView: 2,
                 },
-                // when window width is >= 768px
                 384: {
                   width: 384,
                   slidesPerView: 1,
@@ -320,34 +310,37 @@ class HomePage extends React.Component {
               <SwiperSlide>
                 <SwiperSlide>
                   <div className='persona'>
-                    <img className='persona-img' src={PersonaNicole} alt="Nicole's Formula" />
-                    <div className='persona-content'>
-                      <p className='persona-name'>Nicole</p>
-                      <ul className='persona-attributes'>
-                        <p className='persona-attributes__title'>Issue</p>
-                        <li className='persona-attributes__item'>
-                          <span>Breakouts</span>
-                        </li>
-                        <li className='persona-attributes__item'>
-                          <span>Redness</span>
-                        </li>
-                      </ul>
-                      <ul className='persona-attributes'>
-                        <p className='persona-attributes__title'>Custom Formula</p>
-                        <li className='persona-attributes__item'>
-                          <span>Tretinoin</span>
-                        </li>
-                        <li className='persona-attributes__item'>
-                          <span>Metronidazole</span>
-                        </li>
-                        <li className='persona-attributes__item'>
-                          <span>Azelaic Acid</span>
-                        </li>
-                        <li className='persona-attributes__item'>
-                          <span>Niacinamide</span>
-                        </li>
-                      </ul>
-                      <p className='persona-review'>
+                    <img className='persona__image' src={PersonaNicole} alt="Nicole's Formula" />
+                    <div className='persona__content'>
+                      <p className='persona__content--name'>Nicole's Journey</p>
+                      <div className='border' />
+                      <div className='persona__content--formula-details'>
+                        <ul className='persona__attributes'>
+                          <p className='persona__attributes--title'>Issue</p>
+                          <li className='persona__attributes--item'>
+                            <span>Breakouts</span>
+                          </li>
+                          <li className='persona__attributes--item'>
+                            <span>Redness</span>
+                          </li>
+                        </ul>
+                        <ul className='persona__attributes'>
+                          <p className='persona__attributes--title'>Custom Formula</p>
+                          <li className='persona__attributes--item'>
+                            <span>Tretinoin</span>
+                          </li>
+                          <li className='persona__attributes--item'>
+                            <span>Metronidazole</span>
+                          </li>
+                          <li className='persona__attributes--item'>
+                            <span>Azelaic Acid</span>
+                          </li>
+                          <li className='persona__attributes--item'>
+                            <span>Niacinamide</span>
+                          </li>
+                        </ul>
+                      </div>
+                      <p className='persona__content--review'>
                         “Dermdoc’s formula has made me comfortable in my own skin. I used to have
                         constant acne flares. After a few weeks of using the custom prescription, my
                         skin started to clear up. I’m finally happy with my skin. Thank you!”
@@ -359,31 +352,44 @@ class HomePage extends React.Component {
               <SwiperSlide>
                 <SwiperSlide>
                   <div className='persona'>
-                    <img className='persona-img' src={PersonaJennifer} alt="Jennifer's Formula" />
-                    <div className='persona-content'>
-                      <p className='persona-name'>Jennifer</p>
-                      <ul className='persona-attributes'>
-                        <p className='persona-attributes__title'>Issue</p>
-                        <li className='persona-attributes__item'>
-                          <span>Hormonal Acne</span>
-                        </li>
-                        <li className='persona-attributes__item'>
-                          <span>Discoloration</span>
-                        </li>
-                      </ul>
-                      <ul className='persona-attributes'>
-                        <p className='persona-attributes__title'>Custom Formula</p>
-                        <li className='persona-attributes__item'>
-                          <span>Tretinoin</span>
-                        </li>
-                        <li className='persona-attributes__item'>
-                          <span>Azelaic Acid</span>
-                        </li>
-                        <li className='persona-attributes__item'>
-                          <span>Clindamycin</span>
-                        </li>
-                      </ul>
-                      <p className='persona-review'>
+                    <img
+                      className='persona__image'
+                      src={PersonaJennifer}
+                      alt="Jennifer's Formula"
+                    />
+                    <div className='persona__content'>
+                      <p className='persona__content--name'>Jennifer's Journey</p>
+                      <div className='border' />
+                      <div className='persona__content--formula-details'>
+                        <ul className='persona__attributes'>
+                          <p className='persona__attributes--title'>Issue</p>
+                          <li className='persona__attributes--item'>
+                            <span>Hormonal Acne</span>
+                          </li>
+                          <li className='persona__attributes--item'>
+                            <span>Discoloration</span>
+                          </li>
+                        </ul>
+                        <ul className='persona__attributes'>
+                          <p className='persona__attributes--title'>Custom Formula</p>
+                          <li className='persona__attributes--item'>
+                            <span>Tretinoin</span>
+                          </li>
+                          <li className='persona__attributes--item'>
+                            <span>Azelaic Acid</span>
+                          </li>
+                          <li className='persona__attributes--item'>
+                            <span>Clindamycin</span>
+                          </li>
+                          <li className='persona__attributes--item'>
+                            <span>
+                              Oral Prescription: <br />
+                              Spironolactone
+                            </span>
+                          </li>
+                        </ul>
+                      </div>
+                      <p className='persona__content--review'>
                         “My skin used to be a disaster. I had stubborn acne on my chin and jaw that
                         wouldn’t go away. It would worsen with periods. I tried everything, but
                         nothing worked. The dermatologist on DermDoc was great and their treatment
@@ -397,28 +403,183 @@ class HomePage extends React.Component {
               <SwiperSlide>
                 <SwiperSlide>
                   <div className='persona'>
-                    <img className='persona-img' src={PersonaSandra} alt="Sandra's Formula" />
-                    <div className='persona-content'>
-                      <p className='persona-name'>Sandra</p>
-                      <ul className='persona-attributes'>
-                        <p className='persona-attributes__title'>Issue</p>
-                        <li className='persona-attributes__item'>
-                          <span>Acne</span>
-                        </li>
-                        <li className='persona-attributes__item'>
-                          <span>Acne Scars</span>
-                        </li>
-                      </ul>
-                      <ul className='persona-attributes'>
-                        <p className='persona-attributes__title'>Custom Formula</p>
-                        <li className='persona-attributes__item'>
-                          <span>Tretinoin</span>
-                        </li>
-                        <li className='persona-attributes__item'>
-                          <span>Clindamycin</span>
-                        </li>
-                      </ul>
-                      <p className='persona-review'>
+                    <img className='persona__image' src={PersonaNicole} alt="Sandra's Formula" />
+                    <div className='persona__content'>
+                      <p className='persona__content--name'>Sandra's Journey</p>
+                      <div className='border' />
+                      <div className='persona__content--formula-details'>
+                        <ul className='persona__attributes'>
+                          <p className='persona__attributes--title'>Issue</p>
+                          <li className='persona__attributes--item'>
+                            <span>Acne</span>
+                          </li>
+                          <li className='persona__attributes--item'>
+                            <span>Acne Scars</span>
+                          </li>
+                        </ul>
+                        <ul className='persona__attributes'>
+                          <p className='persona__attributes--title'>Custom Formula</p>
+                          <li className='persona__attributes--item'>
+                            <span>Tretinoin</span>
+                          </li>
+                          <li className='persona__attributes--item'>
+                            <span>Clindamycin</span>
+                          </li>
+                        </ul>
+                      </div>
+                      <p className='persona__content--review'>
+                        “My experience with DermDoc has been fantastic. The visit was easy and the
+                        dermatologist was very knowledgeable. I love that it’s just one single
+                        product to use. Simple and effective. It cleared up my skin. Using the cream
+                        has also helped my acne scars. Thank you!”
+                      </p>
+                    </div>
+                  </div>
+                </SwiperSlide>
+              </SwiperSlide>
+            </Swiper>
+          </div>
+        </section>
+
+        <section className='section-personas' id='personas'>
+          <div className='container center-text margin-bottom-md'>
+            <h1 className='heading-primary'>Don't take our word for it</h1>
+            <p className='heading-tertiary'>Proven ingredients. Real results.</p>
+          </div>
+          <div className='container'>
+            <Swiper
+              breakpoints={{
+                944: {
+                  width: 944,
+                  slidesPerView: 2,
+                },
+                384: {
+                  width: 384,
+                  slidesPerView: 1,
+                },
+              }}
+              centeredSlides={true}
+              loop={true}
+              pagination={true}
+              navigation={true}
+              modules={[Pagination, Navigation]}>
+              <SwiperSlide>
+                <SwiperSlide>
+                  <div className='persona'>
+                    <img className='persona__image' src={PersonaOne} alt="Nicole's Formula" />
+                    <div className='persona__content'>
+                      <p className='persona__content--name'>Nicole's Journey</p>
+                      <div className='border' />
+                      <div className='persona__content--formula-details'>
+                        <ul className='persona__attributes'>
+                          <p className='persona__attributes--title'>Issue</p>
+                          <li className='persona__attributes--item'>
+                            <span>Breakouts</span>
+                          </li>
+                          <li className='persona__attributes--item'>
+                            <span>Redness</span>
+                          </li>
+                        </ul>
+                        <ul className='persona__attributes'>
+                          <p className='persona__attributes--title'>Custom Formula</p>
+                          <li className='persona__attributes--item'>
+                            <span>Tretinoin</span>
+                          </li>
+                          <li className='persona__attributes--item'>
+                            <span>Metronidazole</span>
+                          </li>
+                          <li className='persona__attributes--item'>
+                            <span>Azelaic Acid</span>
+                          </li>
+                          <li className='persona__attributes--item'>
+                            <span>Niacinamide</span>
+                          </li>
+                        </ul>
+                      </div>
+                      <p className='persona__content--review'>
+                        “Dermdoc’s formula has made me comfortable in my own skin. I used to have
+                        constant acne flares. After a few weeks of using the custom prescription, my
+                        skin started to clear up. I’m finally happy with my skin. Thank you!”
+                      </p>
+                    </div>
+                  </div>
+                </SwiperSlide>
+              </SwiperSlide>
+              <SwiperSlide>
+                <SwiperSlide>
+                  <div className='persona'>
+                    <img className='persona__image' src={PersonaTwo} alt="Jennifer's Formula" />
+                    <div className='persona__content'>
+                      <p className='persona__content--name'>Jennifer's Journey</p>
+                      <div className='border' />
+                      <div className='persona__content--formula-details'>
+                        <ul className='persona__attributes'>
+                          <p className='persona__attributes--title'>Issue</p>
+                          <li className='persona__attributes--item'>
+                            <span>Hormonal Acne</span>
+                          </li>
+                          <li className='persona__attributes--item'>
+                            <span>Discoloration</span>
+                          </li>
+                        </ul>
+                        <ul className='persona__attributes'>
+                          <p className='persona__attributes--title'>Custom Formula</p>
+                          <li className='persona__attributes--item'>
+                            <span>Tretinoin</span>
+                          </li>
+                          <li className='persona__attributes--item'>
+                            <span>Azelaic Acid</span>
+                          </li>
+                          <li className='persona__attributes--item'>
+                            <span>Clindamycin</span>
+                          </li>
+                          <li className='persona__attributes--item'>
+                            <span>
+                              Oral Prescription: <br />
+                              Spironolactone
+                            </span>
+                          </li>
+                        </ul>
+                      </div>
+                      <p className='persona__content--review'>
+                        “My skin used to be a disaster. I had stubborn acne on my chin and jaw that
+                        wouldn’t go away. It would worsen with periods. I tried everything, but
+                        nothing worked. The dermatologist on DermDoc was great and their treatment
+                        has cleared my skin. I don’t feel self-conscious anymore. If you are
+                        thinking about using DermDoc, I recommend it!”
+                      </p>
+                    </div>
+                  </div>
+                </SwiperSlide>
+              </SwiperSlide>
+              <SwiperSlide>
+                <SwiperSlide>
+                  <div className='persona'>
+                    <img className='persona__image' src={PersonaThree} alt="Sandra's Formula" />
+                    <div className='persona__content'>
+                      <p className='persona__content--name'>Sandra's Journey</p>
+                      <div className='border' />
+                      <div className='persona__content--formula-details'>
+                        <ul className='persona__attributes'>
+                          <p className='persona__attributes--title'>Issue</p>
+                          <li className='persona__attributes--item'>
+                            <span>Acne</span>
+                          </li>
+                          <li className='persona__attributes--item'>
+                            <span>Acne Scars</span>
+                          </li>
+                        </ul>
+                        <ul className='persona__attributes'>
+                          <p className='persona__attributes--title'>Custom Formula</p>
+                          <li className='persona__attributes--item'>
+                            <span>Tretinoin</span>
+                          </li>
+                          <li className='persona__attributes--item'>
+                            <span>Clindamycin</span>
+                          </li>
+                        </ul>
+                      </div>
+                      <p className='persona__content--review'>
                         “My experience with DermDoc has been fantastic. The visit was easy and the
                         dermatologist was very knowledgeable. I love that it’s just one single
                         product to use. Simple and effective. It cleared up my skin. Using the cream

@@ -1149,41 +1149,56 @@ strong {
   padding-top: 4.8rem; }
 
 .persona {
-  line-height: 1.05;
-  letter-spacing: 0.75px;
-  color: var(--color-grey-dark-1);
+  box-shadow: 0 2.4rem 4.8rem rgba(0, 0, 0, 0.075);
+  border-radius: 11px;
+  overflow: hidden;
+  transition: all 0.4s;
+  width: 85%;
+  margin: 0 auto;
+  margin-bottom: 6.4rem;
   display: flex;
-  flex-direction: row; }
+  flex-direction: column;
+  gap: 2.4rem; }
+  .persona:hover {
+    transform: translateY(-1.2rem);
+    box-shadow: 0 3.2rem 6.4rem rgba(0, 0, 0, 0.06); }
   .persona__image {
-    width: 35%;
-    height: auto;
-    align-self: flex-start;
-    margin-bottom: 4.4rem;
-    margin-right: 4.4rem; }
-  .persona__name {
-    font-size: 3.2rem;
-    font-weight: 500;
-    margin-bottom: 1.2rem; }
-  .persona__issue {
-    font-size: 2.4rem;
-    font-weight: 400;
-    margin-bottom: 1.8rem;
-    color: var(--color-grey-dark-3); }
-  .persona__formula {
-    font-size: 1.8rem;
-    font-weight: 400;
-    color: var(--color-grey-dark-2);
-    margin-bottom: 2.4rem;
-    line-height: 1.4; }
-  .persona > .list {
-    margin: 2rem 0; }
-  .persona__item-header span {
-    font-size: 2.2rem;
-    line-height: 1.2;
-    display: block;
-    margin-bottom: 0.75rem; }
-  .persona__item-header__light {
-    color: var(--color-grey-dark-3); }
+    width: 100%;
+    height: 30vh;
+    object-fit: cover;
+    object-position: top; }
+  .persona__content {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin: 2.4rem; }
+    .persona__content--name {
+      font-size: 3.2rem;
+      font-weight: 500; }
+    .persona__content--formula-details {
+      display: flex;
+      margin-bottom: 3.2rem;
+      justify-content: space-between;
+      width: 100%; }
+    .persona__content--review {
+      font-size: 1.8rem;
+      font-weight: 500;
+      margin-bottom: 1.2rem;
+      line-height: 1.2; }
+  .persona__attributes {
+    display: flex;
+    flex-direction: column;
+    list-style: none; }
+    .persona__attributes--title {
+      font-size: 2.4rem;
+      font-weight: 600;
+      margin-bottom: 1.2rem;
+      color: var(--color-primary); }
+    .persona__attributes--item {
+      font-size: 1.8rem;
+      font-weight: 500;
+      margin: 1rem 0;
+      line-height: 1.5; }
 
 .waitlist-form {
   display: flex;
