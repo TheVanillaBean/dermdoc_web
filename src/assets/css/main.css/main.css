@@ -871,7 +871,8 @@ strong {
   background-repeat: no-repeat;
   background-position: bottom right;
   height: 105vh;
-  background-attachment: scroll; }
+  background-attachment: scroll;
+  margin-bottom: 9.6rem; }
 
 .section-hero {
   padding: 4.8rem 0 4.8rem 0;
@@ -1394,84 +1395,6 @@ strong {
   max-width: 50%;
   margin: auto; }
 
-/***************************/
-/* INGREDIENTS SECTION */
-/***************************/
-.section-ingredients {
-  scroll-margin: 3.2rem;
-  padding-top: 9.6rem; }
-
-.ingredient {
-  box-shadow: 0 2.4rem 4.8rem rgba(0, 0, 0, 0.075);
-  border-radius: 11px;
-  overflow: hidden;
-  transition: all 0.4s;
-  width: 85%;
-  margin: 0 auto;
-  margin-bottom: 6.4rem; }
-
-.ingredient:hover {
-  transform: translateY(-1.2rem);
-  box-shadow: 0 3.2rem 6.4rem rgba(0, 0, 0, 0.06); }
-
-.ingredient-content {
-  padding: 3.2rem 4.8rem; }
-
-.ingredient-tags {
-  margin-bottom: 1.2rem;
-  display: flex;
-  gap: 1rem; }
-
-.tag {
-  display: inline-block;
-  padding: 0.8rem 1.2rem;
-  font-size: 1.6rem;
-  text-transform: uppercase;
-  color: var(--color-grey-dark-2);
-  border-radius: 150px;
-  font-weight: 500; }
-
-.tag--percentage {
-  background-color: var(--color-tint-1); }
-
-.ingredient-title {
-  font-size: 2.4rem;
-  color: #333;
-  font-weight: 600;
-  margin-bottom: 1.8rem; }
-
-.ingredient-attributes {
-  list-style: none;
-  display: flex;
-  flex-direction: column;
-  gap: 2rem; }
-
-.ingredient-attribute {
-  font-size: 1.8rem; }
-
-.ingredient-img {
-  width: 100%;
-  height: 20vh;
-  object-fit: cover; }
-
-.other-ingredients__title {
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  height: 20vh;
-  background-color: var(--color-primary);
-  color: #fff;
-  font-size: 4.4rem;
-  line-height: 1.4;
-  text-align: center;
-  padding: 0 2.4rem; }
-
-.section-faq {
-  padding: 9.6rem 0 9.6rem 0; }
-
-.faq-style-wrapper .faq-body .faq-row .row-content-text {
-  line-height: 2.4rem; }
-
 .not-in-area {
   font-size: 2.5rem;
   font-weight: 400;
@@ -1725,7 +1648,7 @@ input[type='number'] {
     grid-column: 1 / -1;
     justify-self: center; }
   .heading-primary {
-    font-size: 3.2rem; }
+    font-size: 3.4rem; }
   .grid--3-cols,
   .grid--4-cols {
     grid-template-columns: repeat(2, 1fr); }
@@ -1762,6 +1685,10 @@ input[type='number'] {
 /* BELOW 544px (Phones) */
 /***************************/
 @media (max-width: 34em) {
+  .hero-container,
+  .section-ingredients,
+  .section-doctors {
+    margin-bottom: 4.8rem; }
   .grid {
     row-gap: 4.8rem; }
   .grid--2-cols,

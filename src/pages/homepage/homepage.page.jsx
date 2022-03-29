@@ -99,6 +99,7 @@ class HomePage extends React.Component {
                 // when window width is >= 640px
                 640: {
                   slidesPerView: 2,
+                  spaceBetween: 32,
                 },
               }}
               mousewheel
@@ -297,14 +298,25 @@ class HomePage extends React.Component {
           <div className='container'>
             <Swiper
               breakpoints={{
-                // when window width is >= 320px
+                // when window width is >= 320
                 320: {
                   slidesPerView: 1,
+                  spaceBetween: 16,
                 },
-                // when window width is >= 480px
+                // when window width is >= 480
                 480: {
+                  slidesPerView: 1.3,
+                  spaceBetween: 16,
+                },
+                // when window width is >= 640
+                640: {
+                  slidesPerView: 1.5,
+                  spaceBetween: 16,
+                },
+                // when window width is >= 1200
+                944: {
                   slidesPerView: 2,
-                  spaceBetween: 48,
+                  spaceBetween: 32,
                 },
               }}
               mousewheel
@@ -458,11 +470,16 @@ class HomePage extends React.Component {
               },
               // when window width is >= 480px
               480: {
-                slidesPerView: 2,
+                slidesPerView: 1.5,
                 spaceBetween: 32,
               },
               // when window width is >= 640px
               640: {
+                slidesPerView: 2.5,
+                spaceBetween: 32,
+              },
+              // when window width is >= 640px
+              1200: {
                 slidesPerView: 4,
                 spaceBetween: 48,
               },
