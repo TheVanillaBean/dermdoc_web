@@ -1,3 +1,4 @@
+@charset "UTF-8";
 @keyframes pulsate {
   0% {
     transform: scale(1);
@@ -235,6 +236,9 @@ body {
 .text-primary-color {
   color: var(--color-primary-dark); }
 
+.text-grey-color {
+  color: var(--color-grey-dark-3); }
+
 .text-color-white {
   color: #fff; }
 
@@ -404,49 +408,6 @@ strong {
   font-size: 1.6rem;
   color: #6f6f6f;
   margin-top: auto; }
-
-.doctor {
-  box-shadow: 0 2.4rem 4.8rem rgba(0, 0, 0, 0.075);
-  border-radius: 11px;
-  overflow: hidden;
-  transition: all 0.4s;
-  width: 85%;
-  margin: 0 auto;
-  margin-bottom: 6.4rem; }
-
-.doctor:hover {
-  transform: translateY(-1.2rem);
-  box-shadow: 0 3.2rem 6.4rem rgba(0, 0, 0, 0.06); }
-
-.doctor-content {
-  padding: 3.2rem 4.8rem; }
-
-.doctor-tags {
-  margin-bottom: 1.2rem;
-  display: flex;
-  gap: 1rem; }
-
-.doctor-title {
-  font-size: 2.4rem;
-  color: #333;
-  font-weight: 600;
-  margin-bottom: 1.8rem; }
-
-.doctor-attributes {
-  list-style: none;
-  display: flex;
-  flex-direction: column;
-  gap: 2rem; }
-
-.doctor-attribute {
-  font-size: 1.8rem;
-  line-height: 1.5; }
-
-.doctor-img {
-  width: 100%;
-  height: 30vh;
-  object-fit: cover;
-  object-position: top; }
 
 .service {
   border-radius: 11px;
@@ -1048,7 +1009,7 @@ strong {
 /***************************/
 .section-pricing {
   scroll-margin: 2.4rem;
-  padding: 6.4rem 0; }
+  padding-bottom: 9.6rem; }
 
 .pricing-plan {
   border-radius: 11px;
@@ -1139,21 +1100,143 @@ strong {
 /***************************/
 .section-doctors {
   scroll-margin: 3.2rem;
-  padding-top: 9.6rem; }
+  margin-bottom: 9.6rem; }
+
+.doctor {
+  box-shadow: 0 2.4rem 4.8rem rgba(0, 0, 0, 0.075);
+  border-radius: 11px;
+  overflow: hidden;
+  transition: all 0.4s;
+  width: 100%;
+  margin: 0 auto;
+  margin-bottom: 6.4rem; }
+
+.doctor:hover {
+  transform: translateY(-1.2rem);
+  box-shadow: 0 3.2rem 6.4rem rgba(0, 0, 0, 0.06); }
+
+.doctor-content {
+  padding: 3.2rem 4.8rem; }
+
+.doctor-tags {
+  margin-bottom: 1.2rem;
+  display: flex;
+  gap: 1rem; }
+
+.doctor-title {
+  font-size: 2.4rem;
+  color: #333;
+  font-weight: 600;
+  margin-bottom: 1.8rem; }
+
+.doctor-attributes {
+  list-style: none;
+  display: flex;
+  flex-direction: column;
+  gap: 2rem; }
+
+.doctor-attribute {
+  font-size: 1.8rem;
+  line-height: 1.5; }
+
+.doctor-img {
+  width: 100%;
+  height: 30vh;
+  object-fit: cover;
+  object-position: top; }
+
+/***************************/
+/* INGREDIENTS SECTION */
+/***************************/
+.section-ingredients {
+  scroll-margin: 3.2rem;
+  margin-bottom: 9.6rem; }
+
+.ingredient {
+  box-shadow: 0 2.4rem 4.8rem rgba(0, 0, 0, 0.075);
+  border-radius: 11px;
+  overflow: hidden;
+  transition: all 0.4s;
+  width: 100%;
+  margin: 0 auto;
+  margin-bottom: 6.4rem; }
+
+.ingredient:hover {
+  transform: translateY(-1.2rem);
+  box-shadow: 0 3.2rem 6.4rem rgba(0, 0, 0, 0.06); }
+
+.ingredient-content {
+  padding: 3.2rem 4.8rem; }
+
+.ingredient-tags {
+  margin-bottom: 1.2rem;
+  display: flex;
+  gap: 1rem; }
+
+.tag {
+  display: inline-block;
+  padding: 0.8rem 1.2rem;
+  font-size: 1.6rem;
+  text-transform: uppercase;
+  color: var(--color-grey-dark-2);
+  border-radius: 150px;
+  font-weight: 500; }
+
+.tag--percentage {
+  background-color: var(--color-tint-1); }
+
+.ingredient-title {
+  font-size: 2.4rem;
+  color: #333;
+  font-weight: 600;
+  margin-bottom: 1.8rem; }
+
+.ingredient-attributes {
+  list-style: none;
+  display: flex;
+  flex-direction: column;
+  gap: 2rem; }
+
+.ingredient-attribute {
+  font-size: 1.8rem; }
+
+.ingredient-img {
+  width: 100%;
+  height: 20vh;
+  object-fit: cover; }
+
+.other-ingredients__title {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 20vh;
+  background-color: var(--color-primary);
+  color: #fff;
+  font-size: 4.4rem;
+  line-height: 1.4;
+  text-align: center;
+  padding: 0 2.4rem; }
+
+.section-faq {
+  padding: 9.6rem 0 9.6rem 0; }
+
+.faq-style-wrapper .faq-body .faq-row .row-content-text {
+  line-height: 2.4rem; }
 
 /***************************/
 /* PERSONAS SECTION */
 /***************************/
 .section-personas {
   scroll-margin: 3.2rem;
-  padding-top: 4.8rem; }
+  padding-top: 4.8rem;
+  margin-bottom: 9.6rem; }
 
 .persona {
   box-shadow: 0 2.4rem 4.8rem rgba(0, 0, 0, 0.075);
   border-radius: 11px;
   overflow: hidden;
   transition: all 0.4s;
-  width: 85%;
+  width: 100%;
   margin: 0 auto;
   margin-bottom: 6.4rem;
   display: flex;
@@ -1184,21 +1267,63 @@ strong {
       font-size: 1.8rem;
       font-weight: 500;
       margin-bottom: 1.2rem;
-      line-height: 1.2; }
+      line-height: 1.4; }
   .persona__attributes {
     display: flex;
     flex-direction: column;
     list-style: none; }
     .persona__attributes--title {
       font-size: 2.4rem;
-      font-weight: 600;
       margin-bottom: 1.2rem;
+      font-weight: 600;
       color: var(--color-primary); }
     .persona__attributes--item {
       font-size: 1.8rem;
       font-weight: 500;
-      margin: 1rem 0;
-      line-height: 1.5; }
+      line-height: 2; }
+
+.reviews {
+  margin-bottom: 9.6rem; }
+
+.review {
+  box-shadow: 0 2.4rem 4.8rem rgba(0, 0, 0, 0.075);
+  border-radius: 11px;
+  overflow: hidden;
+  transition: all 0.4s;
+  width: 100%;
+  margin: 0 auto;
+  margin-bottom: 6.4rem;
+  display: flex;
+  flex-direction: column; }
+  .review:hover {
+    transform: translateY(-1.2rem);
+    box-shadow: 0 3.2rem 6.4rem rgba(0, 0, 0, 0.06); }
+  .review__quote {
+    padding: 3.2rem;
+    quotes: "“" "”" "‘" "’"; }
+    .review__quote--text {
+      font-size: 2.4rem; }
+    .review__quote--icon:before {
+      content: open-quote;
+      font-weight: bold;
+      font-size: 10rem;
+      color: var(--color-primary); }
+    .review__quote--icon:after {
+      content: close-quote;
+      font-size: 0rem; }
+  .review__stars {
+    padding: 0 3.2rem 1.2rem 0;
+    align-self: flex-end;
+    font-size: 2.4rem; }
+    .review__stars--star {
+      width: 2.4rem;
+      height: 2.4rem;
+      color: var(--color-primary); }
+  .review__name {
+    padding: 0 3.2rem 3.2rem 0;
+    align-self: flex-end;
+    font-size: 2.4rem;
+    color: var(--color-grey-dark-3); }
 
 .waitlist-form {
   display: flex;
@@ -1600,7 +1725,7 @@ input[type='number'] {
     grid-column: 1 / -1;
     justify-self: center; }
   .heading-primary {
-    font-size: 3.8rem; }
+    font-size: 3.2rem; }
   .grid--3-cols,
   .grid--4-cols {
     grid-template-columns: repeat(2, 1fr); }

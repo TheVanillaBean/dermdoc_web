@@ -1,9 +1,10 @@
 import React from 'react';
 import Faq from 'react-faq-component';
-import { IoCheckmarkCircleOutline, IoHappyOutline, IoHeartOutline } from 'react-icons/io5';
+import { IoCheckmarkCircleOutline, IoHappyOutline, IoHeartOutline, IoStar } from 'react-icons/io5';
 import { connect } from 'react-redux';
 import { withRouter } from 'react-router-dom';
-import { Navigation, Pagination } from 'swiper';
+import { Mousewheel, Navigation, Pagination } from 'swiper';
+import 'swiper/modules/mousewheel/mousewheel.min.css';
 import 'swiper/modules/navigation/navigation.min.css';
 import 'swiper/modules/pagination/pagination.min.css';
 import { Swiper, SwiperSlide } from 'swiper/react/swiper-react';
@@ -19,9 +20,6 @@ import Trentinoin from '../../assets/img/ingredients/trentinoin.jpeg';
 import OmarHeadshot from '../../assets/img/omar-headshot.jpeg';
 import PersonaJennifer from '../../assets/img/personas/persona_jennifer.png';
 import PersonaNicole from '../../assets/img/personas/persona_nicole.png';
-import PersonaOne from '../../assets/img/personas/persona_one.png';
-import PersonaThree from '../../assets/img/personas/persona_three.png';
-import PersonaTwo from '../../assets/img/personas/persona_two.png';
 import CreamPricing from '../../assets/img/pricing-cream-single.jpg';
 import OralPricing from '../../assets/img/pricing-oral-single.jpg';
 import SaamiHeadshot from '../../assets/img/saami_headshot.jpeg';
@@ -88,22 +86,28 @@ class HomePage extends React.Component {
           <div className='container margin-bottom-mg'>
             <Swiper
               breakpoints={{
+                // when window width is >= 320px
+                320: {
+                  slidesPerView: 1,
+                  spaceBetween: 16,
+                },
+                // when window width is >= 480px
+                480: {
+                  slidesPerView: 1.5,
+                  spaceBetween: 16,
+                },
                 // when window width is >= 640px
-                944: {
-                  width: 944,
+                640: {
                   slidesPerView: 2,
                 },
-                // when window width is >= 768px
-                384: {
-                  width: 384,
-                  slidesPerView: 1,
-                },
               }}
+              mousewheel
+              simulateTouch
               centeredSlides={true}
               loop={true}
               pagination={true}
               navigation={true}
-              modules={[Pagination, Navigation]}>
+              modules={[Pagination, Navigation, Mousewheel]}>
               <SwiperSlide>
                 <div className='ingredient'>
                   <img className='ingredient-img' src={Trentinoin} alt='Trentinoin' />
@@ -293,20 +297,23 @@ class HomePage extends React.Component {
           <div className='container'>
             <Swiper
               breakpoints={{
-                944: {
-                  width: 944,
-                  slidesPerView: 2,
-                },
-                384: {
-                  width: 384,
+                // when window width is >= 320px
+                320: {
                   slidesPerView: 1,
                 },
+                // when window width is >= 480px
+                480: {
+                  slidesPerView: 2,
+                  spaceBetween: 48,
+                },
               }}
+              mousewheel
+              simulateTouch
               centeredSlides={true}
               loop={true}
               pagination={true}
               navigation={true}
-              modules={[Pagination, Navigation]}>
+              modules={[Pagination, Navigation, Mousewheel]}>
               <SwiperSlide>
                 <SwiperSlide>
                   <div className='persona'>
@@ -325,7 +332,7 @@ class HomePage extends React.Component {
                           </li>
                         </ul>
                         <ul className='persona__attributes'>
-                          <p className='persona__attributes--title'>Custom Formula</p>
+                          <p className='persona__attributes--title'>Formula</p>
                           <li className='persona__attributes--item'>
                             <span>Tretinoin</span>
                           </li>
@@ -371,7 +378,7 @@ class HomePage extends React.Component {
                           </li>
                         </ul>
                         <ul className='persona__attributes'>
-                          <p className='persona__attributes--title'>Custom Formula</p>
+                          <p className='persona__attributes--title'>Formula</p>
                           <li className='persona__attributes--item'>
                             <span>Tretinoin</span>
                           </li>
@@ -382,9 +389,9 @@ class HomePage extends React.Component {
                             <span>Clindamycin</span>
                           </li>
                           <li className='persona__attributes--item'>
-                            <span>
-                              Oral Prescription: <br />
-                              Spironolactone
+                            <span className='text-grey-color'>
+                              Spironolactone <br />
+                              (oral)
                             </span>
                           </li>
                         </ul>
@@ -418,7 +425,7 @@ class HomePage extends React.Component {
                           </li>
                         </ul>
                         <ul className='persona__attributes'>
-                          <p className='persona__attributes--title'>Custom Formula</p>
+                          <p className='persona__attributes--title'>Formula</p>
                           <li className='persona__attributes--item'>
                             <span>Tretinoin</span>
                           </li>
@@ -441,156 +448,156 @@ class HomePage extends React.Component {
           </div>
         </section>
 
-        <section className='section-personas' id='personas'>
-          <div className='container center-text margin-bottom-md'>
-            <h1 className='heading-primary'>Don't take our word for it</h1>
-            <p className='heading-tertiary'>Proven ingredients. Real results.</p>
-          </div>
-          <div className='container'>
-            <Swiper
-              breakpoints={{
-                944: {
-                  width: 944,
-                  slidesPerView: 2,
-                },
-                384: {
-                  width: 384,
-                  slidesPerView: 1,
-                },
-              }}
-              centeredSlides={true}
-              loop={true}
-              pagination={true}
-              navigation={true}
-              modules={[Pagination, Navigation]}>
+        <section className='reviews'>
+          <Swiper
+            breakpoints={{
+              // when window width is >= 320px
+              320: {
+                slidesPerView: 1.4,
+                spaceBetween: 16,
+              },
+              // when window width is >= 480px
+              480: {
+                slidesPerView: 2,
+                spaceBetween: 32,
+              },
+              // when window width is >= 640px
+              640: {
+                slidesPerView: 4,
+                spaceBetween: 48,
+              },
+            }}
+            mousewheel
+            simulateTouch
+            centeredSlides={true}
+            loop={true}
+            modules={[Mousewheel]}>
+            <SwiperSlide>
               <SwiperSlide>
-                <SwiperSlide>
-                  <div className='persona'>
-                    <img className='persona__image' src={PersonaOne} alt="Nicole's Formula" />
-                    <div className='persona__content'>
-                      <p className='persona__content--name'>Nicole's Journey</p>
-                      <div className='border' />
-                      <div className='persona__content--formula-details'>
-                        <ul className='persona__attributes'>
-                          <p className='persona__attributes--title'>Issue</p>
-                          <li className='persona__attributes--item'>
-                            <span>Breakouts</span>
-                          </li>
-                          <li className='persona__attributes--item'>
-                            <span>Redness</span>
-                          </li>
-                        </ul>
-                        <ul className='persona__attributes'>
-                          <p className='persona__attributes--title'>Custom Formula</p>
-                          <li className='persona__attributes--item'>
-                            <span>Tretinoin</span>
-                          </li>
-                          <li className='persona__attributes--item'>
-                            <span>Metronidazole</span>
-                          </li>
-                          <li className='persona__attributes--item'>
-                            <span>Azelaic Acid</span>
-                          </li>
-                          <li className='persona__attributes--item'>
-                            <span>Niacinamide</span>
-                          </li>
-                        </ul>
-                      </div>
-                      <p className='persona__content--review'>
-                        “Dermdoc’s formula has made me comfortable in my own skin. I used to have
-                        constant acne flares. After a few weeks of using the custom prescription, my
-                        skin started to clear up. I’m finally happy with my skin. Thank you!”
-                      </p>
-                    </div>
+                <div className='review'>
+                  <blockquote className='review__quote'>
+                    <p className='review__quote--icon'></p>
+                    <p className='heading-tertiary review__quote--text'>
+                      The cream went on nicely, wasn’t irritating, and my skin looks better than it
+                      ever has!
+                    </p>
+                  </blockquote>
+                  <div className='review__stars'>
+                    <IoStar className='review__stars--star' />
+                    <IoStar className='review__stars--star' />
+                    <IoStar className='review__stars--star' />
+                    <IoStar className='review__stars--star' />
+                    <IoStar className='review__stars--star' />
                   </div>
-                </SwiperSlide>
+                  <p className='heading-tertiary review__name'>Sue</p>
+                </div>
               </SwiperSlide>
+            </SwiperSlide>
+            <SwiperSlide>
               <SwiperSlide>
-                <SwiperSlide>
-                  <div className='persona'>
-                    <img className='persona__image' src={PersonaTwo} alt="Jennifer's Formula" />
-                    <div className='persona__content'>
-                      <p className='persona__content--name'>Jennifer's Journey</p>
-                      <div className='border' />
-                      <div className='persona__content--formula-details'>
-                        <ul className='persona__attributes'>
-                          <p className='persona__attributes--title'>Issue</p>
-                          <li className='persona__attributes--item'>
-                            <span>Hormonal Acne</span>
-                          </li>
-                          <li className='persona__attributes--item'>
-                            <span>Discoloration</span>
-                          </li>
-                        </ul>
-                        <ul className='persona__attributes'>
-                          <p className='persona__attributes--title'>Custom Formula</p>
-                          <li className='persona__attributes--item'>
-                            <span>Tretinoin</span>
-                          </li>
-                          <li className='persona__attributes--item'>
-                            <span>Azelaic Acid</span>
-                          </li>
-                          <li className='persona__attributes--item'>
-                            <span>Clindamycin</span>
-                          </li>
-                          <li className='persona__attributes--item'>
-                            <span>
-                              Oral Prescription: <br />
-                              Spironolactone
-                            </span>
-                          </li>
-                        </ul>
-                      </div>
-                      <p className='persona__content--review'>
-                        “My skin used to be a disaster. I had stubborn acne on my chin and jaw that
-                        wouldn’t go away. It would worsen with periods. I tried everything, but
-                        nothing worked. The dermatologist on DermDoc was great and their treatment
-                        has cleared my skin. I don’t feel self-conscious anymore. If you are
-                        thinking about using DermDoc, I recommend it!”
-                      </p>
-                    </div>
+                <div className='review'>
+                  <blockquote className='review__quote'>
+                    <p className='review__quote--icon'></p>
+                    <p className='heading-tertiary review__quote--text'>
+                      Love that it’s just one cream. I used to use so many different things. Feels
+                      great on the skin and isn’t greasy. I have a nice glow to my skin
+                    </p>
+                  </blockquote>
+                  <div className='review__stars'>
+                    <IoStar className='review__stars--star' />
+                    <IoStar className='review__stars--star' />
+                    <IoStar className='review__stars--star' />
+                    <IoStar className='review__stars--star' />
+                    <IoStar className='review__stars--star' />
                   </div>
-                </SwiperSlide>
+                  <p className='heading-tertiary review__name'>Samuel</p>
+                </div>
               </SwiperSlide>
+            </SwiperSlide>
+            <SwiperSlide>
               <SwiperSlide>
-                <SwiperSlide>
-                  <div className='persona'>
-                    <img className='persona__image' src={PersonaThree} alt="Sandra's Formula" />
-                    <div className='persona__content'>
-                      <p className='persona__content--name'>Sandra's Journey</p>
-                      <div className='border' />
-                      <div className='persona__content--formula-details'>
-                        <ul className='persona__attributes'>
-                          <p className='persona__attributes--title'>Issue</p>
-                          <li className='persona__attributes--item'>
-                            <span>Acne</span>
-                          </li>
-                          <li className='persona__attributes--item'>
-                            <span>Acne Scars</span>
-                          </li>
-                        </ul>
-                        <ul className='persona__attributes'>
-                          <p className='persona__attributes--title'>Custom Formula</p>
-                          <li className='persona__attributes--item'>
-                            <span>Tretinoin</span>
-                          </li>
-                          <li className='persona__attributes--item'>
-                            <span>Clindamycin</span>
-                          </li>
-                        </ul>
-                      </div>
-                      <p className='persona__content--review'>
-                        “My experience with DermDoc has been fantastic. The visit was easy and the
-                        dermatologist was very knowledgeable. I love that it’s just one single
-                        product to use. Simple and effective. It cleared up my skin. Using the cream
-                        has also helped my acne scars. Thank you!”
-                      </p>
-                    </div>
+                <div className='review'>
+                  <blockquote className='review__quote'>
+                    <p className='review__quote--icon'></p>
+                    <p className='heading-tertiary review__quote--text'>
+                      I’m a skin care addict and love this stuff! Highly recommended
+                    </p>
+                  </blockquote>
+                  <div className='review__stars'>
+                    <IoStar className='review__stars--star' />
+                    <IoStar className='review__stars--star' />
+                    <IoStar className='review__stars--star' />
+                    <IoStar className='review__stars--star' />
+                    <IoStar className='review__stars--star' />
                   </div>
-                </SwiperSlide>
+                  <p className='heading-tertiary review__name'>Nora</p>
+                </div>
               </SwiperSlide>
-            </Swiper>
-          </div>
+            </SwiperSlide>
+            <SwiperSlide>
+              <SwiperSlide>
+                <div className='review'>
+                  <blockquote className='review__quote'>
+                    <p className='review__quote--icon'></p>
+                    <p className='heading-tertiary review__quote--text'>
+                      Loved that DermDoc uses only top dermatologists. I had lots of acne and,
+                      unlike other online treatments, I was able to get the oral medications I
+                      needed.
+                    </p>
+                  </blockquote>
+                  <div className='review__stars'>
+                    <IoStar className='review__stars--star' />
+                    <IoStar className='review__stars--star' />
+                    <IoStar className='review__stars--star' />
+                    <IoStar className='review__stars--star' />
+                    <IoStar className='review__stars--star' />
+                  </div>
+                  <p className='heading-tertiary review__name'>Lisa</p>
+                </div>
+              </SwiperSlide>
+            </SwiperSlide>
+            <SwiperSlide>
+              <SwiperSlide>
+                <div className='review'>
+                  <blockquote className='review__quote'>
+                    <p className='review__quote--icon'></p>
+                    <p className='heading-tertiary review__quote--text'>
+                      Cleared up my skin. I had a really small amount of dryness with the cream but
+                      it went away after the first week of use. Love how my skin glows
+                    </p>
+                  </blockquote>
+                  <div className='review__stars'>
+                    <IoStar className='review__stars--star' />
+                    <IoStar className='review__stars--star' />
+                    <IoStar className='review__stars--star' />
+                    <IoStar className='review__stars--star' />
+                  </div>
+                  <p className='heading-tertiary review__name'>Sarah</p>
+                </div>
+              </SwiperSlide>
+            </SwiperSlide>
+            <SwiperSlide>
+              <SwiperSlide>
+                <div className='review'>
+                  <blockquote className='review__quote'>
+                    <p className='review__quote--icon'></p>
+                    <p className='heading-tertiary review__quote--text'>
+                      Simple, effective and so affordable! No easier way to get healthy, clear,
+                      skin. My girlfriend loves my skin.
+                    </p>
+                  </blockquote>
+                  <div className='review__stars'>
+                    <IoStar className='review__stars--star' />
+                    <IoStar className='review__stars--star' />
+                    <IoStar className='review__stars--star' />
+                    <IoStar className='review__stars--star' />
+                    <IoStar className='review__stars--star' />
+                  </div>
+                  <p className='heading-tertiary review__name'>Mike</p>
+                </div>
+              </SwiperSlide>
+            </SwiperSlide>
+          </Swiper>
         </section>
 
         <section className='section-doctors' id='doctors'>
@@ -603,22 +610,29 @@ class HomePage extends React.Component {
           <div className='container margin-bottom-mg'>
             <Swiper
               breakpoints={{
-                // when window width is >= 640px
-                944: {
-                  width: 944,
-                  slidesPerView: 2,
-                },
-                // when window width is >= 768px
-                384: {
-                  width: 384,
+                // when window width is >= 320px
+                320: {
                   slidesPerView: 1,
+                  spaceBetween: 16,
+                },
+                // when window width is >= 480px
+                480: {
+                  slidesPerView: 2,
+                  spaceBetween: 32,
+                },
+                // when window width is >= 640px
+                640: {
+                  slidesPerView: 2,
+                  spaceBetween: 48,
                 },
               }}
+              mousewheel
+              simulateTouch
               centeredSlides={true}
               loop={true}
               pagination={true}
               navigation={true}
-              modules={[Pagination, Navigation]}>
+              modules={[Pagination, Navigation, Mousewheel]}>
               <SwiperSlide>
                 <div className='doctor'>
                   <img className='doctor-img' src={OmarHeadshot} alt='Omar Headshot' />
