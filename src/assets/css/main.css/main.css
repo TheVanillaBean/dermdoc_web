@@ -943,7 +943,7 @@ strong {
 /***************************/
 .section-how {
   scroll-margin: 3.2rem;
-  margin: 0;
+  margin-bottom: 7.2rem;
   padding: 4.8rem 0;
   background-color: var(--color-primary); }
   .section-how > .container {
@@ -1010,12 +1010,19 @@ strong {
 /***************************/
 .section-pricing {
   scroll-margin: 2.4rem;
-  padding-bottom: 9.6rem; }
+  margin-bottom: 7.2rem; }
 
 .pricing-plan {
   border-radius: 11px;
   width: 75%;
-  overflow: hidden; }
+  overflow: hidden;
+  box-shadow: 0 2.4rem 4.8rem rgba(0, 0, 0, 0.075);
+  border-radius: 11px;
+  overflow: hidden;
+  transition: all 0.4s; }
+  .pricing-plan:hover {
+    transform: translateY(-1.2rem);
+    box-shadow: 0 3.2rem 6.4rem rgba(0, 0, 0, 0.06); }
 
 .plan-content {
   padding: 4.6rem; }
@@ -1248,42 +1255,45 @@ strong {
     box-shadow: 0 3.2rem 6.4rem rgba(0, 0, 0, 0.06); }
   .persona__image {
     width: 100%;
-    height: 30vh;
+    height: 25vh;
     object-fit: cover;
-    object-position: top; }
+    object-position: center; }
   .persona__content {
     display: flex;
     flex-direction: column;
     align-items: center;
-    margin: 2.4rem; }
+    margin: 2.4rem;
+    height: 50rem; }
     .persona__content--name {
       font-size: 3.2rem;
       font-weight: 500; }
     .persona__content--formula-details {
       display: flex;
-      margin-bottom: 3.2rem;
+      margin-bottom: 4.8rem;
       justify-content: space-between;
-      width: 100%; }
+      width: 80%;
+      height: 50%; }
     .persona__content--review {
       font-size: 1.8rem;
       font-weight: 500;
       margin-bottom: 1.2rem;
-      line-height: 1.4; }
+      line-height: 1.4;
+      justify-self: flex-start; }
   .persona__attributes {
     display: flex;
     flex-direction: column;
     list-style: none; }
     .persona__attributes--title {
-      font-size: 2.4rem;
+      font-size: 3.2rem;
       margin-bottom: 1.2rem;
       font-weight: 600;
       color: var(--color-primary); }
     .persona__attributes--item {
-      font-size: 1.8rem;
+      font-size: 2.4rem;
       font-weight: 500;
       line-height: 2; }
 
-.reviews {
+.section-reviews {
   margin-bottom: 9.6rem; }
 
 .review {
@@ -1295,13 +1305,15 @@ strong {
   margin: 0 auto;
   margin-bottom: 6.4rem;
   display: flex;
-  flex-direction: column; }
+  flex-direction: column;
+  height: 50rem; }
   .review:hover {
     transform: translateY(-1.2rem);
     box-shadow: 0 3.2rem 6.4rem rgba(0, 0, 0, 0.06); }
   .review__quote {
     padding: 3.2rem;
-    quotes: "“" "”" "‘" "’"; }
+    quotes: "“" "”" "‘" "’";
+    height: 100%; }
     .review__quote--text {
       font-size: 2.4rem; }
     .review__quote--icon:before {
@@ -1687,7 +1699,12 @@ input[type='number'] {
 @media (max-width: 34em) {
   .hero-container,
   .section-ingredients,
-  .section-doctors {
+  .section-doctors,
+  .section-personas,
+  .section-reviews,
+  .section-pricing,
+  .section-how,
+  .section-faq {
     margin-bottom: 4.8rem; }
   .grid {
     row-gap: 4.8rem; }
@@ -1720,12 +1737,6 @@ input[type='number'] {
         font-size: 1.8rem; }
     .waitlist-form__button {
       min-width: 100%; }
-  .persona {
-    flex-direction: column; }
-    .persona__image {
-      width: 75%;
-      margin: auto;
-      margin-bottom: 4.4rem; }
   .section-additional {
     max-width: 100%; }
   .testimonials {
@@ -1756,6 +1767,17 @@ input[type='number'] {
     grid-row: 2; }
   .nav-col {
     grid-row: 2; }
+  .persona__content--name {
+    font-size: 3.2rem; }
+  .persona__content--formula-details {
+    width: 90%;
+    height: 100%; }
+  .persona__content--review {
+    font-size: 1.8rem; }
+  .persona__attributes--title {
+    font-size: 2.4rem; }
+  .persona__attributes--item {
+    font-size: 1.8rem; }
   .auth-page {
     width: 100%;
     display: flex;

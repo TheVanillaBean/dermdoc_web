@@ -18,8 +18,9 @@ import Niacinamide from '../../assets/img/ingredients/niacinamide.jpg';
 import TranexamicAcid from '../../assets/img/ingredients/tranexamic_acid.jpeg';
 import Trentinoin from '../../assets/img/ingredients/trentinoin.jpeg';
 import OmarHeadshot from '../../assets/img/omar-headshot.jpeg';
-import PersonaJennifer from '../../assets/img/personas/persona_jennifer.png';
-import PersonaNicole from '../../assets/img/personas/persona_nicole.png';
+import PersonaSandra from '../../assets/img/personas/persona_one.jpeg';
+import PersonaJennifer from '../../assets/img/personas/persona_three.jpeg';
+import PersonaNicole from '../../assets/img/personas/persona_two.jpeg';
 import CreamPricing from '../../assets/img/pricing-cream-single.jpg';
 import OralPricing from '../../assets/img/pricing-oral-single.jpg';
 import SaamiHeadshot from '../../assets/img/saami_headshot.jpeg';
@@ -315,10 +316,11 @@ class HomePage extends React.Component {
                 },
                 // when window width is >= 1200
                 944: {
-                  slidesPerView: 2,
+                  slidesPerView: 1.5,
                   spaceBetween: 32,
                 },
               }}
+              autoHeight
               mousewheel
               simulateTouch
               centeredSlides={true}
@@ -422,7 +424,7 @@ class HomePage extends React.Component {
               <SwiperSlide>
                 <SwiperSlide>
                   <div className='persona'>
-                    <img className='persona__image' src={PersonaNicole} alt="Sandra's Formula" />
+                    <img className='persona__image' src={PersonaSandra} alt="Sandra's Formula" />
                     <div className='persona__content'>
                       <p className='persona__content--name'>Sandra's Journey</p>
                       <div className='border' />
@@ -460,7 +462,7 @@ class HomePage extends React.Component {
           </div>
         </section>
 
-        <section className='reviews'>
+        <section className='section-reviews'>
           <Swiper
             breakpoints={{
               // when window width is >= 320px
@@ -617,11 +619,58 @@ class HomePage extends React.Component {
           </Swiper>
         </section>
 
+        <section className='section-how' id='how'>
+          <div className='container center-text'>
+            <h1 className='heading-primary text-color-white'>How does it work?</h1>
+            <p className='heading-tertiary text-color-white'>
+              You're only 3 steps away from clearer skin
+            </p>
+          </div>
+          <div className='feature-list-container'>
+            <ul className='feature-list'>
+              <li className='feature'>
+                <div className='feature-circle'>
+                  <p className='feature-circle-text'>01</p>
+                </div>
+
+                <div className='feature-description'>
+                  <p className='feature-title'>Upload selfies</p>
+                  <p className='feature-text'>
+                    Answer some questions and share photos of your skin.
+                  </p>
+                </div>
+              </li>
+              <li className='feature'>
+                <div className='feature-circle'>
+                  <p className='feature-circle-text'>02</p>
+                </div>
+                <div className='feature-description'>
+                  <p className='feature-title'>Receive custom formula</p>
+                  <p className='feature-text'>
+                    Your dermatologist will design a personalized cream for you within 24 hours.
+                  </p>
+                </div>
+              </li>
+              <li className='feature'>
+                <div className='feature-circle'>
+                  <p className='feature-circle-text'>03</p>
+                </div>
+                <div className='feature-description'>
+                  <p className='feature-title'>Check-in as needed</p>
+                  <p className='feature-text'>
+                    You'll check-in with your dermatologist throughout your journey.
+                  </p>
+                </div>
+              </li>
+            </ul>
+          </div>
+        </section>
+
         <section className='section-doctors' id='doctors'>
           <div className='container center-text margin-bottom-md'>
             <h1 className='heading-primary'>You're in good hands</h1>
             <p className='heading-tertiary'>
-              Every cream is designed by a board-certified dermatologist
+              Every custom formula is prescribed by a board-certified dermatologist
             </p>
           </div>
           <div className='container margin-bottom-mg'>
@@ -807,9 +856,9 @@ class HomePage extends React.Component {
           </div>
 
           <div className='container center-text margin-bottom-md'>
-            <p className='heading-primary'>3-month free trial</p>
+            <p className='heading-primary'>3-month risk-free trial</p>
             <p className='heading-tertiary'>
-              *If you don't like your cream after your 3 month trial, you will get a{' '}
+              If you don't like your cream after your 3-month trial, you will get a{' '}
               <span className='text-primary-color'>100%</span> refund. After your trial, plans renew
               at <span className='text-primary-color'>($14.95/month)</span>.
             </p>
@@ -819,53 +868,6 @@ class HomePage extends React.Component {
             <CustomButton className='btn btn--full' onClick={this.handleClick}>
               Try 3-month risk-free trial - $6.99/month
             </CustomButton>
-          </div>
-        </section>
-
-        <section className='section-how' id='how'>
-          <div className='container center-text'>
-            <h1 className='heading-primary text-color-white'>How does it work?</h1>
-            <p className='heading-tertiary text-color-white'>
-              You're only 3 steps away from clearer skin
-            </p>
-          </div>
-          <div className='feature-list-container'>
-            <ul className='feature-list'>
-              <li className='feature'>
-                <div className='feature-circle'>
-                  <p className='feature-circle-text'>01</p>
-                </div>
-
-                <div className='feature-description'>
-                  <p className='feature-title'>Upload selfies</p>
-                  <p className='feature-text'>
-                    Answer some questions and share photos of your skin.
-                  </p>
-                </div>
-              </li>
-              <li className='feature'>
-                <div className='feature-circle'>
-                  <p className='feature-circle-text'>02</p>
-                </div>
-                <div className='feature-description'>
-                  <p className='feature-title'>Receive custom formula</p>
-                  <p className='feature-text'>
-                    Your dermatologist will design a personalized cream for you within 24 hours.
-                  </p>
-                </div>
-              </li>
-              <li className='feature'>
-                <div className='feature-circle'>
-                  <p className='feature-circle-text'>03</p>
-                </div>
-                <div className='feature-description'>
-                  <p className='feature-title'>Check-in as needed</p>
-                  <p className='feature-text'>
-                    You'll check-in with your dermatologist throughout your journey.
-                  </p>
-                </div>
-              </li>
-            </ul>
           </div>
         </section>
 
