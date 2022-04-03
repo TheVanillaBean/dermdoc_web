@@ -79,222 +79,10 @@ class HomePage extends React.Component {
           <HeroSection handleClick={this.handleClick} />
         </div>
 
-        <section className='section-ingredients' id='ingredients'>
-          <div className='container center-text margin-bottom-md'>
-            <h1 className='heading-primary'>Prescription Ingredients</h1>
-            <p className='heading-tertiary'>Quality you won't find at a store</p>
-          </div>
-          <div className='container margin-bottom-mg'>
-            <Swiper
-              breakpoints={{
-                // when window width is >= 320px
-                320: {
-                  slidesPerView: 1,
-                  spaceBetween: 16,
-                },
-                // when window width is >= 480px
-                480: {
-                  slidesPerView: 1.5,
-                  spaceBetween: 16,
-                },
-                // when window width is >= 640px
-                640: {
-                  slidesPerView: 2,
-                  spaceBetween: 32,
-                },
-              }}
-              mousewheel
-              simulateTouch
-              centeredSlides={true}
-              loop={true}
-              pagination={true}
-              navigation={true}
-              modules={[Pagination, Navigation, Mousewheel]}>
-              <SwiperSlide>
-                <div className='ingredient'>
-                  <img className='ingredient-img' src={Trentinoin} alt='Trentinoin' />
-                  <div className='ingredient-content'>
-                    <div className='ingredient-tags'>
-                      <span className='tag tag--percentage'>0.01 - 0.1%</span>
-                    </div>
-                    <p className='ingredient-title'>Tretinoin</p>
-                    <ul className='ingredient-attributes'>
-                      <li className='ingredient-attribute'>
-                        <span>Reduces fine lines and wrinkles</span>
-                      </li>
-                      <li className='ingredient-attribute'>
-                        <span>Improves skin tone and texture</span>
-                      </li>
-                      <li className='ingredient-attribute'>
-                        <span>Reduces hyperpigmentation</span>
-                      </li>
-                    </ul>
-                  </div>
-                </div>
-              </SwiperSlide>
-              <SwiperSlide>
-                <div className='ingredient'>
-                  <img className='ingredient-img' src={Clindamycin} alt='Trentinoin' />
-                  <div className='ingredient-content'>
-                    <div className='ingredient-tags'>
-                      <span className='tag tag--percentage'>2%</span>
-                    </div>
-                    <p className='ingredient-title'>Clindamycin</p>
-                    <ul className='ingredient-attributes'>
-                      <li className='ingredient-attribute'>
-                        <span>Reduces inflamed acne lesions</span>
-                      </li>
-                      <li className='ingredient-attribute'>
-                        <span>Improves non-inflamed acne lesions</span>
-                      </li>
-                      <li className='ingredient-attribute'>
-                        <span>Treats clogged pores</span>
-                      </li>
-                    </ul>
-                  </div>
-                </div>
-              </SwiperSlide>
-              <SwiperSlide>
-                <div className='ingredient'>
-                  <img className='ingredient-img' src={Niacinamide} alt='Niacinamide' />
-                  <div className='ingredient-content'>
-                    <div className='ingredient-tags'>
-                      <span className='tag tag--percentage'>2 - 4%</span>
-                    </div>
-                    <p className='ingredient-title'>Niacinamide</p>
-                    <ul className='ingredient-attributes'>
-                      <li className='ingredient-attribute'>
-                        <span>Has powerful antioxidant actives</span>
-                      </li>
-                      <li className='ingredient-attribute'>
-                        <span>Improves acne lesions</span>
-                      </li>
-                      <li className='ingredient-attribute'>
-                        <span>Treats clogged pores</span>
-                      </li>
-                    </ul>
-                  </div>
-                </div>
-              </SwiperSlide>
-              <SwiperSlide>
-                <div className='ingredient'>
-                  <img className='ingredient-img' src={AzelaicAcid} alt='Azelaic acid' />
-                  <div className='ingredient-content'>
-                    <div className='ingredient-tags'>
-                      <span className='tag tag--percentage'>15%</span>
-                    </div>
-                    <p className='ingredient-title'>Azelaic acid</p>
-                    <ul className='ingredient-attributes'>
-                      <li className='ingredient-attribute'>
-                        <span>Improves moderate-to-severe rosacea</span>
-                      </li>
-                      <li className='ingredient-attribute'>
-                        <span>Lightens melasma</span>
-                      </li>
-                      <li className='ingredient-attribute'>
-                        <span>Reduces pimples and blackheads</span>
-                      </li>
-                    </ul>
-                  </div>
-                </div>
-              </SwiperSlide>
-              <SwiperSlide>
-                <div className='ingredient'>
-                  <img className='ingredient-img' src={TranexamicAcid} alt='Tranexamic acid' />
-                  <div className='ingredient-content'>
-                    <div className='ingredient-tags'>
-                      <span className='tag tag--percentage'>3%</span>
-                    </div>
-                    <p className='ingredient-title'>Tranexamic acid</p>
-                    <ul className='ingredient-attributes'>
-                      <li className='ingredient-attribute'>
-                        <span>Lightens dark spots</span>
-                      </li>
-                      <li className='ingredient-attribute'>
-                        <span>Soothes redness</span>
-                      </li>
-                      <li className='ingredient-attribute'>
-                        <span>Treats hyperpigmentation and melasma</span>
-                      </li>
-                    </ul>
-                  </div>
-                </div>
-              </SwiperSlide>
-              <SwiperSlide>
-                <div className='ingredient'>
-                  <img className='ingredient-img' src={Hydroquinone} alt='Hydroquinoine' />
-                  <div className='ingredient-content'>
-                    <div className='ingredient-tags'>
-                      <span className='tag tag--percentage'>3-6%</span>
-                    </div>
-                    <p className='ingredient-title'>Hydroquinoine</p>
-                    <ul className='ingredient-attributes'>
-                      <li className='ingredient-attribute'>
-                        <span>Lightens Melasma</span>
-                      </li>
-                      <li className='ingredient-attribute'>
-                        <span>Treats sun spots, freckles, and age spots</span>
-                      </li>
-                      <li className='ingredient-attribute'>
-                        <span>Treats dark spots left by acne</span>
-                      </li>
-                    </ul>
-                  </div>
-                </div>
-              </SwiperSlide>
-              <SwiperSlide>
-                <div className='ingredient'>
-                  <img className='ingredient-img' src={Metronidazole} alt='Metronidazole' />
-                  <div className='ingredient-content'>
-                    <div className='ingredient-tags'>
-                      <span className='tag tag--percentage'>0.75%</span>
-                    </div>
-                    <p className='ingredient-title'>Metrodinazole</p>
-                    <ul className='ingredient-attributes'>
-                      <li className='ingredient-attribute'>
-                        <span>Reduces inflamed lesions of rosacea</span>
-                      </li>
-                      <li className='ingredient-attribute'>
-                        <span>Decreases facial redness</span>
-                      </li>
-                      <li className='ingredient-attribute'>
-                        <span>Treats acne rosacea</span>
-                      </li>
-                    </ul>
-                  </div>
-                </div>
-              </SwiperSlide>
-              <SwiperSlide>
-                <div className='ingredient other-ingredients'>
-                  <div className='other-ingredients__title'>
-                    <p>Additional Ingredients</p>
-                  </div>
-                  <div className='ingredient-content'>
-                    <ul className='ingredient-attributes'>
-                      <li className='ingredient-attribute'>
-                        <span>Hydrocoritsone 1-2.5%</span>
-                      </li>
-                      <li className='ingredient-attribute'>
-                        <span>Zinc pyrithione 1%</span>
-                      </li>
-                      <li className='ingredient-attribute'>
-                        <span>Sodium sulfacetamide 5-10%</span>
-                      </li>
-                      <li className='ingredient-attribute'>
-                        <span>Kojic acid 1%</span>
-                      </li>
-                    </ul>
-                  </div>
-                </div>
-              </SwiperSlide>
-            </Swiper>
-          </div>
-        </section>
-
         <section className='section-personas' id='personas'>
           <div className='container center-text margin-bottom-md'>
-            <h1 className='heading-primary'>Don't take our word for it</h1>
-            <p className='heading-tertiary'>Proven ingredients. Real results.</p>
+            <h1 className='heading-primary'>Proven ingredients. Real results.</h1>
+            <p className='heading-tertiary'>Hear what our patients have to say</p>
           </div>
           <div className='container'>
             <Swiper
@@ -321,7 +109,6 @@ class HomePage extends React.Component {
                 },
               }}
               autoHeight
-              mousewheel
               simulateTouch
               centeredSlides={true}
               loop={true}
@@ -619,6 +406,217 @@ class HomePage extends React.Component {
           </Swiper>
         </section>
 
+        <section className='section-ingredients' id='ingredients'>
+          <div className='container center-text margin-bottom-md'>
+            <h1 className='heading-primary'>Prescription Ingredients</h1>
+            <p className='heading-tertiary'>Quality you won't find at a store</p>
+          </div>
+          <div className='container margin-bottom-mg'>
+            <Swiper
+              breakpoints={{
+                // when window width is >= 320px
+                320: {
+                  slidesPerView: 1,
+                  spaceBetween: 16,
+                },
+                // when window width is >= 480px
+                480: {
+                  slidesPerView: 1.5,
+                  spaceBetween: 16,
+                },
+                // when window width is >= 640px
+                640: {
+                  slidesPerView: 2,
+                  spaceBetween: 32,
+                },
+              }}
+              simulateTouch
+              centeredSlides={true}
+              loop={true}
+              pagination={true}
+              navigation={true}
+              modules={[Pagination, Navigation, Mousewheel]}>
+              <SwiperSlide>
+                <div className='ingredient'>
+                  <img className='ingredient-img' src={Trentinoin} alt='Trentinoin' />
+                  <div className='ingredient-content'>
+                    <div className='ingredient-tags'>
+                      <span className='tag tag--percentage'>0.01 - 0.1%</span>
+                    </div>
+                    <p className='ingredient-title'>Tretinoin</p>
+                    <ul className='ingredient-attributes'>
+                      <li className='ingredient-attribute'>
+                        <span>Reduces fine lines and wrinkles</span>
+                      </li>
+                      <li className='ingredient-attribute'>
+                        <span>Improves skin tone and texture</span>
+                      </li>
+                      <li className='ingredient-attribute'>
+                        <span>Reduces hyperpigmentation</span>
+                      </li>
+                    </ul>
+                  </div>
+                </div>
+              </SwiperSlide>
+              <SwiperSlide>
+                <div className='ingredient'>
+                  <img className='ingredient-img' src={Clindamycin} alt='Trentinoin' />
+                  <div className='ingredient-content'>
+                    <div className='ingredient-tags'>
+                      <span className='tag tag--percentage'>2%</span>
+                    </div>
+                    <p className='ingredient-title'>Clindamycin</p>
+                    <ul className='ingredient-attributes'>
+                      <li className='ingredient-attribute'>
+                        <span>Reduces inflamed acne lesions</span>
+                      </li>
+                      <li className='ingredient-attribute'>
+                        <span>Improves non-inflamed acne lesions</span>
+                      </li>
+                      <li className='ingredient-attribute'>
+                        <span>Treats clogged pores</span>
+                      </li>
+                    </ul>
+                  </div>
+                </div>
+              </SwiperSlide>
+              <SwiperSlide>
+                <div className='ingredient'>
+                  <img className='ingredient-img' src={Niacinamide} alt='Niacinamide' />
+                  <div className='ingredient-content'>
+                    <div className='ingredient-tags'>
+                      <span className='tag tag--percentage'>2 - 4%</span>
+                    </div>
+                    <p className='ingredient-title'>Niacinamide</p>
+                    <ul className='ingredient-attributes'>
+                      <li className='ingredient-attribute'>
+                        <span>Has powerful antioxidant actives</span>
+                      </li>
+                      <li className='ingredient-attribute'>
+                        <span>Improves acne lesions</span>
+                      </li>
+                      <li className='ingredient-attribute'>
+                        <span>Treats clogged pores</span>
+                      </li>
+                    </ul>
+                  </div>
+                </div>
+              </SwiperSlide>
+              <SwiperSlide>
+                <div className='ingredient'>
+                  <img className='ingredient-img' src={AzelaicAcid} alt='Azelaic acid' />
+                  <div className='ingredient-content'>
+                    <div className='ingredient-tags'>
+                      <span className='tag tag--percentage'>15%</span>
+                    </div>
+                    <p className='ingredient-title'>Azelaic acid</p>
+                    <ul className='ingredient-attributes'>
+                      <li className='ingredient-attribute'>
+                        <span>Improves moderate-to-severe rosacea</span>
+                      </li>
+                      <li className='ingredient-attribute'>
+                        <span>Lightens melasma</span>
+                      </li>
+                      <li className='ingredient-attribute'>
+                        <span>Reduces pimples and blackheads</span>
+                      </li>
+                    </ul>
+                  </div>
+                </div>
+              </SwiperSlide>
+              <SwiperSlide>
+                <div className='ingredient'>
+                  <img className='ingredient-img' src={TranexamicAcid} alt='Tranexamic acid' />
+                  <div className='ingredient-content'>
+                    <div className='ingredient-tags'>
+                      <span className='tag tag--percentage'>3%</span>
+                    </div>
+                    <p className='ingredient-title'>Tranexamic acid</p>
+                    <ul className='ingredient-attributes'>
+                      <li className='ingredient-attribute'>
+                        <span>Lightens dark spots</span>
+                      </li>
+                      <li className='ingredient-attribute'>
+                        <span>Soothes redness</span>
+                      </li>
+                      <li className='ingredient-attribute'>
+                        <span>Treats hyperpigmentation and melasma</span>
+                      </li>
+                    </ul>
+                  </div>
+                </div>
+              </SwiperSlide>
+              <SwiperSlide>
+                <div className='ingredient'>
+                  <img className='ingredient-img' src={Hydroquinone} alt='Hydroquinoine' />
+                  <div className='ingredient-content'>
+                    <div className='ingredient-tags'>
+                      <span className='tag tag--percentage'>3-6%</span>
+                    </div>
+                    <p className='ingredient-title'>Hydroquinoine</p>
+                    <ul className='ingredient-attributes'>
+                      <li className='ingredient-attribute'>
+                        <span>Lightens Melasma</span>
+                      </li>
+                      <li className='ingredient-attribute'>
+                        <span>Treats sun spots, freckles, and age spots</span>
+                      </li>
+                      <li className='ingredient-attribute'>
+                        <span>Treats dark spots left by acne</span>
+                      </li>
+                    </ul>
+                  </div>
+                </div>
+              </SwiperSlide>
+              <SwiperSlide>
+                <div className='ingredient'>
+                  <img className='ingredient-img' src={Metronidazole} alt='Metronidazole' />
+                  <div className='ingredient-content'>
+                    <div className='ingredient-tags'>
+                      <span className='tag tag--percentage'>0.75%</span>
+                    </div>
+                    <p className='ingredient-title'>Metrodinazole</p>
+                    <ul className='ingredient-attributes'>
+                      <li className='ingredient-attribute'>
+                        <span>Reduces inflamed lesions of rosacea</span>
+                      </li>
+                      <li className='ingredient-attribute'>
+                        <span>Decreases facial redness</span>
+                      </li>
+                      <li className='ingredient-attribute'>
+                        <span>Treats acne rosacea</span>
+                      </li>
+                    </ul>
+                  </div>
+                </div>
+              </SwiperSlide>
+              <SwiperSlide>
+                <div className='ingredient other-ingredients'>
+                  <div className='other-ingredients__title'>
+                    <p>Additional Ingredients</p>
+                  </div>
+                  <div className='ingredient-content'>
+                    <ul className='ingredient-attributes'>
+                      <li className='ingredient-attribute'>
+                        <span>Hydrocoritsone 1-2.5%</span>
+                      </li>
+                      <li className='ingredient-attribute'>
+                        <span>Zinc pyrithione 1%</span>
+                      </li>
+                      <li className='ingredient-attribute'>
+                        <span>Sodium sulfacetamide 5-10%</span>
+                      </li>
+                      <li className='ingredient-attribute'>
+                        <span>Kojic acid 1%</span>
+                      </li>
+                    </ul>
+                  </div>
+                </div>
+              </SwiperSlide>
+            </Swiper>
+          </div>
+        </section>
+
         <section className='section-how' id='how'>
           <div className='container center-text'>
             <h1 className='heading-primary text-color-white'>How does it work?</h1>
@@ -692,7 +690,6 @@ class HomePage extends React.Component {
                   spaceBetween: 48,
                 },
               }}
-              mousewheel
               simulateTouch
               centeredSlides={true}
               loop={true}

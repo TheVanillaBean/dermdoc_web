@@ -35,7 +35,7 @@ const HeroSection = ({ homepage = true, handleClick, handleSubmit, handleChange,
       <div className='hero'>
         <div className='hero-text-box'>
           <h1 className='heading-primary'>
-            Personalized prescription cream to treat
+            Personalized prescription for
             <br />
             <TextTransition
               text={TEXTS[index % TEXTS.length]}

@@ -64,7 +64,10 @@ class WaitlistPage extends React.Component {
           <div className='not-in-area'>
             <p>We haven't launched yet in your state.</p>
             <br />
-            <p>If you join our waitlist, we will send you a 20% discount when we do launch.</p>
+            <p>
+              If you join our waitlist, we will send you a 54% discount when we do launch
+              ($6.99/month).
+            </p>
           </div>
 
           <form className='sign-up-form' onSubmit={this.handleSubmit}>

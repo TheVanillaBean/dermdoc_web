@@ -180,7 +180,7 @@ body {
   letter-spacing: -0.5px; }
 
 .heading-primary {
-  font-size: 6.4rem;
+  font-size: 5.6rem;
   line-height: 1.2;
   margin-bottom: 3.2rem; }
 
@@ -1149,7 +1149,7 @@ strong {
 
 .doctor-img {
   width: 100%;
-  height: 30vh;
+  height: 33vh;
   object-fit: cover;
   object-position: top; }
 
@@ -1271,7 +1271,7 @@ strong {
       display: flex;
       margin-bottom: 4.8rem;
       justify-content: space-between;
-      width: 80%;
+      width: 65%;
       height: 50%; }
     .persona__content--review {
       font-size: 1.8rem;
@@ -1306,7 +1306,7 @@ strong {
   margin-bottom: 6.4rem;
   display: flex;
   flex-direction: column;
-  height: 50rem; }
+  height: 60rem; }
   .review:hover {
     transform: translateY(-1.2rem);
     box-shadow: 0 3.2rem 6.4rem rgba(0, 0, 0, 0.06); }
@@ -1660,12 +1660,12 @@ input[type='number'] {
     grid-column: 1 / -1;
     justify-self: center; }
   .heading-primary {
-    font-size: 3.4rem; }
+    font-size: 3.2rem; }
   .grid--3-cols,
   .grid--4-cols {
     grid-template-columns: repeat(2, 1fr); }
   .heading-secondary {
-    margin-bottom: 4.4rem; }
+    margin-bottom: 2.8rem; }
   .waitlist-form {
     align-items: center; }
     .waitlist-form__button {
@@ -1770,7 +1770,7 @@ input[type='number'] {
   .persona__content--name {
     font-size: 3.2rem; }
   .persona__content--formula-details {
-    width: 90%;
+    width: 80%;
     height: 100%; }
   .persona__content--review {
     font-size: 1.8rem; }
