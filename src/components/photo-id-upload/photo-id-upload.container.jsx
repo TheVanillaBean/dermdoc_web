@@ -3,16 +3,13 @@ import { compose } from 'redux';
 import { createStructuredSelector } from 'reselect';
 import { selectIsVisitFetching, selectVisitErrorMessage } from '../../redux/visit/visit.selectors';
 import WithSpinner from '../with-spinner/with-spinner.component';
-import SelfiesUploadContainer from './selfies-upload.component';
+import PhotosUploadComponent from './photos-upload.component';
 
 const mapStateToProps = createStructuredSelector({
   isLoading: selectIsVisitFetching,
   errorMessage: selectVisitErrorMessage,
 });
 
-const SelfiesUploadContainer = compose(
-  connect(mapStateToProps),
-  WithSpinner
-)(PhotosUploadComponent);
+const PhotosUploadContainer = compose(connect(mapStateToProps), WithSpinner)(PhotosUploadComponent);
 
-export default SelfiesUploadContainer;
+export default PhotosUploadContainer;
