@@ -1,44 +1,39 @@
 import React from 'react';
-import { IoCashOutline, IoHappyOutline, IoTimeOutline } from 'react-icons/io5';
+import { IoCheckmarkCircleOutline } from 'react-icons/io5';
 import CustomButton from '../custom-button/custom-button.component';
 
-const ServiceCard = ({ service, image, showButton = false, promo = false, handleClick }) => {
-  const promoCostUI = (
-    <span>
-      <span className='strikethrough'>$68</span>
-      <strong>$58</strong> flat-fee
-    </span>
-  );
-
-  const normalCostUI = <span>$68 doctor fee (risk-free)</span>;
+const ServiceCard = ({ service, image, showButton = false, handleClick }) => {
   return (
     <div className='service'>
       <img className='service--img' src={image} alt={`${service}`} />
       <div className='service__content'>
         <p className='service__content--title'>{service}</p>
+        <p className='service__content--price'>$6.99/month</p>
+
         <ul className='service__content--attributes'>
           <li className='service__content--attribute'>
-            <IoCashOutline className='list-icon' />
-            {promo ? promoCostUI : normalCostUI}
+            <IoCheckmarkCircleOutline className='list-icon service-icon' />
+
+            <span>3-month supply</span>
+          </li>
+
+          <li className='service__content--attribute'>
+            <IoCheckmarkCircleOutline className='list-icon service-icon' />
+
+            <span>Free skin evaluation</span>
           </li>
           <li className='service__content--attribute'>
-            <IoTimeOutline className='list-icon' />
-            <span>Same day response</span>
-          </li>
-          <li className='service__content--attribute'>
-            <IoHappyOutline className='list-icon' />
-            <span>
-              <strong>100%</strong> money-back guarantee
-            </span>
+            <IoCheckmarkCircleOutline className='list-icon service-icon' />
+
+            <span>Rx Ingredients</span>
           </li>
         </ul>
+        {showButton && (
+          <CustomButton className='btn btn--full' onClick={() => handleClick(service)}>
+            Learn more
+          </CustomButton>
+        )}
       </div>
-
-      {showButton && (
-        <CustomButton className='btn btn--full' onClick={() => handleClick(service)}>
-          Start visit
-        </CustomButton>
-      )}
     </div>
   );
 };

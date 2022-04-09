@@ -56,7 +56,6 @@ class App extends Component {
         {/* <Route exact path='/services' component={ServicesPages} /> */}
         <Route exact path='/get_started' component={ZipcodeCheckPage} />
         <Route path='/visits/:visit_id' component={VisitLandingPage} />
-        <Route path='/visits/:visit_id' component={VisitLandingPage} />
         <Route path='/privacy' render={() => <LegalPage page='privacy' />} />
         <Route path='/terms' render={() => <LegalPage page='terms' />} />
         <Route path='/consent' render={() => <LegalPage page='consent' />} />
