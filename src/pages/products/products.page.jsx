@@ -17,7 +17,7 @@ import { updateVisitReason } from '../../redux/search/search.actions';
 
 class ProductsPage extends React.Component {
   componentDidMount() {
-    analytics.logEvent('Homepage Viewed');
+    analytics.logEvent('Products Page Viewed');
   }
 
   handleClick = (service) => {
@@ -34,12 +34,15 @@ class ProductsPage extends React.Component {
         <Header />
 
         <section className='section-services' id='services'>
-          <div className='container center-text'>
-            <span className='subheading'>What seems to be your issue?</span>
-            <h2 className='heading-secondary'>Personalized care to solve your problem</h2>
+          <div className='container center-text margin-bottom-md'>
+            <h1 className='heading-primary'>Browse Products</h1>
+            <p className='heading-tertiary'>
+              Derm-grade products up to 20x more effective than over-the-counter
+            </p>
           </div>
-          <div className='container grid grid--3-cols margin-bottom-md'>
+          <div className='container grid grid--2-cols margin-bottom-md'>
             <ServiceCard
+              bestseller
               service='Acne'
               image={AcnePhoto}
               ingredients={

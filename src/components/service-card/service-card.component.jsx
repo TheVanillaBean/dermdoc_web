@@ -2,10 +2,11 @@ import React from 'react';
 import { IoCheckmarkCircleOutline } from 'react-icons/io5';
 import CustomButton from '../custom-button/custom-button.component';
 
-const ServiceCard = ({ service, image, showButton = false, handleClick }) => {
+const ServiceCard = ({ service, image, bestseller = false, showButton = false, handleClick }) => {
   return (
-    <div className='service'>
+    <div className={bestseller ? 'service service-bestseller' : 'service'}>
       <img className='service--img' src={image} alt={`${service}`} />
+
       <div className='service__content'>
         <p className='service__content--title'>{service}</p>
         <p className='service__content--price'>$6.99/month</p>

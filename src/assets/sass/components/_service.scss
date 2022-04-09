@@ -6,11 +6,29 @@
   flex-direction: column;
   align-items: center;
   box-shadow: 0 2.4rem 4.8rem rgba(0, 0, 0, 0.075);
+  width: 75%;
+  margin: 0 auto;
+  position: relative;
 }
 
 .service:hover {
   transform: translateY(-1.2rem);
   box-shadow: 0 3.2rem 6.4rem rgba(0, 0, 0, 0.06);
+}
+
+.service-bestseller::after {
+  content: 'Bestseller';
+  position: absolute;
+  top: 3%;
+  right: 3%;
+
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  font-size: 2.4rem;
+  font-weight: 700;
+  color: #333;
+  background-color: white;
+  padding: 0.8rem 3.2rem;
 }
 
 .service__content {
@@ -19,14 +37,14 @@
 }
 
 .service__content--title {
-  font-size: 3.2rem;
+  font-size: 4.4rem;
   color: #333;
   font-weight: 600;
   margin-bottom: 1.2rem;
 }
 
 .service__content--price {
-  font-size: 2.4rem;
+  font-size: 3.2rem;
   color: #333;
   font-weight: 600;
   margin-bottom: 3.2rem;
@@ -42,7 +60,7 @@
 }
 
 .service__content--attribute {
-  font-size: 1.8rem;
+  font-size: 2.4rem;
   display: flex;
   align-items: center;
   gap: 2rem;
@@ -50,8 +68,9 @@
 
 .service--img {
   width: 100%;
-  height: 20rem;
+  height: 100%;
   object-fit: cover;
+  object-position: center;
 }
 
 .service-icon {
