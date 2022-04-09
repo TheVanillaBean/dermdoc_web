@@ -37,7 +37,8 @@ class ProductsPage extends React.Component {
           <div className='container center-text margin-bottom-md'>
             <h1 className='heading-primary'>Browse Products</h1>
             <p className='heading-tertiary'>
-              Derm-grade products up to 20x more effective than over-the-counter
+              Derm-grade products up to{' '}
+              <span className='text-primary-color'>20x more effective</span> than over-the-counter
             </p>
           </div>
           <div className='container grid grid--2-cols margin-bottom-md'>

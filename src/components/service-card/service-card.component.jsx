@@ -15,7 +15,7 @@ const ServiceCard = ({ service, image, bestseller = false, showButton = false, h
           <li className='service__content--attribute'>
             <IoCheckmarkCircleOutline className='list-icon service-icon' />
 
-            <span>3-month supply</span>
+            <span>3-months supply</span>
           </li>
 
           <li className='service__content--attribute'>
