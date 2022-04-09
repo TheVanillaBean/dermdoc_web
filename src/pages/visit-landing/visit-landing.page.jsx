@@ -12,9 +12,11 @@ import {
 } from '../../redux/visit/visit.actions';
 import AuthPage from '../auth/auth.page';
 import CheckoutPage from '../checkout/checkout.page';
-import PhotosPage from '../photos/photos.page';
+import PhotoIdPage from '../photo-id/photo-id.page';
 import QuestionsPage from '../questions/questions.page';
+import SelfiesPage from '../selfies/selfies.page';
 import VisitReadyPage from '../visit-ready/visit-ready.page';
+
 class VisitLandingPage extends React.Component {
   unsubscribeFromVisitSnapshot = null;
 
@@ -36,10 +38,12 @@ class VisitLandingPage extends React.Component {
             } else if (visit.status === 'filled_out') {
               history.push(`/visits/${visit.visit_id}/auth`);
             } else if (visit.status === 'authenticated') {
-              if (visit.photos_added) {
+              if (visit.photo_id_added && visit.selfies_added) {
                 history.push(`/visits/${visit.visit_id}/checkout`);
+              } else if (visit.selfies_added) {
+                history.push(`/visits/${visit.visit_id}/photo_id`);
               } else {
-                history.push(`/visits/${visit.visit_id}/photos`);
+                history.push(`/visits/${visit.visit_id}/selfies`);
               }
             } else if (visit.status === 'paid' || visit.status === 'ready_for_review') {
               history.push(`/visits/${visit.visit_id}/visit_ready`);
@@ -64,7 +68,9 @@ class VisitLandingPage extends React.Component {
       <Switch>
         <Route path={`${match.path}/questions`} component={QuestionsPage} />
         <Route path={`${match.path}/auth`} component={AuthPage} />
-        <Route path={`${match.path}/photos`} component={PhotosPage} />
+        <Route path={`${match.path}/photo_id`} component={PhotoIdPage} />
+        <Route path={`${match.path}/selfies`} component={SelfiesPage} />
+
         <Route path={`${match.path}/checkout`} component={CheckoutPage} />
         <Route path={`${match.path}/visit_ready`} component={VisitReadyPage} />
         <Route exact path='*'>

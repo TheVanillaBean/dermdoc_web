@@ -1,7 +1,7 @@
 import imageCompression from 'browser-image-compression';
 import React from 'react';
 import Files from 'react-butterfiles';
-import { IoCard, IoPerson } from 'react-icons/io5';
+import { IoPerson } from 'react-icons/io5';
 import { connect } from 'react-redux';
 import { withRouter } from 'react-router-dom';
 import { toast, ToastContainer } from 'react-toastify';
@@ -15,7 +15,6 @@ import CustomButton from '../custom-button/custom-button.component';
 
 class SelfiesUpload extends React.Component {
   state = {
-    photoId: [],
     selfies: [],
     errors: [],
     dragging: false,
@@ -50,7 +49,7 @@ class SelfiesUpload extends React.Component {
   handleSubmit = async () => {
     const { visit, updateVisitAsync } = this.props;
 
-    toast.info('Securely uploading photos...please wait');
+    toast.info('Securely uploading selfies...please wait');
     this.setState({ submitted: true });
 
     if (!this.state.submitted) {
@@ -89,75 +88,11 @@ class SelfiesUpload extends React.Component {
     return (
       <div className='container'>
         <div className='photo-gallery-container'>
-          <label className='photo-gallery--title'>Upload photo ID and 1-3 selfies</label>
+          <label className='photo-gallery--title'>Upload 1-3 selfies</label>
           <label className='photo-gallery--subtitle'>
-            We need your <span className='text-primary-color'>photo ID</span> for legal reasons
-            because your board-certified dermatologist will be giving a{' '}
-            <span className='text-primary-color'>medical evaluation</span>. All images will be saved
-            to our secure HIPAA compliant backend and will{' '}
-            <span className='text-primary-color'>never</span> be shared.
+            Please upload some selfies so your dermatologist can give you a proper{' '}
+            <span className='text-primary-color'>medical evaluation</span>.
           </label>
-          <Files
-            id={'image-gallery'}
-            multiple
-            convertToBase64
-            maxSize='50mb'
-            accept={['image/jpg', 'image/jpeg', 'image/png']}
-            onError={this.handleErrors}
-            onSuccess={(files) => {
-              // Will append images at the end of the list.
-              this.handlePhotoId(files, this.state.photoId.length);
-            }}>
-            {({ browseFiles, getDropZoneProps, getLabelProps }) => (
-              <>
-                {this.state.errors.length > 0 && (
-                  <div className='photo-gallery--error'>An error occurred.</div>
-                )}
-                <div
-                  {...getDropZoneProps({
-                    id: 'my-image-gallery',
-                    className: 'photo-gallery' + (this.state.dragging ? ' dragging' : ''),
-                    onDragEnter: () => this.setState({ dragging: true }),
-                    onDragLeave: () => this.setState({ dragging: false }),
-                    onDrop: () => this.setState({ dragging: false }),
-                  })}>
-                  <ul>
-                    {this.state.photoId.map((image, index) => (
-                      <li
-                        key={index}
-                        onClick={() => {
-                          browseFiles({
-                            onErrors: this.handleErrors,
-                            onSuccess: (files) => {
-                              // Will insert images after the clicked image.
-                              this.handlePhotoId(files, index + 1);
-                            },
-                          });
-                        }}>
-                        <img src={image.src} alt='User selected' />
-                      </li>
-                    ))}
-                    <li
-                      className='new-image'
-                      onClick={() => {
-                        browseFiles({
-                          onErrors: this.handleErrors,
-                          onSuccess: (files) => {
-                            // Will append images at the end of the list.
-                            this.handlePhotoId(files, this.state.photoId.length);
-                          },
-                        });
-                      }}>
-                      <div>
-                        <IoCard className='list-icon margin-bottom-sm' />
-                        <p>+ Tap to upload photo ID</p>
-                      </div>
-                    </li>
-                  </ul>
-                </div>
-              </>
-            )}
-          </Files>
           <Files
             id={'image-gallery'}
             multiple

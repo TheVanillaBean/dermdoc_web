@@ -1,7 +1,7 @@
 import React from 'react';
 import Footer from '../../components/footer/footer.component';
 import Header from '../../components/header/header.component';
-import SelfiesUploadContainer from '../../components/selfies-upload/selfies-upload.container';
+import PhotoIdUploadContainer from '../../components/photo-id-upload/photo-id-upload.container';
 
 class PhotosPage extends React.Component {
   render() {
@@ -9,7 +9,7 @@ class PhotosPage extends React.Component {
       <div>
         <Header />
 
-        <SelfiesUploadContainer />
+        <PhotoIdUploadContainer />
 
         <Footer />
       </div>
