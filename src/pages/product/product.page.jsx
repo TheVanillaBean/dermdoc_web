@@ -24,15 +24,20 @@ import PersonaNicole from '../../assets/img/personas/persona_two.jpeg';
 import CreamPricing from '../../assets/img/pricing-cream-single.jpg';
 import OralPricing from '../../assets/img/pricing-oral-single.jpg';
 import SaamiHeadshot from '../../assets/img/saami_headshot.jpeg';
+import AcnePhoto from '../../assets/img/specialty-photos/Acne.jpeg';
+import MelasmaPhoto from '../../assets/img/specialty-photos/Melasma.jpeg';
+import RosaceaPhoto from '../../assets/img/specialty-photos/Rosacea.jpeg';
+import SkinTexturePhoto from '../../assets/img/specialty-photos/SkinTexture.jpeg';
 import CustomButton from '../../components/custom-button/custom-button.component';
 import Footer from '../../components/footer/footer.component';
 import Header from '../../components/header/header.component';
 import HeroSection from '../../components/hero-section/hero-section.component';
+import ServiceCard from '../../components/service-card/service-card.component';
 import { analytics } from '../../firebase/firebase.utils';
 import { updateVisitReason } from '../../redux/search/search.actions';
 import { homepageFAQ } from '../../utils/faq.utils';
 
-class HomePage extends React.Component {
+class ProductPage extends React.Component {
   componentDidMount() {
     analytics.logEvent('Homepage Viewed');
   }
@@ -53,6 +58,39 @@ class HomePage extends React.Component {
           <Header />
           <HeroSection handleClick={this.handleClick} />
         </div>
+
+        <section className='section-services' id='services'>
+          <div className='container center-text'>
+            <span className='subheading'>What seems to be your issue?</span>
+            <h2 className='heading-secondary'>Personalized care to solve your problem</h2>
+          </div>
+          <div className='container grid grid--3-cols margin-bottom-md'>
+            <ServiceCard
+              service='Acne'
+              image={AcnePhoto}
+              showButton={true}
+              handleClick={this.handleClick}
+            />
+            <ServiceCard
+              service='Rosacea'
+              image={RosaceaPhoto}
+              showButton={true}
+              handleClick={this.handleClick}
+            />
+            <ServiceCard
+              service='Melasma/Hyperpigmentation'
+              image={MelasmaPhoto}
+              showButton={true}
+              handleClick={this.handleClick}
+            />
+            <ServiceCard
+              service='Anti-aging'
+              image={SkinTexturePhoto}
+              showButton={true}
+              handleClick={this.handleClick}
+            />
+          </div>
+        </section>
 
         <section className='section-personas' id='personas'>
           <div className='container center-text margin-bottom-md'>
@@ -876,4 +914,4 @@ const mapDispatchToProps = (dispatch) => ({
   updateVisitReason: (reason) => dispatch(updateVisitReason(reason)),
 });
 
-export default withRouter(connect(null, mapDispatchToProps)(HomePage));
+export default withRouter(connect(null, mapDispatchToProps)(ProductPage));
