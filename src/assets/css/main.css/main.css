@@ -683,7 +683,7 @@ strong {
   align-items: center;
   margin: 0 auto;
   padding: 3.2rem 0;
-  width: 50%; }
+  width: 100%; }
   .product-card__header {
     display: flex;
     justify-content: space-between;
@@ -1619,6 +1619,14 @@ input[type='number'] {
 
 .section-product-details {
   margin-bottom: 9.6rem; }
+
+.product-photo {
+  height: 90vh;
+  width: 100%;
+  object-fit: contain; }
+
+.product-details {
+  height: 90vh; }
 
 /* rem and em do NOT depend on html font-size in media queries.
    Instead, 1rem = 1em = 16px;

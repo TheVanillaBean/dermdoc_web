@@ -18,6 +18,7 @@ import Niacinamide from '../../assets/img/ingredients/niacinamide.jpg';
 import TranexamicAcid from '../../assets/img/ingredients/tranexamic_acid.jpeg';
 import Trentinoin from '../../assets/img/ingredients/trentinoin.jpeg';
 import OmarHeadshot from '../../assets/img/omar-headshot.jpeg';
+import ProductDetail from '../../assets/img/product-detail-desktop.png';
 import SaamiHeadshot from '../../assets/img/saami_headshot.jpeg';
 import CustomButton from '../../components/custom-button/custom-button.component';
 import Footer from '../../components/footer/footer.component';
@@ -25,6 +26,7 @@ import Header from '../../components/header/header.component';
 import { analytics } from '../../firebase/firebase.utils';
 import { updateVisitReason } from '../../redux/search/search.actions';
 import { homepageFAQ } from '../../utils/faq.utils';
+
 class ProductPage extends React.Component {
   componentDidMount() {
     analytics.logEvent('Homepage Viewed');
@@ -46,56 +48,61 @@ class ProductPage extends React.Component {
 
         <section className='section-product-details'>
           <div className='container center-text margin-bottom-md'></div>
-          <div className='container margin-bottom-mg'>
-            <div className='product-card'>
-              <div className='product-card__header'>
-                <div className='product-card__header__product-name-container'>
-                  <p className='product-card__header__product-name-container--title'>Acne Cream</p>
-                  <p className='product-card__header__product-name-container--subtitle'>
-                    Personalized Rx Treatment
+          <div className='grid grid--2-cols margin-bottom-mg'>
+            <img className='product-photo' src={ProductDetail} alt='Product Details' />
+            <div className='product-details'>
+              <div className='product-card'>
+                <div className='product-card__header'>
+                  <div className='product-card__header__product-name-container'>
+                    <p className='product-card__header__product-name-container--title'>
+                      Acne Cream
+                    </p>
+                    <p className='product-card__header__product-name-container--subtitle'>
+                      Personalized Rx Treatment
+                    </p>
+                  </div>
+                  <div className='product-card__header__product-price-container'>
+                    <p className='product-card__header__product-price-container--price'>
+                      $6.99/month
+                    </p>
+                    <p className='product-card__header__product-price-container--quantity'>
+                      3-month supply
+                    </p>
+                  </div>
+                </div>
+                <div className='product-card__content'>
+                  <ul className='product-card__attributes'>
+                    <li className='product-card__attributes--attribute'>
+                      <IoCheckmarkCircleOutline className='product-details-icon' />
+
+                      <span>
+                        First-time bottle lasts ~3 months. Refills last ~3 months and bill at
+                        $14.95/month. Cancel anytime.
+                      </span>
+                    </li>
+                    <li className='product-card__attributes--attribute'>
+                      <IoCheckmarkCircleOutline className='product-details-icon' />
+
+                      <span>
+                        Main Ingredients: Tretinoin 0.015-0.057%, Clindamycin 1.7%, Azelaic Acid
+                        13%, Niacinamide 4%
+                      </span>
+                    </li>
+                    <li className='product-card__attributes--attribute'>
+                      <IoCheckmarkCircleOutline className='product-details-icon' />
+
+                      <span>Includes free evaluation from a board-certified dermatologist</span>
+                    </li>
+                  </ul>
+                  <CustomButton className='btn btn--full' onClick={() => this.handleClick()}>
+                    Start Checkout
+                  </CustomButton>
+                  <p className='product-card__content--shipping'>Free Shipping</p>
+                  <p className='product-card__content--disclaimer'>
+                    *Before checkout, answer questions and upload photos of your skin for your
+                    provider to determine if a prescription is appropriate.
                   </p>
                 </div>
-                <div className='product-card__header__product-price-container'>
-                  <p className='product-card__header__product-price-container--price'>
-                    $6.99/month
-                  </p>
-                  <p className='product-card__header__product-price-container--quantity'>
-                    3-month supply
-                  </p>
-                </div>
-              </div>
-              <div className='product-card__content'>
-                <ul className='product-card__attributes'>
-                  <li className='product-card__attributes--attribute'>
-                    <IoCheckmarkCircleOutline className='product-details-icon' />
-
-                    <span>
-                      First-time bottle lasts ~3 months. Refills last ~3 months and bill at
-                      $14.95/quarter. Cancel anytime.
-                    </span>
-                  </li>
-                  <li className='product-card__attributes--attribute'>
-                    <IoCheckmarkCircleOutline className='product-details-icon' />
-
-                    <span>
-                      Main Ingredients: Tretinoin 0.015-0.057%, Clindamycin 1.7%, Azelaic Acid 13%,
-                      Niacinamide 4%
-                    </span>
-                  </li>
-                  <li className='product-card__attributes--attribute'>
-                    <IoCheckmarkCircleOutline className='product-details-icon' />
-
-                    <span>Includes free evaluation from a board-certified dermatologist</span>
-                  </li>
-                </ul>
-                <CustomButton className='btn btn--full' onClick={() => this.handleClick()}>
-                  Start Checkout
-                </CustomButton>
-                <p className='product-card__content--shipping'>Free Shipping</p>
-                <p className='product-card__content--disclaimer'>
-                  *Before checkout, answer questions and upload photos of your skin for your
-                  provider to determine if a prescription is appropriate.
-                </p>
               </div>
             </div>
           </div>
