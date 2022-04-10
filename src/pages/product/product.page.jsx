@@ -1,6 +1,6 @@
 import React from 'react';
 import Faq from 'react-faq-component';
-import { IoCheckmarkCircleOutline, IoStar } from 'react-icons/io5';
+import { IoStar } from 'react-icons/io5';
 import { connect } from 'react-redux';
 import { withRouter } from 'react-router-dom';
 import { Mousewheel, Navigation, Pagination } from 'swiper';
@@ -18,7 +18,8 @@ import Niacinamide from '../../assets/img/ingredients/niacinamide.jpg';
 import TranexamicAcid from '../../assets/img/ingredients/tranexamic_acid.jpeg';
 import Trentinoin from '../../assets/img/ingredients/trentinoin.jpeg';
 import OmarHeadshot from '../../assets/img/omar-headshot.jpeg';
-import ProductDetail from '../../assets/img/product-detail-desktop.png';
+import ProductDetailDesktop from '../../assets/img/product-detail-desktop.png';
+import ProductDetailMobile from '../../assets/img/product-detail-mobile.png';
 import SaamiHeadshot from '../../assets/img/saami_headshot.jpeg';
 import CustomButton from '../../components/custom-button/custom-button.component';
 import Footer from '../../components/footer/footer.component';
@@ -42,6 +43,7 @@ class ProductPage extends React.Component {
   };
 
   render() {
+    const { isBestSeller = false } = this.props;
     return (
       <main>
         <Header />
@@ -49,226 +51,82 @@ class ProductPage extends React.Component {
         <section className='section-product-details'>
           <div className='container center-text margin-bottom-md'></div>
           <div className='grid grid--2-cols margin-bottom-mg'>
-            <img className='product-photo' src={ProductDetail} alt='Product Details' />
+            <img
+              className='product-photo-desktop'
+              src={ProductDetailDesktop}
+              alt='Product Details'
+            />
+            <img className='product-photo-mobile' src={ProductDetailMobile} alt='Product Details' />
+
             <div className='product-details'>
-              <div className='product-card'>
-                <div className='product-card__header'>
-                  <div className='product-card__header__product-name-container'>
-                    <p className='product-card__header__product-name-container--title'>
-                      Acne Cream
-                    </p>
-                    <p className='product-card__header__product-name-container--subtitle'>
-                      Personalized Rx Treatment
-                    </p>
-                  </div>
-                  <div className='product-card__header__product-price-container'>
-                    <p className='product-card__header__product-price-container--price'>
-                      $6.99/month
-                    </p>
-                    <p className='product-card__header__product-price-container--quantity'>
-                      3-month supply
-                    </p>
-                  </div>
+              <div className='product-details__header'>
+                <p className='heading-primary product-details__header--title'>
+                  Acne Cream (derm-grade)
+                </p>
+                <p className='heading-secondary product-details__header--subtitle margin-bottom-sm'>
+                  $6.99/month
+                </p>
+              </div>
+
+              {isBestSeller ?? <span className='product-details--bestseller'>BESTSELLER</span>}
+
+              <div className='product-details__description'>
+                <p className='product-details__description--text margin-bottom-sm'>
+                  <span>
+                    <span className='product-details__description--text-bold'>
+                      Best of its kind -{' '}
+                    </span>
+                    You'll get a custom cream with several prescription ingredients personalized
+                    just-for-you by a dermatologist. Your evaluation is included for free.
+                  </span>
+                </p>
+                <p className='product-details__description--text'>
+                  <span>
+                    <span className='product-details__description--text-bold'>Ingredients - </span>
+                    Tretinoin 0.015-0.057%, Clindamycin 1.7%, Azelaic Acid 13%, Niacinamide 4%,
+                    Glycerin (Wetting Agent), Versabase Anhydrous.
+                  </span>
+                </p>
+              </div>
+
+              <div className='product-details__checkout-container'>
+                <CustomButton className='btn btn--full' onClick={() => this.handleClick()}>
+                  Start Checkout - $6.99/month
+                </CustomButton>
+
+                <p className='product-details__checkout-container--shipping'>Free Shipping</p>
+                <p className='product-details__checkout-container--disclaimer'>
+                  *Before checkout, answer questions and upload photos of your skin for your
+                  dermatologist to evaluate your skin.
+                </p>
+              </div>
+
+              <div className='product-details__grid grid--2-cols'>
+                <div className='product-details__grid--item'>
+                  <span>😊</span>
+                  100% money-back guarantee
                 </div>
-                <div className='product-card__content'>
-                  <ul className='product-card__attributes'>
-                    <li className='product-card__attributes--attribute'>
-                      <IoCheckmarkCircleOutline className='product-details-icon' />
-
-                      <span>
-                        First-time bottle lasts ~3 months. Refills last ~3 months and bill at
-                        $14.95/month. Cancel anytime.
-                      </span>
-                    </li>
-                    <li className='product-card__attributes--attribute'>
-                      <IoCheckmarkCircleOutline className='product-details-icon' />
-
-                      <span>
-                        Main Ingredients: Tretinoin 0.015-0.057%, Clindamycin 1.7%, Azelaic Acid
-                        13%, Niacinamide 4%
-                      </span>
-                    </li>
-                    <li className='product-card__attributes--attribute'>
-                      <IoCheckmarkCircleOutline className='product-details-icon' />
-
-                      <span>Includes free evaluation from a board-certified dermatologist</span>
-                    </li>
-                  </ul>
-                  <CustomButton className='btn btn--full' onClick={() => this.handleClick()}>
-                    Start Checkout
-                  </CustomButton>
-                  <p className='product-card__content--shipping'>Free Shipping</p>
-                  <p className='product-card__content--disclaimer'>
-                    *Before checkout, answer questions and upload photos of your skin for your
-                    provider to determine if a prescription is appropriate.
-                  </p>
+                <div className='product-details__grid--item'>
+                  <span>💌</span>
+                  Delivered every 3-months
+                </div>
+                <div className='product-details__grid--item'>
+                  <span>🧴</span>
+                  Includes Free Skin Evaluation
+                </div>
+                <div className='product-details__grid--item'>
+                  <span>℞</span>
+                  Prescription Ingredients
                 </div>
               </div>
             </div>
           </div>
         </section>
 
-        <section className='section-reviews'>
-          <Swiper
-            breakpoints={{
-              // when window width is >= 320px
-              320: {
-                slidesPerView: 1.4,
-                spaceBetween: 16,
-              },
-              // when window width is >= 480px
-              480: {
-                slidesPerView: 1.5,
-                spaceBetween: 32,
-              },
-              // when window width is >= 640px
-              640: {
-                slidesPerView: 2.5,
-                spaceBetween: 32,
-              },
-              // when window width is >= 640px
-              1200: {
-                slidesPerView: 4,
-                spaceBetween: 48,
-              },
-            }}
-            mousewheel
-            simulateTouch
-            centeredSlides={true}
-            loop={true}
-            modules={[Mousewheel]}>
-            <SwiperSlide>
-              <SwiperSlide>
-                <div className='review'>
-                  <blockquote className='review__quote'>
-                    <p className='review__quote--icon'></p>
-                    <p className='heading-tertiary review__quote--text'>
-                      The cream went on nicely, wasn’t irritating, and my skin looks better than it
-                      ever has!
-                    </p>
-                  </blockquote>
-                  <div className='review__stars'>
-                    <IoStar className='review__stars--star' />
-                    <IoStar className='review__stars--star' />
-                    <IoStar className='review__stars--star' />
-                    <IoStar className='review__stars--star' />
-                    <IoStar className='review__stars--star' />
-                  </div>
-                  <p className='heading-tertiary review__name'>Sue</p>
-                </div>
-              </SwiperSlide>
-            </SwiperSlide>
-            <SwiperSlide>
-              <SwiperSlide>
-                <div className='review'>
-                  <blockquote className='review__quote'>
-                    <p className='review__quote--icon'></p>
-                    <p className='heading-tertiary review__quote--text'>
-                      Love that it’s just one cream. I used to use so many different things. Feels
-                      great on the skin and isn’t greasy. I have a nice glow to my skin
-                    </p>
-                  </blockquote>
-                  <div className='review__stars'>
-                    <IoStar className='review__stars--star' />
-                    <IoStar className='review__stars--star' />
-                    <IoStar className='review__stars--star' />
-                    <IoStar className='review__stars--star' />
-                    <IoStar className='review__stars--star' />
-                  </div>
-                  <p className='heading-tertiary review__name'>Samuel</p>
-                </div>
-              </SwiperSlide>
-            </SwiperSlide>
-            <SwiperSlide>
-              <SwiperSlide>
-                <div className='review'>
-                  <blockquote className='review__quote'>
-                    <p className='review__quote--icon'></p>
-                    <p className='heading-tertiary review__quote--text'>
-                      I’m a skin care addict and love this stuff! Highly recommended
-                    </p>
-                  </blockquote>
-                  <div className='review__stars'>
-                    <IoStar className='review__stars--star' />
-                    <IoStar className='review__stars--star' />
-                    <IoStar className='review__stars--star' />
-                    <IoStar className='review__stars--star' />
-                    <IoStar className='review__stars--star' />
-                  </div>
-                  <p className='heading-tertiary review__name'>Nora</p>
-                </div>
-              </SwiperSlide>
-            </SwiperSlide>
-            <SwiperSlide>
-              <SwiperSlide>
-                <div className='review'>
-                  <blockquote className='review__quote'>
-                    <p className='review__quote--icon'></p>
-                    <p className='heading-tertiary review__quote--text'>
-                      Loved that DermDoc uses only top dermatologists. I had lots of acne and,
-                      unlike other online treatments, I was able to get the oral medications I
-                      needed.
-                    </p>
-                  </blockquote>
-                  <div className='review__stars'>
-                    <IoStar className='review__stars--star' />
-                    <IoStar className='review__stars--star' />
-                    <IoStar className='review__stars--star' />
-                    <IoStar className='review__stars--star' />
-                    <IoStar className='review__stars--star' />
-                  </div>
-                  <p className='heading-tertiary review__name'>Lisa</p>
-                </div>
-              </SwiperSlide>
-            </SwiperSlide>
-            <SwiperSlide>
-              <SwiperSlide>
-                <div className='review'>
-                  <blockquote className='review__quote'>
-                    <p className='review__quote--icon'></p>
-                    <p className='heading-tertiary review__quote--text'>
-                      Cleared up my skin. I had a really small amount of dryness with the cream but
-                      it went away after the first week of use. Love how my skin glows
-                    </p>
-                  </blockquote>
-                  <div className='review__stars'>
-                    <IoStar className='review__stars--star' />
-                    <IoStar className='review__stars--star' />
-                    <IoStar className='review__stars--star' />
-                    <IoStar className='review__stars--star' />
-                  </div>
-                  <p className='heading-tertiary review__name'>Sarah</p>
-                </div>
-              </SwiperSlide>
-            </SwiperSlide>
-            <SwiperSlide>
-              <SwiperSlide>
-                <div className='review'>
-                  <blockquote className='review__quote'>
-                    <p className='review__quote--icon'></p>
-                    <p className='heading-tertiary review__quote--text'>
-                      Simple, effective and so affordable! No easier way to get healthy, clear,
-                      skin. My girlfriend loves my skin.
-                    </p>
-                  </blockquote>
-                  <div className='review__stars'>
-                    <IoStar className='review__stars--star' />
-                    <IoStar className='review__stars--star' />
-                    <IoStar className='review__stars--star' />
-                    <IoStar className='review__stars--star' />
-                    <IoStar className='review__stars--star' />
-                  </div>
-                  <p className='heading-tertiary review__name'>Mike</p>
-                </div>
-              </SwiperSlide>
-            </SwiperSlide>
-          </Swiper>
-        </section>
-
         <section className='section-ingredients' id='ingredients'>
           <div className='container center-text margin-bottom-md'>
             <h1 className='heading-primary'>Prescription Ingredients</h1>
-            <p className='heading-tertiary'>Quality you won't find at a store</p>
+            <p className='heading-tertiary'>Up to 20x more effective than over-the-counter</p>
           </div>
           <div className='container margin-bottom-mg'>
             <Swiper
@@ -580,6 +438,163 @@ class ProductPage extends React.Component {
               </SwiperSlide>
             </Swiper>
           </div>
+        </section>
+
+        <section className='section-reviews'>
+          <Swiper
+            breakpoints={{
+              // when window width is >= 320px
+              320: {
+                slidesPerView: 1.4,
+                spaceBetween: 16,
+              },
+              // when window width is >= 480px
+              480: {
+                slidesPerView: 1.5,
+                spaceBetween: 32,
+              },
+              // when window width is >= 640px
+              640: {
+                slidesPerView: 2.5,
+                spaceBetween: 32,
+              },
+              // when window width is >= 640px
+              1200: {
+                slidesPerView: 4,
+                spaceBetween: 48,
+              },
+            }}
+            mousewheel
+            simulateTouch
+            centeredSlides={true}
+            loop={true}
+            modules={[Mousewheel]}>
+            <SwiperSlide>
+              <SwiperSlide>
+                <div className='review'>
+                  <blockquote className='review__quote'>
+                    <p className='review__quote--icon'></p>
+                    <p className='heading-tertiary review__quote--text'>
+                      The cream went on nicely, wasn’t irritating, and my skin looks better than it
+                      ever has!
+                    </p>
+                  </blockquote>
+                  <div className='review__stars'>
+                    <IoStar className='review__stars--star' />
+                    <IoStar className='review__stars--star' />
+                    <IoStar className='review__stars--star' />
+                    <IoStar className='review__stars--star' />
+                    <IoStar className='review__stars--star' />
+                  </div>
+                  <p className='heading-tertiary review__name'>Sue</p>
+                </div>
+              </SwiperSlide>
+            </SwiperSlide>
+            <SwiperSlide>
+              <SwiperSlide>
+                <div className='review'>
+                  <blockquote className='review__quote'>
+                    <p className='review__quote--icon'></p>
+                    <p className='heading-tertiary review__quote--text'>
+                      Love that it’s just one cream. I used to use so many different things. Feels
+                      great on the skin and isn’t greasy. I have a nice glow to my skin
+                    </p>
+                  </blockquote>
+                  <div className='review__stars'>
+                    <IoStar className='review__stars--star' />
+                    <IoStar className='review__stars--star' />
+                    <IoStar className='review__stars--star' />
+                    <IoStar className='review__stars--star' />
+                    <IoStar className='review__stars--star' />
+                  </div>
+                  <p className='heading-tertiary review__name'>Samuel</p>
+                </div>
+              </SwiperSlide>
+            </SwiperSlide>
+            <SwiperSlide>
+              <SwiperSlide>
+                <div className='review'>
+                  <blockquote className='review__quote'>
+                    <p className='review__quote--icon'></p>
+                    <p className='heading-tertiary review__quote--text'>
+                      I’m a skin care addict and love this stuff! Highly recommended
+                    </p>
+                  </blockquote>
+                  <div className='review__stars'>
+                    <IoStar className='review__stars--star' />
+                    <IoStar className='review__stars--star' />
+                    <IoStar className='review__stars--star' />
+                    <IoStar className='review__stars--star' />
+                    <IoStar className='review__stars--star' />
+                  </div>
+                  <p className='heading-tertiary review__name'>Nora</p>
+                </div>
+              </SwiperSlide>
+            </SwiperSlide>
+            <SwiperSlide>
+              <SwiperSlide>
+                <div className='review'>
+                  <blockquote className='review__quote'>
+                    <p className='review__quote--icon'></p>
+                    <p className='heading-tertiary review__quote--text'>
+                      Loved that DermDoc uses only top dermatologists. I had lots of acne and,
+                      unlike other online treatments, I was able to get the oral medications I
+                      needed.
+                    </p>
+                  </blockquote>
+                  <div className='review__stars'>
+                    <IoStar className='review__stars--star' />
+                    <IoStar className='review__stars--star' />
+                    <IoStar className='review__stars--star' />
+                    <IoStar className='review__stars--star' />
+                    <IoStar className='review__stars--star' />
+                  </div>
+                  <p className='heading-tertiary review__name'>Lisa</p>
+                </div>
+              </SwiperSlide>
+            </SwiperSlide>
+            <SwiperSlide>
+              <SwiperSlide>
+                <div className='review'>
+                  <blockquote className='review__quote'>
+                    <p className='review__quote--icon'></p>
+                    <p className='heading-tertiary review__quote--text'>
+                      Cleared up my skin. I had a really small amount of dryness with the cream but
+                      it went away after the first week of use. Love how my skin glows
+                    </p>
+                  </blockquote>
+                  <div className='review__stars'>
+                    <IoStar className='review__stars--star' />
+                    <IoStar className='review__stars--star' />
+                    <IoStar className='review__stars--star' />
+                    <IoStar className='review__stars--star' />
+                  </div>
+                  <p className='heading-tertiary review__name'>Sarah</p>
+                </div>
+              </SwiperSlide>
+            </SwiperSlide>
+            <SwiperSlide>
+              <SwiperSlide>
+                <div className='review'>
+                  <blockquote className='review__quote'>
+                    <p className='review__quote--icon'></p>
+                    <p className='heading-tertiary review__quote--text'>
+                      Simple, effective and so affordable! No easier way to get healthy, clear,
+                      skin. My girlfriend loves my skin.
+                    </p>
+                  </blockquote>
+                  <div className='review__stars'>
+                    <IoStar className='review__stars--star' />
+                    <IoStar className='review__stars--star' />
+                    <IoStar className='review__stars--star' />
+                    <IoStar className='review__stars--star' />
+                    <IoStar className='review__stars--star' />
+                  </div>
+                  <p className='heading-tertiary review__name'>Mike</p>
+                </div>
+              </SwiperSlide>
+            </SwiperSlide>
+          </Swiper>
         </section>
 
         <section className='section-faq' id='faq'>
