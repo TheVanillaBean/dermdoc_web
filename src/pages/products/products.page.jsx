@@ -46,9 +46,6 @@ class ProductsPage extends React.Component {
               bestseller
               service='Acne'
               image={AcnePhoto}
-              ingredients={
-                'Tretinoin 0.015-0.057%, Clindamycin 1.7%, Azelaic Acid 13%, Niacinamide 4%'
-              }
               showButton={true}
               handleClick={this.handleClick}
             />
