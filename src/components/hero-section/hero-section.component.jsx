@@ -35,7 +35,7 @@ const HeroSection = ({ homepage = true, handleClick, handleSubmit, handleChange,
       <div className='hero'>
         <div className='hero-text-box'>
           <h1 className='heading-primary'>
-            Personalized prescription for
+            Personalized cream to treat
             <br />
             <TextTransition
               text={TEXTS[index % TEXTS.length]}
@@ -46,19 +46,13 @@ const HeroSection = ({ homepage = true, handleClick, handleSubmit, handleChange,
           </h1>
 
           <p className='hero-description'>
-            You'll get a custom cream that combines powerful{' '}
-            <span className='text-primary-color'>
-              <b>prescription ingredients</b>
-            </span>
-            , tailored just for you by a board-certified dermatologist.
+            The most effective skincare products personalized and delivered to you by
+            dermatologists.
           </p>
 
           <CustomButton className='btn btn--full' onClick={handleClick}>
-            Try risk-free for $6.99/month
+            Learn More
           </CustomButton>
-          <p className='hero-btn-subtext'>
-            *If you don't like it after 3 months, you'll get a 100% refund
-          </p>
         </div>
       </div>
     </section>

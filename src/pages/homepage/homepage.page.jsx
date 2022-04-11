@@ -36,8 +36,7 @@ class HomePage extends React.Component {
 
     document.body.classList.remove('sticky');
 
-    updateVisitReason('Acne');
-    history.push(`get_started`);
+    history.push(`products`);
   };
 
   render() {
@@ -220,6 +219,7 @@ class HomePage extends React.Component {
 
         <section className='section-reviews'>
           <Swiper
+            className='margin-bottom-sm'
             breakpoints={{
               // when window width is >= 320px
               320: {
@@ -373,6 +373,20 @@ class HomePage extends React.Component {
               </SwiperSlide>
             </SwiperSlide>
           </Swiper>
+          <div className='container center-text margin-bottom-md'>
+            <p className='heading-primary'>3-month risk-free trial</p>
+            <p className='heading-tertiary'>
+              If you don't like your cream after your 3-month trial, you will get a{' '}
+              <span className='text-primary-color'>100%</span> refund. After your trial, plans renew
+              at <span className='text-primary-color'>($14.95/month)</span>.
+            </p>
+          </div>
+
+          <div className='container center-text'>
+            <CustomButton className='btn btn--full' onClick={this.handleClick}>
+              Learn more - $6.99/month
+            </CustomButton>
+          </div>
         </section>
 
         <section className='section-ingredients' id='ingredients'>
@@ -380,7 +394,7 @@ class HomePage extends React.Component {
             <h1 className='heading-primary'>Prescription Ingredients</h1>
             <p className='heading-tertiary'>Quality you won't find at a store</p>
           </div>
-          <div className='container margin-bottom-mg'>
+          <div className='container margin-bottom-md'>
             <IngredientsSwiper product='all' />
           </div>
         </section>
