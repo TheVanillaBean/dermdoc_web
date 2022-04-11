@@ -381,7 +381,7 @@ class HomePage extends React.Component {
             <p className='heading-tertiary'>Quality you won't find at a store</p>
           </div>
           <div className='container margin-bottom-mg'>
-            <IngredientsSwiper service='all' />
+            <IngredientsSwiper product='all' />
           </div>
         </section>
 

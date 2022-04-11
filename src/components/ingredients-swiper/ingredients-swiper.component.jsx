@@ -128,7 +128,7 @@ const ingredientsSlides = {
               <span>Reduces inflamed lesions of rosacea</span>
             </li>
             <li className='ingredient-attribute'>
-              <span>Decreases facial redness</span>
+              <span>Decreases number of pimples</span>
             </li>
             <li className='ingredient-attribute'>
               <span>Treats acne rosacea</span>
@@ -146,16 +146,16 @@ const ingredientsSlides = {
           <div className='ingredient-tags'>
             <span className='tag tag--percentage'>0.01 - 0.1%</span>
           </div>
-          <p className='ingredient-title'>Tretinoin</p>
+          <p className='ingredient-title'>Zinc Pyrithione</p>
           <ul className='ingredient-attributes'>
             <li className='ingredient-attribute'>
-              <span>Reduces fine lines and wrinkles</span>
+              <span>Reduces acne, warts, and rosacea.</span>
             </li>
             <li className='ingredient-attribute'>
-              <span>Improves skin tone and texture</span>
+              <span>Reduces inflammation</span>
             </li>
             <li className='ingredient-attribute'>
-              <span>Reduces hyperpigmentation</span>
+              <span>Treats Eczema and psoriasis</span>
             </li>
           </ul>
         </div>
@@ -170,10 +170,10 @@ const ingredientsSlides = {
           <div className='ingredient-tags'>
             <span className='tag tag--percentage'>0.01 - 0.1%</span>
           </div>
-          <p className='ingredient-title'>Tretinoin</p>
+          <p className='ingredient-title'>Ketoconazole</p>
           <ul className='ingredient-attributes'>
             <li className='ingredient-attribute'>
-              <span>Reduces fine lines and wrinkles</span>
+              <span>Treats certain skin conditions that lighten or darken skin</span>
             </li>
             <li className='ingredient-attribute'>
               <span>Improves skin tone and texture</span>
@@ -194,16 +194,16 @@ const ingredientsSlides = {
           <div className='ingredient-tags'>
             <span className='tag tag--percentage'>0.01 - 0.1%</span>
           </div>
-          <p className='ingredient-title'>Tretinoin</p>
+          <p className='ingredient-title'>Hydroquinone</p>
           <ul className='ingredient-attributes'>
             <li className='ingredient-attribute'>
-              <span>Reduces fine lines and wrinkles</span>
+              <span>Lightens dark patches on skin</span>
             </li>
             <li className='ingredient-attribute'>
-              <span>Improves skin tone and texture</span>
+              <span>Treats hyperpigmentatio</span>
             </li>
             <li className='ingredient-attribute'>
-              <span>Reduces hyperpigmentation</span>
+              <span>Reduces freckles and acne scars</span>
             </li>
           </ul>
         </div>
@@ -218,16 +218,16 @@ const ingredientsSlides = {
           <div className='ingredient-tags'>
             <span className='tag tag--percentage'>0.01 - 0.1%</span>
           </div>
-          <p className='ingredient-title'>Tretinoin</p>
+          <p className='ingredient-title'>Kojic Acid</p>
           <ul className='ingredient-attributes'>
             <li className='ingredient-attribute'>
               <span>Reduces fine lines and wrinkles</span>
             </li>
             <li className='ingredient-attribute'>
-              <span>Improves skin tone and texture</span>
+              <span>Lightens visible sun damage</span>
             </li>
             <li className='ingredient-attribute'>
-              <span>Reduces hyperpigmentation</span>
+              <span>Treats age spots and scars</span>
             </li>
           </ul>
         </div>
@@ -242,16 +242,16 @@ const ingredientsSlides = {
           <div className='ingredient-tags'>
             <span className='tag tag--percentage'>0.01 - 0.1%</span>
           </div>
-          <p className='ingredient-title'>Tretinoin</p>
+          <p className='ingredient-title'>Hydrocortisone</p>
           <ul className='ingredient-attributes'>
             <li className='ingredient-attribute'>
-              <span>Reduces fine lines and wrinkles</span>
+              <span>Treats inflammation</span>
             </li>
             <li className='ingredient-attribute'>
-              <span>Improves skin tone and texture</span>
+              <span>Reduces redness and swelling</span>
             </li>
             <li className='ingredient-attribute'>
-              <span>Reduces hyperpigmentation</span>
+              <span>Helps treat itchy, cracked, and rough skin</span>
             </li>
           </ul>
         </div>
@@ -266,16 +266,16 @@ const ingredientsSlides = {
           <div className='ingredient-tags'>
             <span className='tag tag--percentage'>0.01 - 0.1%</span>
           </div>
-          <p className='ingredient-title'>Tretinoin</p>
+          <p className='ingredient-title'>Absorbic Acid (Vitamin C)</p>
           <ul className='ingredient-attributes'>
             <li className='ingredient-attribute'>
-              <span>Reduces fine lines and wrinkles</span>
+              <span>Necessary for the growth, development and repair of all body tissues</span>
             </li>
             <li className='ingredient-attribute'>
-              <span>Improves skin tone and texture</span>
+              <span>Promotes collagen production</span>
             </li>
             <li className='ingredient-attribute'>
-              <span>Reduces hyperpigmentation</span>
+              <span>Reduces redness and hyperpigmentation </span>
             </li>
           </ul>
         </div>
@@ -293,22 +293,22 @@ const getIngredients = (product) => {
       ingredientsSlides.niacinamide,
     ];
   } else if (product.toLowerCase() === 'anti-aging') {
-    return ingredientsSlides.tretinoin, ingredientsSlides.absorbic_acid;
+    return [ingredientsSlides.tretinoin, ingredientsSlides.absorbic_acid];
   } else if (product.toLowerCase() === 'rosacea') {
-    return (
+    return [
       ingredientsSlides.metronidazole,
       ingredientsSlides.zinc_pyrithione,
-      ingredientsSlides.ketoconazole
-    );
+      ingredientsSlides.ketoconazole,
+    ];
   } else if (product.toLowerCase() === 'melasma') {
-    return (
+    return [
       ingredientsSlides.tretinoin,
       ingredientsSlides.hydroquinone,
       ingredientsSlides.kojic_acid,
-      ingredientsSlides.hydrocortisone
-    );
+      ingredientsSlides.hydrocortisone,
+    ];
   } else if (product.toLowerCase() === 'all') {
-    return (
+    return [
       ingredientsSlides.tretinoin,
       ingredientsSlides.clindamycin,
       ingredientsSlides.azelaic_acid,
@@ -319,10 +319,10 @@ const getIngredients = (product) => {
       ingredientsSlides.ketoconazole,
       ingredientsSlides.hydroquinone,
       ingredientsSlides.kojic_acid,
-      ingredientsSlides.hydrocortisone
-    );
+      ingredientsSlides.hydrocortisone,
+    ];
   } else {
-    return ingredientsSlides.tretinoin;
+    return [ingredientsSlides.tretinoin];
   }
 };
 

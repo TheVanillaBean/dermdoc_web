@@ -45,6 +45,19 @@ class ProductPage extends React.Component {
     history.push(`get_started`);
   };
 
+  getIngredientsList = () => {
+    const { product } = this.state;
+    if (product.toLowerCase() === 'acne') {
+      return 'Tretinoin 0.015-0.057%, Clindamycin 1.7%, Azelaic Acid 13%, Niacinamide 4%, Glycerin (Wetting Agent), Versabase Anhydrous';
+    } else if (product.toLowerCase() === 'anti-aging') {
+      return 'Tretinoin 0.015-0.057%, Ascorbic Acid 1%, Glycerin (Wetting Agent), Versabase Anhydrous';
+    } else if (product.toLowerCase() === 'rosacea') {
+      return 'Metronidazole 0.85%, Zinc Pyrithione 1.25%, Ketoconazole 1.6%, Glycerin (Wetting Agent), Versabase Anhydrous';
+    } else if (product.toLowerCase() === 'melasma') {
+      return 'Tretinoin 0.015%, Hydroquinone 6%, Kojic Acid 1 %, Hydrocortisone 2.5%, Glycerin (Wetting Agent), Versabase Anhydrous';
+    }
+  };
+
   render() {
     const { isBestSeller = false } = this.props;
     const { product } = this.state;
@@ -81,15 +94,15 @@ class ProductPage extends React.Component {
                     <span className='product-details__description--text-bold'>
                       Best of its kind -{' '}
                     </span>
-                    You'll get a custom cream with several prescription ingredients personalized
-                    just-for-you by a dermatologist. Your evaluation is included for free.
+                    You'll get a custom cream that is a blend of several prescription ingredients
+                    personalized just-for-you by a dermatologist. Your evaluation is included for
+                    free.
                   </span>
                 </p>
                 <p className='product-details__description--text'>
                   <span>
                     <span className='product-details__description--text-bold'>Ingredients - </span>
-                    Tretinoin 0.015-0.057%, Clindamycin 1.7%, Azelaic Acid 13%, Niacinamide 4%,
-                    Glycerin (Wetting Agent), Versabase Anhydrous.
+                    {this.getIngredientsList()}
                   </span>
                 </p>
               </div>

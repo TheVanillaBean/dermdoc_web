@@ -2000,12 +2000,8 @@ input[type='number'] {
         font-weight: 500; }
     .product-details__checkout-container {
       width: 80%;
-      margin: 0 auto; }
-      .product-details__checkout-container--shipping {
-        text-align: center; }
-      .product-details__checkout-container--disclaimer {
-        margin: 0;
-        text-align: center; }
+      margin: 0 auto;
+      text-align: center; }
     .product-details__grid {
       grid-template-columns: repeat(2, 1fr);
       margin: 2.4rem auto;
