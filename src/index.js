@@ -8,8 +8,6 @@ import { persistor, store } from './redux/store';
 import reportWebVitals from './reportWebVitals';
 import ScrollToTop from './ScrollToTop';
 
-import "./assets/scss/material-kit-react.scss";
-
 ReactDOM.render(
   <Provider store={store}>
     <BrowserRouter>

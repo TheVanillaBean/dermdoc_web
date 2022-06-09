@@ -66,7 +66,6 @@ class App extends Component {
     );
   }
 }
-export default withStyles(useStyles)(App);
 
 const mapStateToProps = createStructuredSelector({
   visit: selectVisitData,

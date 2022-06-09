@@ -1,6 +1,3 @@
-// @material-ui/core components
-import { withStyles } from '@material-ui/core/styles';
-import classNames from 'classnames';
 import React from 'react';
 import Faq from 'react-faq-component';
 import { IoCheckmarkCircleOutline, IoHappyOutline, IoHeartOutline, IoStar } from 'react-icons/io5';

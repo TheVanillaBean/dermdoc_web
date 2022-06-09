@@ -22,10 +22,10 @@ class LegalPage extends React.Component {
       <div>
         <Header />
 
-        <div className="legal-container">
-          <div className="container">
-            <h1 className="legal-container__header">{legalHeader}</h1>
-            <p className="legal-container__text">{legalText}</p>
+        <div className='legal-container'>
+          <div className='container'>
+            <h1 className='legal-container__header'>{legalHeader}</h1>
+            <p className='legal-container__text'>{legalText}</p>
           </div>
         </div>
 
