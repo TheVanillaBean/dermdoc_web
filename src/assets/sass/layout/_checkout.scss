@@ -1,0 +1,42 @@
+.checkout_insurance_header {
+  height: 60vh;
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+
+  & > h2 {
+    font-size: 2.2rem;
+    font-weight: 400;
+    color: var(--color-primary);
+    text-align: center;
+    margin-bottom: 1rem;
+  }
+
+  & > p {
+    font-size: 1.8rem;
+    font-weight: 300;
+    color: var(--color-grey-dark-1);
+    text-align: center;
+    margin-bottom: 2rem;
+    max-width: 80%;
+  }
+}
+
+.visit-paid-container {
+  & > h1 {
+    color: var(--color-primary);
+    font-weight: 500;
+    font-size: 2.5rem;
+    margin-bottom: 1rem;
+    text-align: center;
+  }
+  & > p {
+    color: var(--color-grey-dark-1);
+    font-weight: 400;
+    font-size: 1.7rem;
+    margin-bottom: 1rem;
+    text-align: center;
+  }
+}

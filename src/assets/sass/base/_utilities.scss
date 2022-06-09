@@ -1,0 +1,52 @@
+/* HELPER/SETTINGS CLASSES */
+
+.margin-right-sm {
+  margin-right: 4.8rem !important;
+}
+
+.margin-bottom-sm {
+  margin-bottom: 2.4rem !important;
+}
+
+.margin-bottom-md {
+  margin-bottom: 4.8rem !important;
+}
+
+.margin-bottom-lg {
+  margin-bottom: 12.8rem !important;
+}
+
+.margin-center {
+  margin: auto !important;
+}
+
+.center-text {
+  text-align: center;
+}
+
+.border {
+  width: 100%;
+  margin: 2rem 0;
+  border-bottom: var(--line-2);
+}
+
+strong {
+  font-weight: 500;
+}
+
+//////////////////////////
+// REACT-SELECT
+
+// Used so label word-wraps
+.lp-copy-sel__option,
+.lp-copy-sel__single-value {
+  white-space: pre-wrap !important;
+}
+
+//////////////////////////
+// TOAST MESSAGES
+
+.toastBody {
+  font-family: 'Inter' sans-serif;
+  font-size: 2rem !important;
+}

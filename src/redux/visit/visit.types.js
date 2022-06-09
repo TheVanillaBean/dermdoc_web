@@ -1,0 +1,7 @@
+const VisitActionTypes = {
+  FETCH_VISIT_START: 'FETCH_VISIT_START',
+  FETCH_VISIT_SUCCESS: 'FETCH_VISIT_SUCCESS',
+  FETCH_VISIT_FAILURE: 'FETCH_VISIT_FAILURE',
+};
+
+export default VisitActionTypes;

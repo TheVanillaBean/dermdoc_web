@@ -93,10 +93,7 @@ export const getState = (zipcode) => {
     st = 'SD';
   } else if (thisZip >= 37000 && thisZip <= 38599) {
     st = 'TN';
-  } else if (
-    (thisZip >= 75000 && thisZip <= 79999) ||
-    (thisZip >= 88500 && thisZip <= 88599)
-  ) {
+  } else if ((thisZip >= 75000 && thisZip <= 79999) || (thisZip >= 88500 && thisZip <= 88599)) {
     st = 'TX';
   } else if (thisZip >= 84000 && thisZip <= 84999) {
     st = 'UT';

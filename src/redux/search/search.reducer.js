@@ -1,11 +1,9 @@
 import { SearchActionTypes } from './search.types';
 
 const INITIAL_STATE = {
-  zip_code: '02101',
+  zip_code: '',
   insurance_brand: 'Aetna',
   visit_reason: 'Acne',
-  doctors: [],
-  doctor: null,
 };
 
 const searchReducer = (state = INITIAL_STATE, action) => {
@@ -24,16 +22,6 @@ const searchReducer = (state = INITIAL_STATE, action) => {
       return {
         ...state,
         visit_reason: action.payload,
-      };
-    case SearchActionTypes.UPDATE_DOCTORS:
-      return {
-        ...state,
-        doctors: action.payload,
-      };
-    case SearchActionTypes.UPDATE_DOCTOR:
-      return {
-        ...state,
-        doctor: action.payload,
       };
     default:
       return state;

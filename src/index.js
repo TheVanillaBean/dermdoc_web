@@ -4,9 +4,9 @@ import { Provider } from 'react-redux';
 import { BrowserRouter } from 'react-router-dom';
 import { PersistGate } from 'redux-persist/integration/react';
 import App from './App';
-import './index.css';
 import { persistor, store } from './redux/store';
 import reportWebVitals from './reportWebVitals';
+import ScrollToTop from './ScrollToTop';
 
 import "./assets/scss/material-kit-react.scss";
 
@@ -15,6 +15,7 @@ ReactDOM.render(
     <BrowserRouter>
       <PersistGate persistor={persistor}>
         <React.StrictMode>
+          <ScrollToTop />
           <App />
         </React.StrictMode>
       </PersistGate>

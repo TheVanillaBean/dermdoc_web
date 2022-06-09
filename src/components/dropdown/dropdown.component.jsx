@@ -31,6 +31,7 @@ const Dropdown = ({
     options={dataOptions}
     styles={dropdownStyles}
     onChange={handleChange}
+    classNamePrefix="lp-copy-sel"
     {...otherProps}
   />
 );

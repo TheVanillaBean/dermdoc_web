@@ -14,13 +14,3 @@ export const updateInsuranceType = (insuranceType) => ({
   type: SearchActionTypes.UPDATE_INSURANCE_TYPE,
   payload: insuranceType,
 });
-
-export const updateDoctors = (doctors) => ({
-  type: SearchActionTypes.UPDATE_DOCTORS,
-  payload: doctors,
-});
-
-export const updateDoctor = (doctor) => ({
-  type: SearchActionTypes.UPDATE_DOCTOR,
-  payload: doctor,
-});
