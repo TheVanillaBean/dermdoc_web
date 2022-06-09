@@ -27,9 +27,18 @@ class ProductPage extends React.Component {
   };
 
   componentDidMount() {
-    const { match } = this.props;
+    const { history, match } = this.props;
 
     const product = match.params.product;
+
+    if (
+      product != 'acne' &&
+      product != 'anti-aging' &&
+      product != 'rosacea' &&
+      product != 'melasma'
+    ) {
+      history.push(`/products`);
+    }
 
     this.setState({
       product: product,
@@ -42,7 +51,7 @@ class ProductPage extends React.Component {
     document.body.classList.remove('sticky');
 
     updateVisitReason('Acne');
-    history.push(`get_started`);
+    history.push(`/get_started`);
   };
 
   getIngredientsList = () => {

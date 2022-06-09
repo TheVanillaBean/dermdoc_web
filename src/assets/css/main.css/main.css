@@ -177,7 +177,8 @@ body {
 .heading-tertiary {
   font-weight: 700;
   color: var(--color-grey-dark-1);
-  letter-spacing: -0.5px; }
+  letter-spacing: -0.5px;
+  font-family: 'Kalam', sans-serif !important; }
 
 .heading-primary {
   font-size: 5.6rem;

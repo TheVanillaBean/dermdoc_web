@@ -4,7 +4,15 @@ import TextTransition, { presets } from 'react-text-transition';
 import CustomButton from '../../components/custom-button/custom-button.component';
 
 const HeroSection = ({ homepage = true, handleClick, handleSubmit, handleChange, email }) => {
-  const TEXTS = ['breakouts', 'wrinkles', 'pimples', 'dark spots', 'blackheads', 'whiteheads'];
+  const TEXTS = [
+    'acne',
+    'breakouts',
+    'wrinkles',
+    'pimples',
+    'dark spots',
+    'blackheads',
+    'whiteheads',
+  ];
 
   const { ref, entry } = useInView({
     root: null, //browser viewport
