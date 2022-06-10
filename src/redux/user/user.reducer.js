@@ -1,6 +1,7 @@
-import { UserActionTypes } from "./user.types";
+import { UserActionTypes } from './user.types';
 
 const INITIAL_STATE = {
+  zip_code: '',
   currentUser: null,
 };
 
@@ -10,6 +11,11 @@ const userReducer = (state = INITIAL_STATE, action) => {
       return {
         ...state,
         currentUser: action.payload,
+      };
+    case UserActionTypes.UPDATE_ZIP_CODE:
+      return {
+        ...state,
+        zip_code: action.payload,
       };
     default:
       return state;

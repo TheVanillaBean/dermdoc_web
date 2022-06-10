@@ -7,8 +7,6 @@ import '../src/assets/css/main.css/main.css';
 import { auth, createUserProfileDocument } from './firebase/firebase.utils';
 import HomePage from './pages/homepage/homepage.page';
 import LegalPage from './pages/legal/legal.pages';
-import ProductPage from './pages/product/product.page';
-import ProductsPage from './pages/products/products.page';
 import VisitLandingPage from './pages/visit-landing/visit-landing.page';
 import WaitlistPage from './pages/waitlist/waitlist.page';
 import ZipcodeCheckPage from './pages/zipcode-check/zipcode-check.page';
@@ -48,12 +46,7 @@ class App extends Component {
     return (
       <Switch>
         <Route exact path='/' component={HomePage} />
-
-        <Route exact path='/products' component={ProductsPage} />
-        <Route exact path='/products/:product' component={ProductPage} />
-
         <Route exact path='/waitlist' component={WaitlistPage} />
-        {/* <Route exact path='/services' component={ServicesPages} /> */}
         <Route exact path='/get_started' component={ZipcodeCheckPage} />
         <Route path='/visits/:visit_id' component={VisitLandingPage} />
         <Route path='/privacy' render={() => <LegalPage page='privacy' />} />

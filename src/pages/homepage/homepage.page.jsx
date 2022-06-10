@@ -1,7 +1,6 @@
 import React from 'react';
 import Faq from 'react-faq-component';
 import { IoCheckmarkCircleOutline, IoHappyOutline, IoHeartOutline, IoStar } from 'react-icons/io5';
-import { connect } from 'react-redux';
 import { withRouter } from 'react-router-dom';
 import { Mousewheel, Navigation, Pagination } from 'swiper';
 import 'swiper/modules/mousewheel/mousewheel.min.css';
@@ -23,7 +22,6 @@ import Header from '../../components/header/header.component';
 import HeroSection from '../../components/hero-section/hero-section.component';
 import IngredientsSwiper from '../../components/ingredients-swiper/ingredients-swiper.component';
 import { analytics } from '../../firebase/firebase.utils';
-import { updateVisitReason } from '../../redux/search/search.actions';
 import { homepageFAQ } from '../../utils/faq.utils';
 
 class HomePage extends React.Component {
@@ -32,7 +30,7 @@ class HomePage extends React.Component {
   }
 
   handleClick = () => {
-    const { history, updateVisitReason } = this.props;
+    const { history } = this.props;
 
     document.body.classList.remove('sticky');
 
@@ -679,8 +677,4 @@ class HomePage extends React.Component {
   }
 }
 
-const mapDispatchToProps = (dispatch) => ({
-  updateVisitReason: (reason) => dispatch(updateVisitReason(reason)),
-});
-
-export default withRouter(connect(null, mapDispatchToProps)(HomePage));
+export default withRouter(HomePage);

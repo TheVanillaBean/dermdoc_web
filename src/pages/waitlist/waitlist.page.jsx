@@ -9,7 +9,7 @@ import Footer from '../../components/footer/footer.component';
 import FormInput from '../../components/form-input/form-input.component';
 import Header from '../../components/header/header.component';
 import { joinWaitlistWithEmail } from '../../firebase/firebase.utils';
-import { selectState, selectVisitReason } from '../../redux/search/search.selectors';
+import { selectState } from '../../redux/user/user.selectors';
 
 class WaitlistPage extends React.Component {
   constructor(props) {
@@ -25,10 +25,10 @@ class WaitlistPage extends React.Component {
 
     const { email } = this.state;
 
-    const { mailing_state, visitReason } = this.props;
+    const { mailing_state } = this.props;
 
     try {
-      const joinWaitlist = await joinWaitlistWithEmail(email, mailing_state, visitReason);
+      const joinWaitlist = await joinWaitlistWithEmail(email, mailing_state, 'Acne');
 
       if (joinWaitlist.error) {
         toast.error(joinWaitlist.message);
@@ -105,7 +105,6 @@ class WaitlistPage extends React.Component {
 
 const mapStateToProps = createStructuredSelector({
   mailing_state: selectState,
-  visitReason: selectVisitReason,
 });
 
 export default withRouter(connect(mapStateToProps)(WaitlistPage));

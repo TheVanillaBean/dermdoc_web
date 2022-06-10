@@ -9,8 +9,9 @@ import Footer from '../../components/footer/footer.component';
 import Header from '../../components/header/header.component';
 import LegalCheckbox from '../../components/legal-checkbox/legal-checkbox.component';
 import { createVisit, logZipCode } from '../../firebase/firebase.utils';
-import { updateZipCode } from '../../redux/search/search.actions';
-import { selectState, selectVisitReason, selectZipCode } from '../../redux/search/search.selectors';
+import { updateZipCode } from '../../redux/user/user.actions';
+import { selectState, selectZipCode } from '../../redux/user/user.selectors';
+
 ReactPixel.pageView();
 
 class ZipCodeCheck extends Component {
@@ -162,7 +163,6 @@ class ZipCodeCheck extends Component {
 const mapStateToProps = createStructuredSelector({
   zipcode: selectZipCode,
   mailing_state: selectState,
-  visitReason: selectVisitReason,
 });
 
 const mapDispatchToProps = (dispatch) => ({

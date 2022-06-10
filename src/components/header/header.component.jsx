@@ -1,10 +1,8 @@
 import React from 'react';
 import { IoCloseOutline, IoMenuOutline } from 'react-icons/io5';
-import { connect } from 'react-redux';
 import { Link, withRouter } from 'react-router-dom';
 import { HashLink } from 'react-router-hash-link';
 import Logo from '../../assets/img/logo.png';
-import { updateVisitReason } from '../../redux/search/search.actions';
 
 class Header extends React.Component {
   state = {
@@ -12,11 +10,10 @@ class Header extends React.Component {
   };
 
   handleClick = () => {
-    const { history, updateVisitReason } = this.props;
+    const { history } = this.props;
 
     document.body.classList.remove('sticky');
 
-    updateVisitReason('Acne');
     history.push(`get_started`);
   };
 
@@ -115,8 +112,4 @@ class Header extends React.Component {
   }
 }
 
-const mapDispatchToProps = (dispatch) => ({
-  updateVisitReason: (reason) => dispatch(updateVisitReason(reason)),
-});
-
-export default withRouter(connect(null, mapDispatchToProps)(Header));
+export default withRouter(Header);
