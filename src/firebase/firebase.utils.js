@@ -83,32 +83,6 @@ export const joinWaitlistWithEmail = async (email, state = 'N/A', service = 'N/A
   return { error: true, message: 'This email is already on the waitlist!' };
 };
 
-export const addCustomServiceRequest = async (email, service) => {
-  const customServiceRef = firestore.collection('service-requests').doc(email);
-
-  const snapshot = await customServiceRef.get();
-
-  if (!snapshot.exists) {
-    const addedDate = new Date();
-
-    try {
-      await customServiceRef.set(
-        {
-          email,
-          service,
-          addedDate,
-        },
-        { merge: true }
-      );
-      return { error: false };
-    } catch (e) {
-      return { error: true, message: e.message };
-    }
-  }
-
-  return { error: true, message: 'This email is already on the waitlist!' };
-};
-
 export const logZipCode = async (zipcode, mailing_state) => {
   const zipcodesRef = firestore.collection('zipcodes').doc();
 
@@ -374,7 +348,7 @@ export const uploadToFirebaseStorage = async (file, visitId) => {
 firebase.initializeApp(config);
 firebase.analytics();
 
-export const NON_PERSITANCE = firebase.auth.Auth.Persistence.SESSION;
+export const NON_PERSISTANCE = firebase.auth.Auth.Persistence.SESSION;
 export const auth = firebase.auth();
 export const firestore = firebase.firestore();
 export const analytics = firebase.analytics();
