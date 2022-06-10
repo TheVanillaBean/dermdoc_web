@@ -7,7 +7,7 @@ import { createStructuredSelector } from 'reselect';
 import {
   auth,
   createUserProfileDocument,
-  NON_PERSITANCE,
+  NON_PERSISTANCE,
   signInWithGoogle,
 } from '../../firebase/firebase.utils';
 import { selectVisitData } from '../../redux/visit/visit.selectors';
@@ -36,7 +36,7 @@ class SignUp extends React.Component {
     }
 
     try {
-      await auth.setPersistence(NON_PERSITANCE);
+      await auth.setPersistence(NON_PERSISTANCE);
       const { user } = await auth.createUserWithEmailAndPassword(email, password);
 
       await createUserProfileDocument(user, { email });
