@@ -25,88 +25,6 @@ ORDER: Base + typography > general layout + grid > page layout > components
 1em = 16px
 */
 /*
-COLORS
-
-Primary: #90024C
-Primary light: #CE3209
-Primary dark: #8E201D
-
-Grey light 1: #faf9f9
-Grey light 2: #f4f2f2
-Grey light 3: #f0eeee
-Grey light 4: #ccc
-
-Grey dark 1: #333
-Grey dark 2: #777
-Grey dark 3: #999
-
-*/
-:root {
-  --color-primary: #90024c;
-  --color-primary-light: #ce3209;
-  --color-primary-dark: #8e201d;
-  --color-grey-light-1: #faf9f9;
-  --color-grey-light-2: #f4f2f2;
-  --color-grey-light-3: #f0eeee;
-  --color-grey-light-4: #ccc;
-  --color-grey-dark-1: #333;
-  --color-grey-dark-2: #777;
-  --color-grey-dark-3: #999;
-  --shadow-dark: 0 2rem 6rem rgba(0, 0, 0, 0.3);
-  --shadow-light: 0 2rem 5re, rgba(0, 0, 0, 0.06);
-  --line: 1px solid var(--color-grey-light-2);
-  --line-2: 2px solid var(--color-grey-light-3); }
-
-/*
---- 01 TYPOGRAPHY SYSTEM
-
-- Font sizes (px)
-10 / 12 / 14 / 16 / 18 / 20 / 24 / 30 / 36 / 44 / 52 / 62 / 74 / 86 / 98
-
-- Font weights
-Default: 400
-Medium: 500
-Semi-bold: 600
-Bold: 700
-
-- Line heights
-Default: 1
-Small: 1.05
-Medium: 1.2
-Paragraph default: 1.6
-
-- Letter spacing
--0.5px
-0.75px
-
---- 02 COLORS
-
-- PRIMARY: 
-#90024c
-Primary light: #CE3209
-Primary dark: #8E201D
-
-- Tints: 
-#f4e6ed
-#e9ccdb
-#a63570
-- Shades: 
-#820244
-#2b0117
-- Accents:
-- Greys:
-
-
-#888
-#767676 (lightest grey allowed on #fff)
-#6f6f6f (lightest grey allowed on #e9ccdb from Coolors)
-#555
-#333
-Grey light 1: #faf9f9
-Grey light 2: #f4f2f2
-Grey light 3: #f0eeee
-Grey light 4: #ccc
-
 --- 05 SHADOWS
 0 2.4rem 4.8rem rgba(0, 0, 0, 0.075);
 
@@ -122,21 +40,22 @@ Medium: 11px
 
 */
 :root {
-  --color-primary: #4dabf7;
-  --color-primary-light: #74c0fc;
-  --color-primary-dark: #1c7ed6;
-  --color-tint-1: #e7f5ff;
-  --color-tint-2: #d0ebff;
-  --color-tint-3: #a5d8ff;
-  --color-shade-1: #1971c2;
-  --color-shade-2: #1864ab;
-  --color-grey-light-1: #faf9f9;
-  --color-grey-light-2: #f4f2f2;
-  --color-grey-light-3: #f0eeee;
-  --color-grey-light-4: #6f6f6f;
-  --color-grey-dark-1: #333;
-  --color-grey-dark-2: #555;
-  --color-grey-dark-3: #777;
+  --color-primary: #688db1;
+  --color-primary-light: #86a4c1;
+  --color-primary-dark: #53718e;
+  --color-secondary: #d88064;
+  --color-tint-1: #d2dde8;
+  --color-tint-2: #c3d1e0;
+  --color-tint-3: #b4c6d8;
+  --color-shade-1: #344759;
+  --color-shade-2: #2a3847;
+  --color-grey-light-1: #f9f9f9;
+  --color-grey-light-2: #dad9d8;
+  --color-grey-light-3: #b4b3b1;
+  --color-grey-light-4: #8f8c8b;
+  --color-grey-dark-1: #363331;
+  --color-grey-dark-2: #575350;
+  --color-grey-dark-3: #7c7977;
   --shadow-dark: 0 2rem 6rem rgba(0, 0, 0, 0.3);
   --shadow-light: 0 2rem 5re, rgba(0, 0, 0, 0.06);
   --line: 1px solid var(--color-grey-light-2);
@@ -160,6 +79,28 @@ body {
   /* Only works if the overflow element does not have position: absolute in relation to body. The parent element of the overflow should not be the body */
   overflow-x: hidden; }
 
+/*
+    --- 01 TYPOGRAPHY SYSTEM
+
+    - Font sizes (px)
+    10 / 12 / 14 / 16 / 18 / 20 / 24 / 30 / 36 / 44 / 52 / 62 / 74 / 86 / 98
+
+    - Font weights
+    Default: 400
+    Medium: 500
+    Semi-bold: 600
+    Bold: 700
+
+    - Line heights
+    Default: 1
+    Small: 1.05
+    Medium: 1.2
+    Paragraph default: 1.6
+
+    - Letter spacing
+    -0.5px
+    0.75px
+*/
 body {
   font-family: 'Quicksand', sans-serif;
   line-height: 1;
@@ -387,98 +328,6 @@ strong {
   height: 4.8rem;
   color: var(--color-primary); }
 
-.testimonial {
-  background-color: #f4e6ed;
-  display: flex;
-  flex-direction: column;
-  align-items: flex-start;
-  padding: 2.4rem 3.2rem;
-  gap: 1.6rem;
-  border-radius: 11px; }
-
-.testimonial--img {
-  width: 6.4rem;
-  border-radius: 50%; }
-
-.testimonial--text {
-  font-size: 1.8rem;
-  font-weight: 400;
-  line-height: 1.8; }
-
-.testimonial--date {
-  font-size: 1.6rem;
-  color: #6f6f6f;
-  margin-top: auto; }
-
-.service {
-  border-radius: 11px;
-  overflow: hidden;
-  transition: all 0.4s;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  box-shadow: 0 2.4rem 4.8rem rgba(0, 0, 0, 0.075);
-  width: 80%;
-  margin: 0 auto;
-  position: relative; }
-
-.service:hover {
-  transform: translateY(-1.2rem);
-  box-shadow: 0 3.2rem 6.4rem rgba(0, 0, 0, 0.06); }
-
-.service-bestseller::after {
-  content: 'Bestseller';
-  position: absolute;
-  top: 3%;
-  right: 3%;
-  text-transform: uppercase;
-  letter-spacing: 1px;
-  font-size: 2.4rem;
-  font-weight: 700;
-  color: #333;
-  background-color: white;
-  padding: 0.8rem 3.2rem; }
-
-.service__content {
-  padding: 3.2rem 0;
-  text-align: center; }
-
-.service__content--title {
-  font-size: 4.4rem;
-  color: #333;
-  font-weight: 600;
-  margin-bottom: 1.2rem; }
-
-.service__content--price {
-  font-size: 3.2rem;
-  color: #333;
-  font-weight: 600;
-  margin-bottom: 3.2rem; }
-
-.service__content--attributes {
-  list-style: none;
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  gap: 2rem;
-  margin-bottom: 2.4rem; }
-
-.service__content--attribute {
-  font-size: 2.4rem;
-  display: flex;
-  align-items: center;
-  gap: 2rem; }
-
-.service--img {
-  width: 100%;
-  height: 100%;
-  object-fit: cover;
-  object-position: center; }
-
-.service-icon {
-  width: 3.2rem;
-  height: 3.2rem; }
-
 .auth-page {
   width: 100%;
   display: flex;
@@ -513,43 +362,6 @@ strong {
   .sign-in .buttons {
     display: flex;
     justify-content: flex-start; }
-
-.form-input-container {
-  position: relative;
-  margin: 3.2rem 0; }
-  .form-input-container__input {
-    background: none;
-    background-color: white;
-    color: #555;
-    font-size: 1.8rem;
-    padding: 10px 10px 10px 5px;
-    display: block;
-    width: 100%;
-    border: none;
-    border-radius: 0;
-    border-bottom: 1px solid #555;
-    margin: 2.5rem 0; }
-    .form-input-container__input:focus {
-      outline: none; }
-    .form-input-container__input:focus ~ .form-input-label {
-      top: -14px;
-      font-size: 1.2rem;
-      color: #333; }
-  .form-input-container input[type='password'] {
-    letter-spacing: 0.3em; }
-  .form-input-container__label {
-    color: #555;
-    font-size: 16px;
-    font-weight: normal;
-    position: absolute;
-    pointer-events: none;
-    left: 5px;
-    top: 10px;
-    transition: 300ms ease all; }
-    .form-input-container__label__shrink {
-      top: -14px;
-      font-size: 1.2rem;
-      color: #333; }
 
 .questionnaire__thank-you {
   display: flex;
@@ -594,19 +406,6 @@ strong {
 @-webkit-keyframes spin {
   to {
     -webkit-transform: rotate(360deg); } }
-
-.tag {
-  display: inline-block;
-  padding: 0.4rem 0.8rem;
-  font-size: 1.2rem;
-  text-transform: uppercase;
-  color: #333;
-  border-radius: 150px;
-  font-weight: 500;
-  background-color: #51cf66; }
-
-.tag--tufts {
-  background-color: #fcc419; }
 
 .legal-checkbox__input {
   margin-right: 3.2rem; }
@@ -1438,150 +1237,6 @@ strong {
     font-size: 2.4rem;
     color: var(--color-grey-dark-3); }
 
-.waitlist-form {
-  display: flex;
-  flex-direction: row;
-  justify-content: space-between;
-  background-color: rgba(255, 255, 255, 0.6);
-  border: 1.5px solid var(--color-primary);
-  border-radius: 2rem;
-  padding: 1.8rem;
-  width: 100%;
-  border-color: var(--color-primary);
-  box-shadow: 0 0 1px var(--color-primary); }
-  .waitlist-form__input-container {
-    display: flex;
-    flex-direction: column;
-    justify-content: flex-start;
-    flex: 1 0 auto; }
-    .waitlist-form__input-container__label {
-      visibility: hidden;
-      opacity: 0;
-      height: 0;
-      overflow: hidden;
-      transition: all 0.3s;
-      order: -1;
-      font-size: 1.2rem;
-      margin-bottom: 1.2rem;
-      color: var(--color-grey-dark-3); }
-    .waitlist-form__input-container__input:focus + .waitlist-form__input-container__label {
-      opacity: 1;
-      height: auto;
-      visibility: visible;
-      text-align: start;
-      margin-bottom: 1.2rem; }
-    .waitlist-form__input-container__input {
-      font-family: 'Quicksand', sans-serif;
-      background: none;
-      background-color: transparent;
-      color: var(--color-grey-dark-1);
-      border: none;
-      font-size: 1.8rem;
-      margin-right: 1rem; }
-      .waitlist-form__input-container__input:focus {
-        outline: none; }
-
-.section-additional {
-  padding: 4.8rem 0 0 0; }
-
-.blob-container {
-  background-image: url("../../svg/SVG/text-blob-square.svg");
-  background-size: contain;
-  background-repeat: no-repeat;
-  background-position: center;
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  align-items: center;
-  margin: auto;
-  margin-bottom: 3.2rem;
-  width: 100vw;
-  height: 60vh; }
-  .blob-container__overlay {
-    max-width: 25%;
-    text-align: center;
-    padding: 3.2rem;
-    margin: 4.8rem; }
-
-.additional-waitlist {
-  max-width: 50%;
-  margin: auto; }
-
-.not-in-area {
-  font-size: 2.5rem;
-  font-weight: 400;
-  color: var(--color-grey-dark-1); }
-
-.doctor-list {
-  margin-top: 2rem;
-  position: relative; }
-  .doctor-list__title {
-    font-size: 2.5rem;
-    font-weight: 500;
-    margin-bottom: 6rem;
-    color: var(--color-grey-dark-1); }
-  .doctor-list__title::after {
-    display: block;
-    content: '';
-    width: 100%;
-    margin-top: 2rem;
-    border-bottom: var(--line-2); }
-
-.doctor-profile {
-  margin-top: 2rem;
-  position: relative; }
-  .doctor-profile__sections {
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    gap: 3rem; }
-  .doctor-profile__schedule {
-    height: 100vh; }
-
-.doctor-profile {
-  margin-top: 2rem;
-  position: relative; }
-  .doctor-profile__sections {
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    gap: 3rem; }
-  .doctor-profile__schedule {
-    height: 100vh; }
-
-.additional-info {
-  font-size: 1.4rem;
-  font-weight: 400;
-  letter-spacing: 1px;
-  border-bottom: var(--line-2);
-  padding-bottom: 2rem;
-  display: flex;
-  gap: 3rem;
-  justify-content: space-between; }
-  @media screen and (max-width: 768px) {
-    .additional-info {
-      flex-direction: column; } }
-  .additional-info__bio {
-    display: flex;
-    flex-direction: column;
-    gap: 2rem;
-    flex: 0 1 60%;
-    text-align: start;
-    line-height: 2.5rem; }
-  .additional-info__bio--name {
-    color: var(--color-primary-dark); }
-    @media screen and (max-width: 768px) {
-      .additional-info__bio--name {
-        margin-bottom: 1rem; } }
-  .additional-info__insurances {
-    display: flex;
-    flex-direction: column;
-    text-align: start;
-    line-height: 2.5rem; }
-  .additional-info__insurances > h1 {
-    color: var(--color-primary-dark);
-    margin-bottom: 2rem; }
-
 .zipcode {
   display: flex;
   justify-content: center; }
@@ -1596,7 +1251,7 @@ strong {
   width: 30%;
   border: none;
   border-radius: 0;
-  border-bottom: 1px solid #555;
+  border-bottom: 1px solid var(--color-grey-dark-1);
   margin-right: 3.2rem;
   margin-bottom: 1.2rem; }
   .zipcode-input:focus {
@@ -1609,14 +1264,6 @@ input::-webkit-inner-spin-button {
 
 input[type='number'] {
   -moz-appearance: textfield; }
-
-.service-request {
-  display: flex;
-  flex-direction: row;
-  width: 100%;
-  align-items: center;
-  justify-content: center;
-  gap: 2.4rem; }
 
 .section-product-details {
   margin-bottom: 9.6rem; }
