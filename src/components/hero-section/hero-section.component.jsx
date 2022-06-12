@@ -3,7 +3,7 @@ import { useInView } from 'react-intersection-observer';
 import TextTransition, { presets } from 'react-text-transition';
 import CustomButton from '../../components/custom-button/custom-button.component';
 
-const HeroSection = ({ homepage = true, handleClick, handleSubmit, handleChange, email }) => {
+const HeroSection = ({ handleClick, handleSubmit, handleChange, email }) => {
   const TEXTS = [
     'acne',
     'breakouts',
@@ -38,7 +38,8 @@ const HeroSection = ({ homepage = true, handleClick, handleSubmit, handleChange,
       document.body.classList.remove('sticky');
     }
   }, [entry]);
-  return homepage ? (
+
+  return (
     <section ref={ref} className='section-hero'>
       <div className='hero'>
         <div className='hero-text-box'>
@@ -53,48 +54,14 @@ const HeroSection = ({ homepage = true, handleClick, handleSubmit, handleChange,
             />
           </h1>
 
-          <p className='hero-description'>
+          <h3 className='heading-tertiary'>
             The most effective skincare products personalized and delivered to you by
             dermatologists.
-          </p>
+          </h3>
 
           <CustomButton className='btn btn--full' onClick={handleClick}>
             Learn More
           </CustomButton>
-        </div>
-      </div>
-    </section>
-  ) : (
-    <section ref={ref} className='section-hero'>
-      <div className='hero'>
-        <div className='hero-text-box'>
-          <h1 className='heading-primary'>
-            Get clear skin with your own custom prescription formula
-          </h1>
-          <h1 className='heading-tertiary'>Launching in AZ February 2022</h1>
-          <h1 className='heading-tertiary'>Join the waitlist for a limited-time 50% discount</h1>
-
-          <form className='waitlist-form' onSubmit={handleSubmit}>
-            <div className='waitlist-form__input-container'>
-              <input
-                className={`waitlist-form__input-container__input`}
-                type='email'
-                name='email'
-                value={email}
-                onChange={handleChange}
-                label='Email'
-                placeholder='Enter email...'
-                required
-              />
-              <label className={`waitlist-form__input-container__label`} htmlFor='email'>
-                Enter email...
-              </label>
-            </div>
-
-            <CustomButton className='custom-button waitlist-form__button' type='submit'>
-              Join Waitlist
-            </CustomButton>
-          </form>
         </div>
       </div>
     </section>

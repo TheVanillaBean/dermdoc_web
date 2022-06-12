@@ -1,7 +1,7 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
 import HIPAABadge from '../../assets/img/hipaa-badge.png';
-import Logo from '../../assets/img/logo.png';
+import Logo from '../../assets/img/logo-blue.svg';
 
 const Footer = () => {
   return (

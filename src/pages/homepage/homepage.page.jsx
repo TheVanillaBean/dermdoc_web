@@ -1,28 +1,13 @@
 import React from 'react';
-import Faq from 'react-faq-component';
-import { IoCheckmarkCircleOutline, IoHappyOutline, IoHeartOutline, IoStar } from 'react-icons/io5';
 import { withRouter } from 'react-router-dom';
-import { Mousewheel, Navigation, Pagination } from 'swiper';
 import 'swiper/modules/mousewheel/mousewheel.min.css';
 import 'swiper/modules/navigation/navigation.min.css';
 import 'swiper/modules/pagination/pagination.min.css';
-import { Swiper, SwiperSlide } from 'swiper/react/swiper-react';
 import 'swiper/swiper.min.css';
-import FarahHeadshot from '../../assets/img/farah-headshot.jpg';
-import OmarHeadshot from '../../assets/img/omar-headshot.jpeg';
-import PersonaSandra from '../../assets/img/personas/persona_one.jpeg';
-import PersonaJennifer from '../../assets/img/personas/persona_three.jpeg';
-import PersonaNicole from '../../assets/img/personas/persona_two.jpeg';
-import CreamPricing from '../../assets/img/pricing-cream-single.jpg';
-import OralPricing from '../../assets/img/pricing-oral-single.jpg';
-import SaamiHeadshot from '../../assets/img/saami_headshot.jpeg';
-import CustomButton from '../../components/custom-button/custom-button.component';
 import Footer from '../../components/footer/footer.component';
 import Header from '../../components/header/header.component';
 import HeroSection from '../../components/hero-section/hero-section.component';
-import IngredientsSwiper from '../../components/ingredients-swiper/ingredients-swiper.component';
 import { analytics } from '../../firebase/firebase.utils';
-import { homepageFAQ } from '../../utils/faq.utils';
 
 class HomePage extends React.Component {
   componentDidMount() {
@@ -45,7 +30,7 @@ class HomePage extends React.Component {
           <HeroSection handleClick={this.handleClick} />
         </div>
 
-        <section className='section-personas' id='personas'>
+        {/* <section className='section-personas' id='personas'>
           <div className='container center-text margin-bottom-md'>
             <h1 className='heading-primary'>Proven ingredients. Real results.</h1>
             <p className='heading-tertiary'>Hear what our patients have to say</p>
@@ -670,7 +655,7 @@ class HomePage extends React.Component {
               }}
             />
           </div>
-        </section>
+        </section> */}
         <Footer />
       </main>
     );

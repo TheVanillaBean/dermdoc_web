@@ -2,7 +2,7 @@ import React from 'react';
 import { IoCloseOutline, IoMenuOutline } from 'react-icons/io5';
 import { Link, withRouter } from 'react-router-dom';
 import { HashLink } from 'react-router-hash-link';
-import Logo from '../../assets/img/logo.png';
+import { ReactComponent as Logo } from '../../assets/img/logo-dark.svg';
 
 class Header extends React.Component {
   state = {
@@ -23,7 +23,7 @@ class Header extends React.Component {
     return (
       <header className={`header ${nav_open}`}>
         <Link to='/'>
-          <img src={Logo} alt='Dermdoc logo' className='logo' />
+          <Logo className='logo' alt='Dermdoc logo' />
         </Link>
 
         <nav className='main-nav'>

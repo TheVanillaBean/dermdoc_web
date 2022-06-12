@@ -616,12 +616,13 @@ strong {
   justify-content: space-between;
   align-items: center;
   /* Sticky header so fixed height helps */
-  height: 9.6rem;
+  height: 12rem;
   padding: 0 4.8rem;
   position: relative; }
 
 .logo {
-  height: 3.2rem; }
+  height: 12rem;
+  padding: 0 4.8rem; }
 
 .main-nav-list {
   list-style: none;
@@ -745,77 +746,26 @@ strong {
 /* HERO SECTION */
 /***************************/
 .hero-container {
-  background-image: linear-gradient(rgba(208, 235, 255, 0), rgba(208, 235, 255, 0.15)), url(/src/assets/img/hero-img.jpg);
+  background-image: linear-gradient(rgba(104, 141, 177, 0.1), rgba(104, 141, 177, 0.2)), url(/src/assets/img/hero-desktop.png);
   background-size: cover;
   background-repeat: no-repeat;
   background-position: bottom right;
-  height: 105vh;
+  height: 100vh;
   background-attachment: scroll;
-  margin-bottom: 9.6rem; }
+  margin-bottom: 12rem; }
 
 .section-hero {
-  padding: 4.8rem 0 4.8rem 0;
+  padding-top: 12rem;
   height: 100vh; }
 
 .hero {
-  max-width: 130rem;
+  max-width: 160rem;
   margin: 0 auto;
   padding: 0 3.2rem;
   display: grid;
   grid-template-columns: 1fr 1fr;
   gap: 9.6rem;
-  align-items: center;
-  z-index: 1; }
-
-.hero-text-box {
-  z-index: 1; }
-
-.frame-cheaper {
-  position: relative; }
-
-.frame::after {
-  background-repeat: no-repeat;
-  background-position: left bottom;
-  content: '';
-  position: absolute;
-  display: block;
-  bottom: 0;
-  height: 23px;
-  z-index: -1; }
-
-.frame-cheaper::after {
-  background-image: url(../../img/frame-blue-dark.png);
-  left: -29px;
-  width: 489px;
-  bottom: -8px; }
-
-.hero-description {
-  font-size: 2.4rem;
-  line-height: 1.6;
-  margin-bottom: 4.8rem; }
-
-.hero-btn-subtext {
-  margin-top: 1.2rem;
-  font-size: 1.8rem;
-  line-height: 1.2;
-  width: 60%; }
-
-.hero-description-item:not(:last-child) {
-  margin-bottom: 2rem; }
-
-.hero-infographic {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: flex-start;
-  padding-bottom: 12.8rem;
-  margin-top: 12.8rem;
-  text-align: center; }
-  .hero-infographic > img {
-    margin-top: 4.8rem;
-    object-fit: contain;
-    max-width: 85vw;
-    max-height: 80vh; }
+  align-items: center; }
 
 /***************************/
 /* HOW IT WORKS SECTION */
