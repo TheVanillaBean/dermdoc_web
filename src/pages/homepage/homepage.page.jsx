@@ -1,9 +1,15 @@
 import React from 'react';
-import { withRouter } from 'react-router-dom';
+import { Link, withRouter } from 'react-router-dom';
 import 'swiper/modules/mousewheel/mousewheel.min.css';
 import 'swiper/modules/navigation/navigation.min.css';
 import 'swiper/modules/pagination/pagination.min.css';
 import 'swiper/swiper.min.css';
+import Cream from '../../assets/img/cream-swipe.png';
+import { ReactComponent as AbsorbicAcid } from '../../assets/img/ingredients/absorbic-acid.svg';
+import { ReactComponent as AzelaicAcid } from '../../assets/img/ingredients/azelaic-acid.svg';
+import { ReactComponent as Clindamycin } from '../../assets/img/ingredients/clindamycin.svg';
+import { ReactComponent as Tretinoin } from '../../assets/img/ingredients/tretinoin.svg';
+import Leaf from '../../assets/img/leaf-img.png';
 import Footer from '../../components/footer/footer.component';
 import Header from '../../components/header/header.component';
 import HeroSection from '../../components/hero-section/hero-section.component';
@@ -29,6 +35,56 @@ class HomePage extends React.Component {
           <Header />
           <HeroSection handleClick={this.handleClick} />
         </div>
+
+        <section className='section-ingredients' id='ingredients'>
+          <div className='container center-text margin-bottom-md'>
+            <h1 className='heading-primary'>Prescription Ingredients</h1>
+            <p className='heading-tertiary'>Quality you won't find at a store</p>
+          </div>
+
+          <div className='container featured-ingredients margin-bottom-md'>
+            <div className='featured-ingredients__box'>
+              <Tretinoin alt='tretinoin icon' className='featured-ingredients__box--img' />
+              <p className='featured-ingredients__box--name heading-tertiary'>Tretinoin</p>
+              <p className='featured-ingredients__box--description paragraph'>
+                Lorem ipsum dolor sit, amet consectetur adipisicing elit.
+              </p>
+            </div>
+            <div className='featured-ingredients__box'>
+              <AbsorbicAcid alt='absorbic acid icon' className='featured-ingredients__box--img' />
+              <p className='featured-ingredients__box--name heading-tertiary'>Absorbic Acid</p>
+              <p className='featured-ingredients__box--description paragraph'>
+                Eum, amet reiciendis omnis doloremque eaque obcaecati.
+              </p>
+            </div>
+            <div className='featured-ingredients__box'>
+              <Clindamycin alt='clindamycin icon' className='featured-ingredients__box--img' />
+              <p className='featured-ingredients__box--name heading-tertiary'>Clindamycin</p>
+              <p className='featured-ingredients__box--description paragraph'>
+                Pumque fugit dolorum ipsum eveniet voluptas quidem.
+              </p>
+            </div>
+            <div className='featured-ingredients__box'>
+              <AzelaicAcid alt='azelaic acid icon' className='featured-ingredients__box--img' />
+              <p className='featured-ingredients__box--name heading-tertiary'>Azelaic Acid</p>
+              <p className='featured-ingredients__box--description paragraph'>
+                Corrupti beatae nulla, atque ex asperiores error mollitia obcaecati dolores.
+              </p>
+            </div>
+          </div>
+
+          <div className='container'>
+            <Link to='/ingredients'>
+              <p className='text-primary-color heading-tertiary center-text'>
+                Show All Ingredients &#10140;
+              </p>
+            </Link>
+          </div>
+
+          <img src={Cream} className='section-ingredients--cream' alt='skin cream smear' />
+
+          <img src={Leaf} className='section-ingredients--leaf' alt='green leaf' />
+        </section>
 
         {/* <section className='section-personas' id='personas'>
           <div className='container center-text margin-bottom-md'>

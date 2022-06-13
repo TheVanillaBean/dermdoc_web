@@ -94,3 +94,7 @@ body {
 .text-color-white {
   color: var(--color-grey-light-1);
 }
+
+* > a {
+  text-decoration: none;
+}
