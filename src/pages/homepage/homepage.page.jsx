@@ -86,6 +86,8 @@ class HomePage extends React.Component {
           <img src={Leaf} className='section-ingredients--leaf' alt='green leaf' />
         </section>
 
+        <section className='section-product-photo'></section>
+
         {/* <section className='section-personas' id='personas'>
           <div className='container center-text margin-bottom-md'>
             <h1 className='heading-primary'>Proven ingredients. Real results.</h1>
