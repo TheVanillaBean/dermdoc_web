@@ -113,18 +113,37 @@
     gap: 2.1rem;
     text-align: center;
 
-    &--number {
-      padding: 2.1rem;
-      color: var(--color-grey-light-1);
-      background-color: var(--color-secondary);
-      width: 7.2rem;
-      margin: 0 auto;
+    &__number {
+      width: 100%;
+
+      &--text {
+        padding: 2.1rem;
+        width: 25%;
+        margin: 0 auto;
+        background-color: var(--color-secondary);
+        color: var(--color-grey-light-1);
+        position: relative;
+
+        &::after {
+          content: ' ';
+          width: 275%;
+          position: absolute;
+          border-bottom: 2px solid var(--color-secondary);
+          border-bottom-style: dashed;
+          left: 125%;
+          top: 0;
+          height: 50%;
+        }
+
+        &--3::after {
+          width: 0%;
+        }
+      }
     }
 
     &--img {
       object-fit: cover;
-      height: 30%;
-      object-position: center;
+      height: 50%;
     }
   }
 }

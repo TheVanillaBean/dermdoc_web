@@ -99,7 +99,9 @@ class HomePage extends React.Component {
 
           <div className='container steps-container'>
             <div className='steps-container__step'>
-              <h2 className='steps-container__step--number heading-primary'>1</h2>
+              <div className='steps-container__step__number'>
+                <h2 className='heading-primary steps-container__step__number--text'>1</h2>
+              </div>
               <h1 className='steps-container__step--title heading-tertiary'>
                 Steps dolor sit amet, consectetur adipiscing elit.
               </h1>
@@ -110,7 +112,9 @@ class HomePage extends React.Component {
               <img src={StepsOne} alt='Step One' className='steps-container__step--img' />
             </div>
             <div className='steps-container__step'>
-              <h2 className='steps-container__step--number heading-primary'>2</h2>
+              <div className='steps-container__step__number'>
+                <h2 className='heading-primary steps-container__step__number--text'>2</h2>
+              </div>
               <h1 className='steps-container__step--title heading-tertiary'>
                 Steps dolor sit amet, consectetur adipiscing elit.
               </h1>
@@ -121,7 +125,11 @@ class HomePage extends React.Component {
               <img src={StepsTwo} alt='Step Two' className='steps-container__step--img' />
             </div>
             <div className='steps-container__step'>
-              <h2 className='steps-container__step--number heading-primary'>3</h2>
+              <div className='steps-container__step__number'>
+                <h2 className='heading-primary steps-container__step__number--text steps-container__step__number--text--3'>
+                  3
+                </h2>
+              </div>
               <h1 className='steps-container__step--title heading-tertiary'>
                 Steps dolor sit amet, consectetur adipiscing elit.
               </h1>
