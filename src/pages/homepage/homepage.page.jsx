@@ -10,6 +10,9 @@ import { ReactComponent as AzelaicAcid } from '../../assets/img/ingredients/azel
 import { ReactComponent as Clindamycin } from '../../assets/img/ingredients/clindamycin.svg';
 import { ReactComponent as Tretinoin } from '../../assets/img/ingredients/tretinoin.svg';
 import Leaf from '../../assets/img/leaf-img.png';
+import StepsOne from '../../assets/img/steps-img-one.png';
+import StepsThree from '../../assets/img/steps-img-three.png';
+import StepsTwo from '../../assets/img/steps-img-two.png';
 import Footer from '../../components/footer/footer.component';
 import Header from '../../components/header/header.component';
 import HeroSection from '../../components/hero-section/hero-section.component';
@@ -86,7 +89,50 @@ class HomePage extends React.Component {
           <img src={Leaf} className='section-ingredients--leaf' alt='green leaf' />
         </section>
 
-        <section className='section-product-photo'></section>
+        <section className='section-product-photo' />
+
+        <section className='section-how'>
+          <div className='container center-text margin-bottom-md'>
+            <h1 className='heading-primary'>How it works</h1>
+            <p className='heading-tertiary'>You're only 3 steps away from clearer skin</p>
+          </div>
+
+          <div className='container steps-container'>
+            <div className='steps-container__step'>
+              <h2 className='steps-container__step--number heading-primary'>1</h2>
+              <h1 className='steps-container__step--title heading-tertiary'>
+                Steps dolor sit amet, consectetur adipiscing elit.
+              </h1>
+              <p className='steps-container__step--description paragraph'>
+                Sed varius elit egestas metus molestie pharetra. In vulputate orci in tellus rutrum,
+                sed vestibulum leo hendrerit.
+              </p>
+              <img src={StepsOne} alt='Step One' className='steps-container__step--img' />
+            </div>
+            <div className='steps-container__step'>
+              <h2 className='steps-container__step--number heading-primary'>2</h2>
+              <h1 className='steps-container__step--title heading-tertiary'>
+                Steps dolor sit amet, consectetur adipiscing elit.
+              </h1>
+              <p className='steps-container__step--description paragraph'>
+                Sed varius elit egestas metus molestie pharetra. In vulputate orci in tellus rutrum,
+                sed vestibulum leo hendrerit.
+              </p>
+              <img src={StepsTwo} alt='Step Two' className='steps-container__step--img' />
+            </div>
+            <div className='steps-container__step'>
+              <h2 className='steps-container__step--number heading-primary'>3</h2>
+              <h1 className='steps-container__step--title heading-tertiary'>
+                Steps dolor sit amet, consectetur adipiscing elit.
+              </h1>
+              <p className='steps-container__step--description paragraph'>
+                Sed varius elit egestas metus molestie pharetra. In vulputate orci in tellus rutrum,
+                sed vestibulum leo hendrerit.
+              </p>
+              <img src={StepsThree} alt='Step Three' className='steps-container__step--img' />
+            </div>
+          </div>
+        </section>
 
         {/* <section className='section-personas' id='personas'>
           <div className='container center-text margin-bottom-md'>

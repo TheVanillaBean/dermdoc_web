@@ -770,15 +770,81 @@ strong {
   align-items: center; }
 
 /***************************/
+/* INGREDIENTS SECTION */
+/***************************/
+.section-ingredients {
+  scroll-margin: 3.2rem;
+  padding: 12rem 0;
+  position: relative; }
+  .section-ingredients--cream {
+    position: absolute;
+    top: 1.2rem;
+    left: 6rem;
+    width: 10%;
+    height: max-content; }
+  .section-ingredients--leaf {
+    position: absolute;
+    bottom: 0rem;
+    right: 6rem;
+    width: 10%;
+    height: max-content; }
+
+.featured-ingredients {
+  display: flex;
+  gap: 3.2rem;
+  justify-content: space-between;
+  align-items: flex-start; }
+  .featured-ingredients__box {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+    width: 100%; }
+    .featured-ingredients__box--img {
+      height: 7.2rem;
+      width: 7.2rem;
+      margin-bottom: 2.4rem; }
+    .featured-ingredients__box--name {
+      margin-bottom: 2.4rem; }
+
+/***************************/
+/* PRODUCT PHOTO SECTION */
+/***************************/
+.section-product-photo {
+  margin-top: 6rem;
+  background-image: linear-gradient(rgba(104, 141, 177, 0.1), rgba(104, 141, 177, 0.2)), url(/src/assets/img/product-with-water.jpeg);
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-position: center;
+  height: 70vh; }
+
+/***************************/
 /* HOW IT WORKS SECTION */
 /***************************/
 .section-how {
   scroll-margin: 3.2rem;
-  margin-bottom: 7.2rem;
-  padding: 4.8rem 0;
-  background-color: var(--color-primary); }
-  .section-how > .container {
-    margin-bottom: 12.8rem; }
+  margin: 12rem 0; }
+
+.steps-container {
+  display: flex;
+  justify-content: space-evenly;
+  gap: 2.4rem; }
+  .steps-container__step {
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    gap: 2.1rem;
+    text-align: center; }
+    .steps-container__step--number {
+      padding: 2.1rem;
+      color: var(--color-grey-light-1);
+      background-color: var(--color-secondary);
+      width: 7.2rem;
+      margin: 0 auto; }
+    .steps-container__step--img {
+      object-fit: cover;
+      height: 30%;
+      object-position: center; }
 
 .feature-list-container {
   display: flex;
@@ -983,55 +1049,6 @@ strong {
   height: 33vh;
   object-fit: cover;
   object-position: top; }
-
-/***************************/
-/* INGREDIENTS SECTION */
-/***************************/
-.section-ingredients {
-  scroll-margin: 3.2rem;
-  padding: 12rem 0;
-  position: relative; }
-  .section-ingredients--cream {
-    position: absolute;
-    top: 1.2rem;
-    left: 6rem;
-    width: 10%;
-    height: max-content; }
-  .section-ingredients--leaf {
-    position: absolute;
-    bottom: 0rem;
-    right: 6rem;
-    width: 10%;
-    height: max-content; }
-
-.featured-ingredients {
-  display: flex;
-  gap: 3.2rem;
-  justify-content: space-between;
-  align-items: flex-start; }
-  .featured-ingredients__box {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    text-align: center;
-    width: 100%; }
-    .featured-ingredients__box--img {
-      height: 7.2rem;
-      width: 7.2rem;
-      margin-bottom: 2.4rem; }
-    .featured-ingredients__box--name {
-      margin-bottom: 2.4rem; }
-
-/***************************/
-/* PRODUCT PHOTO SECTION */
-/***************************/
-.section-product-photo {
-  margin-top: 6rem;
-  background-image: linear-gradient(rgba(104, 141, 177, 0.1), rgba(104, 141, 177, 0.2)), url(/src/assets/img/product-with-water.jpeg);
-  background-size: cover;
-  background-repeat: no-repeat;
-  background-position: center;
-  height: 70vh; }
 
 /***************************/
 /* PERSONAS SECTION */
