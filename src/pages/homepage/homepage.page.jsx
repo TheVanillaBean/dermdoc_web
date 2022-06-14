@@ -1,4 +1,5 @@
 import React from 'react';
+import Faq from 'react-faq-component';
 import {
   IoCheckmarkCircleOutline,
   IoHappyOutline,
@@ -29,6 +30,7 @@ import Footer from '../../components/footer/footer.component';
 import Header from '../../components/header/header.component';
 import HeroSection from '../../components/hero-section/hero-section.component';
 import { analytics } from '../../firebase/firebase.utils';
+import { homepageFAQ } from '../../utils/faq.utils';
 
 class HomePage extends React.Component {
   componentDidMount() {
@@ -324,6 +326,29 @@ class HomePage extends React.Component {
           </div>
         </section>
 
+        <section className='section-faq' id='faq'>
+          <div className='container center-text margin-bottom-md'>
+            <h2 className='heading-primary'>Have Questions?</h2>
+            <h2 className='heading-tertiary'>Learn why DermDoc is unique</h2>
+          </div>
+
+          <div className='container faq-style-wrapper'>
+            <Faq
+              data={homepageFAQ}
+              styles={{
+                titleTextColor: 'var(--color-primary)',
+                rowTitleColor: 'var(--color-grey-dark-1)',
+                transitionDuration: '.2s',
+                timingFunc: 'linear',
+                titleTextSize: '3.2rem',
+                rowTitleTextSize: '2.4rem',
+                rowContentTextSize: '2rem',
+                rowContentPaddingTop: '1.2rem',
+                rowContentPaddingBottom: '1.2rem',
+              }}
+            />
+          </div>
+        </section>
         {/* <section className='section-personas' id='personas'>
           <div className='container center-text margin-bottom-md'>
             <h1 className='heading-primary'>Proven ingredients. Real results.</h1>
