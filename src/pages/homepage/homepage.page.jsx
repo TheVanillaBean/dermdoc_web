@@ -1,5 +1,10 @@
 import React from 'react';
-import { IoSchoolOutline } from 'react-icons/io5';
+import {
+  IoCheckmarkCircleOutline,
+  IoHappyOutline,
+  IoHeartOutline,
+  IoSchoolOutline,
+} from 'react-icons/io5';
 import { Link, withRouter } from 'react-router-dom';
 import 'swiper/modules/mousewheel/mousewheel.min.css';
 import 'swiper/modules/navigation/navigation.min.css';
@@ -13,14 +18,18 @@ import { ReactComponent as Clindamycin } from '../../assets/img/ingredients/clin
 import { ReactComponent as Tretinoin } from '../../assets/img/ingredients/tretinoin.svg';
 import Leaf from '../../assets/img/leaf-img.png';
 import OmarHeadshot from '../../assets/img/omar-cutout.png';
+import PillsPricing from '../../assets/img/pricing-photo-2.png';
+import CreamPricing from '../../assets/img/pricing-photo.png';
 import SaamiHeadshot from '../../assets/img/saami_headshot.jpeg';
 import StepsOne from '../../assets/img/steps-img-one.png';
 import StepsThree from '../../assets/img/steps-img-three.png';
 import StepsTwo from '../../assets/img/steps-img-two.png';
+import CustomButton from '../../components/custom-button/custom-button.component';
 import Footer from '../../components/footer/footer.component';
 import Header from '../../components/header/header.component';
 import HeroSection from '../../components/hero-section/hero-section.component';
 import { analytics } from '../../firebase/firebase.utils';
+
 class HomePage extends React.Component {
   componentDidMount() {
     analytics.logEvent('Homepage Viewed');
@@ -220,6 +229,98 @@ class HomePage extends React.Component {
                 </h2>
               </div>
             </div>
+          </div>
+        </section>
+
+        <section className='section-pricing' id='pricing'>
+          <div className='container center-text margin-bottom-md'>
+            <h1 className='heading-primary'>Pricing</h1>
+            <p className='heading-tertiary'>Get started with our risk-free 3-month trial</p>
+          </div>
+
+          <div className='container grid grid--2-cols margin-bottom-md '>
+            <div className='pricing-plan pricing-plan--cream'>
+              <img className='pricing-plan--img' src={CreamPricing} alt='Headshot' />
+
+              <div className='pricing-plan__content'>
+                <header className='pricing-plan__content--header'>
+                  <p className='pricing-plan__content--name'>
+                    <span>Personalized Cream</span>
+                  </p>
+                  <p className='pricing-plan__content--price'>
+                    <span>$</span>19.99
+                  </p>
+                  <p className='pricing-plan__content--text'>
+                    per month. Includes topical cream and <strong>check-ins</strong> with a
+                    dermatologist.
+                  </p>
+                </header>
+                <ul className='list'>
+                  <li className='list-item'>
+                    <IoHeartOutline className='list-icon' />
+                    <span>
+                      <strong>Custom</strong> topical cream designed just for you
+                    </span>
+                  </li>
+                  <li className='list-item'>
+                    <IoHappyOutline className='list-icon' />
+                    <span>
+                      <strong>Delivered</strong> to your door (free shipping)
+                    </span>
+                  </li>
+                  <li className='list-item'>
+                    <IoCheckmarkCircleOutline className='list-icon' />
+                    <span>
+                      <strong>Check-ins</strong> to monitor your skin
+                    </span>
+                  </li>
+                </ul>
+              </div>
+            </div>
+
+            <div className='pricing-plan pricing-plan--pills'>
+              <img className='pricing-plan--img' src={PillsPricing} alt='Headshot' />
+
+              <div className='pricing-plan__content'>
+                <header className='pricing-plan__content--header'>
+                  <p className='pricing-plan__content--name'>
+                    <span>Oral Medications</span>
+                  </p>
+
+                  <p className='pricing-plan__content--price'>
+                    <span>$</span>19.99
+                  </p>
+
+                  <p className='pricing-plan__content--text'>
+                    extra per month. In-case you need it &#128522; Check-ins still included. <br />
+                  </p>
+                </header>
+                <ul className='list'>
+                  <li className='list-item'>
+                    <IoHeartOutline className='list-icon' />
+                    <span>
+                      Oral medications include
+                      <strong> spironolactone and various antibiotics</strong>
+                    </span>
+                  </li>
+                </ul>
+              </div>
+            </div>
+          </div>
+
+          <div className='container center-text margin-bottom-md'>
+            <p className='heading-primary'>3-month risk-free trial</p>
+            <p className='heading-tertiary'>
+              If you don't like your cream after your 3-month trial, you will get a{' '}
+              <span className='text-primary-color'>100%</span> refund. After your trial, plans renew
+              at <span className='text-primary-color'>$19.99/month</span>.
+            </p>
+          </div>
+
+          <div className='container center-text'>
+            <CustomButton className='btn btn--full' onClick={this.handleClick}>
+              Try 3-month risk-free trial - $19.99/month
+            </CustomButton>
           </div>
         </section>
 
