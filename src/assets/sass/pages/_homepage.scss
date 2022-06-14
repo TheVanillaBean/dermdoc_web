@@ -27,6 +27,18 @@
   align-items: center;
 }
 
+.hero-text-box {
+  &--heading {
+    display: flex;
+    flex-direction: column;
+    margin-bottom: 2.1rem;
+
+    & > .heading-primary {
+      margin-bottom: 1.2rem;
+    }
+  }
+}
+
 /***************************/
 /* INGREDIENTS SECTION */
 /***************************/

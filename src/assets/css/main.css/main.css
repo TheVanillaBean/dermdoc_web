@@ -159,6 +159,9 @@ body {
 .text-primary-color {
   color: var(--color-primary); }
 
+.text-primary-color-dark {
+  color: var(--color-primary-dark); }
+
 .text-grey-color {
   color: var(--color-grey-dark-3); }
 
@@ -771,6 +774,13 @@ strong {
   grid-template-columns: 1fr 1fr;
   gap: 9.6rem;
   align-items: center; }
+
+.hero-text-box--heading {
+  display: flex;
+  flex-direction: column;
+  margin-bottom: 2.1rem; }
+  .hero-text-box--heading > .heading-primary {
+    margin-bottom: 1.2rem; }
 
 /***************************/
 /* INGREDIENTS SECTION */

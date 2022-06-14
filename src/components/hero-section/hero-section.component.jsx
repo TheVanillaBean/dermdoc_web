@@ -43,16 +43,15 @@ const HeroSection = ({ handleClick, handleSubmit, handleChange, email }) => {
     <section ref={ref} className='section-hero'>
       <div className='hero'>
         <div className='hero-text-box'>
-          <h1 className='heading-primary'>
-            Personalized cream to treat
-            <br />
+          <div className='hero-text-box--heading'>
+            <h1 className='heading-primary'>Personalized cream to treat</h1>
             <TextTransition
               text={TEXTS[index % TEXTS.length]}
               springConfig={presets.wobbly}
-              className='text-primary-color'
+              className='heading-primary text-primary-color-dark'
               inline
             />
-          </h1>
+          </div>
 
           <h3 className='heading-tertiary'>
             The most effective skincare products personalized and delivered to you by
