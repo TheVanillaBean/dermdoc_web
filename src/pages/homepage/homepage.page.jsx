@@ -1,15 +1,19 @@
 import React from 'react';
+import { IoSchoolOutline } from 'react-icons/io5';
 import { Link, withRouter } from 'react-router-dom';
 import 'swiper/modules/mousewheel/mousewheel.min.css';
 import 'swiper/modules/navigation/navigation.min.css';
 import 'swiper/modules/pagination/pagination.min.css';
 import 'swiper/swiper.min.css';
 import Cream from '../../assets/img/cream-swipe.png';
+import FarahHeadshot from '../../assets/img/farah-headshot.jpg';
 import { ReactComponent as AbsorbicAcid } from '../../assets/img/ingredients/absorbic-acid.svg';
 import { ReactComponent as AzelaicAcid } from '../../assets/img/ingredients/azelaic-acid.svg';
 import { ReactComponent as Clindamycin } from '../../assets/img/ingredients/clindamycin.svg';
 import { ReactComponent as Tretinoin } from '../../assets/img/ingredients/tretinoin.svg';
 import Leaf from '../../assets/img/leaf-img.png';
+import OmarHeadshot from '../../assets/img/omar-cutout.png';
+import SaamiHeadshot from '../../assets/img/saami_headshot.jpeg';
 import StepsOne from '../../assets/img/steps-img-one.png';
 import StepsThree from '../../assets/img/steps-img-three.png';
 import StepsTwo from '../../assets/img/steps-img-two.png';
@@ -17,7 +21,6 @@ import Footer from '../../components/footer/footer.component';
 import Header from '../../components/header/header.component';
 import HeroSection from '../../components/hero-section/hero-section.component';
 import { analytics } from '../../firebase/firebase.utils';
-
 class HomePage extends React.Component {
   componentDidMount() {
     analytics.logEvent('Homepage Viewed');
@@ -138,6 +141,84 @@ class HomePage extends React.Component {
                 sed vestibulum leo hendrerit.
               </p>
               <img src={StepsThree} alt='Step Three' className='steps-container__step--img' />
+            </div>
+          </div>
+        </section>
+
+        <section className='section-doctors'>
+          <div className='container center-text margin-bottom-md'>
+            <h1 className='heading-primary'>You're in good hands</h1>
+            <p className='heading-tertiary'>
+              Every custom formula is prescribed by a board-certified dermatologist
+            </p>
+          </div>
+          <div className='container margin-bottom-md'>
+            <div className='featured-doctor'>
+              <img
+                src={OmarHeadshot}
+                alt=''
+                className='featured-doctor--img featured-doctor--img--main'
+              />
+
+              <div className='featured-doctor__details featured-doctor__details--main'>
+                <h2 className='heading-primary featured-doctor__details--name'>
+                  Dr. Omar Badri M.D.
+                </h2>
+                <h2 className='featured-doctor__details__tag'>
+                  <IoSchoolOutline className='featured-doctor__details__tag--icon' />
+                  <p className='heading-tertiary featured-doctor__details__tag--text'>
+                    Harvard University
+                  </p>
+                </h2>
+                <h2 className='paragraph featured-doctor__details--bio'>
+                  Dr. Badri completed his intern year at Brigham & Women’s Hospital (Harvard). His
+                  completed residency training in Dermatology (Brigham & Women’s Hospital,
+                  Massachusetts General Hospital, and Boston Children’s Hospital) and Internal
+                  Medicine (Brigham & Women’s Hospital) at Harvard. Dr. Badri has published multiple
+                  peer-reviewed journal articles and has presented at national meetings.
+                </h2>
+              </div>
+            </div>
+          </div>
+
+          <div className='container additional-doctors-container'>
+            <div className='featured-doctor'>
+              <img src={FarahHeadshot} alt='' className='featured-doctor--img' />
+
+              <div className='featured-doctor__details'>
+                <h2 className='heading-tertiary featured-doctor__details--name'>
+                  Dr. Farah Moustafa M.D.
+                </h2>
+                <h2 className='featured-doctor__details__tag'>
+                  <IoSchoolOutline className='featured-doctor__details__tag--icon' />
+                  <p className='heading-tertiary featured-doctor__details__tag--text'>
+                    Harvard University
+                  </p>
+                </h2>
+                <h2 className='paragraph featured-doctor__details--bio'>
+                  Lorem ipsum dolor sit amet consectetur adipisicing elit. Similique cupiditate
+                  totam quibusdam voluptatem explicabo
+                </h2>
+              </div>
+            </div>
+            <div className='featured-doctor'>
+              <img src={SaamiHeadshot} alt='' className='featured-doctor--img' />
+
+              <div className='featured-doctor__details'>
+                <h2 className='heading-tertiary featured-doctor__details--name'>
+                  Dr. Saami Khalifian M.D.
+                </h2>
+                <h2 className='featured-doctor__details__tag'>
+                  <IoSchoolOutline className='featured-doctor__details__tag--icon' />
+                  <p className='heading-tertiary featured-doctor__details__tag--text'>
+                    Johns Hopkins Uni.
+                  </p>
+                </h2>
+                <h2 className='paragraph featured-doctor__details--bio'>
+                  Lorem ipsum dolor, sit amet consectetur adipisicing elit. A, dolores voluptate! Ex
+                  debitis ratione et nam libero
+                </h2>
+              </div>
             </div>
           </div>
         </section>

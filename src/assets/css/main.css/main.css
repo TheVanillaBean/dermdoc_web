@@ -44,6 +44,7 @@ Medium: 11px
   --color-primary-light: #86a4c1;
   --color-primary-dark: #53718e;
   --color-secondary: #d88064;
+  --color-secondary-tint: #fbf2f0;
   --color-tint-1: #d2dde8;
   --color-tint-2: #c3d1e0;
   --color-tint-3: #b4c6d8;
@@ -175,10 +176,10 @@ body {
   margin-bottom: 2.4rem !important; }
 
 .margin-bottom-md {
-  margin-bottom: 4.8rem !important; }
+  margin-bottom: 6rem !important; }
 
 .margin-bottom-lg {
-  margin-bottom: 12.8rem !important; }
+  margin-bottom: 12rem !important; }
 
 .margin-center {
   margin: auto !important; }
@@ -812,6 +813,7 @@ strong {
 /***************************/
 .section-product-photo {
   margin-top: 6rem;
+  margin-bottom: 12rem;
   background-image: linear-gradient(rgba(104, 141, 177, 0.1), rgba(104, 141, 177, 0.2)), url(/src/assets/img/product-with-water.jpeg);
   background-size: cover;
   background-repeat: no-repeat;
@@ -823,7 +825,7 @@ strong {
 /***************************/
 .section-how {
   scroll-margin: 3.2rem;
-  margin: 12rem 0; }
+  margin-bottom: 12rem; }
 
 .steps-container {
   display: flex;
@@ -859,61 +861,93 @@ strong {
       object-fit: cover;
       height: 50%; }
 
-.feature-list-container {
-  display: flex;
-  align-items: center;
-  justify-content: center; }
+/***************************/
+/* DOCTORS SECTION */
+/***************************/
+.section-doctors {
+  scroll-margin: 3.2rem;
+  margin-bottom: 12rem; }
 
-.feature-list {
-  list-style: none;
-  margin: 0 auto; }
-
-.feature {
+.additional-doctors-container {
   display: flex;
-  justify-content: center;
-  align-items: center;
-  width: 75%;
+  gap: 12rem; }
+
+.featured-doctor {
+  display: flex;
+  gap: 3.2rem; }
+  .featured-doctor--img {
+    object-fit: cover;
+    width: 60%; }
+  .featured-doctor__details {
+    display: flex;
+    flex-direction: column; }
+    .featured-doctor__details--main {
+      justify-content: center; }
+    .featured-doctor__details--name {
+      margin-bottom: 1.8rem; }
+    .featured-doctor__details__tag {
+      margin-bottom: 3.2rem;
+      display: flex;
+      gap: 1.2rem;
+      background-color: var(--color-secondary-tint);
+      align-items: center;
+      max-width: min-content;
+      padding: 3px 0;
+      padding-left: 6px; }
+      .featured-doctor__details__tag--icon {
+        width: 3.2rem;
+        height: 3.2rem;
+        color: var(--color-secondary); }
+      .featured-doctor__details__tag--text {
+        font-size: 1.4rem;
+        text-transform: uppercase;
+        color: var(--color-secondary);
+        white-space: nowrap;
+        margin-bottom: 0;
+        padding-right: 1.2rem; }
+
+.doctor {
+  box-shadow: 0 2.4rem 4.8rem rgba(0, 0, 0, 0.075);
+  border-radius: 11px;
+  overflow: hidden;
+  transition: all 0.4s;
+  width: 100%;
   margin: 0 auto;
   margin-bottom: 6.4rem; }
 
-.feature-circle {
-  border-radius: 50%;
-  background: #449bde;
-  opacity: 1;
-  line-height: 0;
-  position: relative;
-  display: block;
-  min-width: 12.8rem;
-  height: 12.8rem;
-  flex-shrink: 0;
-  margin-right: 4.8rem; }
+.doctor:hover {
+  transform: translateY(-1.2rem);
+  box-shadow: 0 3.2rem 6.4rem rgba(0, 0, 0, 0.06); }
 
-.feature-circle::after {
-  content: '';
-  display: block;
-  padding-bottom: 100%; }
+.doctor-content {
+  padding: 3.2rem 4.8rem; }
 
-.feature-circle-text {
-  position: absolute;
-  bottom: 50%;
-  width: 100%;
-  text-align: center;
-  font-weight: bold;
-  color: #fff;
-  font-size: 5.6rem; }
+.doctor-tags {
+  margin-bottom: 1.2rem;
+  display: flex;
+  gap: 1rem; }
 
-.feature-description {
-  color: #fff;
-  text-align: start; }
-
-.feature-title {
-  font-size: 3.6rem;
-  font-weight: 700;
-  margin-bottom: 1.2rem; }
-
-.feature-text {
+.doctor-title {
   font-size: 2.4rem;
-  line-height: 1.8; }
+  color: #333;
+  font-weight: 600;
+  margin-bottom: 1.8rem; }
+
+.doctor-attributes {
+  list-style: none;
+  display: flex;
+  flex-direction: column;
+  gap: 2rem; }
+
+.doctor-attribute {
+  font-size: 1.8rem;
+  line-height: 1.5; }
+
+.doctor-img {
+  width: 100%;
+  height: 33vh;
+  object-fit: cover;
+  object-position: top; }
 
 /***************************/
 /* PRICING SECTION */
@@ -1012,56 +1046,6 @@ strong {
   line-height: 1.6;
   text-align: center;
   margin-bottom: 9.6rem; }
-
-/***************************/
-/* DOCTORS SECTION */
-/***************************/
-.section-doctors {
-  scroll-margin: 3.2rem;
-  margin-bottom: 9.6rem; }
-
-.doctor {
-  box-shadow: 0 2.4rem 4.8rem rgba(0, 0, 0, 0.075);
-  border-radius: 11px;
-  overflow: hidden;
-  transition: all 0.4s;
-  width: 100%;
-  margin: 0 auto;
-  margin-bottom: 6.4rem; }
-
-.doctor:hover {
-  transform: translateY(-1.2rem);
-  box-shadow: 0 3.2rem 6.4rem rgba(0, 0, 0, 0.06); }
-
-.doctor-content {
-  padding: 3.2rem 4.8rem; }
-
-.doctor-tags {
-  margin-bottom: 1.2rem;
-  display: flex;
-  gap: 1rem; }
-
-.doctor-title {
-  font-size: 2.4rem;
-  color: #333;
-  font-weight: 600;
-  margin-bottom: 1.8rem; }
-
-.doctor-attributes {
-  list-style: none;
-  display: flex;
-  flex-direction: column;
-  gap: 2rem; }
-
-.doctor-attribute {
-  font-size: 1.8rem;
-  line-height: 1.5; }
-
-.doctor-img {
-  width: 100%;
-  height: 33vh;
-  object-fit: cover;
-  object-position: top; }
 
 /***************************/
 /* PERSONAS SECTION */
