@@ -256,21 +256,21 @@ class HomePage extends React.Component {
                   </p>
                 </header>
                 <ul className='list'>
-                  <li className='list-item'>
-                    <IoHeartOutline className='list-icon' />
-                    <span>
+                  <li className='list__item'>
+                    <IoHeartOutline className='list__item--icon' />
+                    <span className='list__item--text'>
                       <strong>Custom</strong> topical cream designed just for you
                     </span>
                   </li>
-                  <li className='list-item'>
-                    <IoHappyOutline className='list-icon' />
-                    <span>
+                  <li className='list__item'>
+                    <IoHappyOutline className='list__item--icon' />
+                    <span className='list__item--text'>
                       <strong>Delivered</strong> to your door (free shipping)
                     </span>
                   </li>
-                  <li className='list-item'>
-                    <IoCheckmarkCircleOutline className='list-icon' />
-                    <span>
+                  <li className='list__item'>
+                    <IoCheckmarkCircleOutline className='list__item--icon' />
+                    <span className='list__item--text'>
                       <strong>Check-ins</strong> to monitor your skin
                     </span>
                   </li>
@@ -296,9 +296,9 @@ class HomePage extends React.Component {
                   </p>
                 </header>
                 <ul className='list'>
-                  <li className='list-item'>
-                    <IoHeartOutline className='list-icon' />
-                    <span>
+                  <li className='list__item'>
+                    <IoHeartOutline className='list__item--icon' />
+                    <span className='list__item--text'>
                       Oral medications include
                       <strong> spironolactone and various antibiotics</strong>
                     </span>
