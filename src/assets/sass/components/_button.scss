@@ -13,6 +13,10 @@
   font-family: inherit;
 
   transition: all 0.3s;
+
+  @include respond(phone) {
+    padding: 2.4rem 1.6rem;
+  }
 }
 
 .btn,

@@ -10,11 +10,24 @@
   background-position: bottom right;
   height: 100vh;
   background-attachment: scroll;
+
+  @include respond(tab-port) {
+    background-image: linear-gradient(rgba(104, 141, 177, 0.1), rgba(104, 141, 177, 0.2)),
+      url(/src/assets/img/hero-desktop.png);
+  }
 }
 
 .section-hero {
   padding-top: 12rem;
   height: 100vh;
+
+  @include respond(small-tab) {
+    padding: 1.2rem 1.8rem 0 1.8rem;
+  }
+
+  @include respond(phone) {
+    padding: 2.4rem 0 6.4rem 0;
+  }
 }
 
 .hero {
@@ -23,8 +36,29 @@
   padding: 0 3.2rem;
   display: grid;
   grid-template-columns: 1fr 1fr;
-  gap: 9.6rem;
+  gap: 12rem;
   align-items: center;
+
+  @include respond(small-desktop) {
+    max-width: 120rem;
+  }
+
+  @include respond(tab-land) {
+    gap: 4.8rem;
+  }
+
+  @include respond(tab-port) {
+    grid-template-columns: 1fr;
+    padding: 0 8rem;
+    gap: 6;
+    align-content: center;
+    justify-content: center;
+    justify-items: center;
+  }
+
+  @include respond(phone) {
+    padding: 0;
+  }
 }
 
 .hero-text-box {
@@ -36,6 +70,21 @@
     & > .heading-primary {
       margin-bottom: 1.2rem;
     }
+  }
+
+  @include respond(tab-port) {
+    text-align: center;
+  }
+
+  @include respond(phone) {
+    padding: 0 1.2rem;
+    text-align: center;
+  }
+}
+
+header {
+  @include respond(tab-land) {
+    padding: 0 3.2rem;
   }
 }
 
@@ -247,6 +296,10 @@
   border-radius: 11px;
   overflow: hidden;
   transition: all 0.4s;
+
+  @include respond(tab-port) {
+    width: 100%;
+  }
 
   &--cream {
     border: 2px solid #fdf2e9;
