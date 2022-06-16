@@ -17,12 +17,12 @@ instead, 1rem = 1em = 16px
 
 
 $breakpoint argument choices:
-- phone
-- small-tab
-- tab-port
-- tab-land
-- smaller-desktop
-- big-desktop
+- phone - 544px
+- small-tab - 704px
+- tab-port - 944px
+- tab-land - 1200px
+- smaller-desktop - 1344px
+- big-desktop - 1800px
 ORDER: Base + typography > general layout + grid > page layout > components
 1em = 16px
 */
@@ -1812,32 +1812,140 @@ strong {
     position: absolute;
     top: 1.2rem;
     left: 6rem;
-    width: 10%;
-    height: max-content; }
+    max-width: 10%;
+    max-height: max-content;
+    /***************************/
+    /* 544/16 = 34 */
+    /* BELOW 544px (Phones) */
+    /***************************/
+    /***************************/
+    /* 704/16 = 44 */
+    /* BELOW 704px (Tablets) */
+    /***************************/
+    /***************************/
+    /* 944/16 = 59 */
+    /* BELOW 944px (Tablets) */
+    /***************************/
+    /***************************/
+    /* 1200/16 = 75 */
+    /* BELOW 1200px (Landscape Tablets) */
+    /***************************/
+    /***************************/
+    /* 1344/16 = 84 */
+    /* BELOW 1344px (Smaller Desktops) */
+    /***************************/
+    /***************************/
+    /* 1800/16 = 112.5 */
+    /* BELOW 1800px (Big Desktops) */
+    /***************************/ }
+    @media only screen and (max-width: 59em) {
+      .section-ingredients--cream {
+        left: 3rem;
+        max-width: 20%; } }
   .section-ingredients--leaf {
     position: absolute;
     bottom: 0rem;
     right: 6rem;
-    width: 10%;
-    height: max-content; }
+    max-width: 10%;
+    max-height: max-content;
+    /***************************/
+    /* 544/16 = 34 */
+    /* BELOW 544px (Phones) */
+    /***************************/
+    /***************************/
+    /* 704/16 = 44 */
+    /* BELOW 704px (Tablets) */
+    /***************************/
+    /***************************/
+    /* 944/16 = 59 */
+    /* BELOW 944px (Tablets) */
+    /***************************/
+    /***************************/
+    /* 1200/16 = 75 */
+    /* BELOW 1200px (Landscape Tablets) */
+    /***************************/
+    /***************************/
+    /* 1344/16 = 84 */
+    /* BELOW 1344px (Smaller Desktops) */
+    /***************************/
+    /***************************/
+    /* 1800/16 = 112.5 */
+    /* BELOW 1800px (Big Desktops) */
+    /***************************/ }
+    @media only screen and (max-width: 59em) {
+      .section-ingredients--leaf {
+        right: 3rem;
+        max-width: 20%; } }
 
-.featured-ingredients {
+.featured-ingredients__box {
   display: flex;
-  gap: 3.2rem;
-  justify-content: space-between;
-  align-items: flex-start; }
-  .featured-ingredients__box {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    text-align: center;
-    width: 100%; }
-    .featured-ingredients__box--img {
-      height: 7.2rem;
-      width: 7.2rem;
-      margin-bottom: 2.4rem; }
-    .featured-ingredients__box--name {
-      margin-bottom: 2.4rem; }
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+  width: 100%;
+  /***************************/
+  /* 544/16 = 34 */
+  /* BELOW 544px (Phones) */
+  /***************************/
+  /***************************/
+  /* 704/16 = 44 */
+  /* BELOW 704px (Tablets) */
+  /***************************/
+  /***************************/
+  /* 944/16 = 59 */
+  /* BELOW 944px (Tablets) */
+  /***************************/
+  /***************************/
+  /* 1200/16 = 75 */
+  /* BELOW 1200px (Landscape Tablets) */
+  /***************************/
+  /***************************/
+  /* 1344/16 = 84 */
+  /* BELOW 1344px (Smaller Desktops) */
+  /***************************/
+  /***************************/
+  /* 1800/16 = 112.5 */
+  /* BELOW 1800px (Big Desktops) */
+  /***************************/ }
+  @media only screen and (max-width: 34em) {
+    .featured-ingredients__box {
+      width: 75%;
+      margin: 0 auto; } }
+  .featured-ingredients__box--img {
+    height: 7.2rem;
+    width: 7.2rem;
+    margin-bottom: 2.4rem;
+    /***************************/
+    /* 544/16 = 34 */
+    /* BELOW 544px (Phones) */
+    /***************************/
+    /***************************/
+    /* 704/16 = 44 */
+    /* BELOW 704px (Tablets) */
+    /***************************/
+    /***************************/
+    /* 944/16 = 59 */
+    /* BELOW 944px (Tablets) */
+    /***************************/
+    /***************************/
+    /* 1200/16 = 75 */
+    /* BELOW 1200px (Landscape Tablets) */
+    /***************************/
+    /***************************/
+    /* 1344/16 = 84 */
+    /* BELOW 1344px (Smaller Desktops) */
+    /***************************/
+    /***************************/
+    /* 1800/16 = 112.5 */
+    /* BELOW 1800px (Big Desktops) */
+    /***************************/ }
+    @media only screen and (max-width: 34em) {
+      .featured-ingredients__box--img {
+        height: 9.6rem;
+        width: 9.6rem;
+        margin-bottom: 3.2rem; } }
+  .featured-ingredients__box--name {
+    margin-bottom: 2.4rem; }
 
 /***************************/
 /* PRODUCT PHOTO SECTION */

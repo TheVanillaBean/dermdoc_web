@@ -6,12 +6,12 @@ instead, 1rem = 1em = 16px
 
 
 $breakpoint argument choices:
-- phone
-- small-tab
-- tab-port
-- tab-land
-- smaller-desktop
-- big-desktop
+- phone - 544px
+- small-tab - 704px
+- tab-port - 944px
+- tab-land - 1200px
+- smaller-desktop - 1344px
+- big-desktop - 1800px
 ORDER: Base + typography > general layout + grid > page layout > components
 1em = 16px
 */

@@ -59,7 +59,7 @@ class HomePage extends React.Component {
             <p className='heading-tertiary'>Quality you won't find at a store</p>
           </div>
 
-          <div className='container featured-ingredients margin-bottom-md'>
+          <div className='container featured-ingredients grid grid--4-cols margin-bottom-md'>
             <div className='featured-ingredients__box'>
               <Tretinoin alt='tretinoin icon' className='featured-ingredients__box--img' />
               <p className='featured-ingredients__box--name heading-tertiary'>Tretinoin</p>

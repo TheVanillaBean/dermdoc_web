@@ -89,25 +89,30 @@
     position: absolute;
     top: 1.2rem;
     left: 6rem;
-    width: 10%;
-    height: max-content;
+    max-width: 10%;
+    max-height: max-content;
+
+    @include respond(tab-port) {
+      left: 3rem;
+      max-width: 20%;
+    }
   }
 
   &--leaf {
     position: absolute;
     bottom: 0rem;
     right: 6rem;
-    width: 10%;
-    height: max-content;
+    max-width: 10%;
+    max-height: max-content;
+
+    @include respond(tab-port) {
+      right: 3rem;
+      max-width: 20%;
+    }
   }
 }
 
 .featured-ingredients {
-  display: flex;
-  gap: 3.2rem;
-  justify-content: space-between;
-  align-items: flex-start;
-
   &__box {
     display: flex;
     flex-direction: column;
@@ -115,10 +120,21 @@
     text-align: center;
     width: 100%;
 
+    @include respond(phone) {
+      width: 75%;
+      margin: 0 auto;
+    }
+
     &--img {
       height: 7.2rem;
       width: 7.2rem;
       margin-bottom: 2.4rem;
+
+      @include respond(phone) {
+        height: 9.6rem;
+        width: 9.6rem;
+        margin-bottom: 3.2rem;
+      }
     }
 
     &--name {
