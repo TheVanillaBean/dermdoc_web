@@ -22,11 +22,7 @@
   height: 100vh;
 
   @include respond(small-tab) {
-    padding: 1.2rem 1.8rem 0 1.8rem;
-  }
-
-  @include respond(phone) {
-    padding: 2.4rem 0 6.4rem 0;
+    padding-top: 6rem;
   }
 }
 
@@ -39,36 +35,35 @@
   gap: 12rem;
   align-items: center;
 
-  @include respond(small-desktop) {
-    max-width: 120rem;
-  }
-
-  @include respond(tab-land) {
-    gap: 4.8rem;
-  }
-
   @include respond(tab-port) {
     grid-template-columns: 1fr;
-    padding: 0 8rem;
-    gap: 6;
     align-content: center;
     justify-content: center;
     justify-items: center;
   }
-
-  @include respond(phone) {
-    padding: 0;
-  }
 }
 
 .hero-text-box {
-  &--heading {
+  &__heading-container {
     display: flex;
     flex-direction: column;
     margin-bottom: 2.1rem;
 
-    & > .heading-primary {
+    &--text {
       margin-bottom: 1.2rem;
+      white-space: nowrap;
+    }
+
+    &--transition {
+      @include respond(tab-port) {
+        align-self: center;
+      }
+    }
+  }
+
+  & > .btn {
+    @include respond(tab-port) {
+      margin-top: 2.1rem;
     }
   }
 
@@ -78,13 +73,6 @@
 
   @include respond(phone) {
     padding: 0 1.2rem;
-    text-align: center;
-  }
-}
-
-header {
-  @include respond(tab-land) {
-    padding: 0 3.2rem;
   }
 }
 

@@ -43,12 +43,14 @@ const HeroSection = ({ handleClick, handleSubmit, handleChange, email }) => {
     <section ref={ref} className='section-hero'>
       <div className='hero'>
         <div className='hero-text-box'>
-          <div className='hero-text-box--heading'>
-            <h1 className='heading-primary'>Personalized cream to treat</h1>
+          <div className='hero-text-box__heading-container'>
+            <h1 className='heading-primary hero-text-box__heading-container--text'>
+              Personalized cream to treat
+            </h1>
             <TextTransition
               text={TEXTS[index % TEXTS.length]}
               springConfig={presets.wobbly}
-              className='heading-primary text-primary-color-dark'
+              className='heading-primary text-primary-color-dark hero-text-box__heading-container--transition'
               inline
             />
           </div>
