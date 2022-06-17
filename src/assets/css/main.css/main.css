@@ -123,6 +123,30 @@ html {
   /***************************/
   /* 1800/16 = 112.5 */
   /* BELOW 1800px (Big Desktops) */
+  /***************************/
+  /***************************/
+  /* 544/16 = 34 */
+  /* BELOW 544px (Phones) */
+  /***************************/
+  /***************************/
+  /* 704/16 = 44 */
+  /* BELOW 704px (Tablets) */
+  /***************************/
+  /***************************/
+  /* 944/16 = 59 */
+  /* BELOW 944px (Tablets) */
+  /***************************/
+  /***************************/
+  /* 1200/16 = 75 */
+  /* BELOW 1200px (Landscape Tablets) */
+  /***************************/
+  /***************************/
+  /* 1344/16 = 84 */
+  /* BELOW 1344px (Smaller Desktops) */
+  /***************************/
+  /***************************/
+  /* 1800/16 = 112.5 */
+  /* BELOW 1800px (Big Desktops) */
   /***************************/ }
   @media only screen and (max-width: 75em) {
     html {
@@ -131,6 +155,9 @@ html {
     html {
       /* 8px = 50% of 16px */
       font-size: 50%; } }
+  @media only screen and (max-width: 44em) {
+    html {
+      font-size: 45%; } }
 
 body {
   box-sizing: border-box;
@@ -1118,7 +1145,7 @@ strong {
   justify-content: space-between;
   align-items: center;
   /* Sticky header so fixed height helps */
-  height: min-content;
+  height: 9.6rem;
   padding: 0 4.8rem;
   padding-top: 2.1rem;
   position: relative;
@@ -1146,12 +1173,13 @@ strong {
   /* 1800/16 = 112.5 */
   /* BELOW 1800px (Big Desktops) */
   /***************************/ }
-  @media only screen and (max-width: 59em) {
+  @media only screen and (max-width: 44em) {
     .header {
+      padding: 0 2.1rem;
       padding-top: 2.1rem; } }
 
 .logo {
-  width: 100%;
+  width: 12rem;
   /***************************/
   /* 544/16 = 34 */
   /* BELOW 544px (Phones) */
@@ -1178,7 +1206,7 @@ strong {
   /***************************/ }
   @media only screen and (max-width: 59em) {
     .logo {
-      padding-top: 2.1rem; } }
+      padding: 0; } }
 
 .main-nav {
   /***************************/
@@ -1484,7 +1512,7 @@ strong {
   top: 0;
   bottom: 0;
   width: 100%;
-  height: min-content;
+  height: 9.6rem;
   padding-top: 2.1rem;
   padding-bottom: 2.1rem;
   background-color: rgba(255, 255, 255, 0.97);
