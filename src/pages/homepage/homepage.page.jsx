@@ -21,7 +21,7 @@ import Leaf from '../../assets/img/leaf-img.png';
 import OmarHeadshot from '../../assets/img/omar-cutout.png';
 import PillsPricing from '../../assets/img/pricing-photo-2.png';
 import CreamPricing from '../../assets/img/pricing-photo.png';
-import SaamiHeadshot from '../../assets/img/saami_headshot.jpeg';
+import SaamiHeadshot from '../../assets/img/saami_headshot.jpg';
 import StepsOne from '../../assets/img/steps-img-one.png';
 import StepsThree from '../../assets/img/steps-img-three.png';
 import StepsTwo from '../../assets/img/steps-img-two.png';
@@ -165,28 +165,24 @@ class HomePage extends React.Component {
           <div className='container center-text margin-bottom-md'>
             <h1 className='heading-primary'>You're in good hands</h1>
             <p className='heading-tertiary'>
-              Every custom formula is prescribed by a board-certified dermatologist
+              Your individual cream is custom designed by a board-certified dermatologist
             </p>
           </div>
-          <div className='container margin-bottom-md'>
-            <div className='featured-doctor'>
-              <img
-                src={OmarHeadshot}
-                alt=''
-                className='featured-doctor--img featured-doctor--img--main'
-              />
+          <div className='container main-doctors-container margin-bottom-md'>
+            <div className='featured-doctor featured-doctor--main'>
+              <img src={OmarHeadshot} alt='' className='featured-doctor--img-main' />
 
               <div className='featured-doctor__details featured-doctor__details--main'>
                 <h2 className='heading-primary featured-doctor__details--name'>
                   Dr. Omar Badri M.D.
                 </h2>
-                <h2 className='featured-doctor__details__tag'>
+                <h2 className='featured-doctor__details__tag featured-doctor__details__tag--main'>
                   <IoSchoolOutline className='featured-doctor__details__tag--icon' />
                   <p className='heading-tertiary featured-doctor__details__tag--text'>
                     Harvard University
                   </p>
                 </h2>
-                <h2 className='paragraph featured-doctor__details--bio'>
+                <h2 className='paragraph featured-doctor__details--bio featured-doctor__details--bio--main'>
                   Dr. Badri completed his intern year at Brigham & Women’s Hospital (Harvard). His
                   completed residency training in Dermatology (Brigham & Women’s Hospital,
                   Massachusetts General Hospital, and Boston Children’s Hospital) and Internal

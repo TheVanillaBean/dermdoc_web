@@ -276,18 +276,83 @@
   margin-bottom: 12rem;
 }
 
+.main-doctors-container {
+  padding-left: 0;
+
+  @include respond(tab-port) {
+    padding-left: 3.2rem;
+  }
+}
+
 .additional-doctors-container {
   display: flex;
-  gap: 12rem;
+  gap: 6rem;
+  width: 100%;
+  padding-left: 0;
+
+  @include respond(tab-port) {
+    padding-left: 3.2rem;
+  }
+
+  @include respond(small-tab) {
+    flex-direction: column;
+    gap: 3.2rem;
+  }
 }
 
 .featured-doctor {
   display: flex;
   gap: 3.2rem;
+  justify-content: center;
+
+  &--main {
+    @include respond(small-tab) {
+      flex-direction: column;
+      align-items: center;
+      text-align: center;
+    }
+  }
 
   &--img {
     object-fit: cover;
-    width: 60%;
+    max-width: 75%;
+    max-height: 75%;
+
+    @include respond(tab-land) {
+      max-width: 65%;
+      max-height: 65%;
+    }
+
+    @include respond(tab-port) {
+      max-width: 55%;
+      max-height: 55%;
+    }
+
+    @include respond(small-tab) {
+      max-width: 40%;
+      max-height: 40%;
+    }
+
+    @include respond(phone) {
+      max-width: 55%;
+      max-height: 55%;
+    }
+  }
+
+  &--img-main {
+    object-fit: cover;
+    max-width: 80%;
+    max-height: 80%;
+
+    @include respond(tab-land) {
+      max-width: 65%;
+      max-height: 65%;
+    }
+
+    @include respond(small-tab) {
+      max-width: 85%;
+      max-height: 85%;
+    }
   }
 
   &__details {
@@ -312,6 +377,16 @@
       padding: 3px 0;
       padding-left: 6px;
 
+      &--main {
+        @include respond(tab-port) {
+          margin: 0 auto;
+        }
+      }
+
+      @include respond(tab-port) {
+        margin-bottom: 2.1rem;
+      }
+
       &--icon {
         width: 3.2rem;
         height: 3.2rem;
@@ -325,6 +400,14 @@
         white-space: nowrap;
         margin-bottom: 0;
         padding-right: 1.2rem;
+      }
+    }
+
+    &--bio--main {
+      font-style: italic;
+
+      @include respond(small-tab) {
+        font-size: 2.2rem;
       }
     }
   }
