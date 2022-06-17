@@ -116,26 +116,30 @@ class HomePage extends React.Component {
               <div className='steps-container__step__number'>
                 <h2 className='heading-primary steps-container__step__number--text'>1</h2>
               </div>
-              <h1 className='steps-container__step--title heading-tertiary'>
-                Steps dolor sit amet, consectetur adipiscing elit.
-              </h1>
-              <p className='steps-container__step--description paragraph'>
-                Sed varius elit egestas metus molestie pharetra. In vulputate orci in tellus rutrum,
-                sed vestibulum leo hendrerit.
-              </p>
+              <div className='steps-container__step__text'>
+                <h1 className='steps-container__step__text--title heading-tertiary '>
+                  Upload selfies
+                </h1>
+                <p className='steps-container__step__text--description paragraph'>
+                  Answer some questions and share photos of your skin.
+                </p>
+              </div>
+
               <img src={StepsOne} alt='Step One' className='steps-container__step--img' />
             </div>
             <div className='steps-container__step'>
               <div className='steps-container__step__number'>
                 <h2 className='heading-primary steps-container__step__number--text'>2</h2>
               </div>
-              <h1 className='steps-container__step--title heading-tertiary'>
-                Steps dolor sit amet, consectetur adipiscing elit.
-              </h1>
-              <p className='steps-container__step--description paragraph'>
-                Sed varius elit egestas metus molestie pharetra. In vulputate orci in tellus rutrum,
-                sed vestibulum leo hendrerit.
-              </p>
+              <div className='steps-container__step__text'>
+                <h1 className='steps-container__step__text--title heading-tertiary'>
+                  Receive custom formula
+                </h1>
+                <p className='steps-container__step__text--description paragraph'>
+                  Your dermatologist will design a personalized cream for you within 24 hours.
+                </p>
+              </div>
+
               <img src={StepsTwo} alt='Step Two' className='steps-container__step--img' />
             </div>
             <div className='steps-container__step'>
@@ -144,13 +148,14 @@ class HomePage extends React.Component {
                   3
                 </h2>
               </div>
-              <h1 className='steps-container__step--title heading-tertiary'>
-                Steps dolor sit amet, consectetur adipiscing elit.
-              </h1>
-              <p className='steps-container__step--description paragraph'>
-                Sed varius elit egestas metus molestie pharetra. In vulputate orci in tellus rutrum,
-                sed vestibulum leo hendrerit.
-              </p>
+              <div className='steps-container__step__text'>
+                <h1 className='steps-container__step__text--title heading-tertiary'>
+                  Check-in as needed
+                </h1>
+                <p className='steps-container__step__text--description paragraph'>
+                  You'll check-in with your dermatologist throughout your journey.
+                </p>
+              </div>
               <img src={StepsThree} alt='Step Three' className='steps-container__step--img' />
             </div>
           </div>
