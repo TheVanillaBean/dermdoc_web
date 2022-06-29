@@ -1,4 +1,4 @@
-import React, { Component } from 'react';
+import { Component } from 'react';
 import ReactPixel from 'react-facebook-pixel';
 import { connect } from 'react-redux';
 import { withRouter } from 'react-router';
@@ -56,7 +56,7 @@ class ZipCodeCheck extends Component {
       return;
     }
 
-    const { visitReason, mailing_state } = this.props;
+    const { visitReason = 'Acne', mailing_state } = this.props;
 
     try {
       const newVisit = await createVisit(visitReason, mailing_state);

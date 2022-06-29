@@ -17,7 +17,7 @@ const HeroSection = ({ handleClick, handleSubmit, handleChange, email }) => {
   const { ref, entry } = useInView({
     root: null, //browser viewport
     threshold: 0,
-    rootMargin: '0px',
+    rootMargin: '16px',
   });
 
   const [index, setIndex] = React.useState(0);
@@ -61,7 +61,7 @@ const HeroSection = ({ handleClick, handleSubmit, handleChange, email }) => {
           </h3>
 
           <CustomButton className='btn btn--full' onClick={handleClick}>
-            Learn More
+            Get started for $19.99/month
           </CustomButton>
         </div>
       </div>

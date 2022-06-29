@@ -1,10 +1,21 @@
+.sale-banner {
+  padding: 3.2rem 1.2rem 0 1.2rem;
+  text-align: center;
+
+  &--text {
+    margin-bottom: 0;
+    color: var(--color-primary-dark);
+    text-transform: uppercase;
+  }
+}
+
 /***************************/
 /* HERO SECTION */
 /***************************/
 
 .hero-container {
   background-image: linear-gradient(rgba(104, 141, 177, 0.1), rgba(104, 141, 177, 0.2)),
-    url(/src/assets/img/hero-desktop.png);
+    url(/src/assets/img/hero-desktop-self-3.jpg);
   background-size: cover;
   background-repeat: no-repeat;
   background-position: bottom right;
@@ -13,7 +24,8 @@
 
   @include respond(tab-port) {
     background-image: linear-gradient(rgba(104, 141, 177, 0.1), rgba(104, 141, 177, 0.2)),
-      url(/src/assets/img/hero-desktop.png);
+      url(/src/assets/img/hero-mobile-self-3.jpg);
+    background-position: bottom center;
   }
 }
 
@@ -151,11 +163,17 @@
   margin-top: 6rem;
   margin-bottom: 12rem;
   background-image: linear-gradient(rgba(104, 141, 177, 0.1), rgba(104, 141, 177, 0.2)),
-    url(/src/assets/img/product-with-water.jpeg);
+    url(/src/assets/img/product-with-water-desktop.jpg);
   background-size: cover;
   background-repeat: no-repeat;
-  background-position: center;
-  height: 70vh;
+  background-position: bottom;
+  height: 80vh;
+
+  @include respond(tab-port) {
+    background-image: linear-gradient(rgba(104, 141, 177, 0.1), rgba(104, 141, 177, 0.2)),
+      url(/src/assets/img/product-with-water-mobile.jpg);
+    margin-bottom: 6rem;
+  }
 }
 
 /***************************/
@@ -165,6 +183,10 @@
 .section-how {
   scroll-margin: 3.2rem;
   margin-bottom: 12rem;
+
+  @include respond(tab-port) {
+    margin-bottom: 6rem;
+  }
 }
 
 .steps-container {
@@ -197,7 +219,7 @@
         position: relative;
 
         @include respond(small-tab) {
-          font-size: 2.8rem;
+          // font-size: 2.8rem;
         }
 
         &::after {
@@ -227,33 +249,39 @@
       margin-bottom: 2.1rem;
 
       @include respond(phone) {
-        font-weight: 400;
+        font-weight: 600;
       }
 
       &--title {
-        height: 3.2rem;
+        margin-bottom: 2.1rem;
+        // height: 3.2rem;
         @include respond(phone) {
-          font-size: 3.2rem;
+          // font-size: 3.2rem;
         }
       }
 
       &--description {
         @include respond(phone) {
-          font-size: 2.2rem;
+          // font-size: 2.2rem;
         }
       }
     }
 
     &--img {
       object-fit: cover;
+      width: 100%;
+      height: 100%;
 
       @include respond(tab-port) {
+        height: 95%;
         width: 95%;
         margin: 0 auto;
       }
 
       @include respond(phone) {
+        height: 75%;
         width: 75%;
+
         margin: 0 auto;
         order: -1;
         margin-bottom: 3.2rem;
@@ -274,6 +302,10 @@
 .section-doctors {
   scroll-margin: 3.2rem;
   margin-bottom: 12rem;
+
+  @include respond(tab-port) {
+    margin-bottom: 6rem;
+  }
 }
 
 .main-doctors-container {
@@ -315,43 +347,39 @@
 
   &--img {
     object-fit: cover;
-    max-width: 75%;
-    max-height: 75%;
+    width: 75%;
+    height: 75%;
 
     @include respond(tab-land) {
-      max-width: 65%;
-      max-height: 65%;
+      width: 65%;
+      height: 65%;
     }
 
     @include respond(tab-port) {
-      max-width: 55%;
-      max-height: 55%;
+      width: 55%;
+      height: 55%;
     }
 
     @include respond(small-tab) {
-      max-width: 40%;
-      max-height: 40%;
-    }
-
-    @include respond(phone) {
-      max-width: 55%;
-      max-height: 55%;
+      width: 40%;
+      height: 40%;
     }
   }
 
   &--img-main {
     object-fit: cover;
-    max-width: 80%;
-    max-height: 80%;
+    width: 80%;
+    height: 80%;
+    margin-bottom: 2.1rem;
 
     @include respond(tab-land) {
-      max-width: 65%;
-      max-height: 65%;
+      width: 65%;
+      height: 65%;
     }
 
     @include respond(small-tab) {
-      max-width: 85%;
-      max-height: 85%;
+      width: 100%;
+      height: 100%;
     }
   }
 
@@ -404,10 +432,10 @@
     }
 
     &--bio--main {
-      font-style: italic;
+      // font-style: italic;
 
       @include respond(small-tab) {
-        font-size: 2.2rem;
+        // font-size: 2.2rem;
       }
     }
   }
@@ -425,7 +453,9 @@
 .pricing-plan {
   border-radius: 11px;
   width: 75%;
+  height: 100%;
   overflow: hidden;
+  padding-bottom: 2.1rem;
 
   box-shadow: 0 2.4rem 4.8rem rgba(0, 0, 0, 0.075);
   border-radius: 11px;
@@ -472,6 +502,7 @@
     width: 100%;
     height: 40%;
     object-fit: cover;
+    object-position: center;
   }
 
   &__content {
@@ -485,7 +516,7 @@
     &--name {
       color: var(--color-primary);
       font-weight: 600;
-      font-size: 2rem;
+      // font-size: 2rem;
       text-transform: uppercase;
       letter-spacing: 0.75;
       margin-bottom: 3.2rem;
@@ -505,156 +536,10 @@
     }
 
     &--text {
-      font-size: 1.6rem;
-      line-height: 1.6;
+      // font-size: 1.6rem;
+      // line-height: 1.6;
       color: #6f6f6f;
     }
-  }
-}
-
-/***************************/
-/* PERSONAS SECTION */
-/***************************/
-
-.section-personas {
-  scroll-margin: 3.2rem;
-  padding-top: 4.8rem;
-  margin-bottom: 9.6rem;
-}
-
-.persona {
-  box-shadow: 0 2.4rem 4.8rem rgba(0, 0, 0, 0.075);
-  border-radius: 11px;
-  overflow: hidden;
-  transition: all 0.4s;
-  width: 100%;
-  margin: 0 auto;
-  margin-bottom: 6.4rem;
-  display: flex;
-  flex-direction: column;
-  gap: 2.4rem;
-
-  &:hover {
-    transform: translateY(-1.2rem);
-    box-shadow: 0 3.2rem 6.4rem rgba(0, 0, 0, 0.06);
-  }
-
-  &__image {
-    width: 100%;
-    height: 25vh;
-    object-fit: cover;
-    object-position: center;
-  }
-
-  &__content {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    margin: 2.4rem;
-    height: 50rem;
-
-    &--name {
-      font-size: 3.2rem;
-      font-weight: 500;
-    }
-
-    &--formula-details {
-      display: flex;
-      margin-bottom: 4.8rem;
-      justify-content: space-between;
-      width: 65%;
-      height: 50%;
-    }
-
-    &--review {
-      font-size: 1.8rem;
-      font-weight: 500;
-      margin-bottom: 1.2rem;
-      line-height: 1.4;
-      justify-self: flex-start;
-    }
-  }
-
-  &__attributes {
-    display: flex;
-    flex-direction: column;
-    list-style: none;
-
-    &--title {
-      font-size: 3.2rem;
-      margin-bottom: 1.2rem;
-      font-weight: 600;
-      color: var(--color-primary);
-    }
-
-    &--item {
-      font-size: 2.4rem;
-      font-weight: 500;
-      line-height: 2;
-    }
-  }
-}
-
-.section-reviews {
-  margin-bottom: 9.6rem;
-}
-
-.review {
-  box-shadow: 0 2.4rem 4.8rem rgba(0, 0, 0, 0.075);
-  border-radius: 11px;
-  overflow: hidden;
-  transition: all 0.4s;
-  width: 100%;
-  margin: 0 auto;
-  margin-bottom: 6.4rem;
-  display: flex;
-  flex-direction: column;
-  height: 60rem;
-
-  &:hover {
-    transform: translateY(-1.2rem);
-    box-shadow: 0 3.2rem 6.4rem rgba(0, 0, 0, 0.06);
-  }
-
-  &__quote {
-    padding: 3.2rem;
-    quotes: '\201C''\201D''\2018''\2019';
-    height: 100%;
-
-    &--text {
-      font-size: 2.4rem;
-    }
-
-    &--icon:before {
-      content: open-quote;
-      font-weight: bold;
-      font-size: 10rem;
-      color: var(--color-primary);
-    }
-
-    &--icon:after {
-      content: close-quote;
-      font-size: 0rem;
-    }
-  }
-
-  &__stars {
-    padding: 0 3.2rem 1.2rem 0;
-    align-self: flex-end;
-    font-size: 2.4rem;
-
-    &--star {
-      width: 2.4rem;
-      height: 2.4rem;
-      color: var(--color-primary);
-    }
-  }
-
-  &__name {
-    padding: 0 3.2rem 3.2rem 0;
-    align-self: flex-end;
-    font-size: 2.4rem;
-    color: var(--color-grey-dark-3);
   }
 }
 
@@ -663,7 +548,7 @@
 /***************************/
 
 .section-faq {
-  padding: 9.6rem 0 9.6rem 0;
+  margin-bottom: 6rem;
 }
 
 .faq-style-wrapper .faq-body .faq-row .row-content-text {
