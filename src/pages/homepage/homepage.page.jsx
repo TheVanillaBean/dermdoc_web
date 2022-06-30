@@ -6,7 +6,7 @@ import {
   IoHeartOutline,
   IoSchoolOutline,
 } from 'react-icons/io5';
-import { Link, withRouter } from 'react-router-dom';
+import { withRouter } from 'react-router-dom';
 import 'swiper/modules/mousewheel/mousewheel.min.css';
 import 'swiper/modules/navigation/navigation.min.css';
 import 'swiper/modules/pagination/pagination.min.css';
@@ -43,6 +43,14 @@ class HomePage extends React.Component {
     document.body.classList.remove('sticky');
 
     history.push(`get_started`);
+  };
+
+  handleIngredientsClick = () => {
+    const { history } = this.props;
+
+    document.body.classList.remove('sticky');
+
+    history.push(`ingredients`);
   };
 
   render() {
@@ -100,11 +108,11 @@ class HomePage extends React.Component {
           </div>
 
           <div className='container'>
-            <Link to='/ingredients'>
-              <p className='text-primary-color heading-tertiary center-text'>
-                Show All Ingredients &#10140;
-              </p>
-            </Link>
+            <p
+              className='text-primary-color heading-tertiary center-text'
+              onClick={this.handleIngredientsClick}>
+              Show All Ingredients &#10140;
+            </p>
           </div>
 
           <img src={Cream} className='section-ingredients--cream' alt='skin cream smear' />

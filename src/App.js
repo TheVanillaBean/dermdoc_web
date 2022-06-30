@@ -1,4 +1,4 @@
-import React, { Component } from 'react';
+import { Component } from 'react';
 import ReactPixel from 'react-facebook-pixel';
 import { connect } from 'react-redux';
 import { Redirect, Route, Switch } from 'react-router-dom';
@@ -6,6 +6,7 @@ import { createStructuredSelector } from 'reselect';
 import '../src/assets/css/main.css/main.css';
 import { auth, createUserProfileDocument } from './firebase/firebase.utils';
 import HomePage from './pages/homepage/homepage.page';
+import IngredientsPage from './pages/ingredients/ingredients.component';
 import LegalPage from './pages/legal/legal.pages';
 import VisitLandingPage from './pages/visit-landing/visit-landing.page';
 import WaitlistPage from './pages/waitlist/waitlist.page';
@@ -46,6 +47,7 @@ class App extends Component {
     return (
       <Switch>
         <Route exact path='/' component={HomePage} />
+        <Route exact path='/ingredients' component={IngredientsPage} />
         <Route exact path='/waitlist' component={WaitlistPage} />
         <Route exact path='/get_started' component={ZipcodeCheckPage} />
         <Route path='/visits/:visit_id' component={VisitLandingPage} />
