@@ -11,13 +11,14 @@ import { ReactComponent as Niacinamide } from '../../assets/img/ingredients/niac
 import { ReactComponent as Tretinoin } from '../../assets/img/ingredients/tretinoin.svg';
 import { ReactComponent as ZincPyrithione } from '../../assets/img/ingredients/zinc-pyrithione.svg';
 import Leaf from '../../assets/img/leaf-img.png';
+import Footer from '../../components/footer/footer.component';
 import Header from '../../components/header/header.component';
 
 const Ingredients = () => {
   return (
     <div>
       <Header />
-      <section className='section-ingredients' id='ingredients'>
+      <section className='section-ingredients margin-bottom-md' id='ingredients'>
         <div className='container center-text margin-bottom-md'>
           <h1 className='heading-primary'>All Our Prescription Ingredients</h1>
           <p className='heading-tertiary'>
@@ -131,6 +132,8 @@ const Ingredients = () => {
 
         <img src={Leaf} className='section-ingredients--leaf' alt='green leaf' />
       </section>
+
+      <Footer />
     </div>
   );
 };

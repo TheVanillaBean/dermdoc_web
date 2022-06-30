@@ -58,8 +58,8 @@ class HomePage extends React.Component {
       <main>
         <div className='hero-container'>
           <div className='sale-banner margin-center'>
-            <h1 className='heading-secondary sale-banner--text'>
-              50% Off Summer Sale - Limited Time
+            <h1 className='paragraph sale-banner--text'>
+              4th of July Sale - Save 50% for a limited time
             </h1>
           </div>
           <Header />

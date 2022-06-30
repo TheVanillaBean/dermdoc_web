@@ -266,6 +266,9 @@ body {
   color: var(--color-grey-dark-1);
   letter-spacing: 0.75px; }
 
+.subscript {
+  text-decoration: line-through; }
+
 .text-primary-color {
   color: var(--color-primary); }
 
@@ -1584,11 +1587,12 @@ strong {
   white-space: pre-wrap; }
 
 .sale-banner {
-  padding: 3.2rem 1.2rem 0 1.2rem;
-  text-align: center; }
+  padding: 1.2rem 1.2rem 1.2rem 1.2rem;
+  text-align: center;
+  background-color: var(--color-grey-dark-1); }
   .sale-banner--text {
     margin-bottom: 0;
-    color: var(--color-primary-dark);
+    color: var(--color-grey-light-1);
     text-transform: uppercase; }
 
 /***************************/

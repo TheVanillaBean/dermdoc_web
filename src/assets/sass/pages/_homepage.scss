@@ -1,10 +1,11 @@
 .sale-banner {
-  padding: 3.2rem 1.2rem 0 1.2rem;
+  padding: 1.2rem 1.2rem 1.2rem 1.2rem;
   text-align: center;
+  background-color: var(--color-grey-dark-1);
 
   &--text {
     margin-bottom: 0;
-    color: var(--color-primary-dark);
+    color: var(--color-grey-light-1);
     text-transform: uppercase;
   }
 }
