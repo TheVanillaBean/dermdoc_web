@@ -54,3 +54,58 @@
     justify-content: flex-start;
   }
 }
+
+//////////////////////////
+// FORM INPUT
+
+@mixin shrinkLabel {
+  top: -14px;
+  font-size: 12px;
+  color: var(--color-grey-dark-1);
+}
+
+.form-input-container {
+  position: relative;
+  margin: 45px 0;
+
+  &__input {
+    background: none;
+    background-color: white;
+    color: var(--color-grey-dark-2);
+    font-size: 18px;
+    padding: 10px 10px 10px 5px;
+    display: block;
+    width: 100%;
+    border: none;
+    border-radius: 0;
+    border-bottom: 1px solid var(--color-grey-dark-2);
+    margin: 25px 0;
+
+    &:focus {
+      outline: none;
+    }
+
+    &:focus ~ .form-input-label {
+      @include shrinkLabel();
+    }
+  }
+
+  input[type='password'] {
+    letter-spacing: 0.3em;
+  }
+
+  &__label {
+    color: var(--color-grey-dark-2);
+    font-size: 16px;
+    font-weight: normal;
+    position: absolute;
+    pointer-events: none;
+    left: 5px;
+    top: 10px;
+    transition: 300ms ease all;
+
+    &__shrink {
+      @include shrinkLabel();
+    }
+  }
+}

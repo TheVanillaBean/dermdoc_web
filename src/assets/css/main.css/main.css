@@ -266,7 +266,7 @@ body {
   color: var(--color-grey-dark-1);
   letter-spacing: 0.75px; }
 
-.subscript {
+.strike-through {
   text-decoration: line-through; }
 
 .text-primary-color {
@@ -411,7 +411,7 @@ strong {
 .btn:visited {
   display: inline-block;
   text-decoration: none;
-  font-size: 2.4rem;
+  font-size: 2.1rem;
   padding: 1.6rem 3.2rem;
   border-radius: 9px;
   /* For button tag only */
@@ -504,7 +504,7 @@ strong {
   letter-spacing: 0.75px;
   line-height: 1.4;
   padding: 0 3rem;
-  font-size: 2rem;
+  font-size: 2.1rem;
   background-color: #fff;
   color: var(--color-shade-1);
   border: 1px solid var(--color-primary);
@@ -581,18 +581,55 @@ strong {
     display: flex;
     justify-content: flex-start; }
 
+.form-input-container {
+  position: relative;
+  margin: 45px 0; }
+  .form-input-container__input {
+    background: none;
+    background-color: white;
+    color: var(--color-grey-dark-2);
+    font-size: 18px;
+    padding: 10px 10px 10px 5px;
+    display: block;
+    width: 100%;
+    border: none;
+    border-radius: 0;
+    border-bottom: 1px solid var(--color-grey-dark-2);
+    margin: 25px 0; }
+    .form-input-container__input:focus {
+      outline: none; }
+    .form-input-container__input:focus ~ .form-input-label {
+      top: -14px;
+      font-size: 12px;
+      color: var(--color-grey-dark-1); }
+  .form-input-container input[type='password'] {
+    letter-spacing: 0.3em; }
+  .form-input-container__label {
+    color: var(--color-grey-dark-2);
+    font-size: 16px;
+    font-weight: normal;
+    position: absolute;
+    pointer-events: none;
+    left: 5px;
+    top: 10px;
+    transition: 300ms ease all; }
+    .form-input-container__label__shrink {
+      top: -14px;
+      font-size: 12px;
+      color: var(--color-grey-dark-1); }
+
 .questionnaire__thank-you {
   display: flex;
   flex-direction: column;
   align-items: center; }
   .questionnaire__thank-you > h2 {
-    font-size: 3rem;
+    font-size: 2.8rem;
     font-weight: 700;
     color: var(--color-grey-dark-1);
     text-align: center;
     margin-bottom: 1.2rem; }
   .questionnaire__thank-you > p {
-    font-size: 2.4rem;
+    font-size: 2.1rem;
     font-weight: 400;
     color: var(--color-grey-dark-1);
     text-align: center;
@@ -1575,7 +1612,7 @@ strong {
 .legal-container__header {
   color: var(--color-grey-dark-1);
   font-weight: 500;
-  font-size: 2.5rem;
+  font-size: 2.8rem;
   text-align: center;
   margin-bottom: 2rem; }
 
@@ -1603,7 +1640,7 @@ strong {
   background-size: cover;
   background-repeat: no-repeat;
   background-position: bottom right;
-  height: 100vh;
+  height: 110vh;
   background-attachment: scroll;
   /***************************/
   /* 544/16 = 34 */
@@ -2829,7 +2866,7 @@ strong {
 .zipcode-input {
   background: none;
   background-color: white;
-  color: #555;
+  color: var(--color-grey-dark-1);
   font-size: 1.8rem;
   padding: 10px 10px 10px 5px;
   display: inline;

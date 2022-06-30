@@ -61,7 +61,7 @@ const HeroSection = ({ handleClick, handleSubmit, handleChange, email }) => {
           </h3>
 
           <CustomButton className='btn btn--full' onClick={handleClick}>
-            Get started for <span className='subscript'>$39.99</span> $19.99/month
+            Get started for <span className='strike-through'>$39.99</span> $19.99/month
           </CustomButton>
         </div>
       </div>
