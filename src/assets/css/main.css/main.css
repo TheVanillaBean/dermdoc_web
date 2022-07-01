@@ -2084,6 +2084,31 @@ strong {
   display: flex;
   justify-content: space-evenly;
   gap: 2.4rem;
+  margin-bottom: 6rem;
+  /***************************/
+  /* 544/16 = 34 */
+  /* BELOW 544px (Phones) */
+  /***************************/
+  /***************************/
+  /* 704/16 = 44 */
+  /* BELOW 704px (Tablets) */
+  /***************************/
+  /***************************/
+  /* 944/16 = 59 */
+  /* BELOW 944px (Tablets) */
+  /***************************/
+  /***************************/
+  /* 1200/16 = 75 */
+  /* BELOW 1200px (Landscape Tablets) */
+  /***************************/
+  /***************************/
+  /* 1344/16 = 84 */
+  /* BELOW 1344px (Smaller Desktops) */
+  /***************************/
+  /***************************/
+  /* 1800/16 = 112.5 */
+  /* BELOW 1800px (Big Desktops) */
+  /***************************/
   /***************************/
   /* 544/16 = 34 */
   /* BELOW 544px (Phones) */
@@ -2108,6 +2133,9 @@ strong {
   /* 1800/16 = 112.5 */
   /* BELOW 1800px (Big Desktops) */
   /***************************/ }
+  @media only screen and (max-width: 59em) {
+    .steps-container {
+      margin-bottom: 1.2rem; } }
   @media only screen and (max-width: 34em) {
     .steps-container {
       flex-direction: column;

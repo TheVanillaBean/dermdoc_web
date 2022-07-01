@@ -194,6 +194,11 @@
   display: flex;
   justify-content: space-evenly;
   gap: 2.4rem;
+  margin-bottom: 6rem;
+
+  @include respond(tab-port) {
+    margin-bottom: 1.2rem;
+  }
 
   @include respond(phone) {
     flex-direction: column;

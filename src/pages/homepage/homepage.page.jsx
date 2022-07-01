@@ -4,7 +4,7 @@ import {
   IoCheckmarkCircleOutline,
   IoHappyOutline,
   IoHeartOutline,
-  IoSchoolOutline,
+  IoSchoolOutline
 } from 'react-icons/io5';
 import { withRouter } from 'react-router-dom';
 import 'swiper/modules/mousewheel/mousewheel.min.css';
