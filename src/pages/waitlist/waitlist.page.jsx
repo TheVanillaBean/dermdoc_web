@@ -61,14 +61,12 @@ class WaitlistPage extends React.Component {
         <Header />
 
         <div className='container margin-bottom-md'>
-          <div className='not-in-area'>
-            <p>We haven't launched yet in your state.</p>
-            <br />
-            <p>
-              If you join our waitlist, we will send you a 54% discount when we do launch
-              ($6.99/month).
-            </p>
-          </div>
+          <p className='heading-primary'>We haven't launched yet in your state.</p>
+          <br />
+          <p className='heading-tertiary'>
+            If you join our waitlist, we will send you a 54% discount when we do launch
+            ($6.99/month).
+          </p>
 
           <form className='sign-up-form' onSubmit={this.handleSubmit}>
             <FormInput

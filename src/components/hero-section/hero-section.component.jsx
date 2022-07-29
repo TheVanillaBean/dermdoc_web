@@ -5,13 +5,15 @@ import CustomButton from '../../components/custom-button/custom-button.component
 
 const HeroSection = ({ handleClick, handleSubmit, handleChange, email }) => {
   const TEXTS = [
-    'acne',
+    'normal skin',
+    'sensitive skin',
+    'oily skin',
+    'dry skin',
+    'aging skin',
+    'acne-prone skin',
     'breakouts',
     'wrinkles',
-    'pimples',
     'dark spots',
-    'blackheads',
-    'whiteheads',
   ];
 
   const { ref, entry } = useInView({
@@ -45,7 +47,7 @@ const HeroSection = ({ handleClick, handleSubmit, handleChange, email }) => {
         <div className='hero-text-box'>
           <div className='hero-text-box__heading-container'>
             <h1 className='heading-primary hero-text-box__heading-container--text'>
-              Personalized cream to treat
+              Personalized cream for
             </h1>
             <TextTransition
               text={TEXTS[index % TEXTS.length]}
@@ -56,12 +58,11 @@ const HeroSection = ({ handleClick, handleSubmit, handleChange, email }) => {
           </div>
 
           <h3 className='heading-tertiary'>
-            The most effective skincare products personalized and delivered to you by
-            dermatologists.
+            The only skincare product designed specifically for every customer by a dermatologist
           </h3>
 
           <CustomButton className='btn btn--full' onClick={handleClick}>
-            Get started for <span className='strike-through'>($39.99)</span> $19.99/month
+            Try 3-month risk-free trial - $19.99/month
           </CustomButton>
         </div>
       </div>

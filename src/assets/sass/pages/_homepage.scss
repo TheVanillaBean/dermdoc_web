@@ -15,8 +15,8 @@
 /***************************/
 
 .hero-container {
-  background-image: linear-gradient(rgba(104, 141, 177, 0.1), rgba(104, 141, 177, 0.2)),
-    url(/src/assets/img/hero-desktop-self-3.jpg);
+  background-image: linear-gradient(rgba(104, 141, 177, 0.4), rgba(104, 141, 177, 0.2)),
+    url(/src/assets/img/hero-desktop.jpg);
   background-size: cover;
   background-repeat: no-repeat;
   background-position: bottom right;
@@ -24,8 +24,8 @@
   background-attachment: scroll;
 
   @include respond(tab-port) {
-    background-image: linear-gradient(rgba(104, 141, 177, 0.1), rgba(104, 141, 177, 0.2)),
-      url(/src/assets/img/hero-mobile-self-3.jpg);
+    background-image: linear-gradient(rgba(104, 141, 177, 0.4), rgba(104, 141, 177, 0.2)),
+      url(/src/assets/img/hero-mobile.jpg);
     background-position: bottom center;
   }
 }
@@ -342,6 +342,7 @@
   display: flex;
   gap: 3.2rem;
   justify-content: center;
+  min-width: 60%;
 
   &--main {
     @include respond(small-tab) {

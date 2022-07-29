@@ -18,6 +18,7 @@ class ZipCodeCheck extends Component {
   state = {
     doctorsAvailable: false,
     termsChecked: false,
+    submitted: false,
   };
 
   handleZipcodeChange = (event) => {
@@ -56,6 +57,12 @@ class ZipCodeCheck extends Component {
       return;
     }
 
+    if (this.state.submitted) {
+      return;
+    }
+
+    this.setState({ submitted: true });
+
     const { visitReason = 'Acne', mailing_state } = this.props;
 
     try {
@@ -74,10 +81,12 @@ class ZipCodeCheck extends Component {
         const { history } = this.props;
         history.push(`/visits/${newVisit.visitId}/questions`);
       }
+      this.setState({ submitted: false });
     } catch (e) {
       let errorText = e.message;
 
       toast.error(errorText);
+      this.setState({ submitted: false });
     }
   };
 

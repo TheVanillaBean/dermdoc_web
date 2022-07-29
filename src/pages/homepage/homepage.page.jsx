@@ -4,7 +4,7 @@ import {
   IoCheckmarkCircleOutline,
   IoHappyOutline,
   IoHeartOutline,
-  IoSchoolOutline
+  IoSchoolOutline,
 } from 'react-icons/io5';
 import { withRouter } from 'react-router-dom';
 import 'swiper/modules/mousewheel/mousewheel.min.css';
@@ -19,12 +19,12 @@ import { ReactComponent as Clindamycin } from '../../assets/img/ingredients/clin
 import { ReactComponent as Tretinoin } from '../../assets/img/ingredients/tretinoin.svg';
 import Leaf from '../../assets/img/leaf-img.png';
 import OmarHeadshot from '../../assets/img/omar-cutout.png';
-import CreamPricing from '../../assets/img/pricing-cream-self.jpg';
-import PillsPricing from '../../assets/img/pricing-oral-self.jpg';
+import CreamPricing from '../../assets/img/pricing-cream.jpg';
+import PillsPricing from '../../assets/img/pricing-oral.jpg';
 import SaamiHeadshot from '../../assets/img/saami_headshot.jpg';
-import StepsOne from '../../assets/img/step-1-img-v5.jpg';
-import StepsTwo from '../../assets/img/step-2-img-v2.jpg';
-import StepsThree from '../../assets/img/step-3-img.jpg';
+import StepsOne from '../../assets/img/step-1-v2.jpg';
+import StepsTwo from '../../assets/img/step-2-v2.jpg';
+import StepsThree from '../../assets/img/step-3-v2.jpg';
 import CustomButton from '../../components/custom-button/custom-button.component';
 import Footer from '../../components/footer/footer.component';
 import Header from '../../components/header/header.component';
@@ -58,9 +58,7 @@ class HomePage extends React.Component {
       <main>
         <div className='hero-container'>
           <div className='sale-banner margin-center'>
-            <h1 className='paragraph sale-banner--text'>
-              4th of July Sale - Save 50% for a limited time
-            </h1>
+            <h1 className='paragraph sale-banner--text'>Free skin consultation with every order</h1>
           </div>
           <Header />
           <HeroSection handleClick={this.handleClick} />
@@ -122,7 +120,7 @@ class HomePage extends React.Component {
 
         <section className='section-product-photo' />
 
-        <section className='section-how'>
+        <section className='section-how' id='how'>
           <div className='container center-text margin-bottom-md'>
             <h1 className='heading-primary'>How it works</h1>
             <p className='heading-tertiary'>You're only 3 steps away from clearer skin</p>
@@ -179,7 +177,7 @@ class HomePage extends React.Component {
 
           <div className='container center-text'>
             <CustomButton className='btn btn--full' onClick={this.handleClick}>
-              Try 3-month risk-free trial - $19.99/month
+              Begin Step 1 for free
             </CustomButton>
           </div>
         </section>
@@ -227,7 +225,7 @@ class HomePage extends React.Component {
                 <h2 className='featured-doctor__details__tag'>
                   <IoSchoolOutline className='featured-doctor__details__tag--icon' />
                   <p className='heading-tertiary featured-doctor__details__tag--text'>
-                    Harvard University
+                    Brown University
                   </p>
                 </h2>
                 <h2 className='paragraph featured-doctor__details--bio'>
@@ -247,7 +245,7 @@ class HomePage extends React.Component {
                 <h2 className='featured-doctor__details__tag'>
                   <IoSchoolOutline className='featured-doctor__details__tag--icon' />
                   <p className='heading-tertiary featured-doctor__details__tag--text'>
-                    Johns Hopkins Uni.
+                    Johns Hopkins
                   </p>
                 </h2>
                 <h2 className='paragraph featured-doctor__details--bio'>

@@ -14,7 +14,7 @@ class Header extends React.Component {
 
     document.body.classList.remove('sticky');
 
-    history.push(`get_started`);
+    history.push(`/get_started`);
   };
 
   render() {
@@ -35,6 +35,17 @@ class Header extends React.Component {
                   el.scrollIntoView({ behavior: 'smooth', block: 'start' });
                   this.setState({ nav_open: '' });
                 }}
+                to='/#ingredients'>
+                Ingredients
+              </HashLink>
+            </li>
+            <li>
+              <HashLink
+                className='main-nav-link'
+                scroll={(el) => {
+                  el.scrollIntoView({ behavior: 'smooth', block: 'start' });
+                  this.setState({ nav_open: '' });
+                }}
                 to='/#how'>
                 How it works
               </HashLink>
@@ -48,17 +59,6 @@ class Header extends React.Component {
                 }}
                 to='/#pricing'>
                 Pricing
-              </HashLink>
-            </li>
-            <li>
-              <HashLink
-                className='main-nav-link'
-                scroll={(el) => {
-                  el.scrollIntoView({ behavior: 'smooth', block: 'start' });
-                  this.setState({ nav_open: '' });
-                }}
-                to='/#ingredients'>
-                Ingredients
               </HashLink>
             </li>
             <li>

@@ -1636,7 +1636,7 @@ strong {
 /* HERO SECTION */
 /***************************/
 .hero-container {
-  background-image: linear-gradient(rgba(104, 141, 177, 0.1), rgba(104, 141, 177, 0.2)), url(/src/assets/img/hero-desktop-self-3.jpg);
+  background-image: linear-gradient(rgba(104, 141, 177, 0.4), rgba(104, 141, 177, 0.2)), url(/src/assets/img/hero-desktop.jpg);
   background-size: cover;
   background-repeat: no-repeat;
   background-position: bottom right;
@@ -1668,7 +1668,7 @@ strong {
   /***************************/ }
   @media only screen and (max-width: 59em) {
     .hero-container {
-      background-image: linear-gradient(rgba(104, 141, 177, 0.1), rgba(104, 141, 177, 0.2)), url(/src/assets/img/hero-mobile-self-3.jpg);
+      background-image: linear-gradient(rgba(104, 141, 177, 0.4), rgba(104, 141, 177, 0.2)), url(/src/assets/img/hero-mobile.jpg);
       background-position: bottom center; } }
 
 .section-hero {
@@ -2496,7 +2496,8 @@ strong {
 .featured-doctor {
   display: flex;
   gap: 3.2rem;
-  justify-content: center; }
+  justify-content: center;
+  min-width: 60%; }
   .featured-doctor--main {
     /***************************/
     /* 544/16 = 34 */
@@ -2886,6 +2887,9 @@ strong {
 
 .faq-style-wrapper .faq-body .faq-row .row-content-text {
   line-height: 2.4rem; }
+
+.section-services {
+  margin-top: 2.1rem; }
 
 .zipcode {
   display: flex;
