@@ -48,47 +48,52 @@ class PhotoIDUpload extends React.Component {
   };
 
   handleSubmit = async () => {
+    if (this.state.submitted) {
+      return;
+    }
+
+    if (this.state.photoId.length === 0) {
+      toast.info('Please upload a valid photo ID');
+      return;
+    }
+
     const { visit, updateVisitAsync } = this.props;
 
     toast.info('Securely uploading photo ID...please wait');
+
     this.setState({ submitted: true });
 
-    if (!this.state.submitted) {
-      for (const photo of this.state.photoId) {
-        const options = {
-          maxSizeMB: 0.3,
-          maxWidthOrHeight: 1080,
-          useWebWorker: true,
-        };
-        try {
-          console.log('Compress Start');
-          const compressedFile = await imageCompression(photo.file, options);
-          await uploadToFirebaseStorage(compressedFile, visit.visit_id);
-          console.log('Upload');
-        } catch (error) {
-          toast.error(error);
-          this.setState({ submitted: false });
-          return;
-        }
-      }
-
+    for (const photo of this.state.photoId) {
+      const options = {
+        maxSizeMB: 0.3,
+        maxWidthOrHeight: 1080,
+        useWebWorker: true,
+      };
       try {
-        ReactPixel.track('InitiateCheckout', {
-          content_name: 'Photos Submitted',
-          content_ids: [visit.visit_id],
-          value: 10,
-          currency: 'USD',
-        });
-        await updateVisitAsync(visit.visit_id, {
-          photo_id_added: true,
-        });
+        const compressedFile = await imageCompression(photo.file, options);
+        await uploadToFirebaseStorage(compressedFile, visit.visit_id);
       } catch (error) {
         toast.error(error);
+        this.setState({ submitted: false });
         return;
       }
-
-      this.setState({ submitted: false });
     }
+
+    try {
+      ReactPixel.track('InitiateCheckout', {
+        content_name: 'Photos Submitted',
+        content_ids: [visit.visit_id],
+        value: 10,
+        currency: 'USD',
+      });
+      await updateVisitAsync(visit.visit_id, {
+        photo_id_added: true,
+      });
+    } catch (error) {
+      toast.error(error);
+    }
+
+    this.setState({ submitted: false });
   };
 
   render() {

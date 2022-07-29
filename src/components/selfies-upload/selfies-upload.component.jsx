@@ -47,41 +47,46 @@ class SelfiesUpload extends React.Component {
   };
 
   handleSubmit = async () => {
+    if (this.state.selfies.length === 0) {
+      toast.info('Please upload selfies before continuing');
+      return;
+    }
+
+    if (this.state.submitted) {
+      return;
+    }
+
     const { visit, updateVisitAsync } = this.props;
 
     toast.info('Securely uploading selfies...please wait');
+
     this.setState({ submitted: true });
 
-    if (!this.state.submitted) {
-      for (const photo of this.state.selfies) {
-        const options = {
-          maxSizeMB: 0.3,
-          maxWidthOrHeight: 1080,
-          useWebWorker: true,
-        };
-        try {
-          console.log('Compress Start');
-          const compressedFile = await imageCompression(photo.file, options);
-          await uploadToFirebaseStorage(compressedFile, visit.visit_id);
-          console.log('Upload');
-        } catch (error) {
-          toast.error(error);
-          this.setState({ submitted: false });
-          return;
-        }
-      }
-
+    for (const photo of this.state.selfies) {
+      const options = {
+        maxSizeMB: 0.3,
+        maxWidthOrHeight: 1080,
+        useWebWorker: true,
+      };
       try {
-        await updateVisitAsync(visit.visit_id, {
-          selfies_added: true,
-        });
+        const compressedFile = await imageCompression(photo.file, options);
+        await uploadToFirebaseStorage(compressedFile, visit.visit_id);
       } catch (error) {
         toast.error(error);
+        this.setState({ submitted: false });
         return;
       }
-
-      this.setState({ submitted: false });
     }
+
+    try {
+      await updateVisitAsync(visit.visit_id, {
+        selfies_added: true,
+      });
+    } catch (error) {
+      toast.error(error);
+    }
+
+    this.setState({ submitted: false });
   };
 
   render() {
