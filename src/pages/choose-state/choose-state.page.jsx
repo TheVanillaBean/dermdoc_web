@@ -8,7 +8,7 @@ import CustomButton from '../../components/custom-button/custom-button.component
 import Footer from '../../components/footer/footer.component';
 import Header from '../../components/header/header.component';
 import LegalCheckbox from '../../components/legal-checkbox/legal-checkbox.component';
-import { createVisit, logZipCode } from '../../firebase/firebase.utils';
+import { createVisit } from '../../firebase/firebase.utils';
 import { updateMailingState } from '../../redux/user/user.actions';
 import { selectMailingState } from '../../redux/user/user.selectors';
 
@@ -16,36 +16,26 @@ ReactPixel.pageView();
 
 class ChooseState extends Component {
   state = {
-    doctorsAvailable: false,
     termsChecked: false,
     submitted: false,
   };
 
-  handleZipcodeChange = (event) => {
-    const { updateZipCode } = this.props;
-    const { value } = event.target;
-    updateZipCode(value);
+  handleStateButtonPressed = (state) => {
+    const { updateMailingState, history } = this.props;
+
+    updateMailingState(state);
+
+    if (state === 'NONE') {
+      history.push('/waitlist');
+      return;
+    }
+
+    this.createNewVisit();
   };
 
   handleTermsCheckboxChange = (event) => {
     const { checked } = event.target;
     this.setState({ termsChecked: checked });
-  };
-
-  handleZipcodeSubmit = async (event) => {
-    event.preventDefault();
-
-    const { mailing_state, zipcode } = this.props;
-
-    await logZipCode(zipcode, mailing_state);
-
-    if (mailing_state !== 'MA' && mailing_state !== 'CA') {
-      this.setState({ doctorsAvailable: false });
-      const { history } = this.props;
-      history.push('/waitlist');
-    } else {
-      this.setState({ doctorsAvailable: true });
-    }
   };
 
   createNewVisit = async () => {
@@ -79,7 +69,7 @@ class ChooseState extends Component {
         toast.error(newVisit.message);
       } else {
         const { history } = this.props;
-        history.push(`/visits/${newVisit.visitId}/questions`);
+        history.push(`/visits/${newVisit.visitId}/auth`);
       }
       this.setState({ submitted: false });
     } catch (e) {
@@ -91,8 +81,6 @@ class ChooseState extends Component {
   };
 
   render() {
-    const { zipcode, visitReason } = this.props;
-
     return (
       <div>
         <Header />
@@ -108,13 +96,19 @@ class ChooseState extends Component {
               </div>
 
               <div className='container choose-state-container__buttons'>
-                <CustomButton className='btn btn--full' onClick={this.handleZipcodeSubmit}>
+                <CustomButton
+                  className='btn btn--full'
+                  onClick={() => this.handleStateButtonPressed('CA')}>
                   I live in California
                 </CustomButton>
-                <CustomButton className='btn btn--full' onClick={this.handleZipcodeSubmit}>
+                <CustomButton
+                  className='btn btn--full'
+                  onClick={() => this.handleStateButtonPressed('MA')}>
                   I live in Massachusetts
                 </CustomButton>
-                <CustomButton className='btn btn--full' onClick={this.handleZipcodeSubmit}>
+                <CustomButton
+                  className='btn btn--full'
+                  onClick={() => this.handleStateButtonPressed('NONE')}>
                   I don’t live in either state
                 </CustomButton>
               </div>
@@ -141,7 +135,7 @@ class ChooseState extends Component {
 
               <CustomButton
                 className='btn btn--full margin-bottom-sm'
-                onClick={() => this.createNewVisit(visitReason)}>
+                onClick={() => this.createNewVisit()}>
                 Begin your journey
               </CustomButton>
 

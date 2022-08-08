@@ -60,15 +60,13 @@ class WaitlistPage extends React.Component {
       <div>
         <Header />
 
-        <div className='container margin-bottom-md'>
-          <p className='heading-primary'>We haven't launched yet in your state.</p>
-          <br />
-          <p className='heading-tertiary'>
-            If you join our waitlist, we will send you a 54% discount when we do launch
-            ($6.99/month).
-          </p>
+        <div className='container waitlist-container margin-bottom-sm'>
+          <h1 className='heading-secondary margin-bottom-ex-sm'>
+            We haven't launched yet outside of California and Massachusetts
+          </h1>
+          <p className='heading-tertiary'>Join our waitlist to be notified when we do</p>
 
-          <form className='sign-up-form' onSubmit={this.handleSubmit}>
+          <form onSubmit={this.handleSubmit}>
             <FormInput
               type='email'
               name='email'
@@ -77,7 +75,7 @@ class WaitlistPage extends React.Component {
               label='Email'
               required
             />
-            <CustomButton className='custom-button' type='submit'>
+            <CustomButton className='btn btn--full' type='submit'>
               JOIN WAITLIST
             </CustomButton>
           </form>

@@ -33,11 +33,11 @@ class VisitLandingPage extends React.Component {
             const visit = doc.data();
             fetchVisitSuccess(visit);
 
-            if (visit.status === 'initiated') {
+            if (visit.status === 'auth') {
               history.push(`/visits/${visit.visit_id}/questions`);
-            } else if (visit.status === 'filled_out') {
+            } else if (visit.status === 'questions') {
               history.push(`/visits/${visit.visit_id}/auth`);
-            } else if (visit.status === 'authenticated') {
+            } else if (visit.status === 'filled_out') {
               if (visit.photo_id_added && visit.selfies_added) {
                 history.push(`/visits/${visit.visit_id}/checkout`);
               } else if (visit.selfies_added) {
@@ -66,8 +66,8 @@ class VisitLandingPage extends React.Component {
     const { match } = this.props;
     return (
       <Switch>
-        <Route path={`${match.path}/questions`} component={QuestionsPage} />
         <Route path={`${match.path}/auth`} component={AuthPage} />
+        <Route path={`${match.path}/questions`} component={QuestionsPage} />
         <Route path={`${match.path}/photo_id`} component={PhotoIdPage} />
         <Route path={`${match.path}/selfies`} component={SelfiesPage} />
 
