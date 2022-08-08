@@ -62,7 +62,7 @@ const HeroSection = ({ handleClick, handleSubmit, handleChange, email }) => {
           </h3>
 
           <CustomButton className='btn btn--full' onClick={handleClick}>
-            Try 3-month risk-free trial - $19.99/month
+            Get a 3 months supply for free
           </CustomButton>
         </div>
       </div>

@@ -1193,9 +1193,8 @@ strong {
   justify-content: space-between;
   align-items: center;
   /* Sticky header so fixed height helps */
-  height: 9.6rem;
-  padding: 0 4.8rem;
-  padding-top: 2.1rem;
+  height: 6.4rem;
+  padding: 1.8rem 1.6rem;
   position: relative;
   /***************************/
   /* 544/16 = 34 */
@@ -1223,38 +1222,10 @@ strong {
   /***************************/ }
   @media only screen and (max-width: 44em) {
     .header {
-      padding: 0 2.1rem;
       padding-top: 2.1rem; } }
 
 .logo {
-  width: 12rem;
-  /***************************/
-  /* 544/16 = 34 */
-  /* BELOW 544px (Phones) */
-  /***************************/
-  /***************************/
-  /* 704/16 = 44 */
-  /* BELOW 704px (Tablets) */
-  /***************************/
-  /***************************/
-  /* 944/16 = 59 */
-  /* BELOW 944px (Tablets) */
-  /***************************/
-  /***************************/
-  /* 1200/16 = 75 */
-  /* BELOW 1200px (Landscape Tablets) */
-  /***************************/
-  /***************************/
-  /* 1344/16 = 84 */
-  /* BELOW 1344px (Smaller Desktops) */
-  /***************************/
-  /***************************/
-  /* 1800/16 = 112.5 */
-  /* BELOW 1800px (Big Desktops) */
-  /***************************/ }
-  @media only screen and (max-width: 59em) {
-    .logo {
-      padding: 0; } }
+  width: 12rem; }
 
 .main-nav {
   /***************************/
@@ -1560,9 +1531,8 @@ strong {
   top: 0;
   bottom: 0;
   width: 100%;
-  height: 9.6rem;
-  padding-top: 2.1rem;
-  padding-bottom: 2.1rem;
+  height: 6.4rem;
+  padding: 2.1rem 1.6rem;
   background-color: rgba(255, 255, 255, 0.97);
   z-index: 999;
   box-shadow: 0 1.2rem 3.2rem rgba(0, 0, 0, 0.03); }
@@ -1570,9 +1540,6 @@ strong {
 .header {
   position: relative;
   z-index: 999; }
-
-.sticky .section-hero {
-  margin-top: 9.6rem; }
 
 .checkout_insurance_header {
   height: 60vh;
@@ -2797,7 +2764,7 @@ strong {
   width: 75%;
   height: 100%;
   overflow: hidden;
-  padding-bottom: 2.1rem;
+  padding-bottom: 3.2rem;
   box-shadow: 0 2.4rem 4.8rem rgba(0, 0, 0, 0.075);
   border-radius: 11px;
   overflow: hidden;

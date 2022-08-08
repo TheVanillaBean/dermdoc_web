@@ -274,11 +274,10 @@ class HomePage extends React.Component {
                     <span>Personalized Cream</span>
                   </p>
                   <p className='pricing-plan__content--price'>
-                    <span>$</span>19.99
+                    <span>$</span>9.99
                   </p>
                   <p className='pricing-plan__content--text paragraph'>
-                    per month. Includes topical cream and <strong>check-ins</strong> with a
-                    dermatologist.
+                    for your first 3 months supply
                   </p>
                 </header>
                 <ul className='list'>
@@ -314,11 +313,11 @@ class HomePage extends React.Component {
                   </p>
 
                   <p className='pricing-plan__content--price'>
-                    <span>$</span>19.99
+                    <span>$</span>9.99
                   </p>
 
                   <p className='pricing-plan__content--text paragraph'>
-                    extra per month. In-case you need it &#128522; Check-ins still included. <br />
+                    for your first 3 months supply
                   </p>
                 </header>
                 <ul className='list'>
@@ -345,7 +344,7 @@ class HomePage extends React.Component {
 
           <div className='container center-text'>
             <CustomButton className='btn btn--full' onClick={this.handleClick}>
-              Try 3-month risk-free trial - $19.99/month
+              Try 3-month risk-free trial - $9.99
             </CustomButton>
           </div>
         </section>

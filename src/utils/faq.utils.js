@@ -15,7 +15,7 @@ export const homepageFAQ = {
     },
     {
       title: '4. How much does a DermDoc Subscription cost?',
-      content: `We send prescriptions as 3-month supplies. After the introductory offer ($19.99/month 3-month trial), each 3-month supply costs $59.99 (shipping included). We'll send you a notice for a refill every 3 months. That breaks down to just $19.99 per month. Cancel anytime.`,
+      content: `We send prescriptions in 3-month supplies. After the introductory offer ($9.99 for your first 3 months), each 3-month supply costs $59.97 (shipping included). We'll send you a notice for a refill every 3 months. That breaks down to just $19.99 per month. Cancel anytime.`,
     },
     {
       title: '5. How does the 3-month trial work?',
