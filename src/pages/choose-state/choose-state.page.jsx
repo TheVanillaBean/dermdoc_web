@@ -85,70 +85,38 @@ class ChooseState extends Component {
       <div>
         <Header />
 
-        <section className='section-services' id='services'>
-          {!this.state.doctorsAvailable ? (
-            <div className='choose-state-container'>
-              <div className='container choose-state-container__header'>
-                <h1 className='heading-secondary margin-bottom-ex-sm'>
-                  Your 3 month trial starts here
-                </h1>
-                <p className='heading-tertiary'>Select which state you currently live in</p>
-              </div>
-
-              <div className='container choose-state-container__buttons'>
-                <CustomButton
-                  className='btn btn--full'
-                  onClick={() => this.handleStateButtonPressed('CA')}>
-                  I live in California
-                </CustomButton>
-                <CustomButton
-                  className='btn btn--full'
-                  onClick={() => this.handleStateButtonPressed('MA')}>
-                  I live in Massachusetts
-                </CustomButton>
-                <CustomButton
-                  className='btn btn--full'
-                  onClick={() => this.handleStateButtonPressed('NONE')}>
-                  I don’t live in either state
-                </CustomButton>
-              </div>
-
-              <div className='container margin-bottom-sm'>
-                <LegalCheckbox
-                  value={this.state.termsChecked}
-                  handleChange={this.handleTermsCheckboxChange}
-                  required
-                />
-              </div>
-            </div>
-          ) : (
-            <div className='container center-text margin-bottom-md'>
-              <h1 className='heading-primary margin-bottom-sm'>
-                &#127881; Hooray! We are in your area!
-              </h1>
-              <p className='heading-tertiary margin-bottom-md'>
-                Next, you’ll complete a <span className='text-primary-color'>free</span> online
-                visit. This involves answering questions about your health and sharing photos so
-                your doctor can <span className='text-primary-color'>customize</span> your skin
-                cream (or oral medication).
-              </p>
-
-              <CustomButton
-                className='btn btn--full margin-bottom-sm'
-                onClick={() => this.createNewVisit()}>
-                Begin your journey
-              </CustomButton>
-
-              <div className='container center-text margin-bottom-md'>
-                <LegalCheckbox
-                  value={this.state.termsChecked}
-                  handleChange={this.handleTermsCheckboxChange}
-                  required
-                />
-              </div>
-            </div>
-          )}
-        </section>
+        <div className='choose-state-container'>
+          <div className='container choose-state-container__header'>
+            <h1 className='heading-secondary margin-bottom-ex-sm'>
+              Your 3 month trial starts here
+            </h1>
+            <p className='heading-tertiary'>Select which state you currently live in</p>
+          </div>
+          <div className='container choose-state-container__buttons'>
+            <CustomButton
+              className='btn btn--full'
+              onClick={() => this.handleStateButtonPressed('CA')}>
+              I live in California
+            </CustomButton>
+            <CustomButton
+              className='btn btn--full'
+              onClick={() => this.handleStateButtonPressed('MA')}>
+              I live in Massachusetts
+            </CustomButton>
+            <CustomButton
+              className='btn btn--full'
+              onClick={() => this.handleStateButtonPressed('NONE')}>
+              I don’t live in either state
+            </CustomButton>
+          </div>
+          <div className='container margin-bottom-sm'>
+            <LegalCheckbox
+              value={this.state.termsChecked}
+              handleChange={this.handleTermsCheckboxChange}
+              required
+            />
+          </div>
+        </div>
 
         <ToastContainer
           position='top-right'

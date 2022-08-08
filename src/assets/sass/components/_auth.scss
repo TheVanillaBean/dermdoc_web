@@ -1,12 +1,41 @@
 //////////////////////////
 // SIGN-IN SIGN-UP CONTAINER
 
-.auth-page {
-  width: 100%;
+.auth-container {
+  margin-top: 6.4rem;
+
+  &__header {
+    margin-bottom: 3.2rem;
+  }
+}
+
+.pricing-box {
+  border: 2px solid var(--color-primary-dark);
+  border-radius: 1.8rem;
   display: flex;
   flex-direction: column;
-  justify-content: space-around;
-  margin: 1.2rem auto;
+  align-items: stretch;
+  padding: 2rem;
+  margin-bottom: 3.2rem;
+
+  &__header {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-end;
+    margin-bottom: 1.8rem;
+
+    &--price {
+      margin: 0;
+    }
+
+    &--duration {
+      margin: 0;
+    }
+  }
+
+  &__details {
+    width: 75%;
+  }
 }
 
 //////////////////////////
@@ -17,95 +46,56 @@
   font-size: 1.8rem;
   font-weight: 300;
   color: var(--color-primary);
-  margin-bottom: 7.2rem;
+  margin-bottom: 3.2rem;
 
   display: flex;
   flex-direction: column;
 
-  .title {
-    margin: 10px 0;
+  &__form {
+    margin-bottom: 3.2rem;
   }
 
-  .buttons {
+  &__buttons {
     display: flex;
-    justify-content: flex-start;
-  }
-}
-
-//////////////////////////
-// SIGN-IN
-
-.sign-in {
-  width: 100%;
-  font-size: 1.8rem;
-  font-weight: 300;
-  color: var(--color-primary);
-
-  display: flex;
-  flex-direction: column;
-  margin-right: 6.4rem;
-
-  .title {
-    margin: 10px 0;
-  }
-
-  .buttons {
-    display: flex;
-    justify-content: flex-start;
+    justify-content: center;
   }
 }
 
 //////////////////////////
 // FORM INPUT
 
-@mixin shrinkLabel {
-  top: -14px;
-  font-size: 12px;
-  color: var(--color-grey-dark-1);
-}
-
 .form-input-container {
-  position: relative;
-  margin: 45px 0;
+  display: flex;
+  flex-direction: column;
+
+  &:not(:last-child) {
+    margin-bottom: 2rem;
+  }
+
+  &__label {
+    pointer-events: none;
+    margin-bottom: 1.2rem;
+    font-weight: 400;
+  }
 
   &__input {
-    background: none;
-    background-color: white;
-    color: var(--color-grey-dark-2);
-    font-size: 18px;
-    padding: 10px 10px 10px 5px;
+    font-family: 'Montserrat';
+    font-size: 2.1rem;
+    appearance: none;
+    border: 0.5px solid var(--color-grey-dark-1);
+    background-color: var(--color-grey-light-1);
+    color: var(--color-grey-dark-1);
+    padding: 1.5rem 2rem;
     display: block;
     width: 100%;
-    border: none;
-    border-radius: 0;
-    border-bottom: 1px solid var(--color-grey-dark-2);
-    margin: 25px 0;
+    border-radius: 1.5rem;
 
     &:focus {
       outline: none;
-    }
-
-    &:focus ~ .form-input-label {
-      @include shrinkLabel();
     }
   }
 
   input[type='password'] {
     letter-spacing: 0.3em;
-  }
-
-  &__label {
-    color: var(--color-grey-dark-2);
-    font-size: 16px;
-    font-weight: normal;
-    position: absolute;
-    pointer-events: none;
-    left: 5px;
-    top: 10px;
-    transition: 300ms ease all;
-
-    &__shrink {
-      @include shrinkLabel();
-    }
   }
 }

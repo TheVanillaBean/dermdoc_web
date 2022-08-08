@@ -543,88 +543,80 @@ strong {
   .list__item {
     display: flex;
     align-items: center;
-    gap: 1.6rem;
     font-size: 1.8rem; }
     .list__item--icon {
       width: 4.8rem;
       height: 4.8rem;
-      color: var(--color-primary); }
+      color: var(--color-primary);
+      margin-right: 1.8rem; }
     .list__item--text {
       text-align: start;
       width: 100%;
       line-height: 1.2; }
 
-.auth-page {
-  width: 100%;
+.auth-container {
+  margin-top: 6.4rem; }
+  .auth-container__header {
+    margin-bottom: 3.2rem; }
+
+.pricing-box {
+  border: 2px solid var(--color-primary-dark);
+  border-radius: 1.8rem;
   display: flex;
   flex-direction: column;
-  justify-content: space-around;
-  margin: 1.2rem auto; }
+  align-items: stretch;
+  padding: 2rem;
+  margin-bottom: 3.2rem; }
+  .pricing-box__header {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-end;
+    margin-bottom: 1.8rem; }
+    .pricing-box__header--price {
+      margin: 0; }
+    .pricing-box__header--duration {
+      margin: 0; }
+  .pricing-box__details {
+    width: 75%; }
 
 .sign-up {
   width: 100%;
   font-size: 1.8rem;
   font-weight: 300;
   color: var(--color-primary);
-  margin-bottom: 7.2rem;
+  margin-bottom: 3.2rem;
   display: flex;
   flex-direction: column; }
-  .sign-up .title {
-    margin: 10px 0; }
-  .sign-up .buttons {
+  .sign-up__form {
+    margin-bottom: 3.2rem; }
+  .sign-up__buttons {
     display: flex;
-    justify-content: flex-start; }
-
-.sign-in {
-  width: 100%;
-  font-size: 1.8rem;
-  font-weight: 300;
-  color: var(--color-primary);
-  display: flex;
-  flex-direction: column;
-  margin-right: 6.4rem; }
-  .sign-in .title {
-    margin: 10px 0; }
-  .sign-in .buttons {
-    display: flex;
-    justify-content: flex-start; }
+    justify-content: center; }
 
 .form-input-container {
-  position: relative;
-  margin: 45px 0; }
+  display: flex;
+  flex-direction: column; }
+  .form-input-container:not(:last-child) {
+    margin-bottom: 2rem; }
+  .form-input-container__label {
+    pointer-events: none;
+    margin-bottom: 1.2rem;
+    font-weight: 400; }
   .form-input-container__input {
-    background: none;
-    background-color: white;
-    color: var(--color-grey-dark-2);
-    font-size: 18px;
-    padding: 10px 10px 10px 5px;
+    font-family: 'Montserrat';
+    font-size: 2.1rem;
+    appearance: none;
+    border: 0.5px solid var(--color-grey-dark-1);
+    background-color: var(--color-grey-light-1);
+    color: var(--color-grey-dark-1);
+    padding: 1.5rem 2rem;
     display: block;
     width: 100%;
-    border: none;
-    border-radius: 0;
-    border-bottom: 1px solid var(--color-grey-dark-2);
-    margin: 25px 0; }
+    border-radius: 1.5rem; }
     .form-input-container__input:focus {
       outline: none; }
-    .form-input-container__input:focus ~ .form-input-label {
-      top: -14px;
-      font-size: 12px;
-      color: var(--color-grey-dark-1); }
   .form-input-container input[type='password'] {
     letter-spacing: 0.3em; }
-  .form-input-container__label {
-    color: var(--color-grey-dark-2);
-    font-size: 16px;
-    font-weight: normal;
-    position: absolute;
-    pointer-events: none;
-    left: 5px;
-    top: 10px;
-    transition: 300ms ease all; }
-    .form-input-container__label__shrink {
-      top: -14px;
-      font-size: 12px;
-      color: var(--color-grey-dark-1); }
 
 .questionnaire__thank-you {
   display: flex;
@@ -2863,22 +2855,20 @@ strong {
 .faq-style-wrapper .faq-body .faq-row .row-content-text {
   line-height: 2.4rem; }
 
-.section-services {
-  margin-top: 6.4rem; }
-
 .waitlist-container {
   margin-top: 6.4rem; }
 
-.choose-state-container__header {
-  margin-bottom: 3.2rem; }
-
-.choose-state-container__buttons {
-  display: flex;
-  flex-direction: column;
-  align-items: flex-start;
-  margin-bottom: 3.2rem; }
-  .choose-state-container__buttons > .btn:not(:last-child) {
-    margin-bottom: 2.4rem; }
+.choose-state-container {
+  margin-top: 6.4rem; }
+  .choose-state-container__header {
+    margin-bottom: 3.2rem; }
+  .choose-state-container__buttons {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    margin-bottom: 3.2rem; }
+    .choose-state-container__buttons > .btn:not(:last-child) {
+      margin-bottom: 2.4rem; }
 
 .zipcode {
   display: flex;

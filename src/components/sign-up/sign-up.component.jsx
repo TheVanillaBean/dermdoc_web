@@ -4,12 +4,7 @@ import { withRouter } from 'react-router-dom';
 import { toast, ToastContainer } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
 import { createStructuredSelector } from 'reselect';
-import {
-  auth,
-  createUserProfileDocument,
-  NON_PERSISTANCE,
-  signInWithGoogle,
-} from '../../firebase/firebase.utils';
+import { auth, createUserProfileDocument, NON_PERSISTANCE } from '../../firebase/firebase.utils';
 import { selectVisitData } from '../../redux/visit/visit.selectors';
 import CustomButton from '../custom-button/custom-button.component';
 import FormInput from '../form-input/form-input.component';
@@ -21,19 +16,13 @@ class SignUp extends React.Component {
       displayName: '',
       email: '',
       password: '',
-      confirmPassword: '',
     };
   }
 
   handleSubmit = async (event) => {
     event.preventDefault();
 
-    const { email, password, confirmPassword } = this.state;
-
-    if (password !== confirmPassword) {
-      toast.error("passwords don't match");
-      return;
-    }
+    const { email, password } = this.state;
 
     try {
       await auth.setPersistence(NON_PERSISTANCE);
@@ -44,7 +33,6 @@ class SignUp extends React.Component {
       this.setState({
         email: '',
         password: '',
-        confirmPassword: '',
       });
     } catch (e) {
       let errorText = 'An error occured with sign up';
@@ -71,18 +59,16 @@ class SignUp extends React.Component {
   };
 
   render() {
-    const { email, password, confirmPassword } = this.state;
+    const { email, password } = this.state;
     return (
       <div className='sign-up'>
-        <h2 className='title'>I do not have an account</h2>
-        <span>Sign up with your email and password</span>
-        <form className='sign-up-form' onSubmit={this.handleSubmit}>
+        <form className='sign-up__form' onSubmit={this.handleSubmit}>
           <FormInput
             type='email'
             name='email'
             value={email}
             onChange={this.handleChange}
-            label='Email'
+            label='Email address'
             required
           />
           <FormInput
@@ -93,25 +79,12 @@ class SignUp extends React.Component {
             label='Password'
             required
           />
-          <FormInput
-            type='password'
-            name='confirmPassword'
-            value={confirmPassword}
-            onChange={this.handleChange}
-            label='Confirm Password'
-            required
-          />
-          <div className='buttons'>
-            <CustomButton className='custom-button' type='submit'>
-              Sign up
-            </CustomButton>
-            <CustomButton
-              className='custom-button custom-button__google-sign-in'
-              onClick={signInWithGoogle}>
-              Sign up with Google
-            </CustomButton>
-          </div>
         </form>
+        <div className='sign-up__buttons'>
+          <CustomButton className='btn btn--full' type='submit'>
+            Let’s Do This!
+          </CustomButton>
+        </div>
         <ToastContainer
           position='top-right'
           bodyClassName='toastBody'
