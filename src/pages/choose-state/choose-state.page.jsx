@@ -9,12 +9,12 @@ import Footer from '../../components/footer/footer.component';
 import Header from '../../components/header/header.component';
 import LegalCheckbox from '../../components/legal-checkbox/legal-checkbox.component';
 import { createVisit, logZipCode } from '../../firebase/firebase.utils';
-import { updateZipCode } from '../../redux/user/user.actions';
-import { selectState, selectZipCode } from '../../redux/user/user.selectors';
+import { updateMailingState } from '../../redux/user/user.actions';
+import { selectMailingState } from '../../redux/user/user.selectors';
 
 ReactPixel.pageView();
 
-class ZipCodeCheck extends Component {
+class ChooseState extends Component {
   state = {
     doctorsAvailable: false,
     termsChecked: false,
@@ -99,27 +99,32 @@ class ZipCodeCheck extends Component {
 
         <section className='section-services' id='services'>
           {!this.state.doctorsAvailable ? (
-            <div>
-              <div className='container center-text margin-bottom-md'>
-                <h1 className='heading-primary'>Verify your zip-code</h1>
-                <p className='heading-tertiary'>
-                  So we can choose a dermatologist licensed in your state
-                </p>
+            <div className='choose-state-container'>
+              <div className='container choose-state-container__header'>
+                <h1 className='heading-secondary margin-bottom-ex-sm'>
+                  Your 3 month trial starts here
+                </h1>
+                <p className='heading-tertiary'>Select which state you currently live in</p>
               </div>
 
-              <div className='zipcode container center-text margin-bottom-sm'>
-                <input
-                  className='zipcode-input'
-                  type='number'
-                  name='zipcode'
-                  value={zipcode}
-                  onChange={this.handleZipcodeChange}
-                  placeholder='What is your zipcode?'
+              <div className='container choose-state-container__buttons'>
+                <CustomButton className='btn btn--full' onClick={this.handleZipcodeSubmit}>
+                  I live in California
+                </CustomButton>
+                <CustomButton className='btn btn--full' onClick={this.handleZipcodeSubmit}>
+                  I live in Massachusetts
+                </CustomButton>
+                <CustomButton className='btn btn--full' onClick={this.handleZipcodeSubmit}>
+                  I don’t live in either state
+                </CustomButton>
+              </div>
+
+              <div className='container margin-bottom-sm'>
+                <LegalCheckbox
+                  value={this.state.termsChecked}
+                  handleChange={this.handleTermsCheckboxChange}
                   required
                 />
-                <CustomButton className='btn btn--full' onClick={this.handleZipcodeSubmit}>
-                  Continue
-                </CustomButton>
               </div>
             </div>
           ) : (
@@ -170,12 +175,11 @@ class ZipCodeCheck extends Component {
 }
 
 const mapStateToProps = createStructuredSelector({
-  zipcode: selectZipCode,
-  mailing_state: selectState,
+  mailing_state: selectMailingState,
 });
 
 const mapDispatchToProps = (dispatch) => ({
-  updateZipCode: (zipcode) => dispatch(updateZipCode(zipcode)),
+  updateMailingState: (state) => dispatch(updateMailingState(state)),
 });
 
-export default withRouter(connect(mapStateToProps, mapDispatchToProps)(ZipCodeCheck));
+export default withRouter(connect(mapStateToProps, mapDispatchToProps)(ChooseState));

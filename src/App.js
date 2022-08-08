@@ -5,12 +5,12 @@ import { Redirect, Route, Switch } from 'react-router-dom';
 import { createStructuredSelector } from 'reselect';
 import '../src/assets/css/main.css/main.css';
 import { auth, createUserProfileDocument } from './firebase/firebase.utils';
+import ChooseStatePage from './pages/choose-state/choose-state.page';
 import HomePage from './pages/homepage/homepage.page';
 import IngredientsPage from './pages/ingredients/ingredients.component';
 import LegalPage from './pages/legal/legal.pages';
 import VisitLandingPage from './pages/visit-landing/visit-landing.page';
 import WaitlistPage from './pages/waitlist/waitlist.page';
-import ZipcodeCheckPage from './pages/zipcode-check/zipcode-check.page';
 import { setCurrentUser } from './redux/user/user.actions';
 import { selectVisitData } from './redux/visit/visit.selectors';
 
@@ -49,7 +49,7 @@ class App extends Component {
         <Route exact path='/' component={HomePage} />
         <Route exact path='/ingredients' component={IngredientsPage} />
         <Route exact path='/waitlist' component={WaitlistPage} />
-        <Route exact path='/get_started' component={ZipcodeCheckPage} />
+        <Route exact path='/get_started' component={ChooseStatePage} />
         <Route path='/visits/:visit_id' component={VisitLandingPage} />
         <Route path='/privacy' render={() => <LegalPage page='privacy' />} />
         <Route path='/terms' render={() => <LegalPage page='terms' />} />

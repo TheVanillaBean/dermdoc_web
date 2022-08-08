@@ -1,11 +1,11 @@
 .legal-checkbox {
   &__input {
-    margin-right: 3.2rem;
+    margin-right: 1.2rem;
   }
 
   &__label {
     font-size: 1.8rem;
-    color: #333;
+    color: var(--color-grey-dark-1);
     font-weight: 500;
     margin-bottom: 1.6rem;
     text-align: center;
@@ -13,7 +13,7 @@
 
     &--link:link,
     &--link:visited {
-      display: inline-block;
+      display: inline;
 
       text-decoration: none;
       color: var(--color-primary-dark);

@@ -9,7 +9,7 @@ import Footer from '../../components/footer/footer.component';
 import FormInput from '../../components/form-input/form-input.component';
 import Header from '../../components/header/header.component';
 import { joinWaitlistWithEmail } from '../../firebase/firebase.utils';
-import { selectState } from '../../redux/user/user.selectors';
+import { selectMailingState } from '../../redux/user/user.selectors';
 
 class WaitlistPage extends React.Component {
   constructor(props) {
@@ -102,7 +102,7 @@ class WaitlistPage extends React.Component {
 }
 
 const mapStateToProps = createStructuredSelector({
-  mailing_state: selectState,
+  mailing_state: selectMailingState,
 });
 
 export default withRouter(connect(mapStateToProps)(WaitlistPage));

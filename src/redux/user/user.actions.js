@@ -5,7 +5,7 @@ export const setCurrentUser = (user) => ({
   payload: user,
 });
 
-export const updateZipCode = (zipcode) => ({
-  type: UserActionTypes.UPDATE_ZIP_CODE,
-  payload: zipcode,
+export const updateMailingState = (state) => ({
+  type: UserActionTypes.UPDATE_MAILING_STATE,
+  payload: state,
 });
