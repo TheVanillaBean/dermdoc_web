@@ -33,7 +33,7 @@ class VisitLandingPage extends React.Component {
             const visit = doc.data();
             fetchVisitSuccess(visit);
 
-            if (visit.status === 'auth') {
+            if (visit.status === 'authenticated') {
               history.push(`/visits/${visit.visit_id}/questions`);
             } else if (visit.status === 'questions') {
               history.push(`/visits/${visit.visit_id}/auth`);

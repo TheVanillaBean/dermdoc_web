@@ -75,9 +75,7 @@ class SignInSignUp extends React.Component {
             </div>
           </div>
 
-          <div>
-            <SignUp />
-          </div>
+          <SignUp />
         </div>
       </div>
     );

@@ -24,6 +24,14 @@ class SignUp extends React.Component {
 
     const { email, password } = this.state;
 
+    if (email.length === 0) {
+      toast.error('Please enter an email');
+    }
+
+    if (password.length === 0) {
+      toast.error('Please enter a password');
+    }
+
     try {
       await auth.setPersistence(NON_PERSISTANCE);
       const { user } = await auth.createUserWithEmailAndPassword(email, password);
@@ -37,7 +45,14 @@ class SignUp extends React.Component {
     } catch (e) {
       let errorText = 'An error occured with sign up';
       if (e.code === 'auth/email-already-in-use') {
-        errorText = 'This email is already associated with an account.';
+        await auth.signInWithEmailAndPassword(email, password);
+
+        this.setState({
+          email: '',
+          password: '',
+        });
+
+        return;
       } else if (e.code === 'auth/operation-not-allowed') {
         errorText =
           'We could not create an account for you. Please contact omar@medicall.com for fast support.';
@@ -62,7 +77,7 @@ class SignUp extends React.Component {
     const { email, password } = this.state;
     return (
       <div className='sign-up'>
-        <form className='sign-up__form' onSubmit={this.handleSubmit}>
+        <form className='sign-up__form'>
           <FormInput
             type='email'
             name='email'
@@ -81,7 +96,7 @@ class SignUp extends React.Component {
           />
         </form>
         <div className='sign-up__buttons'>
-          <CustomButton className='btn btn--full' type='submit'>
+          <CustomButton className='btn btn--full' onClick={this.handleSubmit}>
             Let’s Do This!
           </CustomButton>
         </div>
