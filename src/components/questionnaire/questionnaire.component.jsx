@@ -28,7 +28,7 @@ export const reviewHtml = `
 <section class="questionnaire__thank-you">
   <h2>Almost There!</h2>
   <p>
-    The only steps left are to create a password for your account and then upload selfies.
+    The only step left is to upload selfies for your dermatologist to see. These are private and will never be shared.
   </p>
 </section>
 `;
@@ -58,7 +58,7 @@ class Questionnaire extends React.Component {
     if (saveQuestionnaire.error) {
       console.log(saveQuestionnaire.message);
     } else {
-      history.push(`/visits/${visit_id}/auth`);
+      history.push(`/visits/${visit_id}/selfies`);
     }
   };
 

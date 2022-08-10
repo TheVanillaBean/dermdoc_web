@@ -1562,19 +1562,8 @@ strong {
     margin-bottom: 2rem;
     max-width: 80%; }
 
-.visit-paid-container > h1 {
-  color: var(--color-primary);
-  font-weight: 500;
-  font-size: 2.5rem;
-  margin-bottom: 1rem;
-  text-align: center; }
-
-.visit-paid-container > p {
-  color: var(--color-grey-dark-1);
-  font-weight: 400;
-  font-size: 1.7rem;
-  margin-bottom: 1rem;
-  text-align: center; }
+.visit-paid-container {
+  margin-top: 6.4rem; }
 
 .legal-container__header {
   color: var(--color-grey-dark-1);
