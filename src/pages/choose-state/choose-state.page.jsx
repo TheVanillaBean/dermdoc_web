@@ -7,7 +7,6 @@ import { createStructuredSelector } from 'reselect';
 import CustomButton from '../../components/custom-button/custom-button.component';
 import Footer from '../../components/footer/footer.component';
 import Header from '../../components/header/header.component';
-import LegalCheckbox from '../../components/legal-checkbox/legal-checkbox.component';
 import { createVisit } from '../../firebase/firebase.utils';
 import { updateMailingState } from '../../redux/user/user.actions';
 import { selectMailingState } from '../../redux/user/user.selectors';
@@ -16,7 +15,6 @@ ReactPixel.pageView();
 
 class ChooseState extends Component {
   state = {
-    termsChecked: false,
     submitted: false,
   };
 
@@ -33,20 +31,7 @@ class ChooseState extends Component {
     this.createNewVisit();
   };
 
-  handleTermsCheckboxChange = (event) => {
-    const { checked } = event.target;
-    this.setState({ termsChecked: checked });
-  };
-
   createNewVisit = async () => {
-    if (!this.state.termsChecked) {
-      toast.info(
-        'You must agree to the terms and conditions, privacy policy, and telehealth consent before continuing.'
-      );
-
-      return;
-    }
-
     if (this.state.submitted) {
       return;
     }
@@ -108,13 +93,6 @@ class ChooseState extends Component {
               onClick={() => this.handleStateButtonPressed('NONE')}>
               I don’t live in either state
             </CustomButton>
-          </div>
-          <div className='container margin-bottom-sm'>
-            <LegalCheckbox
-              value={this.state.termsChecked}
-              handleChange={this.handleTermsCheckboxChange}
-              required
-            />
           </div>
         </div>
 

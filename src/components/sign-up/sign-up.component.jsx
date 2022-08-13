@@ -4,6 +4,7 @@ import { withRouter } from 'react-router-dom';
 import { toast, ToastContainer } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
 import { createStructuredSelector } from 'reselect';
+import LegalCheckbox from '../../components/legal-checkbox/legal-checkbox.component';
 import { auth, createUserProfileDocument, NON_PERSISTANCE } from '../../firebase/firebase.utils';
 import { selectVisitData } from '../../redux/visit/visit.selectors';
 import CustomButton from '../custom-button/custom-button.component';
@@ -16,13 +17,34 @@ class SignUp extends React.Component {
       displayName: '',
       email: '',
       password: '',
+      submitted: false,
+      termsChecked: false,
     };
   }
+
+  handleTermsCheckboxChange = (event) => {
+    const { checked } = event.target;
+    this.setState({ termsChecked: checked });
+  };
 
   handleSubmit = async (event) => {
     event.preventDefault();
 
-    const { email, password } = this.state;
+    const { email, password, submitted, termsChecked } = this.state;
+
+    if (!termsChecked) {
+      toast.info(
+        'You must agree to the terms and conditions, privacy policy, and telehealth consent before continuing.'
+      );
+
+      return;
+    }
+
+    if (submitted) {
+      return;
+    }
+
+    this.setState({ submitted: true });
 
     if (email.length === 0) {
       toast.error('Please enter an email');
@@ -41,6 +63,7 @@ class SignUp extends React.Component {
       this.setState({
         email: '',
         password: '',
+        submitted: false,
       });
     } catch (e) {
       let errorText = 'An error occured with sign up';
@@ -50,6 +73,7 @@ class SignUp extends React.Component {
         this.setState({
           email: '',
           password: '',
+          submitted: false,
         });
 
         return;
@@ -64,6 +88,11 @@ class SignUp extends React.Component {
         errorText = 'You have made too many requests. Please try again in 5 minutes.';
       }
       toast.error(errorText);
+
+      this.setState({
+        password: '',
+        submitted: false,
+      });
     }
   };
 
@@ -95,11 +124,19 @@ class SignUp extends React.Component {
             required
           />
         </form>
-        <div className='sign-up__buttons'>
+        <div className='margin-bottom-reg'>
+          <LegalCheckbox
+            value={this.state.termsChecked}
+            handleChange={this.handleTermsCheckboxChange}
+            required
+          />
+        </div>
+        <div className='sign-up__buttons margin-bottom-reg'>
           <CustomButton className='btn btn--full' onClick={this.handleSubmit}>
             Let’s Do This!
           </CustomButton>
         </div>
+
         <ToastContainer
           position='top-right'
           bodyClassName='toastBody'
