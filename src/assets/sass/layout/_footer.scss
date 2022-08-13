@@ -4,6 +4,10 @@
 
   //used to place footer at bottom. Refer to base.scss
   margin-top: auto;
+
+  @include respond(small-tab) {
+    padding: 3.2rem 0 6rem 0;
+  }
 }
 
 .grid--footer {
@@ -27,6 +31,20 @@
 .footer-logo {
   display: block;
   margin-bottom: 3.2rem;
+
+  @include respond(small-tab) {
+    margin-bottom: 2rem;
+  }
+
+  &--img {
+    width: 50%;
+    height: 100%;
+    object-fit: contain;
+
+    @include respond(small-tab) {
+      width: 75%;
+    }
+  }
 }
 
 .hipaa-icon {

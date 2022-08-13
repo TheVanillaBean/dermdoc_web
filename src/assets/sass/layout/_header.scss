@@ -6,9 +6,8 @@
 
   /* Sticky header so fixed height helps */
   height: 8rem;
-  padding: 1.8rem 1.6rem;
+  padding: 1.8rem 3.2rem;
   position: relative;
-  max-width: 95vw;
 
   margin: 0 auto;
 
@@ -20,6 +19,11 @@
 }
 
 .logo {
-  width: 9.6rem;
-  height: 9.6rem;
+  width: 7.2rem;
+  height: 7.2rem;
+
+  @include respond(small-tab) {
+    width: 7.2rem;
+    height: 7.2rem;
+  }
 }
