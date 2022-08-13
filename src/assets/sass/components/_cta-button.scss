@@ -1,0 +1,28 @@
+.cta {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  width: min-content;
+
+  @include respond(tab-port) {
+    margin: 0 auto;
+  }
+
+  &__btn {
+    text-transform: uppercase;
+    margin-bottom: 1.2rem;
+    font-size: 1.8rem;
+    white-space: nowrap;
+    padding: 2.4rem 4.8rem;
+    letter-spacing: 1px;
+    width: 100%;
+  }
+
+  &__subtext {
+    font-weight: 500;
+    font-size: 1.5rem;
+    color: var(--color-grey-dark-1);
+    white-space: nowrap;
+    text-align: center;
+  }
+}

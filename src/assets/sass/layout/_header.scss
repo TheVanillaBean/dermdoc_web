@@ -5,15 +5,20 @@
   align-items: center;
 
   /* Sticky header so fixed height helps */
-  height: 6.4rem;
+  height: 8rem;
   padding: 1.8rem 1.6rem;
   position: relative;
+  max-width: 95vw;
 
+  margin: 0 auto;
   @include respond(small-tab) {
+    height: 7.2rem;
     padding-top: 3.2rem;
+    max-width: 100vw;
   }
 }
 
 .logo {
-  width: 12rem;
+  width: 100%;
+  height: 100%;
 }

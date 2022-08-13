@@ -1,7 +1,7 @@
 import React, { useEffect } from 'react';
 import { useInView } from 'react-intersection-observer';
 import TextTransition, { presets } from 'react-text-transition';
-import CustomButton from '../../components/custom-button/custom-button.component';
+import CTAButton from '../../components/cta/cta.component';
 
 const HeroSection = ({ handleClick, handleSubmit, handleChange, email }) => {
   const TEXTS = [
@@ -61,9 +61,7 @@ const HeroSection = ({ handleClick, handleSubmit, handleChange, email }) => {
             The only skincare product designed specifically for every customer by a dermatologist
           </h3>
 
-          <CustomButton className='btn btn--full' onClick={handleClick}>
-            Get a 3 months supply for free
-          </CustomButton>
+          <CTAButton buttonText='Unlock your free offer' handleClick={handleClick} />
         </div>
       </div>
     </section>

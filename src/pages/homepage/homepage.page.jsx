@@ -19,13 +19,12 @@ import { ReactComponent as Clindamycin } from '../../assets/img/ingredients/clin
 import { ReactComponent as Tretinoin } from '../../assets/img/ingredients/tretinoin.svg';
 import Leaf from '../../assets/img/leaf-img.png';
 import OmarHeadshot from '../../assets/img/omar-cutout.png';
-import CreamPricing from '../../assets/img/pricing-cream.jpg';
-import PillsPricing from '../../assets/img/pricing-oral.jpg';
+import ProductWithBubbles from '../../assets/img/product-with-bubbles-desktop.png';
 import SaamiHeadshot from '../../assets/img/saami_headshot.jpg';
 import StepsOne from '../../assets/img/step-1-v2.jpg';
 import StepsTwo from '../../assets/img/step-2-v2.jpg';
 import StepsThree from '../../assets/img/step-3-v2.jpg';
-import CustomButton from '../../components/custom-button/custom-button.component';
+import CTAButton from '../../components/cta/cta.component';
 import Footer from '../../components/footer/footer.component';
 import Header from '../../components/header/header.component';
 import HeroSection from '../../components/hero-section/hero-section.component';
@@ -58,7 +57,7 @@ class HomePage extends React.Component {
       <main>
         <div className='hero-container'>
           <div className='sale-banner margin-center'>
-            <h1 className='paragraph sale-banner--text'>Free skin consultation with every order</h1>
+            <h1 className='paragraph sale-banner--text'>90 day free trial for new customers</h1>
           </div>
           <Header />
           <HeroSection handleClick={this.handleClick} />
@@ -175,10 +174,12 @@ class HomePage extends React.Component {
             </div>
           </div>
 
-          <div className='container center-text'>
-            <CustomButton className='btn btn--full' onClick={this.handleClick}>
-              Begin Step 1 for free
-            </CustomButton>
+          <div className='container'>
+            <CTAButton
+              additionalClassName='margin-center'
+              buttonText='Unlock your free offer'
+              handleClick={this.handleClick}
+            />
           </div>
         </section>
 
@@ -261,78 +262,74 @@ class HomePage extends React.Component {
         <section className='section-pricing' id='pricing'>
           <div className='container center-text margin-bottom-md'>
             <h1 className='heading-primary'>Pricing</h1>
-            <p className='heading-tertiary'>Get started with our risk-free 3-month trial</p>
+            <p className='heading-tertiary'>Get your first 3-month supply for free</p>
           </div>
 
-          <div className='container grid grid--2-cols margin-bottom-md '>
-            <div className='pricing-plan pricing-plan--cream'>
-              <img className='pricing-plan--img' src={CreamPricing} alt='Headshot' />
-
-              <div className='pricing-plan__content'>
-                <header className='pricing-plan__content--header'>
-                  <p className='pricing-plan__content--name heading-tertiary'>
-                    <span>Personalized Cream</span>
+          <div className='pricing-plan'>
+            <img
+              className='pricing-plan--img'
+              src={ProductWithBubbles}
+              alt='Product With Bubble Background'
+            />
+            <div className='pricing-plan__content'>
+              <header className='pricing-plan__content--header'>
+                <h1 className='pricing-plan__content--title heading-secondary'>
+                  Custom formula for every skin type
+                </h1>
+                <p className='pricing-plan__content--description heading-tertiary'>
+                  Keep your skin healthy with a personalized cream prescribed for you by a
+                  dermatologist. Your DermDoc Custom Formula is made with specific ingredients
+                  picked for your specific skin type, which can include tretinoin, azelaic acid,
+                  clindamycin, and more.
+                </p>
+              </header>
+              <div className='pricing-plan__content__skin-types'>
+                <h2 className='pricing-plan__content__skin-types--title heading-tertiary'>
+                  Proven to tackle
+                </h2>
+                <div className='pricing-plan__content__skin-types__bubbles'>
+                  <p className='pricing-plan__content__skin-types__bubbles--bubble paragraph'>
+                    Whiteheads
                   </p>
-                  <p className='pricing-plan__content--price'>
-                    <span>$</span>9.99
+                  <p className='pricing-plan__content__skin-types__bubbles--bubble paragraph'>
+                    Redness
                   </p>
-                  <p className='pricing-plan__content--text paragraph'>
-                    for your first 3 months supply
+                  <p className='pricing-plan__content__skin-types__bubbles--bubble paragraph'>
+                    Clogged pores
                   </p>
-                </header>
-                <ul className='list'>
-                  <li className='list__item'>
-                    <IoHeartOutline className='list__item--icon' />
-                    <span className='list__item--text'>
-                      <strong>Custom</strong> topical cream designed just for you
-                    </span>
-                  </li>
-                  <li className='list__item'>
-                    <IoHappyOutline className='list__item--icon' />
-                    <span className='list__item--text'>
-                      <strong>Delivered</strong> to your door (free shipping)
-                    </span>
-                  </li>
-                  <li className='list__item'>
-                    <IoCheckmarkCircleOutline className='list__item--icon' />
-                    <span className='list__item--text'>
-                      <strong>Check-ins</strong> to monitor your skin
-                    </span>
-                  </li>
-                </ul>
+                  <p className='pricing-plan__content__skin-types__bubbles--bubble paragraph'>
+                    Blackheads
+                  </p>
+                  <p className='pricing-plan__content__skin-types__bubbles--bubble paragraph'>
+                    Breakouts
+                  </p>
+                </div>
               </div>
-            </div>
+              <ul className='list margin-bottom-reg'>
+                <li className='list__item'>
+                  <IoHeartOutline className='list__item--icon' />
+                  <span className='list__item--text'>3 month money-back guarantee</span>
+                </li>
+                <li className='list__item'>
+                  <IoHappyOutline className='list__item--icon' />
+                  <span className='list__item--text'>Delivered to your door</span>
+                </li>
+                <li className='list__item'>
+                  <IoCheckmarkCircleOutline className='list__item--icon' />
+                  <span className='list__item--text'>
+                    Check-ins with a dermatologist to monitor your skin
+                  </span>
+                </li>
+              </ul>
 
-            <div className='pricing-plan pricing-plan--pills'>
-              <img className='pricing-plan--img' src={PillsPricing} alt='Headshot' />
-
-              <div className='pricing-plan__content'>
-                <header className='pricing-plan__content--header'>
-                  <p className='pricing-plan__content--name heading-tertiary'>
-                    <span>Oral Medications</span>
-                  </p>
-
-                  <p className='pricing-plan__content--price'>
-                    <span>$</span>9.99
-                  </p>
-
-                  <p className='pricing-plan__content--text paragraph'>
-                    for your first 3 months supply
-                  </p>
-                </header>
-                <ul className='list'>
-                  <li className='list__item'>
-                    <IoHeartOutline className='list__item--icon' />
-                    <span className='list__item--text'>
-                      Oral medications include
-                      <strong> spironolactone and various antibiotics</strong>
-                    </span>
-                  </li>
-                </ul>
-              </div>
+              <CTAButton
+                additionalClassName='pricing-plan__content--cta'
+                buttonText='Unlock your free offer'
+                handleClick={this.handleClick}
+              />
             </div>
           </div>
-
+          {/* 
           <div className='container center-text margin-bottom-md'>
             <p className='heading-primary'>3-month risk-free trial</p>
             <p className='heading-tertiary'>
@@ -340,13 +337,7 @@ class HomePage extends React.Component {
               <span className='text-primary-color'>100%</span> refund. After your trial, plans renew
               at <span className='text-primary-color'>$19.99/month</span>.
             </p>
-          </div>
-
-          <div className='container center-text'>
-            <CustomButton className='btn btn--full' onClick={this.handleClick}>
-              Try 3-month risk-free trial - $9.99
-            </CustomButton>
-          </div>
+          </div> */}
         </section>
 
         <section className='section-faq' id='faq'>
