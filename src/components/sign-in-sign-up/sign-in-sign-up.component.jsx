@@ -46,7 +46,7 @@ class SignInSignUp extends React.Component {
 
           <div className='pricing-box'>
             <div className='pricing-box__header'>
-              <h1 className='pricing-box__header--price heading-primary'>
+              <h1 className='pricing-box__header--price heading-secondary'>
                 $9.99 <span className='paragraph center-text'>($3.33/mo)</span>
               </h1>
               <h1 className='pricing-box__header--duration heading-tertiary'>3 months supply</h1>

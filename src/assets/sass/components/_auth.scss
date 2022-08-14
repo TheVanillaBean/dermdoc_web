@@ -2,10 +2,32 @@
 // SIGN-IN SIGN-UP CONTAINER
 
 .auth-container {
+  max-width: 30%;
+  margin: 0 auto;
   margin-top: 6.4rem;
 
   &__header {
     margin-bottom: 3.2rem;
+  }
+
+  @include respond(big-desktop) {
+    max-width: 45%;
+  }
+
+  @include respond(smaller-desktop) {
+    max-width: 55%;
+  }
+
+  @include respond(tab-land) {
+    max-width: 65%;
+  }
+
+  @include respond(tab-port) {
+    max-width: 75%;
+  }
+
+  @include respond(small-tab) {
+    max-width: 100%;
   }
 }
 
@@ -21,7 +43,7 @@
   &__header {
     display: flex;
     justify-content: space-between;
-    align-items: flex-end;
+    align-items: center;
     margin-bottom: 1.8rem;
 
     &--price {
@@ -30,6 +52,10 @@
 
     &--duration {
       margin: 0;
+
+      @include respond(phone) {
+        font-size: 1.5rem;
+      }
     }
   }
 
