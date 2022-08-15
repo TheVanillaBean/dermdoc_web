@@ -7,7 +7,7 @@ import { createStructuredSelector } from 'reselect';
 import LegalCheckbox from '../../components/legal-checkbox/legal-checkbox.component';
 import { auth, createUserProfileDocument, NON_PERSISTANCE } from '../../firebase/firebase.utils';
 import { selectVisitData } from '../../redux/visit/visit.selectors';
-import CustomButton from '../custom-button/custom-button.component';
+import CTAButton from '../cta/cta.component';
 import FormInput from '../form-input/form-input.component';
 
 class SignUp extends React.Component {
@@ -131,11 +131,11 @@ class SignUp extends React.Component {
             required
           />
         </div>
-        <div className='sign-up__buttons margin-bottom-reg'>
-          <CustomButton className='btn btn--full' onClick={this.handleSubmit}>
-            Let’s Do This!
-          </CustomButton>
-        </div>
+        <CTAButton
+          additionalClassName='margin-center'
+          buttonText='Let’s Do This!'
+          handleClick={this.handleSubmit}
+        />
 
         <ToastContainer
           position='top-right'

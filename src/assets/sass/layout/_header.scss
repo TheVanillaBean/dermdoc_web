@@ -19,11 +19,6 @@
 }
 
 .logo {
-  width: 7.2rem;
-  height: 7.2rem;
-
-  @include respond(small-tab) {
-    width: 7.2rem;
-    height: 7.2rem;
-  }
+  width: 12rem;
+  height: 12rem;
 }

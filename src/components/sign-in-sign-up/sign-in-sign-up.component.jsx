@@ -37,7 +37,7 @@ class SignInSignUp extends React.Component {
       <div className='auth-container'>
         <div className='container auth-container__header'>
           <h1 className='heading-secondary margin-bottom-ex-sm'>
-            &#127881; Hooray! We are in your area!
+            &#127881; Hooray! Your free trial is waiting
           </h1>
           <p className='heading-tertiary'>
             Our dermatologists need to know a few things about you first before they can mix a
@@ -47,7 +47,7 @@ class SignInSignUp extends React.Component {
           <div className='pricing-box'>
             <div className='pricing-box__header'>
               <h1 className='pricing-box__header--price heading-secondary'>
-                $9.99 <span className='paragraph center-text'>($3.33/mo)</span>
+                FREE <span className='paragraph'>(+$9.99 for S+H)</span>
               </h1>
               <h1 className='pricing-box__header--duration heading-tertiary'>3 months supply</h1>
             </div>

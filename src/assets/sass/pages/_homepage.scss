@@ -321,7 +321,6 @@
 .additional-doctors-container {
   display: flex;
   gap: 6rem;
-  width: 100%;
   padding-left: 0;
 
   @include respond(tab-port) {
@@ -338,7 +337,13 @@
   display: flex;
   gap: 3.2rem;
   justify-content: center;
-  min-width: 60%;
+  width: 100%;
+  flex-grow: 0;
+  align-items: flex-start;
+
+  &:first-child {
+    margin-right: 0rem;
+  }
 
   &--main {
     @include respond(small-tab) {
@@ -349,23 +354,12 @@
   }
 
   &--img {
-    object-fit: cover;
-    width: 75%;
-    height: 75%;
-
-    @include respond(tab-land) {
-      width: 65%;
-      height: 65%;
-    }
-
-    @include respond(tab-port) {
-      width: 55%;
-      height: 55%;
-    }
+    object-fit: contain;
+    width: 50%;
+    height: auto;
 
     @include respond(small-tab) {
       width: 40%;
-      height: 40%;
     }
   }
 

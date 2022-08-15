@@ -6,6 +6,7 @@ instead, 1rem = 1em = 16px
 
 
 $breakpoint argument choices:
+- small-phone - 360px
 - phone - 544px
 - small-tab - 704px
 - tab-port - 944px
@@ -16,6 +17,16 @@ ORDER: Base + typography > general layout + grid > page layout > components
 1em = 16px
 */
 @mixin respond($breakpoint) {
+  /***************************/
+  /* 360/16 = 22.5 */
+  /* BELOW 360px (Small Phones) */
+  /***************************/
+  @if $breakpoint == small-phone {
+    @media only screen and (max-width: 22.5em) {
+      @content;
+    } //600px
+  }
+
   /***************************/
   /* 544/16 = 34 */
   /* BELOW 544px (Phones) */

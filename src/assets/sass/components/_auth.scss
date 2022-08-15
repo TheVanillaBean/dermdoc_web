@@ -43,24 +43,39 @@
   &__header {
     display: flex;
     justify-content: space-between;
-    align-items: center;
+    align-items: flex-end;
     margin-bottom: 1.8rem;
-
     &--price {
       margin: 0;
+      white-space: nowrap;
+
+      @include respond(small-phone) {
+        & > span {
+          display: block;
+          margin: 0;
+          margin-top: 1rem;
+        }
+      }
     }
 
     &--duration {
       margin: 0;
+      margin-bottom: 3px;
+      font-weight: 400;
+      font-size: 1.8rem;
+      white-space: nowrap;
 
       @include respond(phone) {
         font-size: 1.5rem;
+      }
+
+      @include respond(small-phone) {
+        margin-bottom: 0;
       }
     }
   }
 
   &__details {
-    width: 75%;
   }
 }
 
@@ -82,8 +97,6 @@
   }
 
   &__buttons {
-    display: flex;
-    justify-content: center;
   }
 }
 

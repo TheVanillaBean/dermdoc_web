@@ -205,11 +205,11 @@ class HomePage extends React.Component {
                   </p>
                 </h2>
                 <h2 className='paragraph featured-doctor__details--bio featured-doctor__details--bio--main'>
-                  Dr. Badri completed his intern year at Brigham & Women’s Hospital (Harvard). His
+                  Dr. Badri completed his intern year at Brigham & Women’s Hospital (Harvard). He
                   completed residency training in Dermatology (Brigham & Women’s Hospital,
                   Massachusetts General Hospital, and Boston Children’s Hospital) and Internal
-                  Medicine (Brigham & Women’s Hospital) at Harvard. Dr. Badri has published multiple
-                  peer-reviewed journal articles and has presented at national meetings.
+                  Medicine (Brigham & Women’s Hospital) at Harvard. Dr. Badri has also published
+                  multiple peer-reviewed journal articles and has presented at national meetings.
                 </h2>
               </div>
             </div>
