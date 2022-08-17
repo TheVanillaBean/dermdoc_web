@@ -755,13 +755,78 @@ strong {
   flex-direction: column;
   align-items: stretch;
   padding: 2rem;
-  margin-bottom: 3.2rem; }
+  margin-bottom: 3.2rem;
+  /***************************/
+  /* 360/16 = 22.5 */
+  /* BELOW 360px (Small Phones) */
+  /***************************/
+  /***************************/
+  /* 544/16 = 34 */
+  /* BELOW 544px (Phones) */
+  /***************************/
+  /***************************/
+  /* 704/16 = 44 */
+  /* BELOW 704px (Tablets) */
+  /***************************/
+  /***************************/
+  /* 944/16 = 59 */
+  /* BELOW 944px (Tablets) */
+  /***************************/
+  /***************************/
+  /* 1200/16 = 75 */
+  /* BELOW 1200px (Landscape Tablets) */
+  /***************************/
+  /***************************/
+  /* 1344/16 = 84 */
+  /* BELOW 1344px (Smaller Desktops) */
+  /***************************/
+  /***************************/
+  /* 1800/16 = 112.5 */
+  /* BELOW 1800px (Big Desktops) */
+  /***************************/ }
+  @media only screen and (max-width: 34em) {
+    .pricing-box {
+      padding: 2rem 1rem; } }
   .pricing-box__header {
     display: flex;
     justify-content: space-between;
     align-items: flex-end;
-    margin-bottom: 1.8rem; }
+    margin-bottom: 1.8rem;
+    /***************************/
+    /* 360/16 = 22.5 */
+    /* BELOW 360px (Small Phones) */
+    /***************************/
+    /***************************/
+    /* 544/16 = 34 */
+    /* BELOW 544px (Phones) */
+    /***************************/
+    /***************************/
+    /* 704/16 = 44 */
+    /* BELOW 704px (Tablets) */
+    /***************************/
+    /***************************/
+    /* 944/16 = 59 */
+    /* BELOW 944px (Tablets) */
+    /***************************/
+    /***************************/
+    /* 1200/16 = 75 */
+    /* BELOW 1200px (Landscape Tablets) */
+    /***************************/
+    /***************************/
+    /* 1344/16 = 84 */
+    /* BELOW 1344px (Smaller Desktops) */
+    /***************************/
+    /***************************/
+    /* 1800/16 = 112.5 */
+    /* BELOW 1800px (Big Desktops) */
+    /***************************/ }
+    @media only screen and (max-width: 22.5em) {
+      .pricing-box__header {
+        flex-direction: column;
+        align-items: flex-start; } }
     .pricing-box__header--price {
+      display: flex;
+      align-items: flex-end;
       margin: 0;
       white-space: nowrap;
       /***************************/
@@ -792,14 +857,18 @@ strong {
       /* 1800/16 = 112.5 */
       /* BELOW 1800px (Big Desktops) */
       /***************************/ }
+      .pricing-box__header--price > * {
+        margin: 0; }
+      .pricing-box__header--price > :first-child {
+        margin-right: 0.5rem; }
+      .pricing-box__header--price > :last-child {
+        margin-bottom: 1.5px; }
       @media only screen and (max-width: 22.5em) {
-        .pricing-box__header--price > span {
-          display: block;
-          margin: 0;
-          margin-top: 1rem; } }
+        .pricing-box__header--price {
+          margin-bottom: 0.5rem; } }
     .pricing-box__header--duration {
       margin: 0;
-      margin-bottom: 3px;
+      margin-bottom: 4px;
       font-weight: 400;
       font-size: 1.8rem;
       white-space: nowrap;
@@ -902,24 +971,45 @@ strong {
   .form-input-container input[type='password'] {
     letter-spacing: 0.3em; }
 
-.questionnaire__thank-you {
-  display: flex;
-  flex-direction: column;
-  align-items: center; }
-  .questionnaire__thank-you > h2 {
-    font-size: 2.8rem;
-    font-weight: 700;
-    color: var(--color-grey-dark-1);
-    text-align: center;
-    margin-bottom: 1.2rem; }
-  .questionnaire__thank-you > p {
-    font-size: 2.1rem;
-    font-weight: 400;
-    color: var(--color-grey-dark-1);
-    text-align: center;
-    margin-bottom: 2rem;
-    max-width: 100%;
-    line-height: 1.2; }
+.questionnaire {
+  margin-top: 2rem;
+  /***************************/
+  /* 360/16 = 22.5 */
+  /* BELOW 360px (Small Phones) */
+  /***************************/
+  /***************************/
+  /* 544/16 = 34 */
+  /* BELOW 544px (Phones) */
+  /***************************/
+  /***************************/
+  /* 704/16 = 44 */
+  /* BELOW 704px (Tablets) */
+  /***************************/
+  /***************************/
+  /* 944/16 = 59 */
+  /* BELOW 944px (Tablets) */
+  /***************************/
+  /***************************/
+  /* 1200/16 = 75 */
+  /* BELOW 1200px (Landscape Tablets) */
+  /***************************/
+  /***************************/
+  /* 1344/16 = 84 */
+  /* BELOW 1344px (Smaller Desktops) */
+  /***************************/
+  /***************************/
+  /* 1800/16 = 112.5 */
+  /* BELOW 1800px (Big Desktops) */
+  /***************************/ }
+  @media only screen and (max-width: 22.5em) {
+    .questionnaire > .container {
+      padding: 0; } }
+  .questionnaire__thank-you {
+    display: flex;
+    flex-direction: column;
+    align-items: center; }
+    .questionnaire__thank-you > h2 {
+      margin-bottom: 1.2rem; }
 
 .spinner-overlay {
   height: 15vh;
@@ -971,7 +1061,8 @@ strong {
   flex-direction: column;
   align-items: center;
   justify-content: center;
-  margin-bottom: 3.2rem; }
+  margin-bottom: 3.2rem;
+  margin-top: 3.2rem; }
 
 .photo-gallery {
   width: 75%;
@@ -1126,7 +1217,38 @@ strong {
     white-space: nowrap;
     padding: 2.4rem 4.8rem;
     letter-spacing: 1px;
-    width: 100%; }
+    width: 100%;
+    /***************************/
+    /* 360/16 = 22.5 */
+    /* BELOW 360px (Small Phones) */
+    /***************************/
+    /***************************/
+    /* 544/16 = 34 */
+    /* BELOW 544px (Phones) */
+    /***************************/
+    /***************************/
+    /* 704/16 = 44 */
+    /* BELOW 704px (Tablets) */
+    /***************************/
+    /***************************/
+    /* 944/16 = 59 */
+    /* BELOW 944px (Tablets) */
+    /***************************/
+    /***************************/
+    /* 1200/16 = 75 */
+    /* BELOW 1200px (Landscape Tablets) */
+    /***************************/
+    /***************************/
+    /* 1344/16 = 84 */
+    /* BELOW 1344px (Smaller Desktops) */
+    /***************************/
+    /***************************/
+    /* 1800/16 = 112.5 */
+    /* BELOW 1800px (Big Desktops) */
+    /***************************/ }
+    @media only screen and (max-width: 22.5em) {
+      .cta__btn {
+        padding: 2.4rem 3.2rem; } }
   .cta__subtext {
     font-weight: 500;
     font-size: 1.5rem;
@@ -2098,11 +2220,42 @@ strong {
 .sale-banner {
   padding: 1.2rem;
   text-align: center;
-  background-color: var(--color-grey-dark-1); }
+  background-color: var(--color-grey-dark-1);
+  /***************************/
+  /* 360/16 = 22.5 */
+  /* BELOW 360px (Small Phones) */
+  /***************************/
+  /***************************/
+  /* 544/16 = 34 */
+  /* BELOW 544px (Phones) */
+  /***************************/
+  /***************************/
+  /* 704/16 = 44 */
+  /* BELOW 704px (Tablets) */
+  /***************************/
+  /***************************/
+  /* 944/16 = 59 */
+  /* BELOW 944px (Tablets) */
+  /***************************/
+  /***************************/
+  /* 1200/16 = 75 */
+  /* BELOW 1200px (Landscape Tablets) */
+  /***************************/
+  /***************************/
+  /* 1344/16 = 84 */
+  /* BELOW 1344px (Smaller Desktops) */
+  /***************************/
+  /***************************/
+  /* 1800/16 = 112.5 */
+  /* BELOW 1800px (Big Desktops) */
+  /***************************/ }
   .sale-banner--text {
     margin-bottom: 0;
     color: var(--color-grey-light-1);
     text-transform: uppercase; }
+  @media only screen and (max-width: 22.5em) {
+    .sale-banner {
+      padding: 1.2rem 3px; } }
 
 /***************************/
 /* HERO SECTION */
@@ -2177,10 +2330,41 @@ strong {
   /***************************/
   /* 1800/16 = 112.5 */
   /* BELOW 1800px (Big Desktops) */
+  /***************************/
+  /***************************/
+  /* 360/16 = 22.5 */
+  /* BELOW 360px (Small Phones) */
+  /***************************/
+  /***************************/
+  /* 544/16 = 34 */
+  /* BELOW 544px (Phones) */
+  /***************************/
+  /***************************/
+  /* 704/16 = 44 */
+  /* BELOW 704px (Tablets) */
+  /***************************/
+  /***************************/
+  /* 944/16 = 59 */
+  /* BELOW 944px (Tablets) */
+  /***************************/
+  /***************************/
+  /* 1200/16 = 75 */
+  /* BELOW 1200px (Landscape Tablets) */
+  /***************************/
+  /***************************/
+  /* 1344/16 = 84 */
+  /* BELOW 1344px (Smaller Desktops) */
+  /***************************/
+  /***************************/
+  /* 1800/16 = 112.5 */
+  /* BELOW 1800px (Big Desktops) */
   /***************************/ }
   @media only screen and (max-width: 44em) {
     .section-hero {
       padding-top: 6rem; } }
+  @media only screen and (max-width: 22.5em) {
+    .section-hero {
+      padding-top: 1.2rem; } }
 
 .hero {
   max-width: 160rem;
@@ -2285,7 +2469,38 @@ strong {
   .hero-text-box__heading-container {
     display: flex;
     flex-direction: column;
-    margin-bottom: 2.1rem; }
+    margin-bottom: 2.1rem;
+    /***************************/
+    /* 360/16 = 22.5 */
+    /* BELOW 360px (Small Phones) */
+    /***************************/
+    /***************************/
+    /* 544/16 = 34 */
+    /* BELOW 544px (Phones) */
+    /***************************/
+    /***************************/
+    /* 704/16 = 44 */
+    /* BELOW 704px (Tablets) */
+    /***************************/
+    /***************************/
+    /* 944/16 = 59 */
+    /* BELOW 944px (Tablets) */
+    /***************************/
+    /***************************/
+    /* 1200/16 = 75 */
+    /* BELOW 1200px (Landscape Tablets) */
+    /***************************/
+    /***************************/
+    /* 1344/16 = 84 */
+    /* BELOW 1344px (Smaller Desktops) */
+    /***************************/
+    /***************************/
+    /* 1800/16 = 112.5 */
+    /* BELOW 1800px (Big Desktops) */
+    /***************************/ }
+    @media only screen and (max-width: 22.5em) {
+      .hero-text-box__heading-container {
+        margin-bottom: 0.5rem; } }
     .hero-text-box__heading-container--text {
       margin-bottom: 1.2rem;
       white-space: nowrap; }
@@ -2636,7 +2851,38 @@ strong {
   /***************************/
   /* 1800/16 = 112.5 */
   /* BELOW 1800px (Big Desktops) */
+  /***************************/
+  /***************************/
+  /* 360/16 = 22.5 */
+  /* BELOW 360px (Small Phones) */
+  /***************************/
+  /***************************/
+  /* 544/16 = 34 */
+  /* BELOW 544px (Phones) */
+  /***************************/
+  /***************************/
+  /* 704/16 = 44 */
+  /* BELOW 704px (Tablets) */
+  /***************************/
+  /***************************/
+  /* 944/16 = 59 */
+  /* BELOW 944px (Tablets) */
+  /***************************/
+  /***************************/
+  /* 1200/16 = 75 */
+  /* BELOW 1200px (Landscape Tablets) */
+  /***************************/
+  /***************************/
+  /* 1344/16 = 84 */
+  /* BELOW 1344px (Smaller Desktops) */
+  /***************************/
+  /***************************/
+  /* 1800/16 = 112.5 */
+  /* BELOW 1800px (Big Desktops) */
   /***************************/ }
+  @media only screen and (max-width: 22.5em) {
+    .steps-container {
+      margin-bottom: 0rem; } }
   @media only screen and (max-width: 34em) {
     .steps-container {
       flex-direction: column;
@@ -3111,10 +3357,41 @@ strong {
     /***************************/
     /* 1800/16 = 112.5 */
     /* BELOW 1800px (Big Desktops) */
+    /***************************/
+    /***************************/
+    /* 360/16 = 22.5 */
+    /* BELOW 360px (Small Phones) */
+    /***************************/
+    /***************************/
+    /* 544/16 = 34 */
+    /* BELOW 544px (Phones) */
+    /***************************/
+    /***************************/
+    /* 704/16 = 44 */
+    /* BELOW 704px (Tablets) */
+    /***************************/
+    /***************************/
+    /* 944/16 = 59 */
+    /* BELOW 944px (Tablets) */
+    /***************************/
+    /***************************/
+    /* 1200/16 = 75 */
+    /* BELOW 1200px (Landscape Tablets) */
+    /***************************/
+    /***************************/
+    /* 1344/16 = 84 */
+    /* BELOW 1344px (Smaller Desktops) */
+    /***************************/
+    /***************************/
+    /* 1800/16 = 112.5 */
+    /* BELOW 1800px (Big Desktops) */
     /***************************/ }
     @media only screen and (max-width: 44em) {
       .featured-doctor--img {
         width: 40%; } }
+    @media only screen and (max-width: 22.5em) {
+      .featured-doctor--img {
+        width: 30%; } }
   .featured-doctor--img-main {
     object-fit: cover;
     width: 80%;
@@ -3313,7 +3590,7 @@ strong {
 
 .pricing-plan {
   display: flex;
-  max-width: 130rem;
+  max-width: 60rem;
   margin: 0 auto;
   padding: 0 3.2rem;
   /***************************/
@@ -3417,32 +3694,94 @@ strong {
         margin-bottom: 3.2rem;
         max-width: 100%;
         height: auto; } }
-  .pricing-plan__content--header {
-    margin-bottom: 2rem; }
-  .pricing-plan__content--title {
-    margin-bottom: 1.2rem; }
-  .pricing-plan__content--description {
-    margin: 0; }
-  .pricing-plan__content__skin-types {
-    display: flex;
-    flex-direction: column;
-    margin-bottom: 2rem; }
-    .pricing-plan__content__skin-types--title {
-      margin-bottom: 1rem;
-      font-size: 1.8rem; }
-    .pricing-plan__content__skin-types__bubbles {
-      display: grid;
-      row-gap: 1rem;
-      column-gap: 0.6rem;
-      grid-template-columns: repeat(3, 1fr); }
-      .pricing-plan__content__skin-types__bubbles--bubble {
-        font-weight: 500;
-        white-space: nowrap;
-        padding: 0.5rem 1rem;
-        text-align: center;
-        border-radius: 1.2rem;
-        background-color: var(--color-secondary);
-        margin: 0; }
+  .pricing-plan__content {
+    /***************************/
+    /* 360/16 = 22.5 */
+    /* BELOW 360px (Small Phones) */
+    /***************************/
+    /***************************/
+    /* 544/16 = 34 */
+    /* BELOW 544px (Phones) */
+    /***************************/
+    /***************************/
+    /* 704/16 = 44 */
+    /* BELOW 704px (Tablets) */
+    /***************************/
+    /***************************/
+    /* 944/16 = 59 */
+    /* BELOW 944px (Tablets) */
+    /***************************/
+    /***************************/
+    /* 1200/16 = 75 */
+    /* BELOW 1200px (Landscape Tablets) */
+    /***************************/
+    /***************************/
+    /* 1344/16 = 84 */
+    /* BELOW 1344px (Smaller Desktops) */
+    /***************************/
+    /***************************/
+    /* 1800/16 = 112.5 */
+    /* BELOW 1800px (Big Desktops) */
+    /***************************/ }
+    @media only screen and (max-width: 22.5em) {
+      .pricing-plan__content {
+        padding: 0 2.1rem; } }
+    .pricing-plan__content--header {
+      margin-bottom: 2rem; }
+    .pricing-plan__content--title {
+      margin-bottom: 1.2rem; }
+    .pricing-plan__content--description {
+      margin: 0; }
+    .pricing-plan__content__skin-types {
+      display: flex;
+      flex-direction: column;
+      margin-bottom: 2rem; }
+      .pricing-plan__content__skin-types--title {
+        margin-bottom: 1rem;
+        font-size: 1.8rem; }
+      .pricing-plan__content__skin-types__bubbles {
+        display: grid;
+        row-gap: 1rem;
+        column-gap: 0.6rem;
+        grid-template-columns: repeat(3, 1fr); }
+        .pricing-plan__content__skin-types__bubbles--bubble {
+          font-weight: 500;
+          text-align: center;
+          border-radius: 1.2rem;
+          background-color: var(--color-secondary);
+          margin: 0;
+          /***************************/
+          /* 360/16 = 22.5 */
+          /* BELOW 360px (Small Phones) */
+          /***************************/
+          /***************************/
+          /* 544/16 = 34 */
+          /* BELOW 544px (Phones) */
+          /***************************/
+          /***************************/
+          /* 704/16 = 44 */
+          /* BELOW 704px (Tablets) */
+          /***************************/
+          /***************************/
+          /* 944/16 = 59 */
+          /* BELOW 944px (Tablets) */
+          /***************************/
+          /***************************/
+          /* 1200/16 = 75 */
+          /* BELOW 1200px (Landscape Tablets) */
+          /***************************/
+          /***************************/
+          /* 1344/16 = 84 */
+          /* BELOW 1344px (Smaller Desktops) */
+          /***************************/
+          /***************************/
+          /* 1800/16 = 112.5 */
+          /* BELOW 1800px (Big Desktops) */
+          /***************************/ }
+          @media only screen and (max-width: 22.5em) {
+            .pricing-plan__content__skin-types__bubbles--bubble {
+              white-space: nowrap;
+              padding: 0.5rem 0.3rem; } }
 
 /***************************/
 /* FAQ SECTION */
@@ -3467,34 +3806,6 @@ strong {
     margin-bottom: 3.2rem; }
     .choose-state-container__buttons > .btn:not(:last-child) {
       margin-bottom: 2.4rem; }
-
-.zipcode {
-  display: flex;
-  justify-content: center; }
-
-.zipcode-input {
-  background: none;
-  background-color: white;
-  color: var(--color-grey-dark-1);
-  font-size: 1.8rem;
-  padding: 10px 10px 10px 5px;
-  display: inline;
-  width: 30%;
-  border: none;
-  border-radius: 0;
-  border-bottom: 1px solid var(--color-grey-dark-1);
-  margin-right: 3.2rem;
-  margin-bottom: 1.2rem; }
-  .zipcode-input:focus {
-    outline: none; }
-
-input::-webkit-outer-spin-button,
-input::-webkit-inner-spin-button {
-  -webkit-appearance: none;
-  margin: 0; }
-
-input[type='number'] {
-  -moz-appearance: textfield; }
 
 .section-product-details {
   margin-bottom: 9.6rem; }

@@ -2,7 +2,7 @@ import { convertVisitSnapshotToMap, firestore, updateVisit } from '../../firebas
 import VisitActionTypes from './visit.types';
 
 export const visitErrorMessage =
-  'We could not find information for this visit. Please contact omar@medicall.com for fast assistance.';
+  'We could not find information for this visit. Please email contact@dermdoc.com for fast assistance.';
 
 export const fetchVisitStart = () => ({
   type: VisitActionTypes.FETCH_VISIT_START,

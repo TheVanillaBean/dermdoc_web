@@ -54,7 +54,6 @@ class WaitlistPage extends React.Component {
 
   render() {
     const { email } = this.state;
-    const { mailing_state } = this.props;
 
     return (
       <div>

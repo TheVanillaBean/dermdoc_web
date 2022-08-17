@@ -16,6 +16,10 @@
     padding: 2.4rem 4.8rem;
     letter-spacing: 1px;
     width: 100%;
+
+    @include respond(small-phone) {
+      padding: 2.4rem 3.2rem;
+    }
   }
 
   &__subtext {

@@ -247,7 +247,7 @@ export const convertQuestionToSurveySchema = (questionMap) => {
   } else if (type === 'MC') {
     element.type = 'checkbox';
   } else {
-    element.type = 'text';
+    element.type = 'comment';
   }
 
   /*

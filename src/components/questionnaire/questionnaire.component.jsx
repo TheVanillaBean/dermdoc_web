@@ -26,8 +26,8 @@ Survey.StylesManager.applyTheme('modern');
 
 export const reviewHtml = `
 <section class="questionnaire__thank-you">
-  <h2>Almost There!</h2>
-  <p>
+  <h2 className="heading-tertiary">Almost There!</h2>
+  <p className="paragraph">
     The only step left is to upload selfies for your dermatologist to see. These are private and will never be shared.
   </p>
 </section>
@@ -84,7 +84,7 @@ class Questionnaire extends React.Component {
         return (
           <section className='questionnaire'>
             <div className='container'>
-              <h1 className='heading-secondary center-text'>
+              <h1 className='heading-tertiary'>
                 The following questions will help your dermatologist design your custom cream.
               </h1>
 

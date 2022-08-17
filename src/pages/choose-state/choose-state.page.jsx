@@ -19,29 +19,27 @@ class ChooseState extends Component {
   };
 
   handleStateButtonPressed = (state) => {
-    const { updateMailingState, history } = this.props;
+    const { updateUserMailingState, history } = this.props;
 
-    updateMailingState(state);
+    updateUserMailingState(state);
 
     if (state === 'NONE') {
       history.push('/waitlist');
       return;
     }
 
-    this.createNewVisit();
+    this.createNewVisit(state);
   };
 
-  createNewVisit = async () => {
+  createNewVisit = async (state) => {
     if (this.state.submitted) {
       return;
     }
 
     this.setState({ submitted: true });
 
-    const { visitReason = 'Acne', mailing_state } = this.props;
-
     try {
-      const newVisit = await createVisit(visitReason, mailing_state);
+      const newVisit = await createVisit('Acne', state);
 
       ReactPixel.track('ViewContent', {
         content_name: 'New Visit Initiated',
@@ -115,11 +113,11 @@ class ChooseState extends Component {
 }
 
 const mapStateToProps = createStructuredSelector({
-  mailing_state: selectMailingState,
+  mailingState: selectMailingState,
 });
 
 const mapDispatchToProps = (dispatch) => ({
-  updateMailingState: (state) => dispatch(updateMailingState(state)),
+  updateUserMailingState: (state) => dispatch(updateMailingState(state)),
 });
 
 export default withRouter(connect(mapStateToProps, mapDispatchToProps)(ChooseState));
