@@ -84,7 +84,7 @@ class Questionnaire extends React.Component {
         return (
           <section className='questionnaire'>
             <div className='container'>
-              <h1 className='heading-tertiary'>
+              <h1 className='heading-tertiary center-text'>
                 The following questions will help your dermatologist design your custom cream.
               </h1>
 
