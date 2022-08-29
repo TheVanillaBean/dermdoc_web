@@ -1,13 +1,14 @@
 import React from 'react';
 import ReactPixel from 'react-facebook-pixel';
-import { IoCheckmarkCircleOutline, IoHappyOutline, IoHeartOutline } from 'react-icons/io5';
 import { connect } from 'react-redux';
 import { withRouter } from 'react-router-dom';
 import { createStructuredSelector } from 'reselect';
+import ProductWithBubbles from '../../assets/img/product-with-bubbles-desktop.png';
 import SignUp from '../../components/sign-up/sign-up.component';
 import { selectCurrentUser } from '../../redux/user/user.selectors';
 import { updateVisitAsync } from '../../redux/visit/visit.actions';
 import { selectVisitData } from '../../redux/visit/visit.selectors';
+
 class SignInSignUp extends React.Component {
   componentDidUpdate() {
     const {
@@ -37,7 +38,7 @@ class SignInSignUp extends React.Component {
       <div className='auth-container'>
         <div className='container auth-container__header'>
           <h1 className='heading-secondary margin-bottom-ex-sm'>
-            &#127881; Hooray! Your free trial is waiting
+            &#127881; Hooray! Your free trial is waiting!
           </h1>
           <p className='heading-tertiary'>
             Our dermatologists need to know a few things about you first before they can mix a
@@ -45,34 +46,10 @@ class SignInSignUp extends React.Component {
           </p>
 
           <div className='pricing-box'>
-            <div className='pricing-box__header'>
-              <div className='pricing-box__header--price'>
-                <h1 className='heading-secondary'>FREE</h1>
-                <p className='paragraph'>(+$9.99 for S+H)</p>
-              </div>
-              <h1 className='pricing-box__header--duration heading-tertiary'>3 months supply</h1>
-            </div>
-            <div className='pricing-box__details'>
-              <ul className='list'>
-                <li className='list__item'>
-                  <IoHeartOutline className='list__item--icon' />
-                  <span className='list__item--text'>
-                    <strong>Custom</strong> topical cream designed just for you
-                  </span>
-                </li>
-                <li className='list__item'>
-                  <IoHappyOutline className='list__item--icon' />
-                  <span className='list__item--text'>
-                    <strong>Delivered</strong> to your door
-                  </span>
-                </li>
-                <li className='list__item'>
-                  <IoCheckmarkCircleOutline className='list__item--icon' />
-                  <span className='list__item--text'>
-                    <strong>Check-ins</strong> to monitor your skin
-                  </span>
-                </li>
-              </ul>
+            <img className='pricing-box__img' src={ProductWithBubbles} alt='Product with Bubbles' />
+            <div className='pricing-box__text'>
+              <h1 className='heading-secondary'>$9.99</h1>
+              <p className='paragraph'>just pay for shipping</p>
             </div>
           </div>
 

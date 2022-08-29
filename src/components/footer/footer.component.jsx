@@ -25,7 +25,7 @@ const Footer = () => {
           <address className='contacts'>
             <p className='address'>401 Park Drive, Suite 1009 Boston, MA 02215</p>
             <p>
-              <a className='footer-link' href='mailto:contact@medicall.com'>
+              <a className='footer-link' href='mailto:contact@dermdoc.com'>
                 contact@dermdoc.com
               </a>
             </p>

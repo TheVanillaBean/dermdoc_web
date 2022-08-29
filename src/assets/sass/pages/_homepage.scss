@@ -469,11 +469,12 @@
 
 .pricing-plan {
   display: flex;
-  max-width: 60rem;
+  max-width: 130rem;
   margin: 0 auto;
   padding: 0 3.2rem;
 
   @include respond(small-tab) {
+    max-width: 30rem;
     flex-direction: column;
     align-items: center;
   }
@@ -484,7 +485,7 @@
     margin-right: 7.2rem;
 
     @include respond(tab-land) {
-      max-width: 50%;
+      max-width: 60%;
     }
 
     @include respond(small-tab) {
@@ -530,12 +531,13 @@
         &--bubble {
           font-weight: 500;
           text-align: center;
+          padding: 0.5rem 1rem;
           border-radius: 1.2rem;
+          white-space: nowrap;
           background-color: var(--color-secondary);
           margin: 0;
 
           @include respond(small-phone) {
-            white-space: nowrap;
             padding: 0.5rem 0.3rem;
           }
         }

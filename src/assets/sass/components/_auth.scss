@@ -32,70 +32,35 @@
 }
 
 .pricing-box {
-  border: 2px solid var(--color-primary-dark);
-  border-radius: 1.8rem;
   display: flex;
-  flex-direction: column;
   align-items: stretch;
+  justify-content: space-between;
   padding: 2rem;
   margin-bottom: 3.2rem;
 
-  @include respond(phone) {
-    padding: 2rem 1rem;
+  &__img {
+    width: 50%;
+    height: 50%;
+
+    @include respond(phone) {
+      margin-right: 2rem;
+    }
   }
 
-  &__header {
+  &__text {
     display: flex;
-    justify-content: space-between;
-    align-items: flex-end;
-    margin-bottom: 1.8rem;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    white-space: nowrap;
 
-    @include respond(small-phone) {
-      flex-direction: column;
-      align-items: flex-start;
+    & > .heading-secondary {
+      margin-bottom: 0.5rem;
     }
 
-    &--price {
-      display: flex;
-      align-items: flex-end;
-      margin: 0;
-      white-space: nowrap;
-
-      & > * {
-        margin: 0;
-      }
-
-      & > :first-child {
-        margin-right: 0.5rem;
-      }
-
-      & > :last-child {
-        margin-bottom: 1.5px;
-      }
-
-      @include respond(small-phone) {
-        margin-bottom: 0.5rem;
-      }
+    & > .paragraph {
+      font-size: 1.4rem;
     }
-
-    &--duration {
-      margin: 0;
-      margin-bottom: 4px;
-      font-weight: 400;
-      font-size: 1.8rem;
-      white-space: nowrap;
-
-      @include respond(phone) {
-        font-size: 1.5rem;
-      }
-
-      @include respond(small-phone) {
-        margin-bottom: 0;
-      }
-    }
-  }
-
-  &__details {
   }
 }
 
