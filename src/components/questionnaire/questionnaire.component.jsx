@@ -12,6 +12,7 @@ import {
   selectQuestionnaireErrorMessage,
   selectQuestions,
 } from '../../redux/questionnaire/questionnaire.selectors';
+import { updateVisitAsync } from '../../redux/visit/visit.actions';
 import { selectVisitData } from '../../redux/visit/visit.selectors';
 
 Survey.StylesManager.ThemeColors['modern']['$main-color'] = 'var(--color-primary)';
@@ -39,6 +40,16 @@ class Questionnaire extends React.Component {
       fetchQuestionsStartAsync,
     } = this.props;
     fetchQuestionsStartAsync(visit_reason);
+  }
+
+  componentDidUpdate() {
+    const { visit, updateVisitAsync } = this.props;
+
+    if (visit.photo_id_added && visit.status != 'filled_out') {
+      updateVisitAsync(visit.visit_id, {
+        status: 'filled_out',
+      });
+    }
   }
 
   onComplete = async (survey, options) => {
@@ -105,6 +116,8 @@ const mapStateToProps = createStructuredSelector({
 });
 
 const mapDispatchToProps = (dispatch) => ({
+  updateVisitAsync: (visitID, updatedVisitData) =>
+    dispatch(updateVisitAsync(visitID, updatedVisitData)),
   fetchQuestionsStartAsync: (symptom) => dispatch(fetchQuestionsStartAsync(symptom)),
 });
 

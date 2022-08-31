@@ -1,15 +1,21 @@
 import React from 'react';
+import { IoLogoGoogle } from 'react-icons/io5';
 import { connect } from 'react-redux';
 import { withRouter } from 'react-router-dom';
 import { toast, ToastContainer } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
 import { createStructuredSelector } from 'reselect';
 import LegalCheckbox from '../../components/legal-checkbox/legal-checkbox.component';
-import { auth, createUserProfileDocument, NON_PERSISTANCE } from '../../firebase/firebase.utils';
+import {
+  auth,
+  createUserProfileDocument,
+  NON_PERSISTANCE,
+  signInWithGoogle,
+} from '../../firebase/firebase.utils';
 import { selectVisitData } from '../../redux/visit/visit.selectors';
 import CTAButton from '../cta/cta.component';
+import CustomButton from '../custom-button/custom-button.component';
 import FormInput from '../form-input/form-input.component';
-
 class SignUp extends React.Component {
   constructor(props) {
     super(props);
@@ -68,10 +74,9 @@ class SignUp extends React.Component {
     } catch (e) {
       let errorText = 'An error occured with sign up';
       if (e.code === 'auth/email-already-in-use') {
-        await auth.signInWithEmailAndPassword(email, password);
+        await this.handleSignIn(email, password);
 
         this.setState({
-          email: '',
           password: '',
           submitted: false,
         });
@@ -96,6 +101,28 @@ class SignUp extends React.Component {
     }
   };
 
+  handleSignIn = async (email, password) => {
+    try {
+      await auth.setPersistence(NON_PERSISTANCE);
+      await auth.signInWithEmailAndPassword(email, password);
+    } catch (e) {
+      let errorText = 'An error occured with sign in';
+      if (e.code === 'auth/wrong-password') {
+        errorText = 'Wrong password for account.';
+      } else if (e.code === 'auth/user-not-found') {
+        errorText = 'We could not find a user with this email.';
+      } else if (e.code === 'auth/user-disabled') {
+        errorText = 'This account has been disabled.';
+      } else if (e.code === 'auth/invalid-email') {
+        errorText = 'This email is invalid';
+      } else if (e.code === 'auth/too-many-requests') {
+        errorText = 'You have made too many requests. Please try again in 5 minutes.';
+      }
+      toast.error(errorText);
+      return errorText;
+    }
+  };
+
   handleChange = (event) => {
     const { name, value } = event.target;
 
@@ -106,6 +133,16 @@ class SignUp extends React.Component {
     const { email, password } = this.state;
     return (
       <div className='sign-up'>
+        <div className='sign-up__google-btn'>
+          <CustomButton
+            className='sign-up__google-btn--btn custom-button custom-button__google-sign-in'
+            onClick={signInWithGoogle}>
+            <IoLogoGoogle className='custom-button__google-sign-in--logo' />
+            Sign up with Google
+          </CustomButton>
+          <p className='sign-up__google-btn--or heading-tertiary'>or</p>
+        </div>
+
         <form className='sign-up__form'>
           <FormInput
             type='email'

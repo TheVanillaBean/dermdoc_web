@@ -132,7 +132,7 @@ export const createVisit = async (service, mailing_state) => {
     }
   }
 
-  return { error: true, message: 'Failed to setip visit!' };
+  return { error: true, message: 'Failed to setup visit!' };
 };
 
 export const convertDoctorsListSnapshotToMap = (doctors) => {

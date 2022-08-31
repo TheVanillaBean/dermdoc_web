@@ -8,7 +8,6 @@ import {
   fetchVisitFailure,
   fetchVisitStart,
   fetchVisitSuccess,
-  updateVisitAsync,
 } from '../../redux/visit/visit.actions';
 import AuthPage from '../auth/auth.page';
 import CheckoutPage from '../checkout/checkout.page';
@@ -33,11 +32,11 @@ class VisitLandingPage extends React.Component {
             const visit = doc.data();
             fetchVisitSuccess(visit);
 
-            if (visit.status === 'authenticated') {
-              history.push(`/visits/${visit.visit_id}/questions`);
-            } else if (visit.status === 'questions') {
+            if (visit.status === 'initiated') {
               history.push(`/visits/${visit.visit_id}/auth`);
-            } else if (visit.status === 'filled_out') {
+            } else if (visit.status === 'authenticated') {
+              history.push(`/visits/${visit.visit_id}/questions`);
+            } else if (visit.status === 'filled_out' || visit.status === 'payment_failed') {
               if (visit.photo_id_added && visit.selfies_added) {
                 history.push(`/visits/${visit.visit_id}/checkout`);
               } else if (visit.selfies_added) {
@@ -86,8 +85,6 @@ const mapStateToProps = createStructuredSelector({
 });
 
 const mapDispatchToProps = (dispatch) => ({
-  updateVisitAsync: (visitID, updatedVisitData) =>
-    dispatch(updateVisitAsync(visitID, updatedVisitData)),
   fetchVisitStart: () => dispatch(fetchVisitStart()),
   fetchVisitSuccess: (visitMap) => dispatch(fetchVisitSuccess(visitMap)),
   fetchVisitFailure: (errorMsg) => dispatch(fetchVisitFailure(errorMsg)),
