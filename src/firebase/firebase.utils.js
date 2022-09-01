@@ -321,7 +321,7 @@ export const saveQuestionnaireResponse = async (visitID, questionnaire) => {
       answered_date: new Date(),
       answers: questionnaire,
     });
-    await updateVisit(visitID, { status: 'filled_out' });
+    await updateVisit(visitID, { status: 'questions_filled_out' });
     return { error: false };
   } catch (e) {
     return { error: true, message: e.message };

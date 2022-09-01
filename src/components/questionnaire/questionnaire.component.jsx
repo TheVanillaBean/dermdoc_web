@@ -42,16 +42,6 @@ class Questionnaire extends React.Component {
     fetchQuestionsStartAsync(visit_reason);
   }
 
-  componentDidUpdate() {
-    const { visit, updateVisitAsync } = this.props;
-
-    if (visit.photo_id_added && visit.status !== 'filled_out') {
-      updateVisitAsync(visit.visit_id, {
-        status: 'filled_out',
-      });
-    }
-  }
-
   onComplete = async (survey, options) => {
     const {
       history,
@@ -69,7 +59,7 @@ class Questionnaire extends React.Component {
     if (saveQuestionnaire.error) {
       console.log(saveQuestionnaire.message);
     } else {
-      history.push(`/visits/${visit_id}/selfies`);
+      history.push(`/visits/${visit_id}/checkout`);
     }
   };
 
