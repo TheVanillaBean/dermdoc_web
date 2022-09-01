@@ -13,7 +13,7 @@ class PrivateRoute extends Component {
         {...rest}
         render={(props) =>
           currentUser != null ? (
-            <Component {...props} />
+            <Component {...props} visitID={visitID} patientID={patientID} />
           ) : (
             <AuthPage {...props} visitID={visitID} patientID={patientID} />
           )

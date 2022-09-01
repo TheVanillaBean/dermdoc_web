@@ -8,37 +8,31 @@ import ProductWithBubbles from '../../assets/img/product-with-bubbles-desktop.pn
 import SignUp from '../../components/sign-up/sign-up.component';
 import { selectCurrentUser } from '../../redux/user/user.selectors';
 import { updateVisitAsync } from '../../redux/visit/visit.actions';
-import { selectVisitData } from '../../redux/visit/visit.selectors';
 
 class SignInSignUp extends React.Component {
   componentDidUpdate() {
-    const {
-      history,
-      currentUser,
-      visit: { visit_id, patient_id },
-      updateVisitAsync,
-    } = this.props;
+    const { history, currentUser, visitID, patientID, updateVisitAsync } = this.props;
 
     if (currentUser != null) {
-      if (!patient_id) {
+      if (!patientID) {
         ReactPixel.track('CompleteRegistration', {
           content_name: 'User authenticated',
-          content_ids: [visit_id],
+          content_ids: [visitID],
           value: 2.5,
           currency: 'USD',
         });
-        updateVisitAsync(visit_id, {
+        updateVisitAsync(visitID, {
           patient_id: currentUser.id,
           email: currentUser.email,
         });
 
-        history.push(`/visits/${visit_id}`);
+        history.push(`/visits/${visitID}`);
 
         return;
       }
 
-      if (currentUser.id === patient_id) {
-        history.push(`/visits/${visit_id}`);
+      if (currentUser.id === patientID) {
+        history.push(`/visits/${visitID}`);
       } else {
         toast.error('You are not authorized to access the data for this visit');
       }
@@ -84,7 +78,6 @@ class SignInSignUp extends React.Component {
 }
 
 const mapStateToProps = createStructuredSelector({
-  visit: selectVisitData,
   currentUser: selectCurrentUser,
 });
 
