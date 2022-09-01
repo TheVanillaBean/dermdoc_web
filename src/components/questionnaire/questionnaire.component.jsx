@@ -45,7 +45,7 @@ class Questionnaire extends React.Component {
   componentDidUpdate() {
     const { visit, updateVisitAsync } = this.props;
 
-    if (visit.photo_id_added && visit.status != 'filled_out') {
+    if (visit.photo_id_added && visit.status !== 'filled_out') {
       updateVisitAsync(visit.visit_id, {
         status: 'filled_out',
       });

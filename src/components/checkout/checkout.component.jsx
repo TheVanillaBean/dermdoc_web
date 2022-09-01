@@ -42,10 +42,10 @@ class Checkout extends React.Component {
       visit: { visit_id },
     } = this.props;
     if (!currentUser) {
-      //if user is not authenticated but status is, revert status back to "filled_out"
+      //if user is not authenticated but status is, revert status back to "initiated"
       updateVisitAsync(visit_id, { status: 'initiated' });
       return true;
-      //This can happen if a user comes back later or on a seperate browser and is no longer logged in
+      //This can happen if a user comes back later or on a separate browser and is no longer logged in
     }
 
     return false;

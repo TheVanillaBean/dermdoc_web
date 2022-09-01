@@ -1,7 +1,8 @@
 import React from 'react';
 import { connect } from 'react-redux';
-import { Redirect, Route, Switch } from 'react-router-dom';
+import { Switch } from 'react-router-dom';
 import { createStructuredSelector } from 'reselect';
+import PrivateRoute from '../../components/private-route/private-route.component';
 import { firestore } from '../../firebase/firebase.utils';
 import { selectCurrentUser } from '../../redux/user/user.selectors';
 import {
@@ -9,7 +10,6 @@ import {
   fetchVisitStart,
   fetchVisitSuccess,
 } from '../../redux/visit/visit.actions';
-import AuthPage from '../auth/auth.page';
 import CheckoutPage from '../checkout/checkout.page';
 import PhotoIdPage from '../photo-id/photo-id.page';
 import QuestionsPage from '../questions/questions.page';
@@ -23,6 +23,7 @@ class VisitLandingPage extends React.Component {
     const { match, history, fetchVisitStart, fetchVisitSuccess, fetchVisitFailure } = this.props;
     const visitID = match.params.visit_id;
     fetchVisitStart();
+
     this.unsubscribeFromVisitSnapshot = firestore
       .collection('visits')
       .doc(visitID)
@@ -33,23 +34,36 @@ class VisitLandingPage extends React.Component {
             fetchVisitSuccess(visit);
 
             if (visit.status === 'initiated') {
-              history.push(`/visits/${visit.visit_id}/auth`);
-            } else if (visit.status === 'authenticated') {
               history.push(`/visits/${visit.visit_id}/questions`);
-            } else if (visit.status === 'filled_out' || visit.status === 'payment_failed') {
-              if (visit.photo_id_added && visit.selfies_added) {
-                history.push(`/visits/${visit.visit_id}/checkout`);
-              } else if (visit.selfies_added) {
-                history.push(`/visits/${visit.visit_id}/photo_id`);
-              } else {
-                history.push(`/visits/${visit.visit_id}/selfies`);
-              }
-            } else if (visit.status === 'paid' || visit.status === 'ready_for_review') {
-              history.push(`/visits/${visit.visit_id}/visit_ready`);
+              return;
             }
+
+            if (visit.status === 'questions_filled_out' || visit.status === 'payment_failed') {
+              history.push(`/visits/${visit.visit_id}/checkout`);
+              return;
+            }
+
+            if (visit.status === 'paid') {
+              history.push(`/visits/${visit.visit_id}/selfies`);
+              return;
+            }
+
+            if (visit.status === 'selfies_added') {
+              history.push(`/visits/${visit.visit_id}/photo_id`);
+              return;
+            }
+
+            if (visit.status === 'photo_id_added' || visit.status === 'ready_for_review') {
+              history.push(`/visits/${visit.visit_id}/visit_ready`);
+              return;
+            }
+
+            history.push(`/visits/${visit.visit_id}/error`);
+
+            return;
           }
         },
-        (error) => {
+        (_) => {
           fetchVisitFailure(
             'We could not find information for this visit. Please email contact@dermdoc.com for fast assistance.'
           );
@@ -65,16 +79,12 @@ class VisitLandingPage extends React.Component {
     const { match } = this.props;
     return (
       <Switch>
-        <Route path={`${match.path}/auth`} component={AuthPage} />
-        <Route path={`${match.path}/questions`} component={QuestionsPage} />
-        <Route path={`${match.path}/photo_id`} component={PhotoIdPage} />
-        <Route path={`${match.path}/selfies`} component={SelfiesPage} />
-
-        <Route path={`${match.path}/checkout`} component={CheckoutPage} />
-        <Route path={`${match.path}/visit_ready`} component={VisitReadyPage} />
-        <Route exact path='*'>
-          <Redirect to={`/visits/${match.params.visit_id}/questions`} />
-        </Route>
+        <PrivateRoute path={`${match.path}/questions`} component={QuestionsPage} />
+        <PrivateRoute path={`${match.path}/checkout`} component={CheckoutPage} />
+        <PrivateRoute path={`${match.path}/selfies`} component={SelfiesPage} />
+        <PrivateRoute path={`${match.path}/photo_id`} component={PhotoIdPage} />
+        <PrivateRoute path={`${match.path}/visit_ready`} component={VisitReadyPage} />
+        <PrivateRoute path={`${match.path}/error`} component={VisitReadyPage} />
       </Switch>
     );
   }
