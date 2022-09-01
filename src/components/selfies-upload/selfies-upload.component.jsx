@@ -22,7 +22,7 @@ class SelfiesUpload extends React.Component {
   };
 
   handleErrors = (errors) => {
-    this.setState({ errors });
+    this.setState({ errors: errors });
   };
 
   handleSelfies = async (files, selectedIndex) => {

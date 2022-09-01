@@ -2,6 +2,7 @@ import React from 'react';
 import ReactPixel from 'react-facebook-pixel';
 import { connect } from 'react-redux';
 import { withRouter } from 'react-router-dom';
+import { toast, ToastContainer } from 'react-toastify';
 import { createStructuredSelector } from 'reselect';
 import ProductWithBubbles from '../../assets/img/product-with-bubbles-desktop.png';
 import SignUp from '../../components/sign-up/sign-up.component';
@@ -12,24 +13,35 @@ import { selectVisitData } from '../../redux/visit/visit.selectors';
 class SignInSignUp extends React.Component {
   componentDidUpdate() {
     const {
+      history,
       currentUser,
-      visit: { visit_id },
+      visit: { visit_id, patient_id },
       updateVisitAsync,
     } = this.props;
 
     if (currentUser != null) {
-      ReactPixel.track('CompleteRegistration', {
-        content_name: 'User authenticated',
-        content_ids: [visit_id],
-        value: 2.5,
-        currency: 'USD',
-      });
+      if (!patient_id) {
+        ReactPixel.track('CompleteRegistration', {
+          content_name: 'User authenticated',
+          content_ids: [visit_id],
+          value: 2.5,
+          currency: 'USD',
+        });
+        updateVisitAsync(visit_id, {
+          patient_id: currentUser.id,
+          email: currentUser.email,
+        });
 
-      updateVisitAsync(visit_id, {
-        status: 'authenticated',
-        patient_id: currentUser.id,
-        email: currentUser.email,
-      });
+        history.push(`/visits/${visit_id}`);
+
+        return;
+      }
+
+      if (currentUser.id === patient_id) {
+        history.push(`/visits/${visit_id}`);
+      } else {
+        toast.error('You are not authorized to access the data for this visit');
+      }
     }
   }
 
@@ -55,6 +67,17 @@ class SignInSignUp extends React.Component {
 
           <SignUp />
         </div>
+        <ToastContainer
+          position='top-right'
+          bodyClassName='toastBody'
+          autoClose={5000}
+          hideProgressBar={false}
+          newestOnTop={false}
+          closeOnClick
+          pauseOnFocusLoss
+          draggable
+          pauseOnHover
+        />
       </div>
     );
   }
