@@ -14,6 +14,7 @@ import CheckoutPage from '../checkout/checkout.page';
 import PhotoIdPage from '../photo-id/photo-id.page';
 import QuestionsPage from '../questions/questions.page';
 import SelfiesPage from '../selfies/selfies.page';
+import VisitErrorPage from '../visit-error/visit-error.page';
 import VisitReadyPage from '../visit-ready/visit-ready.page';
 
 class VisitLandingPage extends React.Component {
@@ -84,7 +85,7 @@ class VisitLandingPage extends React.Component {
         <PrivateRoute path={`${match.path}/selfies`} component={SelfiesPage} />
         <PrivateRoute path={`${match.path}/photo_id`} component={PhotoIdPage} />
         <PrivateRoute path={`${match.path}/visit_ready`} component={VisitReadyPage} />
-        <PrivateRoute path={`${match.path}/error`} component={VisitReadyPage} />
+        <PrivateRoute path={`${match.path}/error`} component={VisitErrorPage} />
       </Switch>
     );
   }

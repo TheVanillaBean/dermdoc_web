@@ -3,19 +3,16 @@ import { withRouter } from 'react-router-dom';
 import Footer from '../../components/footer/footer.component';
 import Header from '../../components/header/header.component';
 
-class VisitReady extends React.Component {
+class VisitError extends React.Component {
   render() {
     return (
       <div>
         <Header />
 
         <div className='visit-paid-container container'>
-          <h1 className='heading-secondary'>Hooray! Your payment was successful.</h1>
+          <h1 className='heading-secondary'>Issue With Visit</h1>
           <p className='heading-tertiary'>
-            You will receive an email with more details on your custom cream shortly.
-          </p>
-          <p className='heading-tertiary'>
-            If you have any questions, please email contact@dermdoc.com for same-day responses.
+            Please email contact@dermdoc.com and we will assist you with this issue.
           </p>
         </div>
 
@@ -25,4 +22,4 @@ class VisitReady extends React.Component {
   }
 }
 
-export default withRouter(VisitReady);
+export default withRouter(VisitError);

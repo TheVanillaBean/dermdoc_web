@@ -9,6 +9,7 @@ import ChooseStatePage from './pages/choose-state/choose-state.page';
 import HomePage from './pages/homepage/homepage.page';
 import IngredientsPage from './pages/ingredients/ingredients.component';
 import LegalPage from './pages/legal/legal.pages';
+import VisitCancelPage from './pages/visit-cancel/visit-cancel.page';
 import VisitLandingPage from './pages/visit-landing/visit-landing.page';
 import WaitlistPage from './pages/waitlist/waitlist.page';
 import { setCurrentUser } from './redux/user/user.actions';
@@ -51,6 +52,7 @@ class App extends Component {
         <Route exact path='/waitlist' component={WaitlistPage} />
         <Route exact path='/get_started' component={ChooseStatePage} />
         <Route path='/visits/:visit_id' component={VisitLandingPage} />
+        <Route exact path='/cancel' component={VisitCancelPage} />
         <Route path='/privacy' render={() => <LegalPage page='privacy' />} />
         <Route path='/terms' render={() => <LegalPage page='terms' />} />
         <Route path='/consent' render={() => <LegalPage page='consent' />} />
