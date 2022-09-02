@@ -1,10 +1,8 @@
 import React from 'react';
 import { connect } from 'react-redux';
-import { Switch } from 'react-router-dom';
-import { createStructuredSelector } from 'reselect';
+import { Redirect, Route, Switch } from 'react-router-dom';
 import PrivateRoute from '../../components/private-route/private-route.component';
 import { firestore } from '../../firebase/firebase.utils';
-import { selectCurrentUser } from '../../redux/user/user.selectors';
 import {
   fetchVisitFailure,
   fetchVisitStart,
@@ -31,6 +29,8 @@ class VisitLandingPage extends React.Component {
       .onSnapshot(
         (doc) => {
           if (doc.exists) {
+            const source = doc.metadata.hasPendingWrites ? 'Local' : 'Server';
+            console.log(source);
             const visit = doc.data();
             fetchVisitSuccess(visit);
 
@@ -78,6 +78,7 @@ class VisitLandingPage extends React.Component {
 
   render() {
     const { match } = this.props;
+
     return (
       <Switch>
         <PrivateRoute path={`${match.path}/questions`} component={QuestionsPage} />
@@ -86,14 +87,13 @@ class VisitLandingPage extends React.Component {
         <PrivateRoute path={`${match.path}/photo_id`} component={PhotoIdPage} />
         <PrivateRoute path={`${match.path}/visit_ready`} component={VisitReadyPage} />
         <PrivateRoute path={`${match.path}/error`} component={VisitErrorPage} />
+        <Route exact path='*'>
+          <Redirect to={`/visits/${match.params.visit_id}/questions`} />
+        </Route>
       </Switch>
     );
   }
 }
-
-const mapStateToProps = createStructuredSelector({
-  currentUser: selectCurrentUser,
-});
 
 const mapDispatchToProps = (dispatch) => ({
   fetchVisitStart: () => dispatch(fetchVisitStart()),
@@ -101,4 +101,4 @@ const mapDispatchToProps = (dispatch) => ({
   fetchVisitFailure: (errorMsg) => dispatch(fetchVisitFailure(errorMsg)),
 });
 
-export default connect(mapStateToProps, mapDispatchToProps)(VisitLandingPage);
+export default connect(null, mapDispatchToProps)(VisitLandingPage);

@@ -1,30 +1,55 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import { Route, withRouter } from 'react-router-dom';
+import { ToastContainer } from 'react-toastify';
 import { createStructuredSelector } from 'reselect';
 import AuthPage from '../../pages/auth/auth.page';
 import { selectCurrentUser } from '../../redux/user/user.selectors';
-
+import { updateVisitAsync } from '../../redux/visit/visit.actions';
+import { selectVisitData } from '../../redux/visit/visit.selectors';
 class PrivateRoute extends Component {
   render() {
-    const { currentUser, visitID, patientID, component, ...rest } = this.props;
+    const { currentUser, visit, component: Component, ...rest } = this.props;
     return (
-      <Route
-        {...rest}
-        render={(props) =>
-          currentUser != null ? (
-            <Component {...props} visitID={visitID} patientID={patientID} />
-          ) : (
-            <AuthPage {...props} visitID={visitID} patientID={patientID} />
-          )
-        }
-      />
+      <>
+        <Route
+          {...rest}
+          render={(props) =>
+            currentUser != null ? (
+              currentUser.id === visit.patient_id ? (
+                <Component {...props} />
+              ) : (
+                <AuthPage {...props} /> //replace with different page
+              )
+            ) : (
+              <AuthPage {...props} />
+            )
+          }
+        />
+        <ToastContainer
+          position='top-right'
+          bodyClassName='toastBody'
+          autoClose={5000}
+          hideProgressBar={false}
+          newestOnTop={false}
+          closeOnClick
+          pauseOnFocusLoss
+          draggable
+          pauseOnHover
+        />
+      </>
     );
   }
 }
 
 const mapStateToProps = createStructuredSelector({
+  visit: selectVisitData,
   currentUser: selectCurrentUser,
 });
 
-export default withRouter(connect(mapStateToProps)(PrivateRoute));
+const mapDispatchToProps = (dispatch) => ({
+  updateVisitAsync: (visitID, updatedVisitData) =>
+    dispatch(updateVisitAsync(visitID, updatedVisitData)),
+});
+
+export default withRouter(connect(mapStateToProps, mapDispatchToProps)(PrivateRoute));

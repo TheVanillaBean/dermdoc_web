@@ -182,23 +182,13 @@ export const convertDoctorsListSnapshotToMap = (doctors) => {
 };
 
 export const convertVisitSnapshotToMap = (visit) => {
-  const {
-    date,
-    insurance_info,
-    original_patient_information,
-    provider_id,
-    seen_doctor,
-    status,
-    visit_reason,
-    visit_id,
-  } = visit;
+  const { date, email, mailing_state, patient_id, status, visit_reason, visit_id } = visit;
 
   return {
     date,
-    insurance_info,
-    original_patient_information,
-    provider_id,
-    seen_doctor,
+    email,
+    mailing_state,
+    patient_id,
     status,
     visit_reason,
     visit_id,

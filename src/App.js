@@ -13,6 +13,8 @@ import VisitCancelPage from './pages/visit-cancel/visit-cancel.page';
 import VisitLandingPage from './pages/visit-landing/visit-landing.page';
 import WaitlistPage from './pages/waitlist/waitlist.page';
 import { setCurrentUser } from './redux/user/user.actions';
+import { selectCurrentUser } from './redux/user/user.selectors';
+import { updateVisitAsync } from './redux/visit/visit.actions';
 import { selectVisitData } from './redux/visit/visit.selectors';
 
 ReactPixel.init('702584800918603', {}, { debug: true, autoConfig: true });
@@ -38,6 +40,23 @@ class App extends Component {
         setCurrentUser(null);
       }
     });
+  }
+
+  componentDidUpdate() {
+    const { currentUser, visit, updateVisitAsync } = this.props;
+
+    if (currentUser && visit && !visit.patient_id) {
+      ReactPixel.track('CompleteRegistration', {
+        content_name: 'User authenticated',
+        content_ids: [visit.visit_id],
+        value: 2.5,
+        currency: 'USD',
+      });
+      updateVisitAsync(visit.visit_id, {
+        patient_id: currentUser.id,
+        email: currentUser.email,
+      });
+    }
   }
 
   componentWillUnmount() {
@@ -66,9 +85,12 @@ class App extends Component {
 
 const mapStateToProps = createStructuredSelector({
   visit: selectVisitData,
+  currentUser: selectCurrentUser,
 });
 
 const mapDispatchToProps = (dispatch) => ({
+  updateVisitAsync: (visitID, updatedVisitData) =>
+    dispatch(updateVisitAsync(visitID, updatedVisitData)),
   setCurrentUser: (user) => dispatch(setCurrentUser(user)),
 });
 

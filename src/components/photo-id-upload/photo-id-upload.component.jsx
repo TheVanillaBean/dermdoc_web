@@ -87,7 +87,7 @@ class PhotoIDUpload extends React.Component {
         currency: 'USD',
       });
       await updateVisitAsync(visit.visit_id, {
-        photo_id_added: true,
+        status: 'photo_id_added',
       });
     } catch (error) {
       toast.error(error);

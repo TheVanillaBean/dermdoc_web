@@ -80,7 +80,7 @@ class SelfiesUpload extends React.Component {
 
     try {
       await updateVisitAsync(visit.visit_id, {
-        selfies_added: true,
+        status: 'selfies_added',
       });
     } catch (error) {
       toast.error(error);

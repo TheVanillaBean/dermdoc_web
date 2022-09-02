@@ -50,11 +50,11 @@ class ChooseState extends Component {
 
       if (newVisit.error) {
         toast.error(newVisit.message);
+        this.setState({ submitted: false });
       } else {
         const { history } = this.props;
-        history.push(`/visits/${newVisit.visitId}/auth`);
+        history.push(`/visits/${newVisit.visitId}`);
       }
-      this.setState({ submitted: false });
     } catch (e) {
       let errorText = e.message;
 
