@@ -1,7 +1,7 @@
 .questionnaire {
   margin-top: 2rem;
 
-  @include respond(small-phone) {
+  @include respond(phone) {
     & > .container {
       padding: 0;
     }
@@ -14,6 +14,10 @@
 
     & > h2 {
       margin-bottom: 1.2rem;
+    }
+
+    & > p {
+      text-align: center;
     }
   }
 }

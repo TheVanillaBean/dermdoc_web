@@ -10,7 +10,7 @@ class VisitReady extends React.Component {
         <Header />
 
         <div className='visit-paid-container container'>
-          <h1 className='heading-secondary'>Hooray! Your payment was successful.</h1>
+          <h1 className='heading-secondary'>Hooray!</h1>
           <p className='heading-tertiary'>
             You will receive an email with more details on your custom cream shortly.
           </p>

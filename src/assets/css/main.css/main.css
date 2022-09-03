@@ -883,7 +883,7 @@ strong {
   /* 1800/16 = 112.5 */
   /* BELOW 1800px (Big Desktops) */
   /***************************/ }
-  @media only screen and (max-width: 22.5em) {
+  @media only screen and (max-width: 34em) {
     .questionnaire > .container {
       padding: 0; } }
   .questionnaire__thank-you {
@@ -892,6 +892,8 @@ strong {
     align-items: center; }
     .questionnaire__thank-you > h2 {
       margin-bottom: 1.2rem; }
+    .questionnaire__thank-you > p {
+      text-align: center; }
 
 .spinner-overlay {
   height: 15vh;
@@ -3759,6 +3761,47 @@ strong {
       border-top: 0 solid rgba(0, 0, 0, 0.1); }
     .product-details__grid--item:nth-child(3), .product-details__grid--item:nth-child(4) {
       padding-bottom: 0 !important; }
+
+.checkout-container {
+  display: flex;
+  flex-direction: column;
+  margin: 0 auto;
+  margin-top: 6.4rem;
+  margin-bottom: 3.2rem;
+  max-width: 65rem; }
+  .checkout-container__pricing-box {
+    display: flex;
+    flex-direction: column;
+    margin-bottom: 2rem; }
+    .checkout-container__pricing-box__img {
+      max-height: 100%;
+      max-width: 100%; }
+    .checkout-container__pricing-box__details {
+      padding: 2rem 1rem;
+      background-color: var(--color-grey-light-1);
+      border-bottom-left-radius: 1.5rem;
+      border-bottom-right-radius: 1.5rem;
+      white-space: nowrap; }
+      .checkout-container__pricing-box__details > .heading-secondary {
+        margin-bottom: 0.8rem; }
+      .checkout-container__pricing-box__details > .heading-tertiary {
+        margin-bottom: 0rem; }
+  .checkout-container__info-box {
+    display: flex;
+    justify-content: flex-start;
+    align-items: center;
+    margin-bottom: 3.2rem; }
+    .checkout-container__info-box--img {
+      width: 10rem;
+      height: 10rem;
+      margin-right: 2rem;
+      color: var(--color-primary); }
+    .checkout-container__info-box--text {
+      font-weight: 500;
+      font-size: 1.8rem;
+      line-height: 1.2;
+      color: var(--color-grey-dark-1);
+      letter-spacing: 0.75px; }
 
 /* rem and em do NOT depend on html font-size in media queries.
    Instead, 1rem = 1em = 16px;
