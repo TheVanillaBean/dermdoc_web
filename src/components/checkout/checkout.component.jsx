@@ -54,7 +54,7 @@ class Checkout extends React.Component {
   }
 
   render() {
-    const { isFetchingURL, stripeErrorMessage, submitted } = this.props;
+    const { stripeErrorMessage, submitted } = this.props;
 
     if (stripeErrorMessage) {
       return this.stripeErrorUI(stripeErrorMessage);

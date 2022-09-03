@@ -1,7 +1,7 @@
 import React from 'react';
 import CustomButton from '../custom-button/custom-button.component';
 
-const CTAButton = ({ additionalClassName = '', buttonText, handleClick }) => {
+const CTAButton = ({ additionalClassName = '', buttonText, subtext, handleClick }) => {
   return (
     <div className={`cta ${additionalClassName}`}>
       <CustomButton className='cta__btn btn btn--full' onClick={handleClick}>

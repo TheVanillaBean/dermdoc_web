@@ -295,6 +295,9 @@ body {
 .text-grey-color {
   color: var(--color-grey-dark-3); }
 
+.text-dark-color {
+  color: var(--color-grey-dark-1); }
+
 .text-color-white {
   color: var(--color-grey-light-1); }
 
@@ -759,7 +762,6 @@ strong {
   display: flex;
   align-items: stretch;
   justify-content: space-between;
-  padding: 2rem;
   margin-bottom: 3.2rem; }
   .pricing-box__img {
     width: 50%;
@@ -803,7 +805,11 @@ strong {
     white-space: nowrap; }
     .pricing-box__text > .heading-secondary {
       margin-bottom: 0.5rem; }
+      .pricing-box__text > .heading-secondary > .heading-tertiary {
+        font-weight: 600 !important;
+        margin: 0; }
     .pricing-box__text > .paragraph {
+      font-weight: 500;
       font-size: 1.4rem; }
 
 .sign-up {
@@ -850,7 +856,7 @@ strong {
     border-radius: 1.5rem; }
     .form-input-container__input:focus {
       outline: none; }
-  .form-input-container input[type='password'] {
+  .form-input-container input[type='password']:not(:placeholder-shown) {
     letter-spacing: 0.3em; }
 
 .questionnaire {

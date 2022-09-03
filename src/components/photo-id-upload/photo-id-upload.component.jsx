@@ -103,9 +103,9 @@ class PhotoIDUpload extends React.Component {
           <label className='photo-gallery--title'>Upload photo ID</label>
           <label className='photo-gallery--subtitle'>
             We need your photo ID for legal reasons because your board-certified dermatologist will
-            be giving a medical evaluation. All images will be saved to our secure{' '}
-            <span className='text-primary-color'>HIPAA</span> compliant backend and will never be
-            shared.
+            technically be giving a medical evaluation. All images will be saved to our secure
+            certified <span className='text-primary-color'>HIPAA</span> compliant backend and will
+            never be shared.
           </label>
           <Files
             id={'image-gallery'}

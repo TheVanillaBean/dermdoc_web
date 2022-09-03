@@ -35,7 +35,6 @@
   display: flex;
   align-items: stretch;
   justify-content: space-between;
-  padding: 2rem;
   margin-bottom: 3.2rem;
 
   &__img {
@@ -56,9 +55,15 @@
 
     & > .heading-secondary {
       margin-bottom: 0.5rem;
+
+      & > .heading-tertiary {
+        font-weight: 600 !important;
+        margin: 0;
+      }
     }
 
     & > .paragraph {
+      font-weight: 500;
       font-size: 1.4rem;
     }
   }
@@ -133,7 +138,7 @@
     }
   }
 
-  input[type='password'] {
+  input[type='password']:not(:placeholder-shown) {
     letter-spacing: 0.3em;
   }
 }

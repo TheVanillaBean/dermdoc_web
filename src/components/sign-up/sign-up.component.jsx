@@ -33,7 +33,21 @@ class SignUp extends React.Component {
     this.setState({ termsChecked: checked });
   };
 
-  handleSubmit = async (event) => {
+  validateInputs = (email, password) => {
+    if (email.length === 0) {
+      toast.error('Please enter an email');
+      return false;
+    }
+
+    if (password.length === 0) {
+      toast.error('Please enter a password');
+      return false;
+    }
+
+    return true;
+  };
+
+  handleSignUpPressed = async (event) => {
     event.preventDefault();
 
     const { email, password, submitted, termsChecked } = this.state;
@@ -52,14 +66,32 @@ class SignUp extends React.Component {
 
     this.setState({ submitted: true });
 
-    if (email.length === 0) {
-      toast.error('Please enter an email');
+    if (!this.validateInputs(email, password)) {
+      return;
     }
 
-    if (password.length === 0) {
-      toast.error('Please enter a password');
+    await this.signUpUser(email, password);
+  };
+
+  handleSignInPressed = async (event) => {
+    event.preventDefault();
+
+    const { email, password, submitted } = this.state;
+
+    if (submitted) {
+      return;
     }
 
+    this.setState({ submitted: true });
+
+    if (!this.validateInputs(email, password)) {
+      return;
+    }
+
+    await this.signInUser(email, password);
+  };
+
+  signUpUser = async (email, password) => {
     try {
       await auth.setPersistence(NON_PERSISTANCE);
       const { user } = await auth.createUserWithEmailAndPassword(email, password);
@@ -71,16 +103,12 @@ class SignUp extends React.Component {
         password: '',
         submitted: false,
       });
+
+      return;
     } catch (e) {
       let errorText = 'An error occured with sign up';
       if (e.code === 'auth/email-already-in-use') {
-        await this.handleSignIn(email, password);
-
-        this.setState({
-          password: '',
-          submitted: false,
-        });
-
+        await this.signInUser(email, password);
         return;
       } else if (e.code === 'auth/operation-not-allowed') {
         errorText =
@@ -101,10 +129,16 @@ class SignUp extends React.Component {
     }
   };
 
-  handleSignIn = async (email, password) => {
+  signInUser = async (email, password) => {
     try {
       await auth.setPersistence(NON_PERSISTANCE);
       await auth.signInWithEmailAndPassword(email, password);
+
+      this.setState({
+        password: '',
+        submitted: false,
+      });
+      return;
     } catch (e) {
       let errorText = 'An error occured with sign in';
       if (e.code === 'auth/wrong-password') {
@@ -118,7 +152,13 @@ class SignUp extends React.Component {
       } else if (e.code === 'auth/too-many-requests') {
         errorText = 'You have made too many requests. Please try again in 5 minutes.';
       }
+
       toast.error(errorText);
+
+      this.setState({
+        password: '',
+        submitted: false,
+      });
       return errorText;
     }
   };
@@ -131,6 +171,7 @@ class SignUp extends React.Component {
 
   render() {
     const { email, password } = this.state;
+    const { existingVisit = false } = this.props;
     return (
       <div className='sign-up'>
         <div className='sign-up__google-btn'>
@@ -138,7 +179,7 @@ class SignUp extends React.Component {
             className='sign-up__google-btn--btn custom-button custom-button__google-sign-in'
             onClick={signInWithGoogle}>
             <IoLogoGoogle className='custom-button__google-sign-in--logo' />
-            Sign up with Google
+            {existingVisit ? 'Sign in with Google' : 'Sign up with Google'}
           </CustomButton>
           <p className='sign-up__google-btn--or heading-tertiary'>or</p>
         </div>
@@ -150,6 +191,7 @@ class SignUp extends React.Component {
             value={email}
             onChange={this.handleChange}
             label='Email address'
+            placeholder='jane.doe@example.com'
             required
           />
           <FormInput
@@ -158,20 +200,24 @@ class SignUp extends React.Component {
             value={password}
             onChange={this.handleChange}
             label='Password'
+            placeholder={existingVisit ? 'Enter password' : 'Create a password'}
             required
           />
         </form>
-        <div className='margin-bottom-reg'>
-          <LegalCheckbox
-            value={this.state.termsChecked}
-            handleChange={this.handleTermsCheckboxChange}
-            required
-          />
-        </div>
+        {!existingVisit ?? (
+          <div className='margin-bottom-reg'>
+            <LegalCheckbox
+              value={this.state.termsChecked}
+              handleChange={this.handleTermsCheckboxChange}
+              required
+            />
+          </div>
+        )}
+
         <CTAButton
           additionalClassName='margin-center'
-          buttonText='Let’s Do This!'
-          handleClick={this.handleSubmit}
+          buttonText={existingVisit ? 'Login' : 'Sign Up'}
+          handleClick={existingVisit ? this.handleSignInPressed : this.handleSignUpPressed}
         />
 
         <ToastContainer

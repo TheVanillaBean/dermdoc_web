@@ -93,10 +93,10 @@ class SelfiesUpload extends React.Component {
     return (
       <div className='container'>
         <div className='photo-gallery-container'>
-          <label className='photo-gallery--title'>Upload 1-3 selfies</label>
+          <label className='photo-gallery--title'>Upload a few selfies</label>
           <label className='photo-gallery--subtitle'>
-            Please upload some selfies so your dermatologist can give you a proper{' '}
-            <span className='text-primary-color'>medical evaluation</span>.
+            Please upload a <span className='text-primary-color'>few selfies</span> so your
+            dermatologist can design the best cream tailored for you.
           </label>
           <Files
             id={'image-gallery'}

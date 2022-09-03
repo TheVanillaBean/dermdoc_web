@@ -10,9 +10,10 @@ class VisitError extends React.Component {
         <Header />
 
         <div className='visit-paid-container container'>
-          <h1 className='heading-secondary'>Issue With Visit</h1>
+          <h1 className='heading-secondary'>&#128556; Oh no!</h1>
           <p className='heading-tertiary'>
-            Please email contact@dermdoc.com and we will assist you with this issue.
+            There is an issue with your visit. Please email contact@dermdoc.com and we will assist
+            you with this issue.
           </p>
         </div>
 

@@ -19,10 +19,10 @@ class PrivateRoute extends Component {
               currentUser.id === visit.patient_id ? (
                 <Component {...props} />
               ) : (
-                <AuthPage {...props} /> //replace with different page
+                <AuthPage {...props} notAuthorized={true} /> //replace with different page
               )
             ) : (
-              <AuthPage {...props} />
+              <AuthPage {...props} notAuthorized={false} />
             )
           }
         />
