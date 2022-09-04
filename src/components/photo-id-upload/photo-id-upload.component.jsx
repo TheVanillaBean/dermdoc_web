@@ -1,7 +1,6 @@
 import imageCompression from 'browser-image-compression';
 import React from 'react';
 import Files from 'react-butterfiles';
-import ReactPixel from 'react-facebook-pixel';
 import { IoCard } from 'react-icons/io5';
 import { connect } from 'react-redux';
 import { withRouter } from 'react-router-dom';
@@ -80,12 +79,6 @@ class PhotoIDUpload extends React.Component {
     }
 
     try {
-      ReactPixel.track('InitiateCheckout', {
-        content_name: 'Photos Submitted',
-        content_ids: [visit.visit_id],
-        value: 10,
-        currency: 'USD',
-      });
       await updateVisitAsync(visit.visit_id, {
         status: 'photo_id_added',
       });

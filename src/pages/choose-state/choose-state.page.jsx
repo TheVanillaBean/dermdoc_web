@@ -44,7 +44,7 @@ class ChooseState extends Component {
       ReactPixel.track('ViewContent', {
         content_name: 'New Visit Initiated',
         content_ids: [newVisit.visitId],
-        value: 0.5,
+        value: 1,
         currency: 'USD',
       });
 

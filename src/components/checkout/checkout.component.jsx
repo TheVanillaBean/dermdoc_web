@@ -1,4 +1,5 @@
 import React from 'react';
+import ReactPixel from 'react-facebook-pixel';
 import { IoInformationCircle } from 'react-icons/io5';
 import { connect } from 'react-redux';
 import { withRouter } from 'react-router-dom';
@@ -15,6 +16,7 @@ import { selectCurrentUser } from '../../redux/user/user.selectors';
 import { updateVisitAsync } from '../../redux/visit/visit.actions';
 import { selectVisitData } from '../../redux/visit/visit.selectors';
 import CTAButton from '../cta/cta.component';
+
 class Checkout extends React.Component {
   state = {
     submitted: false,
@@ -39,6 +41,13 @@ class Checkout extends React.Component {
       return;
     }
     this.setState({ submitted: true });
+
+    ReactPixel.track('InitiateCheckout', {
+      content_name: 'InitiateCheckout',
+      content_ids: [visit.visit_id],
+      value: 4,
+      currency: 'USD',
+    });
 
     if (currentUser && stripeCheckoutURL) {
       window.location.replace(stripeCheckoutURL);

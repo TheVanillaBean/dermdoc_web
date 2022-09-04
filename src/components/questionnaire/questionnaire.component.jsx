@@ -52,7 +52,7 @@ class Questionnaire extends React.Component {
     ReactPixel.track('Lead', {
       content_name: 'Questionnaire Submitted',
       content_ids: [visit_id],
-      value: 2,
+      value: 3,
       currency: 'USD',
     });
 

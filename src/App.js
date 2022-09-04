@@ -49,7 +49,7 @@ class App extends Component {
       ReactPixel.track('CompleteRegistration', {
         content_name: 'User authenticated',
         content_ids: [visit.visit_id],
-        value: 2.5,
+        value: 2,
         currency: 'USD',
       });
       updateVisitAsync(visit.visit_id, {
