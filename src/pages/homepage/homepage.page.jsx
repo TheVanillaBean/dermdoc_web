@@ -37,19 +37,19 @@ class HomePage extends React.Component {
   }
 
   handleClick = () => {
-    const { history } = this.props;
+    const { history, location } = this.props;
 
     document.body.classList.remove('sticky');
 
-    history.push(`get_started`);
+    history.push(`get_started${location.search}`);
   };
 
   handleIngredientsClick = () => {
-    const { history } = this.props;
+    const { history, location } = this.props;
 
     document.body.classList.remove('sticky');
 
-    history.push(`ingredients`);
+    history.push(`ingredients${location.search}`);
   };
 
   render() {

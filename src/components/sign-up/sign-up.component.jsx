@@ -204,7 +204,7 @@ class SignUp extends React.Component {
             required
           />
         </form>
-        {!existingVisit ?? (
+        {!existingVisit && (
           <div className='margin-bottom-reg'>
             <LegalCheckbox
               value={this.state.termsChecked}

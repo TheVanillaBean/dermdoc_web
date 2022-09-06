@@ -1,5 +1,5 @@
+import ReactPixel from '@bettercart/react-facebook-pixel';
 import React from 'react';
-import ReactPixel from 'react-facebook-pixel';
 import { IoInformationCircle } from 'react-icons/io5';
 import { connect } from 'react-redux';
 import { withRouter } from 'react-router-dom';
@@ -15,6 +15,7 @@ import {
 import { selectCurrentUser } from '../../redux/user/user.selectors';
 import { updateVisitAsync } from '../../redux/visit/visit.actions';
 import { selectVisitData } from '../../redux/visit/visit.selectors';
+import { configureAnalyticsObject } from '../../utils/analytics-helper';
 import CTAButton from '../cta/cta.component';
 
 class Checkout extends React.Component {
@@ -35,19 +36,38 @@ class Checkout extends React.Component {
 
   handleSubmit = async () => {
     const { submitted } = this.state;
-    const { currentUser, stripeCheckoutURL } = this.props;
+    const { currentUser, stripeCheckoutURL, visit, updateVisitAsync } = this.props;
 
     if (submitted) {
       return;
     }
     this.setState({ submitted: true });
 
-    ReactPixel.track('InitiateCheckout', {
-      content_name: 'InitiateCheckout',
-      content_ids: [visit.visit_id],
-      value: 4,
-      currency: 'USD',
+    const { cookies } = this.props;
+    const analyticsData = await configureAnalyticsObject(cookies);
+    analyticsData.event_id = `${visit.visit_id}-InitiateCheckout`;
+
+    updateVisitAsync(visit.visit_id, {
+      analytics_data: {
+        source_url: analyticsData.source_url,
+        fbp: analyticsData.fbp,
+        client_ip: analyticsData.client_ip,
+        client_user_agent: analyticsData.client_user_agent,
+        checkout_pressed_once: true,
+        event_id: analyticsData.event_id,
+      },
     });
+
+    ReactPixel.track(
+      'InitiateCheckout',
+      {
+        content_name: 'InitiateCheckout',
+        content_ids: [visit.visit_id],
+        value: 4,
+        currency: 'USD',
+      },
+      { eventID: analyticsData.event_id }
+    );
 
     if (currentUser && stripeCheckoutURL) {
       window.location.replace(stripeCheckoutURL);

@@ -1,5 +1,6 @@
+import ReactPixel from '@bettercart/react-facebook-pixel';
 import React from 'react';
-import ReactPixel from 'react-facebook-pixel';
+import { withCookies } from 'react-cookie';
 import { connect } from 'react-redux';
 import { withRouter } from 'react-router-dom';
 import { createStructuredSelector } from 'reselect';
@@ -14,6 +15,7 @@ import {
 } from '../../redux/questionnaire/questionnaire.selectors';
 import { updateVisitAsync } from '../../redux/visit/visit.actions';
 import { selectVisitData } from '../../redux/visit/visit.selectors';
+import { configureAnalyticsObject } from '../../utils/analytics-helper';
 
 Survey.StylesManager.ThemeColors['modern']['$main-color'] = 'var(--color-primary)';
 Survey.StylesManager.ThemeColors['modern']['$header-color'] = 'var(--color-primary-dark)';
@@ -47,14 +49,22 @@ class Questionnaire extends React.Component {
       history,
       visit: { visit_id },
     } = this.props;
-    const saveQuestionnaire = await saveQuestionnaireResponse(visit_id, survey.data);
+    const { cookies } = this.props;
+    const analyticsData = await configureAnalyticsObject(cookies);
+    analyticsData.event_id = `${visit_id}-Lead`;
 
-    ReactPixel.track('Lead', {
-      content_name: 'Questionnaire Submitted',
-      content_ids: [visit_id],
-      value: 3,
-      currency: 'USD',
-    });
+    const saveQuestionnaire = await saveQuestionnaireResponse(visit_id, survey.data, analyticsData);
+
+    ReactPixel.track(
+      'Lead',
+      {
+        content_name: 'Questionnaire Submitted',
+        content_ids: [visit_id],
+        value: 3,
+        currency: 'USD',
+      },
+      { eventID: analyticsData.event_id }
+    );
 
     if (saveQuestionnaire.error) {
       console.log(saveQuestionnaire.message);
@@ -111,4 +121,4 @@ const mapDispatchToProps = (dispatch) => ({
   fetchQuestionsStartAsync: (symptom) => dispatch(fetchQuestionsStartAsync(symptom)),
 });
 
-export default withRouter(connect(mapStateToProps, mapDispatchToProps)(Questionnaire));
+export default withRouter(withCookies(connect(mapStateToProps, mapDispatchToProps)(Questionnaire)));

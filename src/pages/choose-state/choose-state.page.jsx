@@ -1,5 +1,6 @@
+import ReactPixel from '@bettercart/react-facebook-pixel';
 import { Component } from 'react';
-import ReactPixel from 'react-facebook-pixel';
+import { withCookies } from 'react-cookie';
 import { connect } from 'react-redux';
 import { withRouter } from 'react-router';
 import { toast, ToastContainer } from 'react-toastify';
@@ -10,6 +11,7 @@ import Header from '../../components/header/header.component';
 import { createVisit } from '../../firebase/firebase.utils';
 import { updateMailingState } from '../../redux/user/user.actions';
 import { selectMailingState } from '../../redux/user/user.selectors';
+import { configureAnalyticsObject } from '../../utils/analytics-helper';
 
 ReactPixel.pageView();
 
@@ -39,14 +41,22 @@ class ChooseState extends Component {
     this.setState({ submitted: true });
 
     try {
-      const newVisit = await createVisit('Acne', state);
+      const { cookies } = this.props;
+      const analyticsData = await configureAnalyticsObject(cookies);
+      analyticsData.event_id = `${newVisit.visitId}-ViewContent`;
 
-      ReactPixel.track('ViewContent', {
-        content_name: 'New Visit Initiated',
-        content_ids: [newVisit.visitId],
-        value: 1,
-        currency: 'USD',
-      });
+      const newVisit = await createVisit('Acne', state, analyticsData);
+
+      ReactPixel.track(
+        'ViewContent',
+        {
+          content_name: 'New Visit Initiated',
+          content_ids: [newVisit.visitId],
+          value: 1,
+          currency: 'USD',
+        },
+        { eventID: analyticsData.event_id }
+      );
 
       if (newVisit.error) {
         toast.error(newVisit.message);
@@ -120,4 +130,4 @@ const mapDispatchToProps = (dispatch) => ({
   updateUserMailingState: (state) => dispatch(updateMailingState(state)),
 });
 
-export default withRouter(connect(mapStateToProps, mapDispatchToProps)(ChooseState));
+export default withRouter(withCookies(connect(mapStateToProps, mapDispatchToProps)(ChooseState)));

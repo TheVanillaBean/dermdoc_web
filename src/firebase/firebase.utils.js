@@ -109,7 +109,7 @@ export const logZipCode = async (zipcode, mailing_state) => {
   return false;
 };
 
-export const createVisit = async (service, mailing_state) => {
+export const createVisit = async (service, mailing_state, analyticsData) => {
   const visitRef = firestore.collection('visits').doc();
 
   const snapshot = await visitRef.get();
@@ -123,6 +123,13 @@ export const createVisit = async (service, mailing_state) => {
           status: 'initiated',
           visit_id: visitRef.id,
           mailing_state: mailing_state,
+          analytics_data: {
+            source_url: analyticsData.source_url,
+            fbp: analyticsData.fbp,
+            client_ip: analyticsData.client_ip,
+            client_user_agent: analyticsData.client_user_agent,
+            event_id: analyticsData.event_id,
+          },
         },
         { merge: true }
       );
@@ -303,7 +310,7 @@ export const mergePagesIntoSurveySchema = (pages) => {
   return surveySchema;
 };
 
-export const saveQuestionnaireResponse = async (visitID, questionnaire) => {
+export const saveQuestionnaireResponse = async (visitID, questionnaire, analyticsData) => {
   const questionnaireRef = firestore.collection(`visits/${visitID}/questionnaire`).doc('answers');
 
   try {
@@ -311,7 +318,16 @@ export const saveQuestionnaireResponse = async (visitID, questionnaire) => {
       answered_date: new Date(),
       answers: questionnaire,
     });
-    await updateVisit(visitID, { status: 'questions_filled_out' });
+    await updateVisit(visitID, {
+      status: 'questions_filled_out',
+      analytics_data: {
+        source_url: analyticsData.source_url,
+        fbp: analyticsData.fbp,
+        client_ip: analyticsData.client_ip,
+        client_user_agent: analyticsData.client_user_agent,
+        event_id: analyticsData.event_id,
+      },
+    });
     return { error: false };
   } catch (e) {
     return { error: true, message: e.message };
