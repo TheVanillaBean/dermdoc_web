@@ -128,7 +128,7 @@ export const createVisit = async (service, mailing_state, analyticsData) => {
             fbp: analyticsData.fbp,
             client_ip: analyticsData.client_ip,
             client_user_agent: analyticsData.client_user_agent,
-            event_id: analyticsData.event_id,
+            event_id: `${visitRef.id}-ViewContent`,
           },
         },
         { merge: true }

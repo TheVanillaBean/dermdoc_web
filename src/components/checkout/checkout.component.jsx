@@ -1,5 +1,6 @@
 import ReactPixel from '@bettercart/react-facebook-pixel';
 import React from 'react';
+import { withCookies } from 'react-cookie';
 import { IoInformationCircle } from 'react-icons/io5';
 import { connect } from 'react-redux';
 import { withRouter } from 'react-router-dom';
@@ -167,4 +168,4 @@ const mapDispatchToProps = (dispatch) => ({
     dispatch(fetchCheckoutURLStartAsync(idToken, visitID)),
 });
 
-export default withRouter(connect(mapStateToProps, mapDispatchToProps)(Checkout));
+export default withRouter(withCookies(connect(mapStateToProps, mapDispatchToProps)(Checkout)));

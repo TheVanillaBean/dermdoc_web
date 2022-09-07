@@ -43,7 +43,6 @@ class ChooseState extends Component {
     try {
       const { cookies } = this.props;
       const analyticsData = await configureAnalyticsObject(cookies);
-      analyticsData.event_id = `${newVisit.visitId}-ViewContent`;
 
       const newVisit = await createVisit('Acne', state, analyticsData);
 
