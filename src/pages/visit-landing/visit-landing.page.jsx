@@ -19,7 +19,8 @@ class VisitLandingPage extends React.Component {
   unsubscribeFromVisitSnapshot = null;
 
   componentDidMount() {
-    const { match, history, fetchVisitStart, fetchVisitSuccess, fetchVisitFailure } = this.props;
+    const { match, history, fetchVisitStart, fetchVisitSuccess, fetchVisitFailure, location } =
+      this.props;
     const visitID = match.params.visit_id;
     fetchVisitStart();
 
@@ -29,37 +30,35 @@ class VisitLandingPage extends React.Component {
       .onSnapshot(
         (doc) => {
           if (doc.exists) {
-            const source = doc.metadata.hasPendingWrites ? 'Local' : 'Server';
-            console.log(source);
             const visit = doc.data();
             fetchVisitSuccess(visit);
 
             if (visit.status === 'initiated') {
-              history.push(`/visits/${visit.visit_id}/questions`);
+              history.push(`/visits/${visit.visit_id}/questions${location.search}`);
               return;
             }
 
             if (visit.status === 'questions_filled_out' || visit.status === 'payment_failed') {
-              history.push(`/visits/${visit.visit_id}/checkout`);
+              history.push(`/visits/${visit.visit_id}/checkout${location.search}`);
               return;
             }
 
             if (visit.status === 'paid') {
-              history.push(`/visits/${visit.visit_id}/selfies`);
+              history.push(`/visits/${visit.visit_id}/selfies${location.search}`);
               return;
             }
 
             if (visit.status === 'selfies_added') {
-              history.push(`/visits/${visit.visit_id}/photo_id`);
+              history.push(`/visits/${visit.visit_id}/photo_id${location.search}`);
               return;
             }
 
             if (visit.status === 'photo_id_added' || visit.status === 'ready_for_review') {
-              history.push(`/visits/${visit.visit_id}/visit_ready`);
+              history.push(`/visits/${visit.visit_id}/visit_ready${location.search}`);
               return;
             }
 
-            history.push(`/visits/${visit.visit_id}/error`);
+            history.push(`/visits/${visit.visit_id}/error${location.search}`);
 
             return;
           }

@@ -47,6 +47,7 @@ class Questionnaire extends React.Component {
   onComplete = async (survey, options) => {
     const {
       history,
+      location,
       visit: { visit_id },
     } = this.props;
     const { cookies } = this.props;
@@ -69,7 +70,7 @@ class Questionnaire extends React.Component {
     if (saveQuestionnaire.error) {
       console.log(saveQuestionnaire.message);
     } else {
-      history.push(`/visits/${visit_id}/checkout`);
+      history.push(`/visits/${visit_id}/checkout${location.search}`);
     }
   };
 

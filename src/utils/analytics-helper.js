@@ -9,7 +9,7 @@ export const configureAnalyticsObject = async (cookies) => {
     const ipRequest = await axios.get('https://geolocation-db.com/json/');
     ipv4 = ipRequest.data.IPv4;
   } catch (e) {
-    ipv4 = 'Error';
+    ipv4 = 'Error - ' + e;
   }
 
   const analytics_data = {

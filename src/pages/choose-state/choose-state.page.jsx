@@ -21,12 +21,12 @@ class ChooseState extends Component {
   };
 
   handleStateButtonPressed = (state) => {
-    const { updateUserMailingState, history } = this.props;
+    const { updateUserMailingState, history, location } = this.props;
 
     updateUserMailingState(state);
 
     if (state === 'NONE') {
-      history.push('/waitlist');
+      history.push(`/waitlist${location.search}`);
       return;
     }
 
@@ -62,7 +62,7 @@ class ChooseState extends Component {
         this.setState({ submitted: false });
       } else {
         const { history } = this.props;
-        history.push(`/visits/${newVisit.visitId}`);
+        history.push(`/visits/${newVisit.visitId}${this.props.location.search}`);
       }
     } catch (e) {
       let errorText = e.message;
