@@ -3778,7 +3778,37 @@ strong {
   .checkout-container__pricing-box {
     display: flex;
     flex-direction: column;
-    margin-bottom: 2rem; }
+    /***************************/
+    /* 360/16 = 22.5 */
+    /* BELOW 360px (Small Phones) */
+    /***************************/
+    /***************************/
+    /* 544/16 = 34 */
+    /* BELOW 544px (Phones) */
+    /***************************/
+    /***************************/
+    /* 704/16 = 44 */
+    /* BELOW 704px (Tablets) */
+    /***************************/
+    /***************************/
+    /* 944/16 = 59 */
+    /* BELOW 944px (Tablets) */
+    /***************************/
+    /***************************/
+    /* 1200/16 = 75 */
+    /* BELOW 1200px (Landscape Tablets) */
+    /***************************/
+    /***************************/
+    /* 1344/16 = 84 */
+    /* BELOW 1344px (Smaller Desktops) */
+    /***************************/
+    /***************************/
+    /* 1800/16 = 112.5 */
+    /* BELOW 1800px (Big Desktops) */
+    /***************************/ }
+    @media only screen and (max-width: 34em) {
+      .checkout-container__pricing-box {
+        margin-bottom: 0rem; } }
     .checkout-container__pricing-box__img {
       max-height: 100%;
       max-width: 100%; }
@@ -3787,7 +3817,38 @@ strong {
       background-color: var(--color-grey-light-1);
       border-bottom-left-radius: 1.5rem;
       border-bottom-right-radius: 1.5rem;
-      white-space: nowrap; }
+      white-space: nowrap;
+      /***************************/
+      /* 360/16 = 22.5 */
+      /* BELOW 360px (Small Phones) */
+      /***************************/
+      /***************************/
+      /* 544/16 = 34 */
+      /* BELOW 544px (Phones) */
+      /***************************/
+      /***************************/
+      /* 704/16 = 44 */
+      /* BELOW 704px (Tablets) */
+      /***************************/
+      /***************************/
+      /* 944/16 = 59 */
+      /* BELOW 944px (Tablets) */
+      /***************************/
+      /***************************/
+      /* 1200/16 = 75 */
+      /* BELOW 1200px (Landscape Tablets) */
+      /***************************/
+      /***************************/
+      /* 1344/16 = 84 */
+      /* BELOW 1344px (Smaller Desktops) */
+      /***************************/
+      /***************************/
+      /* 1800/16 = 112.5 */
+      /* BELOW 1800px (Big Desktops) */
+      /***************************/ }
+      @media only screen and (max-width: 22.5em) {
+        .checkout-container__pricing-box__details {
+          white-space: normal; } }
       .checkout-container__pricing-box__details > .heading-secondary {
         margin-bottom: 0.8rem; }
       .checkout-container__pricing-box__details > .heading-tertiary {
@@ -3796,7 +3857,38 @@ strong {
     display: flex;
     justify-content: flex-start;
     align-items: center;
-    margin-bottom: 3.2rem; }
+    margin-bottom: 3.2rem;
+    /***************************/
+    /* 360/16 = 22.5 */
+    /* BELOW 360px (Small Phones) */
+    /***************************/
+    /***************************/
+    /* 544/16 = 34 */
+    /* BELOW 544px (Phones) */
+    /***************************/
+    /***************************/
+    /* 704/16 = 44 */
+    /* BELOW 704px (Tablets) */
+    /***************************/
+    /***************************/
+    /* 944/16 = 59 */
+    /* BELOW 944px (Tablets) */
+    /***************************/
+    /***************************/
+    /* 1200/16 = 75 */
+    /* BELOW 1200px (Landscape Tablets) */
+    /***************************/
+    /***************************/
+    /* 1344/16 = 84 */
+    /* BELOW 1344px (Smaller Desktops) */
+    /***************************/
+    /***************************/
+    /* 1800/16 = 112.5 */
+    /* BELOW 1800px (Big Desktops) */
+    /***************************/ }
+    @media only screen and (max-width: 34em) {
+      .checkout-container__info-box {
+        margin-bottom: 0rem; } }
     .checkout-container__info-box--img {
       width: 10rem;
       height: 10rem;

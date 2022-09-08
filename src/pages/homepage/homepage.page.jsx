@@ -28,14 +28,9 @@ import CTAButton from '../../components/cta/cta.component';
 import Footer from '../../components/footer/footer.component';
 import Header from '../../components/header/header.component';
 import HeroSection from '../../components/hero-section/hero-section.component';
-import { analytics } from '../../firebase/firebase.utils';
 import { homepageFAQ } from '../../utils/faq.utils';
 
 class HomePage extends React.Component {
-  componentDidMount() {
-    analytics.logEvent('Homepage Viewed');
-  }
-
   handleClick = () => {
     const { history, location } = this.props;
 

@@ -54,7 +54,7 @@ class ChooseState extends Component {
           value: 1,
           currency: 'USD',
         },
-        { eventID: analyticsData.event_id }
+        { eventID: `${newVisit.visitId}-ViewContent` }
       );
 
       if (newVisit.error) {

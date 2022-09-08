@@ -12,7 +12,10 @@
   &__pricing-box {
     display: flex;
     flex-direction: column;
-    margin-bottom: 2rem;
+
+    @include respond(phone) {
+      margin-bottom: 0rem;
+    }
 
     &__img {
       max-height: 100%;
@@ -25,6 +28,10 @@
       border-bottom-left-radius: 1.5rem;
       border-bottom-right-radius: 1.5rem;
       white-space: nowrap;
+
+      @include respond(small-phone) {
+        white-space: normal;
+      }
 
       & > .heading-secondary {
         margin-bottom: 0.8rem;
@@ -41,6 +48,10 @@
     justify-content: flex-start;
     align-items: center;
     margin-bottom: 3.2rem;
+
+    @include respond(phone) {
+      margin-bottom: 0rem;
+    }
 
     &--img {
       width: 10rem;
