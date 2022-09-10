@@ -1,4 +1,3 @@
-import ReactPixel from '@bettercart/react-facebook-pixel';
 import React from 'react';
 import { withCookies } from 'react-cookie';
 import { connect } from 'react-redux';
@@ -15,7 +14,7 @@ import {
 } from '../../redux/questionnaire/questionnaire.selectors';
 import { updateVisitAsync } from '../../redux/visit/visit.actions';
 import { selectVisitData } from '../../redux/visit/visit.selectors';
-import { configureAnalyticsObject } from '../../utils/analytics-helper';
+import { configureAnalyticsObject, trackLead } from '../../utils/analytics-helper';
 
 Survey.StylesManager.ThemeColors['modern']['$main-color'] = 'var(--color-primary)';
 Survey.StylesManager.ThemeColors['modern']['$header-color'] = 'var(--color-primary-dark)';
@@ -56,16 +55,7 @@ class Questionnaire extends React.Component {
 
     const saveQuestionnaire = await saveQuestionnaireResponse(visit_id, survey.data, analyticsData);
 
-    ReactPixel.track(
-      'Lead',
-      {
-        content_name: 'Questionnaire Submitted',
-        content_ids: [visit_id],
-        value: 3,
-        currency: 'USD',
-      },
-      { eventID: analyticsData.event_id }
-    );
+    trackLead({ visit_id: visit_id });
 
     if (saveQuestionnaire.error) {
       console.log(saveQuestionnaire.message);

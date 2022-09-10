@@ -11,7 +11,7 @@ import Header from '../../components/header/header.component';
 import { createVisit } from '../../firebase/firebase.utils';
 import { updateMailingState } from '../../redux/user/user.actions';
 import { selectMailingState } from '../../redux/user/user.selectors';
-import { configureAnalyticsObject } from '../../utils/analytics-helper';
+import { configureAnalyticsObject, trackViewContent } from '../../utils/analytics-helper';
 
 ReactPixel.pageView();
 
@@ -46,16 +46,7 @@ class ChooseState extends Component {
 
       const newVisit = await createVisit('Acne', state, analyticsData);
 
-      ReactPixel.track(
-        'ViewContent',
-        {
-          content_name: 'New Visit Initiated',
-          content_ids: [newVisit.visitId],
-          value: 1,
-          currency: 'USD',
-        },
-        { eventID: `${newVisit.visitId}-ViewContent` }
-      );
+      trackViewContent({ visit_id: newVisit.visitId });
 
       if (newVisit.error) {
         toast.error(newVisit.message);

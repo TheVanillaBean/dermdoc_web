@@ -1,4 +1,3 @@
-import ReactPixel from '@bettercart/react-facebook-pixel';
 import React from 'react';
 import { withCookies } from 'react-cookie';
 import { IoInformationCircle } from 'react-icons/io5';
@@ -16,7 +15,7 @@ import {
 import { selectCurrentUser } from '../../redux/user/user.selectors';
 import { updateVisitAsync } from '../../redux/visit/visit.actions';
 import { selectVisitData } from '../../redux/visit/visit.selectors';
-import { configureAnalyticsObject } from '../../utils/analytics-helper';
+import { configureAnalyticsObject, trackInitiateCheckout } from '../../utils/analytics-helper';
 import CTAButton from '../cta/cta.component';
 
 class Checkout extends React.Component {
@@ -59,16 +58,7 @@ class Checkout extends React.Component {
       },
     });
 
-    ReactPixel.track(
-      'InitiateCheckout',
-      {
-        content_name: 'InitiateCheckout',
-        content_ids: [visit.visit_id],
-        value: 4,
-        currency: 'USD',
-      },
-      { eventID: analyticsData.event_id }
-    );
+    trackInitiateCheckout({ visit_id: visit.visit_id });
 
     if (currentUser && stripeCheckoutURL) {
       window.location.replace(stripeCheckoutURL);

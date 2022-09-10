@@ -4,6 +4,7 @@ import { withCookies } from 'react-cookie';
 import { connect } from 'react-redux';
 import { Redirect, Route, Switch, withRouter } from 'react-router-dom';
 import { createStructuredSelector } from 'reselect';
+import TiktokPixel from 'tiktok-pixel';
 import '../src/assets/css/main.css/main.css';
 import { auth, createUserProfileDocument } from './firebase/firebase.utils';
 import ChooseStatePage from './pages/choose-state/choose-state.page';
@@ -17,8 +18,8 @@ import { setCurrentUser } from './redux/user/user.actions';
 import { selectCurrentUser } from './redux/user/user.selectors';
 import { updateVisitAsync } from './redux/visit/visit.actions';
 import { selectVisitData } from './redux/visit/visit.selectors';
-import { configureAnalyticsObject } from './utils/analytics-helper';
-const { REACT_APP_FB_PIXEL_ID } = process.env;
+import { configureAnalyticsObject, trackCompleteRegistration } from './utils/analytics-helper';
+const { REACT_APP_FB_PIXEL_ID, REACT_APP_TIKTOK_PIXEL_ID } = process.env;
 
 class App extends Component {
   unsubscribeFromAuth = null;
@@ -27,11 +28,13 @@ class App extends Component {
     const { setCurrentUser, history } = this.props;
 
     ReactPixel.init(REACT_APP_FB_PIXEL_ID, {}, { debug: true, autoConfig: true });
+    TiktokPixel.init(REACT_APP_TIKTOK_PIXEL_ID);
 
     this.unlistenRoutes = history.listen((location, action) => {
       if (!location.hash) {
         //hash means like #how (same page different section)
         ReactPixel.pageView();
+        TiktokPixel.pageView();
       }
     });
 
@@ -72,16 +75,9 @@ class App extends Component {
         },
       });
 
-      ReactPixel.track(
-        'CompleteRegistration',
-        {
-          content_name: 'User authenticated',
-          content_ids: [visit.visit_id],
-          value: 2,
-          currency: 'USD',
-        },
-        { eventID: analyticsData.event_id }
-      );
+      trackCompleteRegistration({
+        visit_id: visit.visit_id,
+      });
     }
   }
 

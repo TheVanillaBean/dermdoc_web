@@ -77,11 +77,8 @@ class SignInSignUp extends React.Component {
           <div className='pricing-box'>
             <img className='pricing-box__img' src={ProductWithBubbles} alt='Product with Bubbles' />
             <div className='pricing-box__text'>
-              <h1 className='heading-secondary text-primary-color'>
-                <span className='heading-tertiary strike-through text-dark-color'>$59.97</span>{' '}
-                $9.99
-              </h1>
-              <p className='paragraph'>just pay for shipping</p>
+              <h1 className='heading-secondary text-primary-color'>FREE</h1>
+              <p className='paragraph'>just pay $9.99 for shipping</p>
             </div>
           </div>
 
