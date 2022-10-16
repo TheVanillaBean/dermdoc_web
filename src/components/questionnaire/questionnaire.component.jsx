@@ -26,14 +26,6 @@ Survey.StylesManager.ThemeColors['modern']['$answer-background-color'] = 'var(--
 Survey.StylesManager.ThemeColors['modern']['$progress-buttons-color'] = 'var(--color-tint-3)';
 Survey.StylesManager.applyTheme('modern');
 
-export const reviewHtml = `
-<section class="questionnaire__thank-you">
-  <h2 className="heading-tertiary">Almost There!</h2>
-  <p className="paragraph">
-    The only step left is to upload selfies for your dermatologist to see. These are private and will never be shared.
-  </p>
-</section>
-`;
 class Questionnaire extends React.Component {
   componentDidMount() {
     const {
