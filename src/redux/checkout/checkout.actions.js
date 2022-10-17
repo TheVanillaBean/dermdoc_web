@@ -36,8 +36,8 @@ export const fetchCheckoutURLStartAsync = (idToken, visitID) => {
       );
 
       if (fetchStripeURL.status === 200) {
-        const url = fetchStripeURL.data.url;
-        dispatch(fetchCheckoutURLSuccess(url));
+        const clientSecret = fetchStripeURL.data.clientSecret;
+        dispatch(fetchCheckoutURLSuccess(clientSecret));
       } else {
         dispatch(
           fetchCheckoutURLFailure(

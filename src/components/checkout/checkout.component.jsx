@@ -1,3 +1,5 @@
+import { Elements } from '@stripe/react-stripe-js';
+import { loadStripe } from '@stripe/stripe-js';
 import React from 'react';
 import { withCookies } from 'react-cookie';
 import { IoInformationCircle } from 'react-icons/io5';
@@ -15,12 +17,12 @@ import {
 import { selectCurrentUser } from '../../redux/user/user.selectors';
 import { updateVisitAsync } from '../../redux/visit/visit.actions';
 import { selectVisitData } from '../../redux/visit/visit.selectors';
-import { configureAnalyticsObject, trackInitiateCheckout } from '../../utils/analytics-helper';
-import CTAButton from '../cta/cta.component';
-
+import { trackInitiateCheckout } from '../../utils/analytics-helper';
+import CheckoutForm from './checkout-form.component';
+const stripePromise = loadStripe('pk_test_SY5CUKXzjYT67upOTiLGuoVD00INR5IkJL');
 class Checkout extends React.Component {
   state = {
-    submitted: false,
+    showCheckout: false,
   };
 
   componentDidMount() {
@@ -34,47 +36,47 @@ class Checkout extends React.Component {
     }
   }
 
-  handleSubmit = async () => {
-    const { submitted } = this.state;
-    const { currentUser, stripeCheckoutURL, visit, updateVisitAsync } = this.props;
+  options = {};
 
-    if (submitted) {
+  handleSubmit = async () => {};
+
+  componentDidUpdate() {
+    const { showCheckout } = this.state;
+    const { cookies, currentUser, stripeCheckoutURL, visit, updateVisitAsync } = this.props;
+
+    if (showCheckout) {
       return;
     }
-    this.setState({ submitted: true });
 
-    const { cookies } = this.props;
-    const analyticsData = await configureAnalyticsObject(cookies);
-    analyticsData.event_id = `${visit.visit_id}-InitiateCheckout`;
+    // const analyticsData = configureAnalyticsObject(cookies);
+    // analyticsData.event_id = `${visit.visit_id}-InitiateCheckout`;
 
-    updateVisitAsync(visit.visit_id, {
-      analytics_data: {
-        source_url: analyticsData.source_url,
-        fbp: analyticsData.fbp,
-        client_ip: analyticsData.client_ip,
-        client_user_agent: analyticsData.client_user_agent,
-        checkout_pressed_once: true,
-        event_id: analyticsData.event_id,
-      },
-    });
+    // updateVisitAsync(visit.visit_id, {
+    //   analytics_data: {
+    //     source_url: analyticsData.source_url,
+    //     fbp: analyticsData.fbp,
+    //     client_ip: analyticsData.client_ip,
+    //     client_user_agent: analyticsData.client_user_agent,
+    //     event_id: analyticsData.event_id,
+    //   },
+    // });
 
     trackInitiateCheckout({ visit_id: visit.visit_id });
 
     if (currentUser && stripeCheckoutURL) {
-      window.location.replace(stripeCheckoutURL);
-    }
-  };
-
-  componentDidUpdate() {
-    const { submitted } = this.state;
-    const { isFetchingURL } = this.props;
-    if (submitted && !isFetchingURL) {
-      this.setState({ submitted: false });
+      this.options = {
+        clientSecret: stripeCheckoutURL,
+        appearance: {
+          theme: 'stripe',
+        },
+      };
+      this.setState({ showCheckout: true });
     }
   }
 
   render() {
     const { stripeErrorMessage, submitted } = this.props;
+    const { showCheckout } = this.state;
 
     if (stripeErrorMessage) {
       return this.stripeErrorUI(stripeErrorMessage);
@@ -106,18 +108,18 @@ class Checkout extends React.Component {
               </div>
             </div>
 
-            <div className='checkout-container__info-box'>
+            <div className='checkout-container__info-box margin-bottom-sm'>
               <IoInformationCircle className='checkout-container__info-box--img' />
               <p className='checkout-container__info-box--text '>
                 Love your personalized cream in 90 days or get your money back.
               </p>
             </div>
 
-            <CTAButton
-              additionalClassName='margin-center'
-              buttonText='Continue'
-              handleClick={this.handleSubmit}
-            />
+            {showCheckout && (
+              <Elements options={this.options} stripe={stripePromise}>
+                <CheckoutForm />
+              </Elements>
+            )}
           </div>
           {submitted ? this.checkoutLoadingUI() : null}
         </div>
