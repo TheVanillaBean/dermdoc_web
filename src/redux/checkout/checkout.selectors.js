@@ -7,12 +7,12 @@ export const selectCheckoutErrorMessage = createSelector(
   (checkout) => checkout.stripeErrorMessage
 );
 
-export const selectCheckoutIsFetchingURL = createSelector(
+export const selectCheckoutIsFetchingSecret = createSelector(
   [selectCheckout],
-  (checkout) => checkout.isFetchingURL
+  (checkout) => checkout.isFetchingSecret
 );
 
-export const selectCheckoutURL = createSelector(
+export const selectCheckoutClientSecret = createSelector(
   [selectCheckout],
-  (checkout) => checkout.stripeCheckoutURL
+  (checkout) => checkout.stripeClientSecret
 );

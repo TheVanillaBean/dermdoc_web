@@ -1,28 +1,28 @@
 import CheckoutActionTypes from './checkout.types';
 
 const INITIAL_STATE = {
-  stripeCheckoutURL: null,
-  isFetchingURL: true,
+  stripeClientSecret: null,
+  isFetchingSecret: true,
   stripeErrorMessage: undefined,
 };
 
 const checkoutReducer = (state = INITIAL_STATE, action) => {
   switch (action.type) {
-    case CheckoutActionTypes.FETCH_STRIPE_URL_START:
+    case CheckoutActionTypes.FETCH_STRIPE_CLIENT_SECRET_START:
       return {
         ...state,
-        isFetchingURL: true,
+        isFetchingSecret: true,
       };
-    case CheckoutActionTypes.FETCH_STRIPE_URL_SUCCESS:
+    case CheckoutActionTypes.FETCH_STRIPE_CLIENT_SECRET_SUCCESS:
       return {
         ...state,
-        isFetchingURL: false,
-        stripeCheckoutURL: action.payload,
+        isFetchingSecret: false,
+        stripeClientSecret: action.payload,
       };
-    case CheckoutActionTypes.FETCH_STRIPE_URL_FAILURE:
+    case CheckoutActionTypes.FETCH_STRIPE_CLIENT_SECRET_FAILURE:
       return {
         ...state,
-        isFetchingURL: false,
+        isFetchingSecret: false,
         stripeErrorMessage: action.payload,
       };
     default:

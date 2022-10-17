@@ -8,11 +8,11 @@ import { withRouter } from 'react-router-dom';
 import { createStructuredSelector } from 'reselect';
 import 'survey-react/modern.css';
 import WomenHoldingProduct from '../../assets/img/women-holding-product.jpg';
-import { fetchCheckoutURLStartAsync } from '../../redux/checkout/checkout.actions';
+import { fetchCheckoutClientSecretStartAsync } from '../../redux/checkout/checkout.actions';
 import {
+  selectCheckoutClientSecret,
   selectCheckoutErrorMessage,
-  selectCheckoutIsFetchingURL,
-  selectCheckoutURL,
+  selectCheckoutIsFetchingSecret,
 } from '../../redux/checkout/checkout.selectors';
 import { selectCurrentUser } from '../../redux/user/user.selectors';
 import { updateVisitAsync } from '../../redux/visit/visit.actions';
@@ -20,6 +20,7 @@ import { selectVisitData } from '../../redux/visit/visit.selectors';
 import { trackInitiateCheckout } from '../../utils/analytics-helper';
 import CheckoutForm from './checkout-form.component';
 const stripePromise = loadStripe('pk_test_SY5CUKXzjYT67upOTiLGuoVD00INR5IkJL');
+
 class Checkout extends React.Component {
   state = {
     showCheckout: false,
@@ -29,10 +30,10 @@ class Checkout extends React.Component {
     const {
       currentUser,
       visit: { visit_id },
-      fetchCheckoutURLStartAsync,
+      fetchCheckoutClientSecretStartAsync,
     } = this.props;
     if (currentUser) {
-      fetchCheckoutURLStartAsync(currentUser.idToken, visit_id);
+      fetchCheckoutClientSecretStartAsync(currentUser.idToken, visit_id);
     }
   }
 
@@ -42,7 +43,8 @@ class Checkout extends React.Component {
 
   componentDidUpdate() {
     const { showCheckout } = this.state;
-    const { cookies, currentUser, stripeCheckoutURL, visit, updateVisitAsync } = this.props;
+    const { cookies, currentUser, selectCheckoutClientSecret, visit, updateVisitAsync } =
+      this.props;
 
     if (showCheckout) {
       return;
@@ -63,9 +65,9 @@ class Checkout extends React.Component {
 
     trackInitiateCheckout({ visit_id: visit.visit_id });
 
-    if (currentUser && stripeCheckoutURL) {
+    if (currentUser && selectCheckoutClientSecret) {
       this.options = {
-        clientSecret: stripeCheckoutURL,
+        clientSecret: selectCheckoutClientSecret,
         appearance: {
           theme: 'stripe',
         },
@@ -75,7 +77,7 @@ class Checkout extends React.Component {
   }
 
   render() {
-    const { stripeErrorMessage, submitted } = this.props;
+    const { stripeErrorMessage, selectCheckoutIsFetchingSecret } = this.props;
     const { showCheckout } = this.state;
 
     if (stripeErrorMessage) {
@@ -115,13 +117,14 @@ class Checkout extends React.Component {
               </p>
             </div>
 
-            {showCheckout && (
+            {selectCheckoutIsFetchingSecret || !showCheckout ? (
+              this.checkoutLoadingUI()
+            ) : (
               <Elements options={this.options} stripe={stripePromise}>
                 <CheckoutForm />
               </Elements>
             )}
           </div>
-          {submitted ? this.checkoutLoadingUI() : null}
         </div>
       );
     }
@@ -148,16 +151,16 @@ class Checkout extends React.Component {
 const mapStateToProps = createStructuredSelector({
   visit: selectVisitData,
   currentUser: selectCurrentUser,
-  stripeCheckoutURL: selectCheckoutURL,
-  isFetchingURL: selectCheckoutIsFetchingURL,
+  selectCheckoutClientSecret: selectCheckoutClientSecret,
+  selectCheckoutIsFetchingSecret: selectCheckoutIsFetchingSecret,
   stripeErrorMessage: selectCheckoutErrorMessage,
 });
 
 const mapDispatchToProps = (dispatch) => ({
   updateVisitAsync: (visitID, updatedVisitData) =>
     dispatch(updateVisitAsync(visitID, updatedVisitData)),
-  fetchCheckoutURLStartAsync: (idToken, visitID) =>
-    dispatch(fetchCheckoutURLStartAsync(idToken, visitID)),
+  fetchCheckoutClientSecretStartAsync: (idToken, visitID) =>
+    dispatch(fetchCheckoutClientSecretStartAsync(idToken, visitID)),
 });
 
 export default withRouter(withCookies(connect(mapStateToProps, mapDispatchToProps)(Checkout)));
