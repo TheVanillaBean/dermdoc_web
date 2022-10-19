@@ -859,6 +859,10 @@ strong {
   .form-input-container input[type='password']:not(:placeholder-shown) {
     letter-spacing: 0.3em; }
 
+.shipping-city {
+  display: flex;
+  justify-content: space-between; }
+
 .questionnaire {
   margin-top: 2rem;
   /***************************/

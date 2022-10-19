@@ -8,18 +8,6 @@ class AutoComplete extends Component {
   constructor(props) {
     super(props);
 
-    this.state = {
-      shouldValidate: true,
-      address1: '',
-      address2: '',
-      city: '',
-      state: '',
-      zipCode: '',
-      country: 'US',
-      suggestions: { result: [] },
-      error: '',
-    };
-
     const SmartyCore = SmartySDK.core;
     const websiteKey = '138393301843418180'; // Your website key here
     const smartySharedCredentials = new SmartyCore.SharedCredentials(websiteKey);
@@ -35,7 +23,7 @@ class AutoComplete extends Component {
 
   updateField = (e) => {
     const { value, name } = e.target;
-    this.setState({ [name]: value });
+    this.props.updateState({ [name]: value });
   };
 
   formatAutocompleteSuggestion = (suggestion) => {
@@ -59,7 +47,7 @@ class AutoComplete extends Component {
     this.autoCompleteClient
       .send(lookup)
       .then((results) => {
-        this.setState({ suggestions: results });
+        this.props.updateState({ suggestions: results });
       })
       .catch(console.warn);
   };
@@ -69,7 +57,7 @@ class AutoComplete extends Component {
       this.queryAutocompleteForSuggestions(this.formatAutocompleteSuggestion(suggestion), true);
     } else {
       this.useAutoCompleteSuggestion(suggestion).then(() => {
-        if (this.state.shouldValidate) this.validateUsAddress();
+        if (this.props.state.shouldValidate) this.validateUsAddress();
       });
     }
   };
@@ -77,7 +65,7 @@ class AutoComplete extends Component {
   useAutoCompleteSuggestion = (suggestion) => {
     console.log('suggestion: ', suggestion);
     return new Promise((resolve) => {
-      this.setState(
+      this.props.updateState(
         {
           address1: suggestion.streetLine,
           address2: suggestion.secondary,
@@ -105,7 +93,7 @@ class AutoComplete extends Component {
         .then((response) => this.updateStateFromValidatedUsAddress(response, true))
         .catch((e) => this.setState({ error: e.error }));
     } else {
-      this.setState({ error: 'A street address is required.' });
+      this.props.updateState({ error: 'A street address is required.' });
     }
   };
 
@@ -134,21 +122,17 @@ class AutoComplete extends Component {
       newState.zipCode = `${candidate.components.zipCode}-${candidate.components.plus4Code}`;
       newState.error = '';
     }
-
-    this.setState(newState);
-    console.log(this.state);
-    console.log(this.state);
   };
 
   render() {
     return (
-      <div>
-        <div>
-          <form className={'autocomplete--input-form'}>
+      <>
+        <>
+          <form>
             <FormInput
               type='text'
               name='address1'
-              value={this.state['address1']}
+              value={this.props.state['address1']}
               onChange={(e) => {
                 this.updateField(e);
 
@@ -158,12 +142,12 @@ class AutoComplete extends Component {
               placeholder=''
               required
             />
-            {this.state['state'].length > 0 ? (
+            {this.props.state['state'].length > 0 ? (
               <>
                 <FormInput
                   type='text'
                   name='address2'
-                  value={this.state['address2']}
+                  value={this.props.state['address2']}
                   onChange={(e) => {
                     this.updateField(e);
                   }}
@@ -171,32 +155,34 @@ class AutoComplete extends Component {
                   placeholder='Address line 2'
                   required
                 />
-                <FormInput
-                  type='text'
-                  name='city'
-                  value={this.state['city']}
-                  onChange={(e) => {
-                    this.updateField(e);
-                  }}
-                  label='City'
-                  placeholder='City'
-                  required
-                />
-                <FormInput
-                  type='text'
-                  name='zipCode'
-                  value={this.state['zipCode']}
-                  onChange={(e) => {
-                    this.updateField(e);
-                  }}
-                  label='Zip Code'
-                  placeholder='Zip Code'
-                  required
-                />
+                <div className={'shipping-city'}>
+                  <FormInput
+                    type='text'
+                    name='city'
+                    value={this.props.state['city']}
+                    onChange={(e) => {
+                      this.updateField(e);
+                    }}
+                    label='City'
+                    placeholder='City'
+                    required
+                  />
+                  <FormInput
+                    type='text'
+                    name='zipCode'
+                    value={this.props.state['zipCode']}
+                    onChange={(e) => {
+                      this.updateField(e);
+                    }}
+                    label='Zip Code'
+                    placeholder='Zip Code'
+                    required
+                  />
+                </div>
                 <FormInput
                   type='text'
                   name='state'
-                  value={this.state['state']}
+                  value={this.props.state['state']}
                   onChange={(e) => {
                     this.updateField(e);
                   }}
@@ -208,17 +194,17 @@ class AutoComplete extends Component {
             ) : null}
           </form>
           <Suggestions
-            suggestions={this.state.suggestions}
+            suggestions={this.props.state.suggestions}
             selectSuggestion={this.selectSuggestion}
           />
-        </div>
-        {this.state.error && (
+        </>
+        {this.props.state.error && (
           <div>
             <h3>Validation Error:</h3>
-            {this.state.error}
+            {this.props.state.error}
           </div>
         )}
-      </div>
+      </>
     );
   }
 }

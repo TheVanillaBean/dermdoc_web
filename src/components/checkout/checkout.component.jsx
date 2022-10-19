@@ -29,7 +29,15 @@ class Checkout extends React.Component {
     showCheckout: false,
     name: '',
     phone: '',
-    address: '',
+    shouldValidate: true,
+    address1: '',
+    address2: '',
+    city: '',
+    state: '',
+    zipCode: '',
+    country: 'US',
+    suggestions: { result: [] },
+    error: '',
   };
 
   componentDidMount() {
@@ -154,7 +162,7 @@ class Checkout extends React.Component {
                     onChange={this.handlePhoneChange}
                   />
                 </div>
-                <AutoComplete />
+                <AutoComplete updateState={(state) => this.setState(state)} state={this.state} />
               </form>
             </div>
 
