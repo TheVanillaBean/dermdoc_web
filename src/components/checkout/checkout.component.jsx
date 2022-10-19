@@ -3,6 +3,7 @@ import { loadStripe } from '@stripe/stripe-js';
 import React from 'react';
 import { withCookies } from 'react-cookie';
 import { IoInformationCircle } from 'react-icons/io5';
+import Input from 'react-phone-number-input/input';
 import { connect } from 'react-redux';
 import { withRouter } from 'react-router-dom';
 import { createStructuredSelector } from 'reselect';
@@ -18,12 +19,17 @@ import { selectCurrentUser } from '../../redux/user/user.selectors';
 import { updateVisitAsync } from '../../redux/visit/visit.actions';
 import { selectVisitData } from '../../redux/visit/visit.selectors';
 import { trackInitiateCheckout } from '../../utils/analytics-helper';
+import AutoComplete from '../autocomplete/autocomplete.component';
+import FormInput from '../form-input/form-input.component';
 import CheckoutForm from './checkout-form.component';
 const stripePromise = loadStripe('pk_test_SY5CUKXzjYT67upOTiLGuoVD00INR5IkJL');
 
 class Checkout extends React.Component {
   state = {
     showCheckout: false,
+    name: '',
+    phone: '',
+    address: '',
   };
 
   componentDidMount() {
@@ -33,7 +39,7 @@ class Checkout extends React.Component {
       fetchCheckoutClientSecretStartAsync,
     } = this.props;
     if (currentUser) {
-      fetchCheckoutClientSecretStartAsync(currentUser.idToken, visit_id);
+      // fetchCheckoutClientSecretStartAsync(currentUser.idToken, visit_id);
     }
   }
 
@@ -76,9 +82,19 @@ class Checkout extends React.Component {
     }
   }
 
+  handleChange = (event) => {
+    const { name, value } = event.target;
+
+    this.setState({ [name]: value });
+  };
+
+  handlePhoneChange = (number) => {
+    this.setState({ phone: number });
+  };
+
   render() {
     const { stripeErrorMessage, selectCheckoutIsFetchingSecret } = this.props;
-    const { showCheckout } = this.state;
+    const { showCheckout, name, phone, address } = this.state;
 
     if (stripeErrorMessage) {
       return this.stripeErrorUI(stripeErrorMessage);
@@ -115,6 +131,31 @@ class Checkout extends React.Component {
               <p className='checkout-container__info-box--text '>
                 Love your personalized cream in 90 days or get your money back.
               </p>
+            </div>
+
+            <div className='shipping-info-container margin-bottom-md'>
+              <div className='heading-secondary'>Shipping Information</div>
+              <form className='shipping-info-container--form'>
+                <FormInput
+                  type='name'
+                  name='name'
+                  value={name}
+                  onChange={this.handleChange}
+                  label='Name'
+                  placeholder='Jane Doe'
+                  required
+                />
+                <div className='form-input-container'>
+                  <label className={'form-input-container__label heading-tertiary'}>Phone</label>
+                  <Input
+                    className={`form-input-container__input`}
+                    country='US'
+                    value={phone}
+                    onChange={this.handlePhoneChange}
+                  />
+                </div>
+                <AutoComplete />
+              </form>
             </div>
 
             {selectCheckoutIsFetchingSecret || !showCheckout ? (

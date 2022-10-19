@@ -1,4 +1,5 @@
 import React from 'react';
+import FormInput from '../form-input/form-input.component';
 
 const inputFields = [
   {
@@ -28,24 +29,21 @@ const InputForm = ({ state, updateField, queryAutocompleteForSuggestions }) => {
     <form className={'autocomplete--input-form'}>
       {inputFields.map((inputField) => {
         return (
-          <div className={'autocomplete--input-group'} key={inputField.fieldName}>
-            <label className={'autocomplete--input-label'} htmlFor={inputField.fieldName}>
-              {inputField.fieldLabel}
-            </label>
-            <input
-              className={'autocomplete--input-field'}
-              type='text'
-              id={inputField.fieldName}
-              value={state[inputField.fieldName]}
-              onChange={(e) => {
-                updateField(e);
+          <FormInput
+            type='text'
+            name={inputField.fieldName}
+            value={state[inputField.fieldName]}
+            onChange={(e) => {
+              updateField(e);
 
-                if (inputField.fieldName === 'address1') {
-                  queryAutocompleteForSuggestions(e.target.value);
-                }
-              }}
-            />
-          </div>
+              if (inputField.fieldName === 'address1') {
+                queryAutocompleteForSuggestions(e.target.value);
+              }
+            }}
+            label={inputField.fieldLabel}
+            placeholder=''
+            required
+          />
         );
       })}
     </form>

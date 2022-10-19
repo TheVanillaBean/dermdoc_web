@@ -25,8 +25,10 @@ class Suggestion extends Component {
   };
 
   buildResultHoverClass = () => {
-    const className = 'autocomplete--suggestion';
-    return this.state.isHovered ? className + ' autocomplete--suggestion-hover' : className;
+    const className = 'autocomplete-suggestions__suggestion paragraph';
+    return this.state.isHovered
+      ? className + ' autocomplete-suggestions__suggestion--hover'
+      : className;
   };
 
   render() {

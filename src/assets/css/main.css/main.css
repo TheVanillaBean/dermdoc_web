@@ -1146,6 +1146,26 @@ strong {
     white-space: nowrap;
     text-align: center; }
 
+.autocomplete--input-label {
+  display: inline-block;
+  font-family: Helvetica, Arial, sans-serif;
+  padding-right: 15px;
+  text-align: right;
+  width: 200px; }
+
+.autocomplete--input-field {
+  display: inline-block;
+  width: calc(100% - 230px); }
+
+.autocomplete-suggestions {
+  border: 1px solid var(--color-primary); }
+  .autocomplete-suggestions__suggestion {
+    white-space: nowrap; }
+    .autocomplete-suggestions__suggestion--hover {
+      background-color: #d9ecf0;
+      color: #02355a;
+      cursor: pointer; }
+
 .footer {
   padding: 9.6rem 0 12.8rem 0;
   border-top: 1px solid #eee;

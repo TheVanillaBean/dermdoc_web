@@ -5,7 +5,7 @@ const Suggestions = ({ suggestions, selectSuggestion }) => {
   const suggestionList = suggestions.result;
 
   return (
-    <div className={'autocomplete--suggestions'}>
+    <div className={'autocomplete-suggestions'}>
       {suggestionList.map((suggestion, key) => (
         <Suggestion
           key={key}
