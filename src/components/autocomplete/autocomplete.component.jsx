@@ -1,9 +1,8 @@
 import React, { Component } from 'react';
 import * as SmartySDK from 'smartystreets-javascript-sdk';
 import * as sdkUtils from 'smartystreets-javascript-sdk-utils';
+import Suggestions from '../autocomplete/suggestions.component';
 import FormInput from '../form-input/form-input.component';
-import Suggestions from './suggestions.component';
-
 class AutoComplete extends Component {
   constructor(props) {
     super(props);
@@ -43,7 +42,6 @@ class AutoComplete extends Component {
     if (hasSecondaries) {
       lookup.selected = query;
     }
-    console.log(lookup);
     this.autoCompleteClient
       .send(lookup)
       .then((results) => {
@@ -142,6 +140,7 @@ class AutoComplete extends Component {
               placeholder=''
               required
             />
+
             {this.props.state['state'].length > 0 ? (
               <>
                 <FormInput
@@ -193,10 +192,12 @@ class AutoComplete extends Component {
               </>
             ) : null}
           </form>
-          <Suggestions
-            suggestions={this.props.state.suggestions}
-            selectSuggestion={this.selectSuggestion}
-          />
+          {this.props.state.suggestions.result.length > 0 ? (
+            <Suggestions
+              suggestions={this.props.state.suggestions}
+              selectSuggestion={this.selectSuggestion}
+            />
+          ) : null}
         </>
         {this.props.state.error && (
           <div>

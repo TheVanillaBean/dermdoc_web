@@ -47,7 +47,7 @@ class Checkout extends React.Component {
       fetchCheckoutClientSecretStartAsync,
     } = this.props;
     if (currentUser) {
-      // fetchCheckoutClientSecretStartAsync(currentUser.idToken, visit_id);
+      fetchCheckoutClientSecretStartAsync(currentUser.idToken, visit_id);
     }
   }
 
@@ -102,7 +102,7 @@ class Checkout extends React.Component {
 
   render() {
     const { stripeErrorMessage, selectCheckoutIsFetchingSecret } = this.props;
-    const { showCheckout, name, phone, address } = this.state;
+    const { showCheckout, name, phone, state } = this.state;
 
     if (stripeErrorMessage) {
       return this.stripeErrorUI(stripeErrorMessage);
@@ -141,7 +141,7 @@ class Checkout extends React.Component {
               </p>
             </div>
 
-            <div className='shipping-info-container margin-bottom-md'>
+            <div className='shipping-info-container margin-bottom-sm'>
               <div className='heading-secondary'>Shipping Information</div>
               <form className='shipping-info-container--form'>
                 <FormInput
@@ -166,9 +166,7 @@ class Checkout extends React.Component {
               </form>
             </div>
 
-            {selectCheckoutIsFetchingSecret || !showCheckout ? (
-              this.checkoutLoadingUI()
-            ) : (
+            {selectCheckoutIsFetchingSecret || !showCheckout || state.length === 0 ? null : (
               <Elements options={this.options} stripe={stripePromise}>
                 <CheckoutForm />
               </Elements>

@@ -862,6 +862,8 @@ strong {
 .shipping-city {
   display: flex;
   justify-content: space-between; }
+  .shipping-city :first-child {
+    margin-right: 1rem; }
 
 .questionnaire {
   margin-top: 2rem;
@@ -1150,25 +1152,19 @@ strong {
     white-space: nowrap;
     text-align: center; }
 
-.autocomplete--input-label {
-  display: inline-block;
-  font-family: Helvetica, Arial, sans-serif;
-  padding-right: 15px;
-  text-align: right;
-  width: 200px; }
-
-.autocomplete--input-field {
-  display: inline-block;
-  width: calc(100% - 230px); }
-
 .autocomplete-suggestions {
-  border: 1px solid var(--color-primary); }
+  margin-top: 1.2rem;
+  padding: 1.2rem;
+  border: 0.5px solid var(--color-grey-dark-1);
+  background-color: #fff;
+  color: var(--color-grey-dark-1);
+  border-radius: 1.5rem; }
   .autocomplete-suggestions__suggestion {
-    white-space: nowrap; }
+    padding: 0.5rem 1rem; }
     .autocomplete-suggestions__suggestion--hover {
-      background-color: #d9ecf0;
-      color: #02355a;
-      cursor: pointer; }
+      background-color: var(--color-grey-light-1);
+      cursor: pointer;
+      border-radius: 1.5rem; }
 
 .footer {
   padding: 9.6rem 0 12.8rem 0;
