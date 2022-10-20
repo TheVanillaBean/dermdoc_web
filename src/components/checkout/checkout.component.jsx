@@ -3,12 +3,15 @@ import { loadStripe } from '@stripe/stripe-js';
 import React from 'react';
 import { withCookies } from 'react-cookie';
 import { IoInformationCircle } from 'react-icons/io5';
+import { isPossiblePhoneNumber } from 'react-phone-number-input';
 import Input from 'react-phone-number-input/input';
 import { connect } from 'react-redux';
 import { withRouter } from 'react-router-dom';
+import { toast, ToastContainer } from 'react-toastify';
+import 'react-toastify/dist/ReactToastify.css';
 import { createStructuredSelector } from 'reselect';
-import 'survey-react/modern.css';
 import WomenHoldingProduct from '../../assets/img/women-holding-product.jpg';
+import { updateVisit } from '../../firebase/firebase.utils';
 import { fetchCheckoutClientSecretStartAsync } from '../../redux/checkout/checkout.actions';
 import {
   selectCheckoutClientSecret,
@@ -23,7 +26,6 @@ import FormInput from '../form-input/form-input.component';
 import ShippingAutoComplete from '../shipping-autocomplete/shipping-autocomplete.component';
 import CheckoutForm from './checkout-form.component';
 const { REACT_APP_STRIPE_PUBLISHABLE_KEY } = process.env;
-
 const stripePromise = loadStripe(REACT_APP_STRIPE_PUBLISHABLE_KEY);
 
 class Checkout extends React.Component {
@@ -45,17 +47,32 @@ class Checkout extends React.Component {
   componentDidMount() {
     const {
       currentUser,
-      visit: { visit_id },
+      visit: { visit_id, name, phone_number, shipping_address },
       fetchCheckoutClientSecretStartAsync,
     } = this.props;
     if (currentUser) {
       fetchCheckoutClientSecretStartAsync(currentUser.idToken, visit_id);
+      if (name) {
+        this.setState({ name: name });
+      }
+
+      if (phone_number) {
+        this.setState({ phone: phone_number });
+      }
+
+      if (shipping_address) {
+        this.setState({
+          address1: shipping_address.line1,
+          address2: shipping_address.line2,
+          city: shipping_address.city,
+          state: shipping_address.state,
+          zipCode: shipping_address.postal_code,
+        });
+      }
     }
   }
 
   options = {};
-
-  handleSubmit = async () => {};
 
   componentDidUpdate() {
     const { showCheckout } = this.state;
@@ -117,6 +134,70 @@ class Checkout extends React.Component {
 
   handlePhoneChange = (number) => {
     this.setState({ phone: number });
+  };
+
+  isStateValid = () => {
+    const { name, phone, address1, city, state, zipCode } = this.state;
+
+    if (name.length === 0) {
+      return { error: true, msg: 'Please enter your name' };
+    }
+
+    if (!isPossiblePhoneNumber(phone)) {
+      return { error: true, msg: 'Please enter a valid phone number' };
+    }
+
+    if (address1.length === 0 || city.length === 0 || state.length === 0 || zipCode.length === 0) {
+      return { error: true, msg: 'Please enter a valid shipping address' };
+    }
+
+    return { error: false, msg: '' };
+  };
+
+  handlePayBtnPressed = async (stripe, elements, event) => {
+    event.preventDefault();
+
+    if (!stripe || !elements) {
+      // Stripe.js has not yet loaded.
+      // Make sure to disable form submission until Stripe.js has loaded.
+      return;
+    }
+
+    const isStateValid = this.isStateValid();
+    const { name, phone, address1, address2, city, state, zipCode } = this.state;
+    const { visit } = this.props;
+
+    if (isStateValid.error) {
+      toast.error(isStateValid.msg);
+      return;
+    }
+
+    const updateVisitRequest = await updateVisit(visit.visit_id, {
+      name: name,
+      phone_number: phone,
+      shipping_address: {
+        line1: address1,
+        line2: address2,
+        city: city,
+        state: state,
+        postal_code: zipCode,
+        country: 'US',
+      },
+    });
+
+    if (updateVisitRequest.error) {
+      toast.error(updateVisitRequest.message);
+      return;
+    }
+
+    console.log();
+
+    const { error } = await stripe.confirmPayment({
+      elements,
+      confirmParams: {
+        return_url: `${window.location.href}/visits/selfies`,
+      },
+    });
   };
 
   render() {
@@ -191,10 +272,21 @@ class Checkout extends React.Component {
 
             {selectCheckoutIsFetchingSecret || !showCheckout || !state ? null : (
               <Elements options={this.options} stripe={stripePromise}>
-                <CheckoutForm />
+                <CheckoutForm handlePayBtnPressed={this.handlePayBtnPressed} />)
               </Elements>
             )}
           </div>
+          <ToastContainer
+            position='top-right'
+            bodyClassName='toastBody'
+            autoClose={5000}
+            hideProgressBar={false}
+            newestOnTop={false}
+            closeOnClick
+            pauseOnFocusLoss
+            draggable
+            pauseOnHover
+          />
         </div>
       );
     }

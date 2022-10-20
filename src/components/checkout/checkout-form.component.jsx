@@ -2,7 +2,7 @@ import { PaymentElement, useElements, useStripe } from '@stripe/react-stripe-js'
 import React, { useEffect, useState } from 'react';
 import CTAButton from '../cta/cta.component';
 
-const CheckoutForm = () => {
+const CheckoutForm = ({ handlePayBtnPressed }) => {
   const stripe = useStripe();
   const elements = useElements();
 
@@ -84,7 +84,7 @@ const CheckoutForm = () => {
         We will only renew your subscription after confirming with you that you would like another
         shipment.
       </p>
-      <form className='payment-form' onSubmit={handleSubmit}>
+      <form className='payment-form' onSubmit={(e) => handlePayBtnPressed(stripe, elements, e)}>
         <PaymentElement className='margin-bottom-sm' id='payment-element' />
 
         {isLoading ? (

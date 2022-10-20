@@ -1,8 +1,8 @@
 import React, { Component } from 'react';
 import * as SmartySDK from 'smartystreets-javascript-sdk';
 import * as sdkUtils from 'smartystreets-javascript-sdk-utils';
-import Suggestions from '../autocomplete/suggestions.component';
 import FormInput from '../form-input/form-input.component';
+import Suggestions from './suggestions.component';
 const { REACT_APP_SMARTY_ID } = process.env;
 class ShippingAutoComplete extends Component {
   constructor(props) {
