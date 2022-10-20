@@ -3,12 +3,13 @@ import * as SmartySDK from 'smartystreets-javascript-sdk';
 import * as sdkUtils from 'smartystreets-javascript-sdk-utils';
 import Suggestions from '../autocomplete/suggestions.component';
 import FormInput from '../form-input/form-input.component';
+const { REACT_APP_SMARTY_ID } = process.env;
 class ShippingAutoComplete extends Component {
   constructor(props) {
     super(props);
 
     const SmartyCore = SmartySDK.core;
-    const websiteKey = '138393301843418180'; // Your website key here
+    const websiteKey = REACT_APP_SMARTY_ID;
     const smartySharedCredentials = new SmartyCore.SharedCredentials(websiteKey);
     const autoCompleteClientBuilder = new SmartyCore.ClientBuilder(
       smartySharedCredentials
@@ -137,7 +138,7 @@ class ShippingAutoComplete extends Component {
                 this.queryAutocompleteForSuggestions(e.target.value);
               }}
               label='Shipping Address'
-              placeholder=''
+              placeholder='Enter your shipping address'
               required
             />
 

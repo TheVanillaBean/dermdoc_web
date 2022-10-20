@@ -22,7 +22,9 @@ import { trackInitiateCheckout } from '../../utils/analytics-helper';
 import FormInput from '../form-input/form-input.component';
 import ShippingAutoComplete from '../shipping-autocomplete/shipping-autocomplete.component';
 import CheckoutForm from './checkout-form.component';
-const stripePromise = loadStripe('pk_test_SY5CUKXzjYT67upOTiLGuoVD00INR5IkJL');
+const { REACT_APP_STRIPE_PUBLISHABLE_KEY } = process.env;
+
+const stripePromise = loadStripe(REACT_APP_STRIPE_PUBLISHABLE_KEY);
 
 class Checkout extends React.Component {
   state = {
