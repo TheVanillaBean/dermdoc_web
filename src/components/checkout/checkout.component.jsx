@@ -19,8 +19,8 @@ import { selectCurrentUser } from '../../redux/user/user.selectors';
 import { updateVisitAsync } from '../../redux/visit/visit.actions';
 import { selectVisitData } from '../../redux/visit/visit.selectors';
 import { trackInitiateCheckout } from '../../utils/analytics-helper';
-import AutoComplete from '../autocomplete/autocomplete.component';
 import FormInput from '../form-input/form-input.component';
+import ShippingAutoComplete from '../shipping-autocomplete/shipping-autocomplete.component';
 import CheckoutForm from './checkout-form.component';
 const stripePromise = loadStripe('pk_test_SY5CUKXzjYT67upOTiLGuoVD00INR5IkJL');
 
@@ -180,7 +180,10 @@ class Checkout extends React.Component {
                     placeholder='(555) 123-4567'
                   />
                 </div>
-                <AutoComplete updateState={(state) => this.setState(state)} state={this.state} />
+                <ShippingAutoComplete
+                  updateState={(state) => this.setState(state)}
+                  state={this.state}
+                />
               </form>
             </div>
 

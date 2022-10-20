@@ -3,7 +3,7 @@ import * as SmartySDK from 'smartystreets-javascript-sdk';
 import * as sdkUtils from 'smartystreets-javascript-sdk-utils';
 import Suggestions from '../autocomplete/suggestions.component';
 import FormInput from '../form-input/form-input.component';
-class AutoComplete extends Component {
+class ShippingAutoComplete extends Component {
   constructor(props) {
     super(props);
 
@@ -210,4 +210,4 @@ class AutoComplete extends Component {
   }
 }
 
-export default AutoComplete;
+export default ShippingAutoComplete;
