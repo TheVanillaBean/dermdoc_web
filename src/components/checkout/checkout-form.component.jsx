@@ -74,25 +74,36 @@ const CheckoutForm = () => {
   };
 
   return (
-    <form className='payment-form' onSubmit={handleSubmit}>
-      <PaymentElement className='margin-bottom-sm' id='payment-element' />
+    <>
+      <h2 className='heading-secondary margin-bottom-ex-sm'>Payment Details</h2>
+      <p className='paragraph'>
+        We use <a href='https://stripe.com'>Stripe</a>, the leader in online payments, to securely
+        process your payment information.
+      </p>
+      <p className='paragraph'>
+        We will only renew your subscription after confirming with you that you would like another
+        shipment.
+      </p>
+      <form className='payment-form' onSubmit={handleSubmit}>
+        <PaymentElement className='margin-bottom-sm' id='payment-element' />
 
-      {isLoading ? (
-        <div className='spinner-overlay'>
-          <div className='spinner-container' />
-        </div>
-      ) : (
-        <CTAButton
-          additionalClassName='margin-center'
-          buttonText='Pay now'
-          disabled={isLoading || !stripe || !elements}
-          id='submit'
-        />
-      )}
+        {isLoading ? (
+          <div className='spinner-overlay'>
+            <div className='spinner-container' />
+          </div>
+        ) : (
+          <CTAButton
+            additionalClassName='margin-center'
+            buttonText='Pay now'
+            disabled={isLoading || !stripe || !elements}
+            id='submit'
+          />
+        )}
 
-      {/* Show any error or success messages */}
-      {message && <div id='payment-message'>{message}</div>}
-    </form>
+        {/* Show any error or success messages */}
+        {message && <div id='payment-message'>{message}</div>}
+      </form>
+    </>
   );
 };
 

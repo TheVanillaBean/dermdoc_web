@@ -84,6 +84,23 @@ class Checkout extends React.Component {
         clientSecret: selectCheckoutClientSecret,
         appearance: {
           theme: 'stripe',
+          variables: {
+            colorPrimary: '#688db1',
+            colorBackground: '#f9f9f9',
+            colorText: '#363331',
+            fontFamily: 'Montserrat, sans-serif',
+            borderRadius: '15px',
+          },
+          rules: {
+            '.Input': {
+              border: '0.5px solid #363331',
+              marginBottom: '10px',
+            },
+            '.Label': {
+              letterSpacing: '0.75px',
+              fontWeight: '500',
+            },
+          },
         },
       };
       this.setState({ showCheckout: true });
@@ -141,8 +158,8 @@ class Checkout extends React.Component {
               </p>
             </div>
 
-            <div className='shipping-info-container margin-bottom-sm'>
-              <div className='heading-secondary'>Shipping Information</div>
+            <div className='shipping-info-container margin-bottom-md'>
+              <div className='heading-secondary margin-bottom-sm'>Shipping Information</div>
               <form className='shipping-info-container--form'>
                 <FormInput
                   type='name'
@@ -160,13 +177,14 @@ class Checkout extends React.Component {
                     country='US'
                     value={phone}
                     onChange={this.handlePhoneChange}
+                    placeholder='(555) 123-4567'
                   />
                 </div>
                 <AutoComplete updateState={(state) => this.setState(state)} state={this.state} />
               </form>
             </div>
 
-            {selectCheckoutIsFetchingSecret || !showCheckout || state.length === 0 ? null : (
+            {selectCheckoutIsFetchingSecret || !showCheckout || !state ? null : (
               <Elements options={this.options} stripe={stripePromise}>
                 <CheckoutForm />
               </Elements>
