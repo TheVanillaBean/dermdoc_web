@@ -31,6 +31,7 @@ const stripePromise = loadStripe(REACT_APP_STRIPE_PUBLISHABLE_KEY);
 class Checkout extends React.Component {
   state = {
     showCheckout: false,
+    submitted: false,
     name: '',
     phone: '',
     shouldValidate: true,
@@ -82,19 +83,6 @@ class Checkout extends React.Component {
     if (showCheckout) {
       return;
     }
-
-    // const analyticsData = configureAnalyticsObject(cookies);
-    // analyticsData.event_id = `${visit.visit_id}-InitiateCheckout`;
-
-    // updateVisitAsync(visit.visit_id, {
-    //   analytics_data: {
-    //     source_url: analyticsData.source_url,
-    //     fbp: analyticsData.fbp,
-    //     client_ip: analyticsData.client_ip,
-    //     client_user_agent: analyticsData.client_user_agent,
-    //     event_id: analyticsData.event_id,
-    //   },
-    // });
 
     trackInitiateCheckout({ visit_id: visit.visit_id });
 
@@ -157,6 +145,12 @@ class Checkout extends React.Component {
   handlePayBtnPressed = async (stripe, elements, event) => {
     event.preventDefault();
 
+    if (this.state.submitted) {
+      return;
+    }
+
+    this.setState({ submitted: true });
+
     if (!stripe || !elements) {
       // Stripe.js has not yet loaded.
       // Make sure to disable form submission until Stripe.js has loaded.
@@ -169,6 +163,7 @@ class Checkout extends React.Component {
 
     if (isStateValid.error) {
       toast.error(isStateValid.msg);
+      this.setState({ submitted: false });
       return;
     }
 
@@ -187,13 +182,15 @@ class Checkout extends React.Component {
 
     if (updateVisitRequest.error) {
       toast.error(updateVisitRequest.message);
+      this.setState({ submitted: false });
       return;
     }
 
     const { error } = await stripe.confirmPayment({
       elements,
       confirmParams: {
-        return_url: `${window.location.href}/visits/selfies`,
+        return_url: `${window.location.href}/visits/questions`,
+        receipt_email: visit.email,
       },
     });
 
@@ -202,6 +199,8 @@ class Checkout extends React.Component {
     } else {
       toast.error('An unexpected error occurred.');
     }
+
+    this.setState({ submitted: false });
   };
 
   render() {
