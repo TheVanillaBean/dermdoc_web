@@ -190,14 +190,18 @@ class Checkout extends React.Component {
       return;
     }
 
-    console.log();
-
     const { error } = await stripe.confirmPayment({
       elements,
       confirmParams: {
         return_url: `${window.location.href}/visits/selfies`,
       },
     });
+
+    if (error.type === 'card_error' || error.type === 'validation_error') {
+      toast.error(error.message);
+    } else {
+      toast.error('An unexpected error occurred.');
+    }
   };
 
   render() {
@@ -272,7 +276,7 @@ class Checkout extends React.Component {
 
             {selectCheckoutIsFetchingSecret || !showCheckout || !state ? null : (
               <Elements options={this.options} stripe={stripePromise}>
-                <CheckoutForm handlePayBtnPressed={this.handlePayBtnPressed} />)
+                <CheckoutForm handlePayBtnPressed={this.handlePayBtnPressed} />
               </Elements>
             )}
           </div>
