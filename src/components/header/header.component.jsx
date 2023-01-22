@@ -22,7 +22,7 @@ class Header extends React.Component {
     const { nav_open } = this.state;
     return (
       <header className={`header ${nav_open}`}>
-        <Link to='/'>
+        <Link to='/' aria-label='Dermdoc logo'>
           <Logo className='logo' alt='Dermdoc logo' />
         </Link>
 
@@ -97,6 +97,7 @@ class Header extends React.Component {
 
         <button
           className='btn-mobile-nav'
+          aria-label='Mobile navigation open/close'
           onClick={() => {
             if (nav_open) {
               this.setState({ nav_open: '' });

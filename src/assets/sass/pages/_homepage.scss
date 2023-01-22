@@ -20,7 +20,7 @@
 
 .hero-container {
   background-image: linear-gradient(rgba(104, 141, 177, 0.4), rgba(104, 141, 177, 0.2)),
-    url(/src/assets/img/hero-desktop.jpg);
+    url(/src/assets/img/hero-desktop.webp);
   background-size: cover;
   background-repeat: no-repeat;
   background-position: bottom right;
@@ -29,7 +29,7 @@
 
   @include respond(tab-port) {
     background-image: linear-gradient(rgba(104, 141, 177, 0.4), rgba(104, 141, 177, 0.2)),
-      url(/src/assets/img/hero-mobile.jpg);
+      url(/src/assets/img/hero-mobile.webp);
     background-position: bottom center;
   }
 }
@@ -176,7 +176,7 @@
   margin-top: 6rem;
   margin-bottom: 12rem;
   background-image: linear-gradient(rgba(104, 141, 177, 0.1), rgba(104, 141, 177, 0.2)),
-    url(/src/assets/img/product-with-water-desktop.jpg);
+    url(/src/assets/img/product-with-water-desktop.webp);
   background-size: cover;
   background-repeat: no-repeat;
   background-position: bottom;
@@ -184,7 +184,7 @@
 
   @include respond(tab-port) {
     background-image: linear-gradient(rgba(104, 141, 177, 0.1), rgba(104, 141, 177, 0.2)),
-      url(/src/assets/img/product-with-water-mobile.jpg);
+      url(/src/assets/img/product-with-water-mobile.webp);
     margin-bottom: 6rem;
   }
 }
@@ -372,7 +372,7 @@
   &--img {
     object-fit: contain;
     width: 50%;
-    height: auto;
+    height: 50%;
 
     @include respond(small-tab) {
       width: 40%;

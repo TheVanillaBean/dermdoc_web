@@ -57,9 +57,9 @@ const HeroSection = ({ handleClick, handleSubmit, handleChange, email }) => {
             />
           </div>
 
-          <h3 className='heading-tertiary'>
+          <h2 className='heading-tertiary'>
             The only skincare product designed specifically for every customer by a dermatologist
-          </h3>
+          </h2>
 
           <CTAButton buttonText='Unlock your free offer' handleClick={handleClick} />
         </div>

@@ -11,19 +11,19 @@ import 'swiper/modules/mousewheel/mousewheel.min.css';
 import 'swiper/modules/navigation/navigation.min.css';
 import 'swiper/modules/pagination/pagination.min.css';
 import 'swiper/swiper.min.css';
-import Cream from '../../assets/img/cream-swipe.png';
-import FarahHeadshot from '../../assets/img/farah-headshot.jpg';
+import Cream from '../../assets/img/cream-swipe.webp';
+import FarahHeadshot from '../../assets/img/farah-headshot.webp';
 import { ReactComponent as AbsorbicAcid } from '../../assets/img/ingredients/absorbic-acid.svg';
 import { ReactComponent as AzelaicAcid } from '../../assets/img/ingredients/azelaic-acid.svg';
 import { ReactComponent as Clindamycin } from '../../assets/img/ingredients/clindamycin.svg';
 import { ReactComponent as Tretinoin } from '../../assets/img/ingredients/tretinoin.svg';
-import Leaf from '../../assets/img/leaf-img.png';
-import OmarHeadshot from '../../assets/img/omar-cutout.png';
-import ProductWithBubbles from '../../assets/img/product-with-bubbles-desktop.png';
-import SaamiHeadshot from '../../assets/img/saami_headshot.jpg';
-import StepsOne from '../../assets/img/step-1-v2.jpg';
-import StepsTwo from '../../assets/img/step-2-v2.jpg';
-import StepsThree from '../../assets/img/step-3-v2.jpg';
+import Leaf from '../../assets/img/leaf-img.webp';
+import OmarHeadshot from '../../assets/img/omar-cutout.webp';
+import ProductWithBubbles from '../../assets/img/product-with-bubbles-desktop.webp';
+import SaamiHeadshot from '../../assets/img/saami_headshot.webp';
+import StepsOne from '../../assets/img/step-1-v2.webp';
+import StepsTwo from '../../assets/img/step-2-v2.webp';
+import StepsThree from '../../assets/img/step-3-v2.webp';
 import CTAButton from '../../components/cta/cta.component';
 import Footer from '../../components/footer/footer.component';
 import Header from '../../components/header/header.component';
@@ -107,9 +107,14 @@ class HomePage extends React.Component {
             </p>
           </div>
 
-          <img src={Cream} className='section-ingredients--cream' alt='skin cream smear' />
+          <img
+            src={Cream}
+            loading='lazy'
+            className='section-ingredients--cream'
+            alt='skin cream smear'
+          />
 
-          <img src={Leaf} className='section-ingredients--leaf' alt='green leaf' />
+          <img src={Leaf} loading='lazy' className='section-ingredients--leaf' alt='green leaf' />
         </section>
 
         <section className='section-product-photo' />
@@ -134,7 +139,12 @@ class HomePage extends React.Component {
                 </p>
               </div>
 
-              <img src={StepsOne} alt='Step One' className='steps-container__step--img' />
+              <img
+                src={StepsOne}
+                loading='lazy'
+                alt='Step One'
+                className='steps-container__step--img'
+              />
             </div>
             <div className='steps-container__step'>
               <div className='steps-container__step__number'>
@@ -149,7 +159,12 @@ class HomePage extends React.Component {
                 </p>
               </div>
 
-              <img src={StepsTwo} alt='Step Two' className='steps-container__step--img' />
+              <img
+                src={StepsTwo}
+                loading='lazy'
+                alt='Step Two'
+                className='steps-container__step--img'
+              />
             </div>
             <div className='steps-container__step'>
               <div className='steps-container__step__number'>
@@ -165,7 +180,12 @@ class HomePage extends React.Component {
                   You'll check-in with your dermatologist throughout your journey.
                 </p>
               </div>
-              <img src={StepsThree} alt='Step Three' className='steps-container__step--img' />
+              <img
+                src={StepsThree}
+                loading='lazy'
+                alt='Step Three'
+                className='steps-container__step--img'
+              />
             </div>
           </div>
 
@@ -187,7 +207,12 @@ class HomePage extends React.Component {
           </div>
           <div className='container main-doctors-container margin-bottom-md'>
             <div className='featured-doctor featured-doctor--main'>
-              <img src={OmarHeadshot} alt='' className='featured-doctor--img-main' />
+              <img
+                src={OmarHeadshot}
+                loading='lazy'
+                alt='Omar headshot'
+                className='featured-doctor--img-main'
+              />
 
               <div className='featured-doctor__details featured-doctor__details--main'>
                 <h2 className='heading-secondary featured-doctor__details--name'>
@@ -212,7 +237,12 @@ class HomePage extends React.Component {
 
           <div className='container additional-doctors-container'>
             <div className='featured-doctor'>
-              <img src={FarahHeadshot} alt='' className='featured-doctor--img' />
+              <img
+                src={FarahHeadshot}
+                loading='lazy'
+                alt='Farah headshot'
+                className='featured-doctor--img'
+              />
 
               <div className='featured-doctor__details'>
                 <h2 className='heading-tertiary featured-doctor__details--name'>
@@ -232,7 +262,7 @@ class HomePage extends React.Component {
               </div>
             </div>
             <div className='featured-doctor'>
-              <img src={SaamiHeadshot} alt='' className='featured-doctor--img' />
+              <img src={SaamiHeadshot} loading='lazy' alt='' className='featured-doctor--img' />
 
               <div className='featured-doctor__details'>
                 <h2 className='heading-tertiary featured-doctor__details--name'>
@@ -264,6 +294,7 @@ class HomePage extends React.Component {
             <img
               className='pricing-plan--img'
               src={ProductWithBubbles}
+              loading='lazy'
               alt='Product With Bubble Background'
             />
             <div className='pricing-plan__content'>
