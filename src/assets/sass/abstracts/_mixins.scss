@@ -1,36 +1,88 @@
 // MEDIA QUERY MANAGER
 /*
-0 - 600px:      Phone
-600 - 900px:    Tablet portrait
-900 - 1200px:   Tablet landscape
-[1200 - 1800] is where our normal styles apply
-1800px + :      Big desktop
-$breakpoint arguement choices:
-- phone
-- tab-port
-- tab-land
-- big-desktop
+
+rem and em do NOT depend on html font-size in media queries
+instead, 1rem = 1em = 16px
+
+
+$breakpoint argument choices:
+- small-phone - 360px
+- phone - 544px
+- small-tab - 704px
+- tab-port - 944px
+- tab-land - 1200px
+- smaller-desktop - 1344px
+- big-desktop - 1800px
 ORDER: Base + typography > general layout + grid > page layout > components
 1em = 16px
 */
 @mixin respond($breakpoint) {
-  @if $breakpoint == phone {
-    @media only screen and (max-width: 37.5em) {
+  /***************************/
+  /* 360/16 = 22.5 */
+  /* BELOW 360px (Small Phones) */
+  /***************************/
+  @if $breakpoint == small-phone {
+    @media only screen and (max-width: 22.5em) {
       @content;
     } //600px
   }
+
+  /***************************/
+  /* 544/16 = 34 */
+  /* BELOW 544px (Phones) */
+  /***************************/
+  @if $breakpoint == phone {
+    @media only screen and (max-width: 34em) {
+      @content;
+    } //600px
+  }
+
+  /***************************/
+  /* 704/16 = 44 */
+  /* BELOW 704px (Tablets) */
+  /***************************/
+  @if $breakpoint == small-tab {
+    @media only screen and (max-width: 44em) {
+      @content;
+    } //600px
+  }
+
+  /***************************/
+  /* 944/16 = 59 */
+  /* BELOW 944px (Tablets) */
+  /***************************/
   @if $breakpoint == tab-port {
-    @media only screen and (max-width: 56.25em) {
+    @media only screen and (max-width: 59em) {
       @content;
     } //900px
   }
+
+  /***************************/
+  /* 1200/16 = 75 */
+  /* BELOW 1200px (Landscape Tablets) */
+  /***************************/
   @if $breakpoint == tab-land {
     @media only screen and (max-width: 75em) {
       @content;
     } //1200px
   }
+
+  /***************************/
+  /* 1344/16 = 84 */
+  /* BELOW 1344px (Smaller Desktops) */
+  /***************************/
+  @if $breakpoint == smaller-desktop {
+    @media only screen and (max-width: 84em) {
+      @content;
+    } //1344
+  }
+
+  /***************************/
+  /* 1800/16 = 112.5 */
+  /* BELOW 1800px (Big Desktops) */
+  /***************************/
   @if $breakpoint == big-desktop {
-    @media only screen and (min-width: 112.5em) {
+    @media only screen and (max-width: 112.5em) {
       @content;
     } //1800
   }

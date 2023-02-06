@@ -1,3 +1,4 @@
 export const UserActionTypes = {
   SET_CURRENT_USER: 'SET_CURRENT_USER',
+  UPDATE_MAILING_STATE: 'UPDATE_MAILING_STATE',
 };

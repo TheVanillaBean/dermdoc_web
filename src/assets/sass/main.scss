@@ -8,17 +8,14 @@
 
 @import 'components/button';
 @import 'components/list';
-@import 'components/testimonial';
-@import 'components/doctor';
-@import 'components/service';
 @import 'components/auth';
-@import 'components/form-input';
 @import 'components/questionnaire';
 @import 'components/spinner';
-@import 'components/tag';
 @import 'components/legal-checkbox';
 @import 'components/photo-gallery';
 @import 'components/product';
+@import 'components/cta-button';
+@import 'components/autocomplete';
 
 @import 'layout/footer';
 @import 'layout/grid';
@@ -28,11 +25,8 @@
 
 @import 'pages/legal';
 @import 'pages/homepage';
-@import 'pages/az-landing-page';
-@import 'pages/search';
-@import 'pages/doctor-profile';
-@import 'pages/zipcode-check';
-@import 'pages/services';
+@import 'pages/choose-state';
 @import 'pages/product-details';
+@import 'pages/checkout';
 
 @import 'pages/queries';

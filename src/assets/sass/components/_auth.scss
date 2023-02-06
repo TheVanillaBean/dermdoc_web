@@ -1,12 +1,72 @@
 //////////////////////////
 // SIGN-IN SIGN-UP CONTAINER
 
-.auth-page {
-  width: 100%;
+.auth-container {
+  max-width: 30%;
+  margin: 0 auto;
+  margin-top: 6.4rem;
+
+  &__header {
+    margin-bottom: 3.2rem;
+  }
+
+  @include respond(big-desktop) {
+    max-width: 45%;
+  }
+
+  @include respond(smaller-desktop) {
+    max-width: 55%;
+  }
+
+  @include respond(tab-land) {
+    max-width: 65%;
+  }
+
+  @include respond(tab-port) {
+    max-width: 75%;
+  }
+
+  @include respond(small-tab) {
+    max-width: 100%;
+  }
+}
+
+.pricing-box {
   display: flex;
-  flex-direction: column;
+  align-items: stretch;
   justify-content: space-around;
-  margin: 1.2rem auto;
+  margin-bottom: 3.2rem;
+
+  &__img {
+    width: 50%;
+    height: 50%;
+
+    @include respond(phone) {
+      margin-right: 2rem;
+    }
+  }
+
+  &__text {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    white-space: nowrap;
+
+    & > .heading-secondary {
+      margin-bottom: 0.5rem;
+
+      & > .heading-tertiary {
+        font-weight: 600 !important;
+        margin: 0;
+      }
+    }
+
+    & > .paragraph {
+      font-weight: 500;
+      font-size: 1.4rem;
+    }
+  }
 }
 
 //////////////////////////
@@ -17,40 +77,77 @@
   font-size: 1.8rem;
   font-weight: 300;
   color: var(--color-primary);
-  margin-bottom: 7.2rem;
+  margin-bottom: 3.2rem;
 
   display: flex;
   flex-direction: column;
 
-  .title {
-    margin: 10px 0;
+  &__google-btn {
+    display: flex;
+    flex-direction: column;
+    align-items: stretch;
+    margin-bottom: 2rem;
+
+    &--btn {
+      margin-bottom: 2rem !important;
+    }
+
+    &--or {
+      align-self: center;
+      margin: 0;
+      font-weight: 400;
+    }
   }
 
-  .buttons {
-    display: flex;
-    justify-content: flex-start;
+  &__form {
+    margin-bottom: 3.2rem;
   }
 }
 
 //////////////////////////
-// SIGN-IN
+// FORM INPUT
 
-.sign-in {
-  width: 100%;
-  font-size: 1.8rem;
-  font-weight: 300;
-  color: var(--color-primary);
-
+.form-input-container {
   display: flex;
   flex-direction: column;
-  margin-right: 6.4rem;
 
-  .title {
-    margin: 10px 0;
+  &:not(:last-child) {
+    margin-bottom: 2rem;
   }
 
-  .buttons {
-    display: flex;
-    justify-content: flex-start;
+  &__label {
+    pointer-events: none;
+    margin-bottom: 1.2rem;
+    font-weight: 400;
+  }
+
+  &__input {
+    font-family: 'Montserrat';
+    font-size: 2.1rem;
+    appearance: none;
+    border: 0.5px solid var(--color-grey-dark-1);
+    background-color: var(--color-grey-light-1);
+    color: var(--color-grey-dark-1);
+    padding: 1.5rem 2rem;
+    display: block;
+    width: 100%;
+    border-radius: 1.5rem;
+
+    &:focus {
+      outline: none;
+    }
+  }
+
+  input[type='password']:not(:placeholder-shown) {
+    letter-spacing: 0.3em;
+  }
+}
+
+.shipping-city {
+  display: flex;
+  justify-content: space-between;
+
+  :first-child {
+    margin-right: 1rem;
   }
 }

@@ -1,38 +1,52 @@
 /*
-COLORS
+--- 05 SHADOWS
+0 2.4rem 4.8rem rgba(0, 0, 0, 0.075);
 
-Primary: #90024C
-Primary light: #CE3209
-Primary dark: #8E201D
+--- 06 BORDER-RADIUS
 
-Grey light 1: #faf9f9
-Grey light 2: #f4f2f2
-Grey light 3: #f0eeee
-Grey light 4: #ccc
+Default: 9px
+Medium: 11px
 
-Grey dark 1: #333
-Grey dark 2: #777
-Grey dark 3: #999
+--- 07 WHITESPACE
+
+- SPACING SYSTEM (px)
+2 / 4 / 8 / 12 / 16 / 24 / 32 / 48 / 64 / 80 / 96 / 128
 
 */
 
 :root {
-  --color-primary: #90024c;
-  --color-primary-light: #ce3209;
-  --color-primary-dark: #8e201d;
+  --color-primary: #688db1;
+  //104, 141, 177
+  --color-primary-light: #86a4c1;
+  //134, 164, 193
+  --color-primary-dark: #53718e;
+  //83, 113, 142
 
-  --color-grey-light-1: #faf9f9;
-  --color-grey-light-2: #f4f2f2;
-  --color-grey-light-3: #f0eeee;
-  --color-grey-light-4: #ccc;
+  --color-secondary: #d88064;
+  --color-secondary-tint: #fbf2f0;
 
-  --color-grey-dark-1: #333;
-  --color-grey-dark-2: #777;
-  --color-grey-dark-3: #999;
+  --color-tint-1: #d2dde8;
+  --color-tint-2: #c3d1e0;
+  --color-tint-3: #b4c6d8;
+
+  --color-shade-1: #344759;
+  --color-shade-2: #2a3847;
+
+  --color-grey-light-1: #f9f9f9;
+  --color-grey-light-2: #dad9d8;
+  --color-grey-light-3: #b4b3b1;
+  --color-grey-light-4: #8f8c8b;
+
+  --color-grey-dark-1: #363331;
+  --color-grey-dark-2: #575350;
+  --color-grey-dark-3: #7c7977;
 
   --shadow-dark: 0 2rem 6rem rgba(0, 0, 0, 0.3);
   --shadow-light: 0 2rem 5re, rgba(0, 0, 0, 0.06);
 
   --line: 1px solid var(--color-grey-light-2);
   --line-2: 2px solid var(--color-grey-light-3);
+
+  --swiper-theme-color: var(--color-primary) !important;
+  --swiper-navigation-size: 4rem !important;
 }

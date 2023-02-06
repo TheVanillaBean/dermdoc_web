@@ -4,7 +4,6 @@ import firebase from 'firebase/app';
 import 'firebase/auth';
 import 'firebase/firestore';
 import 'firebase/storage';
-import { reviewHtml } from '../components/questionnaire/questionnaire.component';
 
 const {
   REACT_APP_FIREBASE_API_KEY,
@@ -83,32 +82,6 @@ export const joinWaitlistWithEmail = async (email, state = 'N/A', service = 'N/A
   return { error: true, message: 'This email is already on the waitlist!' };
 };
 
-export const addCustomServiceRequest = async (email, service) => {
-  const customServiceRef = firestore.collection('service-requests').doc(email);
-
-  const snapshot = await customServiceRef.get();
-
-  if (!snapshot.exists) {
-    const addedDate = new Date();
-
-    try {
-      await customServiceRef.set(
-        {
-          email,
-          service,
-          addedDate,
-        },
-        { merge: true }
-      );
-      return { error: false };
-    } catch (e) {
-      return { error: true, message: e.message };
-    }
-  }
-
-  return { error: true, message: 'This email is already on the waitlist!' };
-};
-
 export const logZipCode = async (zipcode, mailing_state) => {
   const zipcodesRef = firestore.collection('zipcodes').doc();
 
@@ -135,7 +108,7 @@ export const logZipCode = async (zipcode, mailing_state) => {
   return false;
 };
 
-export const createVisit = async (service, mailing_state) => {
+export const createVisit = async (service, mailing_state, analyticsData) => {
   const visitRef = firestore.collection('visits').doc();
 
   const snapshot = await visitRef.get();
@@ -149,6 +122,13 @@ export const createVisit = async (service, mailing_state) => {
           status: 'initiated',
           visit_id: visitRef.id,
           mailing_state: mailing_state,
+          analytics_data: {
+            source_url: analyticsData.source_url,
+            fbp: analyticsData.fbp,
+            client_ip: analyticsData.client_ip,
+            client_user_agent: analyticsData.client_user_agent,
+            event_id: `${visitRef.id}-ViewContent`,
+          },
         },
         { merge: true }
       );
@@ -158,7 +138,7 @@ export const createVisit = async (service, mailing_state) => {
     }
   }
 
-  return { error: true, message: 'Failed to setip visit!' };
+  return { error: true, message: 'Failed to setup visit!' };
 };
 
 export const convertDoctorsListSnapshotToMap = (doctors) => {
@@ -208,23 +188,13 @@ export const convertDoctorsListSnapshotToMap = (doctors) => {
 };
 
 export const convertVisitSnapshotToMap = (visit) => {
-  const {
-    date,
-    insurance_info,
-    original_patient_information,
-    provider_id,
-    seen_doctor,
-    status,
-    visit_reason,
-    visit_id,
-  } = visit;
+  const { date, email, mailing_state, patient_id, status, visit_reason, visit_id } = visit;
 
   return {
     date,
-    insurance_info,
-    original_patient_information,
-    provider_id,
-    seen_doctor,
+    email,
+    mailing_state,
+    patient_id,
     status,
     visit_reason,
     visit_id,
@@ -273,7 +243,7 @@ export const convertQuestionToSurveySchema = (questionMap) => {
   } else if (type === 'MC') {
     element.type = 'checkbox';
   } else {
-    element.type = 'text';
+    element.type = 'comment';
   }
 
   /*
@@ -314,19 +284,6 @@ export const convertQuestionToSurveySchema = (questionMap) => {
 };
 
 export const mergePagesIntoSurveySchema = (pages) => {
-  const reviewPage = {
-    elements: [
-      {
-        type: 'html',
-        name: 'review',
-        html: reviewHtml,
-      },
-    ],
-    name: 'Review',
-    navigationTitle: 'Review',
-    questionTitleLocation: 'top',
-  };
-  pages.push(reviewPage);
   const surveySchema = {
     pages: pages,
     showCompletedPage: false,
@@ -339,7 +296,7 @@ export const mergePagesIntoSurveySchema = (pages) => {
   return surveySchema;
 };
 
-export const saveQuestionnaireResponse = async (visitID, questionnaire) => {
+export const saveQuestionnaireResponse = async (visitID, questionnaire, analyticsData) => {
   const questionnaireRef = firestore.collection(`visits/${visitID}/questionnaire`).doc('answers');
 
   try {
@@ -347,7 +304,16 @@ export const saveQuestionnaireResponse = async (visitID, questionnaire) => {
       answered_date: new Date(),
       answers: questionnaire,
     });
-    await updateVisit(visitID, { status: 'filled_out' });
+    await updateVisit(visitID, {
+      status: 'questions_filled_out',
+      analytics_data: {
+        source_url: analyticsData.source_url,
+        fbp: analyticsData.fbp,
+        client_ip: analyticsData.client_ip,
+        client_user_agent: analyticsData.client_user_agent,
+        event_id: analyticsData.event_id,
+      },
+    });
     return { error: false };
   } catch (e) {
     return { error: true, message: e.message };
@@ -374,7 +340,7 @@ export const uploadToFirebaseStorage = async (file, visitId) => {
 firebase.initializeApp(config);
 firebase.analytics();
 
-export const NON_PERSITANCE = firebase.auth.Auth.Persistence.SESSION;
+export const NON_PERSISTANCE = firebase.auth.Auth.Persistence.SESSION;
 export const auth = firebase.auth();
 export const firestore = firebase.firestore();
 export const analytics = firebase.analytics();

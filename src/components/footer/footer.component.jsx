@@ -1,7 +1,7 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
 import HIPAABadge from '../../assets/img/hipaa-badge.png';
-import Logo from '../../assets/img/logo.png';
+import Logo from '../../assets/img/logo-blue.svg';
 
 const Footer = () => {
   return (
@@ -9,7 +9,7 @@ const Footer = () => {
       <div className='container grid grid--footer'>
         <div className='logo-col'>
           <Link to='/' className='footer-logo'>
-            <img src={Logo} alt='Dermdoc logo' className='logo' />
+            <img src={Logo} alt='Dermdoc logo' className='footer-logo--img' />
           </Link>
 
           <img className='hipaa-icon' src={HIPAABadge} alt='HIPAA Bage' />
@@ -25,7 +25,7 @@ const Footer = () => {
           <address className='contacts'>
             <p className='address'>401 Park Drive, Suite 1009 Boston, MA 02215</p>
             <p>
-              <a className='footer-link' href='mailto:contact@medicall.com'>
+              <a className='footer-link' href='mailto:contact@dermdoc.com'>
                 contact@dermdoc.com
               </a>
             </p>

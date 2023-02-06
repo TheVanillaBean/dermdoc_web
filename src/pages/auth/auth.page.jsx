@@ -6,11 +6,12 @@ import SignInSignUpContainer from '../../components/sign-in-sign-up/sign-in-sign
 
 class AuthPage extends React.Component {
   render() {
+    const props = this.props;
     return (
       <div>
         <Header />
 
-        <SignInSignUpContainer />
+        <SignInSignUpContainer {...props} />
 
         <Footer />
       </div>

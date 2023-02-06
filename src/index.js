@@ -1,21 +1,25 @@
 import React from 'react';
+import { CookiesProvider } from 'react-cookie';
 import ReactDOM from 'react-dom';
 import { Provider } from 'react-redux';
-import { BrowserRouter } from 'react-router-dom';
 import { PersistGate } from 'redux-persist/integration/react';
 import App from './App';
 import { persistor, store } from './redux/store';
 import reportWebVitals from './reportWebVitals';
 import ScrollToTop from './ScrollToTop';
 
+import { BrowserRouter } from 'react-router-dom';
+
 ReactDOM.render(
   <Provider store={store}>
     <BrowserRouter>
       <PersistGate persistor={persistor}>
-        <React.StrictMode>
-          <ScrollToTop />
-          <App />
-        </React.StrictMode>
+        <CookiesProvider>
+          <React.StrictMode>
+            <ScrollToTop />
+            <App />
+          </React.StrictMode>
+        </CookiesProvider>
       </PersistGate>
     </BrowserRouter>
   </Provider>,

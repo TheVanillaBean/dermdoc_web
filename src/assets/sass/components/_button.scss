@@ -3,9 +3,11 @@
 .btn:visited {
   display: inline-block;
   text-decoration: none;
-  font-size: 2.4rem;
+  font-size: 2.1rem;
+  font-weight: 500;
   padding: 1.6rem 3.2rem;
-  border-radius: 9px;
+  border-radius: 1rem;
+  color: var(--color-grey-light-1);
 
   /* For button tag only */
   border: none;
@@ -13,6 +15,10 @@
   font-family: inherit;
 
   transition: all 0.3s;
+
+  @include respond(phone) {
+    padding: 2.4rem 1.6rem;
+  }
 }
 
 .btn,
@@ -73,19 +79,19 @@
 }
 
 .custom-button {
-  font-family: 'Quicksand', sans-serif;
+  font-family: 'Montserrat', sans-serif;
 
-  border-radius: 1rem;
+  border-radius: 1.5rem;
   width: auto;
-  height: 6rem;
+  height: 5rem;
   letter-spacing: 0.75px;
   line-height: 1.4;
-  padding: 0 3rem;
-  font-size: 2rem;
+  padding: 1.5rem 3rem;
+  font-size: 1.6rem;
   background-color: #fff;
   color: var(--color-shade-1);
-  border: 1px solid var(--color-primary);
-  font-weight: 400;
+  border: 0.5px solid var(--color-grey-dark-1);
+  font-weight: 500;
   cursor: pointer;
   display: flex;
   justify-content: center;
@@ -103,11 +109,21 @@
   }
 
   &__google-sign-in {
-    background-color: var(--color-primary);
-    color: white;
+    border: 0.5px solid var(--color-grey-dark-1);
+    background-color: #fff;
+    color: var(--color-grey-dark-1);
+    white-space: nowrap;
+    text-transform: uppercase;
+    margin-bottom: 0;
+
+    &--logo {
+      margin-right: 1.2rem;
+      color: #0f9d58;
+    }
+
     &:hover {
-      background-color: var(--color-primary-light);
-      border: none;
+      background-color: var(--color-grey-light-1);
+      color: var(--color-grey-dark-1);
     }
   }
 }

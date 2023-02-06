@@ -4,7 +4,7 @@ import { withRouter } from 'react-router-dom';
 import { toast, ToastContainer } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
 import { createStructuredSelector } from 'reselect';
-import { auth, NON_PERSITANCE, signInWithGoogle } from '../../firebase/firebase.utils';
+import { auth, NON_PERSISTANCE, signInWithGoogle } from '../../firebase/firebase.utils';
 import { selectVisitData } from '../../redux/visit/visit.selectors';
 import CustomButton from '../custom-button/custom-button.component';
 import FormInput from '../form-input/form-input.component';
@@ -23,7 +23,7 @@ class SignIn extends Component {
     const { email, password } = this.state;
 
     try {
-      await auth.setPersistence(NON_PERSITANCE);
+      await auth.setPersistence(NON_PERSISTANCE);
       await auth.signInWithEmailAndPassword(email, password);
     } catch (e) {
       let errorText = 'An error occured with sign in';

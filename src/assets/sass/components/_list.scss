@@ -3,17 +3,23 @@
   display: flex;
   flex-direction: column;
   gap: 1.6rem;
-}
 
-.list-item {
-  display: flex;
-  align-items: center;
-  gap: 1.6rem;
-  font-size: 1.8rem;
-}
+  &__item {
+    display: flex;
+    align-items: center;
+    font-size: 1.8rem;
 
-.list-icon {
-  width: 4.8rem;
-  height: 4.8rem;
-  color: var(--color-primary);
+    &--icon {
+      width: 3.2rem;
+      height: 3.2rem;
+      color: var(--color-primary);
+      margin-right: 1.8rem;
+    }
+
+    &--text {
+      text-align: start;
+      width: 100%;
+      line-height: 1.2;
+    }
+  }
 }

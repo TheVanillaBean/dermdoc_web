@@ -1,5 +1,5 @@
 import React from 'react';
-import ReactPixel from 'react-facebook-pixel';
+import { withCookies } from 'react-cookie';
 import { connect } from 'react-redux';
 import { withRouter } from 'react-router-dom';
 import { createStructuredSelector } from 'reselect';
@@ -12,7 +12,9 @@ import {
   selectQuestionnaireErrorMessage,
   selectQuestions,
 } from '../../redux/questionnaire/questionnaire.selectors';
+import { updateVisitAsync } from '../../redux/visit/visit.actions';
 import { selectVisitData } from '../../redux/visit/visit.selectors';
+import { configureAnalyticsObject, trackLead } from '../../utils/analytics-helper';
 
 Survey.StylesManager.ThemeColors['modern']['$main-color'] = 'var(--color-primary)';
 Survey.StylesManager.ThemeColors['modern']['$header-color'] = 'var(--color-primary-dark)';
@@ -24,14 +26,6 @@ Survey.StylesManager.ThemeColors['modern']['$answer-background-color'] = 'var(--
 Survey.StylesManager.ThemeColors['modern']['$progress-buttons-color'] = 'var(--color-tint-3)';
 Survey.StylesManager.applyTheme('modern');
 
-export const reviewHtml = `
-<section class="questionnaire__thank-you">
-  <h2>Almost There!</h2>
-  <p>
-    The only steps left are to create a password for your account and then upload selfies.
-  </p>
-</section>
-`;
 class Questionnaire extends React.Component {
   componentDidMount() {
     const {
@@ -44,21 +38,21 @@ class Questionnaire extends React.Component {
   onComplete = async (survey, options) => {
     const {
       history,
+      location,
       visit: { visit_id },
     } = this.props;
-    const saveQuestionnaire = await saveQuestionnaireResponse(visit_id, survey.data);
+    const { cookies } = this.props;
+    const analyticsData = await configureAnalyticsObject(cookies);
+    analyticsData.event_id = `${visit_id}-Lead`;
 
-    ReactPixel.track('Lead', {
-      content_name: 'Questionnaire Submitted',
-      content_ids: [visit_id],
-      value: 2,
-      currency: 'USD',
-    });
+    const saveQuestionnaire = await saveQuestionnaireResponse(visit_id, survey.data, analyticsData);
+
+    trackLead({ visit_id: visit_id });
 
     if (saveQuestionnaire.error) {
       console.log(saveQuestionnaire.message);
     } else {
-      history.push(`/visits/${visit_id}/auth`);
+      history.push(`/visits/${visit_id}/checkout${location.search}`);
     }
   };
 
@@ -84,11 +78,9 @@ class Questionnaire extends React.Component {
         return (
           <section className='questionnaire'>
             <div className='container'>
-              <div className='center-text'>
-                <p className='heading-tertiary'>
-                  The following questions will help your dermatologist design your custom cream.
-                </p>
-              </div>
+              <h1 className='heading-tertiary center-text'>
+                The following questions will help your dermatologist design your custom cream.
+              </h1>
 
               <Survey.Survey model={model} onComplete={this.onComplete} />
             </div>
@@ -107,7 +99,9 @@ const mapStateToProps = createStructuredSelector({
 });
 
 const mapDispatchToProps = (dispatch) => ({
+  updateVisitAsync: (visitID, updatedVisitData) =>
+    dispatch(updateVisitAsync(visitID, updatedVisitData)),
   fetchQuestionsStartAsync: (symptom) => dispatch(fetchQuestionsStartAsync(symptom)),
 });
 
-export default withRouter(connect(mapStateToProps, mapDispatchToProps)(Questionnaire));
+export default withRouter(withCookies(connect(mapStateToProps, mapDispatchToProps)(Questionnaire)));

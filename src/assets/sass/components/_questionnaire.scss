@@ -1,24 +1,23 @@
 .questionnaire {
+  margin-top: 2rem;
+
+  @include respond(phone) {
+    & > .container {
+      padding: 0;
+    }
+  }
+
   &__thank-you {
     display: flex;
     flex-direction: column;
     align-items: center;
+
     & > h2 {
-      font-size: 3rem;
-      font-weight: 700;
-      color: var(--color-grey-dark-1);
-      text-align: center;
       margin-bottom: 1.2rem;
     }
 
     & > p {
-      font-size: 2.4rem;
-      font-weight: 400;
-      color: var(--color-grey-dark-1);
       text-align: center;
-      margin-bottom: 2rem;
-      max-width: 100%;
-      line-height: 1.2;
     }
   }
 }

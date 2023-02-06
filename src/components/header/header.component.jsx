@@ -1,10 +1,8 @@
 import React from 'react';
 import { IoCloseOutline, IoMenuOutline } from 'react-icons/io5';
-import { connect } from 'react-redux';
 import { Link, withRouter } from 'react-router-dom';
 import { HashLink } from 'react-router-hash-link';
-import Logo from '../../assets/img/logo.png';
-import { updateVisitReason } from '../../redux/search/search.actions';
+import { ReactComponent as Logo } from '../../assets/img/logo-dark.svg';
 
 class Header extends React.Component {
   state = {
@@ -12,12 +10,11 @@ class Header extends React.Component {
   };
 
   handleClick = () => {
-    const { history, updateVisitReason } = this.props;
+    const { history } = this.props;
 
     document.body.classList.remove('sticky');
 
-    updateVisitReason('Acne');
-    history.push(`get_started`);
+    history.push(`/get_started`);
   };
 
   render() {
@@ -25,12 +22,23 @@ class Header extends React.Component {
     const { nav_open } = this.state;
     return (
       <header className={`header ${nav_open}`}>
-        <Link to='/'>
-          <img src={Logo} alt='Dermdoc logo' className='logo' />
+        <Link to='/' aria-label='Dermdoc logo'>
+          <Logo className='logo' alt='Dermdoc logo' />
         </Link>
 
         <nav className='main-nav'>
           <ul className='main-nav-list'>
+            <li>
+              <HashLink
+                className='main-nav-link'
+                scroll={(el) => {
+                  el.scrollIntoView({ behavior: 'smooth', block: 'start' });
+                  this.setState({ nav_open: '' });
+                }}
+                to='/#ingredients'>
+                Ingredients
+              </HashLink>
+            </li>
             <li>
               <HashLink
                 className='main-nav-link'
@@ -51,17 +59,6 @@ class Header extends React.Component {
                 }}
                 to='/#pricing'>
                 Pricing
-              </HashLink>
-            </li>
-            <li>
-              <HashLink
-                className='main-nav-link'
-                scroll={(el) => {
-                  el.scrollIntoView({ behavior: 'smooth', block: 'start' });
-                  this.setState({ nav_open: '' });
-                }}
-                to='/#ingredients'>
-                Ingredients
               </HashLink>
             </li>
             <li>
@@ -100,6 +97,7 @@ class Header extends React.Component {
 
         <button
           className='btn-mobile-nav'
+          aria-label='Mobile navigation open/close'
           onClick={() => {
             if (nav_open) {
               this.setState({ nav_open: '' });
@@ -115,8 +113,4 @@ class Header extends React.Component {
   }
 }
 
-const mapDispatchToProps = (dispatch) => ({
-  updateVisitReason: (reason) => dispatch(updateVisitReason(reason)),
-});
-
-export default withRouter(connect(null, mapDispatchToProps)(Header));
+export default withRouter(Header);
