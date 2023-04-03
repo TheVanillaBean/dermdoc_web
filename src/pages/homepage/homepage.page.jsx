@@ -52,7 +52,9 @@ class HomePage extends React.Component {
       <main>
         <div className='hero-container'>
           <div className='sale-banner margin-center'>
-            <h1 className='paragraph sale-banner--text'>90 day free trial for new customers</h1>
+            <h1 className='paragraph sale-banner--text'>
+              [Notice] We are saddened to report we are no longer accepting new customers
+            </h1>
           </div>
           <Header />
           <HeroSection handleClick={this.handleClick} />

@@ -15,25 +15,13 @@ const LegalPage = lazy(() => import('./pages/legal/legal.pages'));
 const VisitCancelPage = lazy(() => import('./pages/visit-cancel/visit-cancel.page'));
 const VisitLandingPage = lazy(() => import('./pages/visit-landing/visit-landing.page'));
 const WaitlistPage = lazy(() => import('./pages/waitlist/waitlist.page'));
-const { REACT_APP_FB_PIXEL_ID, REACT_APP_TIKTOK_PIXEL_ID } = process.env;
 const HomePage = lazy(() => import('./pages/homepage/homepage.page'));
 
 class App extends Component {
   unsubscribeFromAuth = null;
 
   componentDidMount() {
-    const { setCurrentUser, history } = this.props;
-
-    // ReactPixel.init(REACT_APP_FB_PIXEL_ID, {}, { debug: true, autoConfig: true });
-    // TiktokPixel.init(REACT_APP_TIKTOK_PIXEL_ID);
-
-    // this.unlistenRoutes = history.listen((location, action) => {
-    //   if (!location.hash) {
-    //     //hash means like #how (same page different section)
-    //     // ReactPixel.pageView();
-    //     // TiktokPixel.pageView();
-    //   }
-    // });
+    const { setCurrentUser } = this.props;
 
     this.unsubscribeFromAuth = auth.onAuthStateChanged(async (userAuth) => {
       if (userAuth) {
@@ -55,32 +43,16 @@ class App extends Component {
   async componentDidUpdate() {
     const { currentUser, visit, updateVisitAsync } = this.props;
 
-    // if (currentUser && visit && !visit.patient_id) {
-    //   const { cookies } = this.props;
-    //   const analyticsData = await configureAnalyticsObject(cookies);
-    //   analyticsData.event_id = `${visit.visit_id}-CompleteRegistration`;
-
-    //   updateVisitAsync(visit.visit_id, {
-    //     patient_id: currentUser.id,
-    //     email: currentUser.email,
-    //     analytics_data: {
-    //       source_url: analyticsData.source_url,
-    //       fbp: analyticsData.fbp,
-    //       client_ip: analyticsData.client_ip,
-    //       client_user_agent: analyticsData.client_user_agent,
-    //       event_id: analyticsData.event_id,
-    //     },
-    //   });
-
-    //   trackCompleteRegistration({
-    //     visit_id: visit.visit_id,
-    //   });
-    // }
+    if (currentUser && visit && !visit.patient_id) {
+      updateVisitAsync(visit.visit_id, {
+        patient_id: currentUser.id,
+        email: currentUser.email,
+      });
+    }
   }
 
   componentWillUnmount() {
     this.unsubscribeFromAuth();
-    this.unlistenRoutes();
   }
 
   render() {
